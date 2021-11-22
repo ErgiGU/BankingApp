@@ -21,6 +21,7 @@
             <artifactId>fontawesomefx</artifactId>
             <version>8.9</version>
         </dependency>
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
@@ -113,6 +114,12 @@
             <version>0.50.2</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+            <version>3.12.10</version>
+        </dependency>
+
         <dependency>
             <groupId>com.8kdata.mongowp.bson</groupId>
             <artifactId>bson-core</artifactId>
