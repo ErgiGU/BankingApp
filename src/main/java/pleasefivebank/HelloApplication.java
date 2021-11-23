@@ -14,6 +14,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Entry-Page.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 765, 588);
         stage.setTitle("P5B");
+        stage.setResizable(true);
         stage.setScene(scene);
         stage.show();
     }

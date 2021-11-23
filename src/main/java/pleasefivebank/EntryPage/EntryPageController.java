@@ -22,6 +22,7 @@ public class EntryPageController {
     void PressedLoginButton(ActionEvent event) {
         String userName = LoginUsername.getText();
         String password = LoginPassword.getText();
+
         System.out.println("username: "+userName+" password: "+password);
 
     }

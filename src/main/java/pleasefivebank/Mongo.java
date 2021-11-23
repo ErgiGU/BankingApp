@@ -8,6 +8,8 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.BulkWriteOptions;
 import com.mongodb.client.model.InsertOneModel;
 import org.bson.Document;
+import java.util.logging.Logger;
+import java.util.logging.Level;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -24,6 +26,8 @@ public class Mongo {
     }
 
     public static void mongo() throws Exception {
+        Logger mongoLogger = Logger.getLogger( "org.mongodb.driver" );
+        mongoLogger.setLevel(Level.SEVERE);
 
         client = MongoClients.create
                 ("mongodb+srv://adminadmin:wewanta5@please5.wavpm.mongodb.net/please5?retryWrites=true&w=majority");

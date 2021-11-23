@@ -10,6 +10,7 @@ module pleasefivebank.bank {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires mongo.java.driver;
+    requires java.logging;
 
 
     opens pleasefivebank to javafx.fxml;
