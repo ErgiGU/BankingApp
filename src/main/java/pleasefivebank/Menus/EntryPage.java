@@ -2,6 +2,7 @@ package pleasefivebank.Menus;
 
 import com.mongodb.client.FindIterable;
 import org.bson.Document;
+import org.w3c.dom.Document;
 import pleasefivebank.Mongo;
 
 public class EntryPage {

@@ -1,6 +1,7 @@
 package pleasefivebank.Objects;
 
 import java.util.ArrayList;
+import java.util.Base64;
 
 public class User {
     //variables storing basic user info + arraylist of his transactions + arraylist of his accounts
@@ -15,6 +16,8 @@ public class User {
     private String postalCode;
     private String middleName;
     private String lastName;
+    private String userName;
+    private String password;
     private ArrayList<Transaction> transactions = new ArrayList<>();
     private ArrayList<Account> accounts = new ArrayList<>();
 
@@ -30,6 +33,7 @@ public class User {
         this.address = address;
         this.city = city;
         this.postalCode = postalCode;
+
         //we store user transactions from the JSON file in the transactions ArrayList
     }
 
@@ -89,5 +93,21 @@ public class User {
         this.email = newEmail;
     }
     //override toString
+    public String getPassword(){String password = ""; return  password;}
+
+    public String setPassword(String newPassword){this.password = newPassword; return newPassword;}
+
+    public String getUserName(){String userName = ""; return  userName;}
+
+    public String setUserName(String newUserName){this.userName = newUserName; return newUserName;}
+
+    public static String getEncryptedPassword (String password){
+        String encryptedPassword = Base64.getEncoder().encodeToString(password.getBytes());
+        return encryptedPassword;
+    }
+    public static String getEncryptedUserName (String userName){
+        String encryptedUserName = Base64.getEncoder().encodeToString(userName.getBytes());
+        return encryptedUserName;
+    }
 }
 
