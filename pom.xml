@@ -138,6 +138,11 @@
             <version>0.50.2</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>bson</artifactId>
+            <version>3.4.1</version>
+        </dependency>
     </dependencies>
 
     <build>
