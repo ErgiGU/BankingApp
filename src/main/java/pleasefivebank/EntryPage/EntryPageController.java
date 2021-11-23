@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 
 public class EntryPageController {
 
@@ -19,6 +20,10 @@ public class EntryPageController {
 
     @FXML
     void LoginButtonPressed(ActionEvent event) {
+        String userName = LoginUsername.getText();
+        String Password = LoginUsername.getText();
+        //System.out.println(userName+ " password: " + Password);
+        
 
     }
 
