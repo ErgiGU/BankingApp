@@ -165,7 +165,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>pleasefivebank.bank/pleasefivebank.HelloApplication</mainClass>
+                            <mainClass>pleasefivebank.bank/pleasefivebank.Main</mainClass>
                         </configuration>
                     </execution>
                 </executions>
