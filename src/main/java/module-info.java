@@ -15,5 +15,6 @@ module pleasefivebank.bank {
 
     opens pleasefivebank to javafx.fxml;
     opens pleasefivebank.EntryPage to javafx.fxml;
+    opens pleasefivebank.Registration to javafx.fxml;
     exports pleasefivebank;
 }
