@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="765.0" style="-fx-background-color: EFEFEF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegistrationController2">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="765.0" style="-fx-background-color: EFEFEF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegistrationController">
    <children>
       <TextField fx:id="StreetName" layoutX="68.0" layoutY="147.0" prefHeight="34.0" prefWidth="216.0" promptText="Street name" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />
       <TextField fx:id="City" layoutX="67.0" layoutY="210.0" prefHeight="34.0" prefWidth="123.0" promptText="City" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />
@@ -38,7 +38,7 @@
             <Image url="@../PNGs/Please%205%20Bank-logos_transparent.png" />
          </image>
       </ImageView>
-      <Button fx:id="NextPageButton" layoutX="700.0" layoutY="530.0" mnemonicParsing="false" onAction="#NextPagePressed" prefHeight="42.0" prefWidth="45.0" style="-fx-background-color: EFEFEF;">
+      <Button fx:id="ToPage3" layoutX="700.0" layoutY="530.0" mnemonicParsing="false" onAction="#ToPage3Pressed" prefHeight="42.0" prefWidth="45.0" style="-fx-background-color: EFEFEF;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -55,7 +55,7 @@
             <Font name="Arial Bold" size="12.0" />
          </font>
       </Text>
-      <Button fx:id="BackPageButton" layoutX="14.0" layoutY="531.0" mnemonicParsing="false" onAction="#BackPagePressed" prefHeight="42.0" prefWidth="45.0" style="-fx-background-color: EFEFEF;">
+      <Button fx:id="BackToPage1" layoutX="14.0" layoutY="531.0" mnemonicParsing="false" onAction="#ToPage1Pressed" prefHeight="42.0" prefWidth="45.0" style="-fx-background-color: EFEFEF;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

@@ -40,7 +40,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="NextPageButton" layoutX="700.0" layoutY="530.0" mnemonicParsing="false" onAction="#NextPagePressed" prefHeight="38.0" prefWidth="39.0" style="-fx-background-color: EFEFEF;">
+            <Button fx:id="ToPage2" layoutX="700.0" layoutY="530.0" mnemonicParsing="false" onAction="#ToPage2Pressed" prefHeight="38.0" prefWidth="39.0" style="-fx-background-color: EFEFEF;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
