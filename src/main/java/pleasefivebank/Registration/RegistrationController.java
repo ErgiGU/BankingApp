@@ -39,9 +39,20 @@ public class RegistrationController {
     @FXML
     private Button ToPage2;
 
+    @FXML
+    void BackToEntryPagePressed(ActionEvent event) {
+        //logic to go back to entryPage
+
+    }
 
     @FXML
     void ToPage2Pressed(ActionEvent event) {
+        //get input
+        firstName = FirstName.getText();
+        middleName = MiddleName.getText();
+        lastName = LastName.getText();
+        personalID = PersonalID.getText();
+        //logic to show page 2
 
     }
 
@@ -102,10 +113,6 @@ public class RegistrationController {
     @FXML
     private CheckBox checkBoxButton;
 
-    @FXML
-    void BackToEntryPagePressed(ActionEvent event) {
-
-    }
 
     @FXML
     void BackToPage2(ActionEvent event) {
