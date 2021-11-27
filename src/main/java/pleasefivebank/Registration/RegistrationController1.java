@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class RegistrationController1 {
+    //this page contains validating and encryption methods
+    Registration registration = new Registration();
 
     @FXML
     private Button BackToEntryPageButton;
@@ -23,7 +25,7 @@ public class RegistrationController1 {
     private Button NextPageButton;
 
     @FXML
-    private TextField personalID;
+    private TextField PersonalID;
 
     @FXML
     void BackToEntryPagePressed(ActionEvent event) {
@@ -33,7 +35,13 @@ public class RegistrationController1 {
 
     @FXML
     void NextPagePressed(ActionEvent event) {
+        //get input
+        String firstName = FirstName.getText();
+        String middleName = MiddleName.getText();
+        String lastName = LastName.getText();
+        String personalID = PersonalID.getText();
         //validate input
+
 
         //if invalid, stay in the page and push small window to show where user was wrong
 

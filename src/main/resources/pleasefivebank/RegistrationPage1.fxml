@@ -16,7 +16,7 @@
          <children>
             <TextField fx:id="FirstName" layoutX="67.0" layoutY="145.0" prefHeight="34.0" prefWidth="216.0" promptText="First Name" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />
             <TextField fx:id="MiddleName" layoutX="67.0" layoutY="224.0" prefHeight="34.0" prefWidth="216.0" promptText="Middle Name (Optional)" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField fx:id="personalID" layoutX="67.0" layoutY="386.0" prefHeight="34.0" prefWidth="216.0" promptText="Personal ID" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="PersonalID" layoutX="67.0" layoutY="386.0" prefHeight="34.0" prefWidth="216.0" promptText="Personal ID" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />
             <Text fill="#1275ea" layoutX="67.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" wrappingWidth="184.22900390625">
                <font>
                   <Font size="29.0" />

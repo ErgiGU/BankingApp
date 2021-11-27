@@ -33,7 +33,7 @@
                   <Font size="11.0" />
                </font></Hyperlink>
             <Text layoutX="127.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" />
-            <Hyperlink layoutX="251.0" layoutY="331.0" prefHeight="24.0" prefWidth="51.0" text="Sign Up" />
+            <Hyperlink layoutX="251.0" layoutY="331.0" prefHeight="24.0" prefWidth="72.0" text="Sign Up" />
             <Button layoutX="98.0" layoutY="294.0" mnemonicParsing="false" onAction="#PressedLoginButton" prefHeight="34.0" prefWidth="222.0" style="-fx-background-color: #1275EA;" text="Sign In" textFill="#fffefe">
                <font>
                   <Font size="15.0" />
@@ -42,8 +42,8 @@
             <Hyperlink layoutX="103.0" layoutY="533.0" text="About Us" />
             <Hyperlink layoutX="164.0" layoutY="533.0" text="Contact Us" />
             <Text fill="#1275ea" layoutX="161.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="|" />
-            <Text fill="#1275ea" layoutX="229.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="|" />
-            <Hyperlink layoutX="232.0" layoutY="533.0" text="User's Guide" />
+            <Text fill="#1275ea" layoutX="233.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="|" />
+            <Hyperlink layoutX="234.0" layoutY="533.0" text="User's Guide" />
             <ImageView fitHeight="33.0" fitWidth="30.0" layoutX="41.0" layoutY="226.0" preserveRatio="true">
                <image>
                   <Image url="@../PNGs/padlock-11733.png" />
