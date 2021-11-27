@@ -1,4 +1,4 @@
 package pleasefivebank.Registration;
 
-public class RegistrationController {
+public class RegistrationController2 {
 }
