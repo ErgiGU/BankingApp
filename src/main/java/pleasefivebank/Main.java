@@ -35,6 +35,7 @@ public class Main extends Application {
         }
         EntryPage entrypage = new EntryPage();
         EntryPage.createUser();
-        launch();
+        launch(args);
     }
+    
 }

@@ -1,10 +1,14 @@
 package pleasefivebank.Registration;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
-public class RegistrationController1 {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class RegistrationController1 implements Initializable {
 
     @FXML
     private Button BackToEntryPageButton;
@@ -34,4 +38,8 @@ public class RegistrationController1 {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }
