@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="765.0" style="-fx-background-color: EFEFEF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegistrationController4">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="765.0" style="-fx-background-color: EFEFEF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegistrationController">
    <children>
       <Text fill="#1275ea" layoutX="272.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Are you a Student?" wrappingWidth="235.13279724121094">
          <font>
@@ -54,24 +54,24 @@
             <Image url="@../PNGs/Please%205%20Bank-logos_transparent.png" />
          </image>
       </ImageView>
-      <Button fx:id="NextButton" layoutX="700.0" layoutY="530.0" mnemonicParsing="false" onAction="#NextPressed" prefHeight="38.0" prefWidth="39.0" style="-fx-background-color: EFEFEF;">
+      <Button fx:id="FinishRegister" layoutX="700.0" layoutY="530.0" mnemonicParsing="false" onAction="#FinishRegister" prefHeight="38.0" prefWidth="39.0" style="-fx-background-color: EFEFEF;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <graphic>
-            <ImageView fx:id="NextButton" fitHeight="33.0" fitWidth="38.0" onDragDetected="#NextPressed" preserveRatio="true" rotate="180.0">
+            <ImageView fitHeight="33.0" fitWidth="38.0" preserveRatio="true" rotate="180.0">
                <image>
                   <Image url="@../PNGs/arrow-237.png" />
                </image>
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="BackButton" layoutX="14.0" layoutY="531.0" mnemonicParsing="false" onAction="#BackPressed" prefHeight="38.0" prefWidth="39.0" style="-fx-background-color: EFEFEF;">
+      <Button fx:id="BackToPage3" layoutX="14.0" layoutY="531.0" mnemonicParsing="false" onAction="#BackToPage3" prefHeight="38.0" prefWidth="39.0" style="-fx-background-color: EFEFEF;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <graphic>
-            <ImageView fx:id="backButton" fitHeight="33.0" fitWidth="38.0" onDragDetected="#BackButtonPressed" preserveRatio="true">
+            <ImageView fitHeight="33.0" fitWidth="38.0" preserveRatio="true">
                <image>
                   <Image url="@../PNGs/arrow-237.png" />
                </image>
