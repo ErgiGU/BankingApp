@@ -33,7 +33,7 @@
                   <Font size="11.0" />
                </font></Hyperlink>
             <Text layoutX="127.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" />
-            <Hyperlink layoutX="251.0" layoutY="331.0" prefHeight="24.0" prefWidth="72.0" text="Sign Up" />
+            <Hyperlink fx:id="SignUp" layoutX="251.0" layoutY="331.0" onAction="#ChangeToRegisterPage" prefHeight="24.0" prefWidth="72.0" text="Sign Up" />
             <Button layoutX="98.0" layoutY="294.0" mnemonicParsing="false" onAction="#PressedLoginButton" prefHeight="34.0" prefWidth="222.0" style="-fx-background-color: #1275EA;" text="Sign In" textFill="#fffefe">
                <font>
                   <Font size="15.0" />

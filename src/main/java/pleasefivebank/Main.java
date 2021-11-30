@@ -12,7 +12,7 @@ import pleasefivebank.Menus.EntryPage;
 public class Main extends Application {
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage){
         try {
 
             Parent root = FXMLLoader.load(getClass().getResource("Entry-Page.fxml"));
@@ -35,6 +35,7 @@ public class Main extends Application {
         }
         EntryPage entrypage = new EntryPage();
         EntryPage.createUser();
-        launch();
+        launch(args);
     }
+    
 }
