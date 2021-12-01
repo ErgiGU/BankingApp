@@ -138,12 +138,7 @@
                   <Image url="@../PNGs/P5B%20white%20small%20logo.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="812.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Juan Garcia" wrappingWidth="103.203125">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="49.0" fitWidth="48.0" layoutX="756.0" layoutY="19.0" preserveRatio="true">
+            <ImageView fitHeight="49.0" fitWidth="48.0" layoutX="750.0" layoutY="19.0" preserveRatio="true">
                <image>
                   <Image url="@../PNGs/user-3296.png" />
                </image>
@@ -156,7 +151,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="684.0" layoutY="21.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: #2b5292;">
+            <Button layoutX="679.0" layoutY="21.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: #2b5292;">
                <graphic>
                   <ImageView fitHeight="38.0" fitWidth="42.0" preserveRatio="true">
                      <image>
@@ -164,6 +159,14 @@
                      </image>
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="799.0" layoutY="21.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #2b5292;" text="Juan Garcia" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
