@@ -10,13 +10,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EntryPageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <left>
       <AnchorPane prefHeight="588.0" prefWidth="765.0" style="-fx-background-color: EFEFEF;" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="FirstName" layoutX="67.0" layoutY="145.0" prefHeight="34.0" prefWidth="216.0" promptText="First Name" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField fx:id="MiddleName" layoutX="67.0" layoutY="224.0" prefHeight="34.0" prefWidth="216.0" promptText="Middle Name (Optional)" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField fx:id="PersonalID" layoutX="67.0" layoutY="386.0" prefHeight="34.0" prefWidth="216.0" promptText="Personal ID" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="67.0" layoutY="145.0" prefHeight="34.0" prefWidth="216.0" promptText="First Name" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="67.0" layoutY="224.0" prefHeight="34.0" prefWidth="216.0" promptText="Middle Name (Optional)" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField layoutX="67.0" layoutY="386.0" prefHeight="34.0" prefWidth="216.0" promptText="Personal ID" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />
             <Text fill="#1275ea" layoutX="67.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" wrappingWidth="184.22900390625">
                <font>
                   <Font size="29.0" />
@@ -27,8 +27,8 @@
                   <Image url="@../PNGs/Please%205%20Bank-logos_transparent.png" />
                </image>
             </ImageView>
-            <TextField fx:id="LastName" layoutX="67.0" layoutY="304.0" prefHeight="34.0" prefWidth="216.0" promptText="Last Name" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />
-            <Button fx:id="BackToEntryPageButton" layoutX="3.0" layoutY="7.0" mnemonicParsing="false" onAction="#BackToEntryPagePressed" prefHeight="38.0" prefWidth="39.0" style="-fx-background-color: EFEFEF;">
+            <TextField layoutX="67.0" layoutY="304.0" prefHeight="34.0" prefWidth="216.0" promptText="Last Name" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />
+            <Button layoutX="3.0" layoutY="7.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="39.0" style="-fx-background-color: EFEFEF;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -40,7 +40,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="ToPage2" layoutX="700.0" layoutY="530.0" mnemonicParsing="false" onAction="#ToPage2Pressed" prefHeight="38.0" prefWidth="39.0" style="-fx-background-color: EFEFEF;">
+            <Button layoutX="700.0" layoutY="530.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="39.0" style="-fx-background-color: EFEFEF;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

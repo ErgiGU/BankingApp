@@ -31,8 +31,13 @@ public class EntryPageController{
     private Hyperlink SignUp;
 
     @FXML
-    void ChangeToRegisterPage (ActionEvent event) throws IOException {
-
+    protected void ChangeToRegisterPage (){
+        try {
+            Main.showPage("RegistrationPage1.fxml");
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 }
 
