@@ -28,7 +28,7 @@
                   <Font size="31.0" />
                </font>
             </Text>
-            <Hyperlink layoutX="239.0" layoutY="264.0" text="Forgot Your Password?">
+            <Hyperlink layoutX="239.0" layoutY="264.0" onAction="#ForgotPasswordPressed" text="Forgot Your Password?">
                <font>
                   <Font size="11.0" />
                </font></Hyperlink>

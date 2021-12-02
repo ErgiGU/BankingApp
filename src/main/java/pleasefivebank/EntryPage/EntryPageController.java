@@ -39,6 +39,15 @@ public class EntryPageController{
             ex.printStackTrace();
         }
     }
+    @FXML
+    protected void ForgotPasswordPressed(){
+        try {
+            Main.showPage("ForgotPassword.fxml");
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
 
 

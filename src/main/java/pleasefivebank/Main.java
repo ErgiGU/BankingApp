@@ -3,12 +3,8 @@ package pleasefivebank;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.Parent;
 import javafx.stage.Stage;
-import javafx.scene.layout.AnchorPane;
-
 import java.io.IOException;
-import pleasefivebank.Menus.EntryPage;
 
 public class Main extends Application {
 
