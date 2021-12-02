@@ -14,7 +14,7 @@ public class EntryPageController{
     @FXML
     protected void PressedLoginButton() {
         try {
-            Main.showPage("ForgotPassword.fxml");
+            Main.showPage("UserHomePage.fxml");
         }
         catch (IOException ex) {
             ex.printStackTrace();

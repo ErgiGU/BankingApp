@@ -2,6 +2,9 @@ package pleasefivebank.EntryPage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import pleasefivebank.Main;
+
+import java.io.IOException;
 
 public class ForgotPasswordController {
 
@@ -12,11 +15,20 @@ public class ForgotPasswordController {
     private TextField Username;
 
     @FXML
-    void NewPasswordPressed(ActionEvent event){
+    protected void NewPasswordPressed(ActionEvent event){
         String email = Email.getText();
         String userName = Username.getText();
 
 
+    }
+    @FXML
+    protected void BackToEntryPage() {
+        try {
+            Main.showPage("Entry-Page.fxml");
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
 }
