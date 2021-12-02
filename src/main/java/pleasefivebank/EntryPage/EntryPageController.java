@@ -1,5 +1,6 @@
 
 package pleasefivebank.EntryPage;
+import pleasefivebank.*;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +19,17 @@ import java.io.IOException;
 import java.net.URL;
 
 public class EntryPageController{
+
+    @FXML
+    protected void PressedLoginButton() {
+        try {
+            Main.showPage("ForgotPassword.fxml");
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -65,8 +77,8 @@ public class EntryPageController{
 
     }
 
-    @FXML
-    void PressedLoginButton(ActionEvent event) throws IOException {
+    //@FXML
+    /*void PressedLoginButton(ActionEvent event) throws IOException {
         //get input
         String userName = LoginUsername.getText();
         String password = LoginPassword.getText();
@@ -82,7 +94,7 @@ public class EntryPageController{
         stage.setScene(scene);
         stage.show();
 
-    }
+    }*/
 
     @FXML
     void ChangeToRegisterPage (ActionEvent event) throws IOException {
