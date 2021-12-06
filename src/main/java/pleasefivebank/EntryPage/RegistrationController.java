@@ -9,8 +9,11 @@ import javafx.scene.control.TextField;
 import pleasefivebank.Main;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 public class RegistrationController {
+    HashMap<String, String> newUserInfo = new HashMap();
+    EntryPage entryPage = new EntryPage();
 
     @FXML
     private TextField FirstName;
@@ -37,7 +40,25 @@ public class RegistrationController {
     @FXML
     void Page1to2() {
         try {
-            Main.showPage("RegistrationPage2.fxml");
+            String firstName = FirstName.getText();
+            if (firstName.isEmpty()){
+                firstName = newUserInfo.get("firstName");
+            }
+            String lastName = FirstName.getText();
+            if (lastName.isEmpty()){
+                lastName = newUserInfo.get("lastName");
+            }
+            String middleName = MiddleName.getText();
+            if (middleName.isEmpty()){
+                middleName = newUserInfo.get("middleName");
+            }
+            String personalID = PersonalID.getText();
+            if (firstName.isEmpty()){
+                personalID = newUserInfo.get("personalID");
+            }
+            if(entryPage.validatePage1(firstName, middleName, lastName, personalID)){
+                Main.showPage("RegistrationPage2.fxml");
+            }
         }
         catch (IOException ex) {
             ex.printStackTrace();

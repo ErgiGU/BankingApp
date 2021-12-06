@@ -19,6 +19,11 @@ public class EntryPage {
         }
         return -1;
     }
+    public boolean validatePage1(String firstName, String middleName, String lastName, String PersonalID){
+        //if(isAlpha(firstName) && isAlpha(lastName) && !isAlpha(personalID))
+        return true;
+
+    }
     public boolean register(HashMap userInfo){
         //we first see if user exists
 
@@ -40,5 +45,16 @@ public class EntryPage {
 
         //else return false;
 
+    }
+    public boolean isAlpha(String name) {
+        char[] chars = name.toCharArray();
+
+        for (char c : chars) {
+            if(!Character.isLetter(c)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
