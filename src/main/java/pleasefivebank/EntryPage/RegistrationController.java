@@ -10,7 +10,7 @@ import pleasefivebank.Main;
 import pleasefivebank.Objects.User;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+
 
 
 public class RegistrationController {
@@ -25,6 +25,10 @@ public class RegistrationController {
     private String postalCode = "";
     private String email = "";
     private String phoneNumber = "";
+    private String username = "";
+    private String password = "";
+    private String confirmPassword = "";
+    private boolean checkbox = false;
 
     @FXML
     private TextField FirstName;
@@ -154,19 +158,33 @@ public class RegistrationController {
     @FXML
     void Page3to4(ActionEvent event) {
         try {
-            Main.showPage("RegistrationPage4.fxml");
+            if (username.isEmpty() && !UserName.getText().isEmpty()){
+                username = UserName.getText();
+            }
+            if (password.isEmpty() && !Password.getText().isEmpty()){
+                password = Password.getText();
+            }
+            if (confirmPassword.isEmpty() && !ConfirmPassword.getText().isEmpty()){
+                confirmPassword = ConfirmPassword.getText();
+            }
+            if(true && checkbox){
+                Main.showPage("RegistrationPage4.fxml");
+            }
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
 
     }
-
+    //juan
     @FXML
     void checkBoxPressed() {
-        //we gotta make a setter method here
-
-
+        if (checkbox = true){
+            checkbox = false;
+        }
+        else{
+            checkbox = true;
+        }
     }
 
     @FXML
@@ -174,7 +192,7 @@ public class RegistrationController {
 
     @FXML
     private ComboBox<?> UniversityOption;
-
+    //juan
     @FXML
     void FinishRegister() {
         try {
@@ -188,7 +206,7 @@ public class RegistrationController {
 
 
     }
-
+    //juan
     @FXML
     void Page4to3(ActionEvent event) {
         try {
