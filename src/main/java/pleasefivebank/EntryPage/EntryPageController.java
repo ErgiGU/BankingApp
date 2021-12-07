@@ -8,8 +8,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Hyperlink;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class EntryPageController{
+    HashMap hashMap = new HashMap();
 
     @FXML
     protected void PressedLoginButton() {
