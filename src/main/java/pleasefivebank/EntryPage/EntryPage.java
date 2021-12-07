@@ -1,9 +1,13 @@
 package pleasefivebank.EntryPage;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import pleasefivebank.Objects.*;
+import org.bson.Document;
+import pleasefivebank.Mongo;
+
+import java.util.Base64;
 
 public class EntryPage {
+    //juan
     public int login(String username, String password){
         //encript
 
@@ -24,7 +28,7 @@ public class EntryPage {
         return true;
 
     }
-    public boolean register(HashMap userInfo){
+    public boolean register(User newUserInfo){
         //we first see if user exists
 
         //if he doesnt we create account
@@ -32,12 +36,13 @@ public class EntryPage {
 
         return false;
     }
+    //linus
     public String encrypt(String string){
         //logic to encrypt here
-
-        //return encripted string
-        return string;
+        String encryptedString = Base64.getEncoder().encodeToString(string.getBytes());
+        return encryptedString;
     }
+    //juan
     public boolean userVerified(String encriptedUsername, String encriptedPassword){
         //if user is found and password corresponds
 
@@ -46,6 +51,7 @@ public class EntryPage {
         //else return false;
 
     }
+    //juan
     public boolean isAlpha(String name) {
         char[] chars = name.toCharArray();
 
@@ -56,5 +62,13 @@ public class EntryPage {
         }
 
         return true;
+    }
+    //Ergi
+    public  boolean UserExists(String SSN){
+        Document filter = new Document( "personalID", SSN );
+        if(Mongo.coll.find(filter)!=null){
+            return true;
+        }
+        return false;
     }
 }
