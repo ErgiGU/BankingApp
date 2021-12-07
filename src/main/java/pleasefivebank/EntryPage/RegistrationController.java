@@ -105,19 +105,19 @@ public class RegistrationController {
     void Page2to3() {
         try {
             if (streetName.isEmpty() && !StreetName.getText().isEmpty()){
-                firstName = FirstName.getText();
+                streetName = StreetName.getText();
             }
-            if (lastName.isEmpty() && !LastName.getText().isEmpty()){
-                lastName = LastName.getText();
+            if (email.isEmpty() && !Email.getText().isEmpty()){
+                email = Email.getText();
             }
-            if (middleName.isEmpty() && !MiddleName.getText().isEmpty()){
-                middleName = MiddleName.getText();
+            if (city.isEmpty() && !City.getText().isEmpty()){
+                city = City.getText();
             }
-            if (personalID.isEmpty() && !PersonalID.getText().isEmpty()){
-                personalID = PersonalID.getText();
+            if (postalCode.isEmpty() && !PostalCode.getText().isEmpty()){
+                postalCode = PostalCode.getText();
             }
-            if (personalID.isEmpty() && !PersonalID.getText().isEmpty()){
-                personalID = PersonalID.getText();
+            if (phoneNumber.isEmpty() && !PhoneNumber.getText().isEmpty()){
+                phoneNumber = PhoneNumber.getText();
             }
             if(true){
                 Main.showPage("RegistrationPage3.fxml");
