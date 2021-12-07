@@ -8,10 +8,10 @@ public class EntryPage {
         //encript
 
         //check for encripted user with same credentials
-        String encriptedName = encript(username);
-        String encriptedPassword = encript(password);
+        String encryptedName = encrypt(username);
+        String encryptedPassword = encrypt(password);
 
-        if (userVerified(encriptedName,encriptedPassword)){
+        if (userVerified(encryptedName,encryptedPassword)){
             //key will be the user key to access his info in the database
             int key = 1;
             return key;
@@ -32,7 +32,7 @@ public class EntryPage {
 
         return false;
     }
-    public String encript(String string){
+    public String encrypt(String string){
         //logic to encrypt here
 
         //return encripted string
