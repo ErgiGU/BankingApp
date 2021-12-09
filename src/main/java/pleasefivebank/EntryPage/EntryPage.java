@@ -7,6 +7,8 @@ import pleasefivebank.Mongo;
 import java.util.Base64;
 
 public class EntryPage {
+
+
     //juan
     public int login(String username, String password){
         //encript
@@ -22,19 +24,6 @@ public class EntryPage {
 
         }
         return -1;
-    }
-    public boolean validatePage1(String firstName, String middleName, String lastName, String PersonalID){
-        //if(isAlpha(firstName) && isAlpha(lastName) && !isAlpha(personalID))
-        return true;
-
-    }
-    public boolean register(User newUserInfo){
-        //we first see if user exists
-
-        //if he doesnt we create account
-
-
-        return false;
     }
     //linus
     public String encrypt(String string){

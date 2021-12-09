@@ -10,21 +10,13 @@ import pleasefivebank.Main;
 import pleasefivebank.Objects.User;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+
 
 
 public class RegistrationController {
     //User newUserInfo = new User();
-    EntryPage entryPage = new EntryPage();
-    private String firstName = "";
-    private String middleName = "";
-    private String lastName = "";
-    private String personalID = "";
-    private String streetName = "";
-    private String city = "";
-    private String postalCode = "";
-    private String email = "";
-    private String phoneNumber = "";
+    Registration registration = new Registration();
+
 
     @FXML
     private TextField FirstName;
@@ -53,19 +45,35 @@ public class RegistrationController {
     @FXML
     void Page1to2() {
         try {
-            if (firstName.isEmpty() && !FirstName.getText().isEmpty()){
-                firstName = FirstName.getText();
+            String firstName = FirstName.getText();
+            if (firstName.isEmpty()){
+                firstName = registration.getFirstName();
             }
-            if (lastName.isEmpty() && !LastName.getText().isEmpty()){
-                lastName = LastName.getText();
+            else{
+                registration.setFirstName(firstName);
             }
-            if (middleName.isEmpty() && !MiddleName.getText().isEmpty()){
-                middleName = MiddleName.getText();
+            String lastName = LastName.getText();
+            if (lastName.isEmpty()){
+                lastName = registration.getLastName();
             }
-            if (personalID.isEmpty() && !PersonalID.getText().isEmpty()){
-                personalID = PersonalID.getText();
+            else{
+                registration.setLastName(lastName);
             }
-            if(entryPage.validatePage1(firstName, middleName, lastName, personalID)){
+            String middleName = MiddleName.getText();
+            if (middleName.isEmpty()){
+                middleName = registration.getMiddleName();
+            }
+            else{
+                registration.setMiddleName(middleName);
+            }
+            String personalID = PersonalID.getText();
+            if (personalID.isBlank()){
+                personalID = registration.getPersonalID();
+            }
+            else{
+                registration.setPersonalID(personalID);
+            }
+            if(registration.validatePage1(firstName, middleName, lastName, personalID)){
                 Main.showPage("RegistrationPage2.fxml");
             }
         }
@@ -104,22 +112,46 @@ public class RegistrationController {
     @FXML
     void Page2to3() {
         try {
-            if (streetName.isEmpty() && !StreetName.getText().isEmpty()){
-                firstName = FirstName.getText();
+            String streetName= StreetName.getText();
+            if (streetName.isEmpty()){
+                streetName = registration.getStreetName();
             }
-            if (lastName.isEmpty() && !LastName.getText().isEmpty()){
-                lastName = LastName.getText();
+            else{
+                registration.setFirstName(streetName);
             }
-            if (middleName.isEmpty() && !MiddleName.getText().isEmpty()){
-                middleName = MiddleName.getText();
+
+            String email= Email.getText();
+            if (email.isEmpty()){
+                email = registration.getEmail();
             }
-            if (personalID.isEmpty() && !PersonalID.getText().isEmpty()){
-                personalID = PersonalID.getText();
+            else{
+                registration.setEmail(email);
             }
-            if (personalID.isEmpty() && !PersonalID.getText().isEmpty()){
-                personalID = PersonalID.getText();
+
+            String city = City.getText();
+            if (city.isEmpty()){
+                city = registration.getCity();
             }
-            if(true){
+            else{
+                registration.setCity(city);
+            }
+
+            String postalCode = PostalCode.getText();
+            if (postalCode.isEmpty()){
+                postalCode = registration.getPostalCode();
+            }
+            else{
+                registration.setPostalCode(postalCode);
+            }
+
+            String phoneNumber = PhoneNumber.getText();
+            if (phoneNumber.isEmpty()){
+                phoneNumber = registration.getPhoneNumber();
+            }
+            else{
+                registration.setPhoneNumber(phoneNumber);
+            }
+            if(registration.validatePage2(streetName, email, city, postalCode,phoneNumber)){
                 Main.showPage("RegistrationPage3.fxml");
             }
         }
@@ -154,19 +186,36 @@ public class RegistrationController {
     @FXML
     void Page3to4(ActionEvent event) {
         try {
-            Main.showPage("RegistrationPage4.fxml");
+            String username = UserName.getText();
+            if (username.isEmpty()){
+                username = registration.getUsername();
+            }
+            else{
+                registration.setUsername(username);
+            }
+
+            String password= Password.getText();
+            if (password.isEmpty()){
+                password = registration.getPassword();
+            }
+
+            String confirmPassword= ConfirmPassword.getText();
+            if (confirmPassword.isEmpty()){
+                confirmPassword = registration.getConfirmPassword();
+            }
+            if(registration.validatePage3(username,password,confirmPassword) && registration.getCheckbox()){
+                Main.showPage("RegistrationPage4.fxml");
+            }
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
 
     }
-
+    //juan
     @FXML
     void checkBoxPressed() {
-        //we gotta make a setter method here
-
-
+        registration.changeCheckBox();
     }
 
     @FXML
@@ -174,7 +223,7 @@ public class RegistrationController {
 
     @FXML
     private ComboBox<?> UniversityOption;
-
+    //juan
     @FXML
     void FinishRegister() {
         try {
@@ -188,7 +237,7 @@ public class RegistrationController {
 
 
     }
-
+    //juan
     @FXML
     void Page4to3(ActionEvent event) {
         try {

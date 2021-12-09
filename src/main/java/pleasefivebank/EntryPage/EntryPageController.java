@@ -11,8 +11,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class EntryPageController{
-    HashMap hashMap = new HashMap();
-
+    //juan
     @FXML
     protected void PressedLoginButton() {
         try {
@@ -32,6 +31,7 @@ public class EntryPageController{
     @FXML
     private Hyperlink SignUp;
 
+    //juan
     @FXML
     protected void ChangeToRegisterPage (){
         try {
@@ -41,6 +41,7 @@ public class EntryPageController{
             ex.printStackTrace();
         }
     }
+    //juan
     @FXML
     protected void ForgotPasswordPressed(){
         try {
