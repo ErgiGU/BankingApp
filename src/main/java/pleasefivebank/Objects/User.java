@@ -1,5 +1,8 @@
 package pleasefivebank.Objects;
 
+import org.bson.Document;
+import pleasefivebank.Mongo;
+
 import java.util.ArrayList;
 
 public class User {
@@ -16,7 +19,6 @@ public class User {
     private String middleName;
     private String lastName;
     private ArrayList<Transaction> transactions = new ArrayList<>();
-    private ArrayList<Account> accounts = new ArrayList<>();
 
     public User(String name, String middleName, String lastName, String address, String city, String postalCode, int key, String birthDate, String phoneNumber, String personNummer, String email) {
         this.firstName = name;
@@ -30,8 +32,20 @@ public class User {
         this.address = address;
         this.city = city;
         this.postalCode = postalCode;
+        toDocument();
         //we store user transactions from the JSON file in the transactions ArrayList
     }
+
+    public void toDocument(){
+        Document doc = new Document("first name", this.firstName).
+                append("middle name", this.middleName).append("last name", this.lastName).
+                append("birth date", this.birthdate).append("personnummer", this.personnummer).
+                append("phone number", this. phoneNumber).append("Email", this.email).
+                append("address", this.address).append("city", this.city).
+                append("postal code", this.postalCode).append("Transactions", this.transactions);
+        Mongo.coll.insertOne(doc);
+    }
+
 
     public String getFirstName() {
         return this.firstName;
