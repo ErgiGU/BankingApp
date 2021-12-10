@@ -74,7 +74,4 @@ public class DataValidation {
         inputLabel.setText(validationString);
         return isPostal;
     }
-
-
-
 }

@@ -52,5 +52,5 @@ public class EntryPage {
 
 
     //update password and send to email
-    ForgotPassword forgotPassword = new ForgotPassword();
+   // ForgotPassword forgotPassword = new ForgotPassword();
 }
