@@ -2,9 +2,6 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -130,11 +127,6 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Text>
-            <ImageView fitHeight="61.0" fitWidth="37.0" layoutX="94.0" layoutY="115.0">
-               <image>
-                  <Image url="@../PNGs/triangle.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
    </left>
@@ -182,39 +174,35 @@
          </children>
       </AnchorPane>
    </top>
-   <right>
+   <center>
       <AnchorPane prefHeight="614.0" prefWidth="919.0" style="-fx-background-color: EFEFEF;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="84.0" layoutY="74.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="180.0" style="-fx-background-color: #457B9D;" text="Request Money" textFill="WHITE">
+            <Text fill="#2b5292" layoutX="111.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thanks for registring, your email is pending for approval.">
                <font>
-                  <Font size="21.0" />
-               </font>
-            </Button>
-            <ScrollPane layoutX="81.0" layoutY="231.0" prefHeight="308.0" prefWidth="733.0">
-               <content>
-                  <TextArea id="scrollbar" prefHeight="53.0" prefWidth="731.0" />
-               </content>
-            </ScrollPane>
-            <Text fill="#2b5292" layoutX="349.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transactions">
-               <font>
-                  <Font size="37.0" />
+                  <Font size="26.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="84.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:">
-               <font>
-                  <Font size="32.0" />
-               </font>
-            </Text>
-            <Button layoutX="635.0" layoutY="77.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="180.0" style="-fx-background-color: #457B9D;" text="Transfer Money" textFill="WHITE">
-               <font>
-                  <Font size="21.0" />
-               </font>
-            </Button>
-            <TextField layoutX="345.0" layoutY="166.0" prefHeight="40.0" prefWidth="204.0" promptText="(Calc in backend)">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </TextField>
+            <ImageView layoutX="29.0" layoutY="507.0">
+               <image>
+                  <Image url="@../PNGs/arrow-237.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="30.0" layoutY="508.0" mnemonicParsing="false" opacity="0.0" prefHeight="76.0" prefWidth="84.0" text="Button" />
+            <ImageView fitHeight="60.0" fitWidth="59.0" layoutX="420.0" layoutY="152.0" preserveRatio="true">
+               <image>
+                  <Image url="@../PNGs/facebook.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="65.0" fitWidth="59.0" layoutX="483.0" layoutY="148.0" preserveRatio="true">
+               <image>
+                  <Image url="@../PNGs/pngwing.com.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="69.0" fitWidth="59.0" layoutX="351.0" layoutY="148.0" preserveRatio="true">
+               <image>
+                  <Image url="@../PNGs/twitter.png" />
+               </image>
+            </ImageView>
          </children></AnchorPane>
-   </right>
+   </center>
 </BorderPane>

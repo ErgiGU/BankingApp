@@ -2,8 +2,6 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -130,11 +128,6 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Text>
-            <ImageView fitHeight="61.0" fitWidth="37.0" layoutX="94.0" layoutY="115.0">
-               <image>
-                  <Image url="@../PNGs/triangle.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
    </left>
@@ -185,36 +178,51 @@
    <right>
       <AnchorPane prefHeight="614.0" prefWidth="919.0" style="-fx-background-color: EFEFEF;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="84.0" layoutY="74.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="180.0" style="-fx-background-color: #457B9D;" text="Request Money" textFill="WHITE">
+            <Text fill="#2b5292" layoutX="45.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amortise loan" wrappingWidth="232.80337524414062">
                <font>
-                  <Font size="21.0" />
-               </font>
-            </Button>
-            <ScrollPane layoutX="81.0" layoutY="231.0" prefHeight="308.0" prefWidth="733.0">
-               <content>
-                  <TextArea id="scrollbar" prefHeight="53.0" prefWidth="731.0" />
-               </content>
-            </ScrollPane>
-            <Text fill="#2b5292" layoutX="349.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transactions">
-               <font>
-                  <Font size="37.0" />
+                  <Font size="33.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="84.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:">
+            <Text layoutX="43.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How much do want to pay back monthly?" wrappingWidth="421.5989532470703">
                <font>
-                  <Font size="32.0" />
+                  <Font size="22.0" />
                </font>
             </Text>
-            <Button layoutX="635.0" layoutY="77.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="180.0" style="-fx-background-color: #457B9D;" text="Transfer Money" textFill="WHITE">
+            <Text layoutX="43.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Or, do you want to change the amount you pay monthly?" wrappingWidth="386.13670349121094">
                <font>
-                  <Font size="21.0" />
+                  <Font size="22.0" />
                </font>
-            </Button>
-            <TextField layoutX="345.0" layoutY="166.0" prefHeight="40.0" prefWidth="204.0" promptText="(Calc in backend)">
+            </Text>
+            <Text layoutX="50.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Or, make a one time payment." wrappingWidth="386.13670349121094">
                <font>
-                  <Font size="18.0" />
+                  <Font size="22.0" />
+               </font>
+            </Text>
+            <TextField fx:id="Email" layoutX="573.0" layoutY="139.0" prefHeight="34.0" prefWidth="240.0" promptText="Amount:" style="-fx-background-color: EFEFEFEFEFEF; -fx-border-color: #1275EA#1275EA; -fx-border-width: 1px 1px 1px 1px;">
+               <font>
+                  <Font size="15.0" />
                </font>
             </TextField>
+            <TextField fx:id="Email1" layoutX="575.0" layoutY="224.0" prefHeight="34.0" prefWidth="240.0" promptText="Amount:" style="-fx-background-color: EFEFEFEFEFEF; -fx-border-color: #1275EA#1275EA; -fx-border-width: 1px 1px 1px 1px;">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="Email2" layoutX="574.0" layoutY="312.0" prefHeight="34.0" prefWidth="240.0" promptText="Amount:" style="-fx-background-color: EFEFEFEFEFEF; -fx-border-color: #1275EA#1275EA; -fx-border-width: 1px 1px 1px 1px;">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="77.0" fitWidth="76.0" layoutX="481.0" layoutY="478.0" preserveRatio="true">
+               <image>
+                  <Image url="@../PNGs/payment-method.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="575.0" layoutY="477.0" mnemonicParsing="false" prefHeight="79.0" prefWidth="241.0" style="-fx-background-color: #1275EA#1275EA;" text="Make Payment" textFill="WHITE">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
          </children></AnchorPane>
    </right>
 </BorderPane>

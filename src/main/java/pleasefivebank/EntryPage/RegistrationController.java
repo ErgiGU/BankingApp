@@ -152,10 +152,7 @@ public class RegistrationController {
         catch (IOException ex) {
             ex.printStackTrace();
         }
-
-
     }
-
     @FXML
     void Page4to3(ActionEvent event) {
         try {
@@ -167,11 +164,6 @@ public class RegistrationController {
 
 
     }
-
-
-
-
-
 }
 
 
