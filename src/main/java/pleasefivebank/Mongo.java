@@ -2,12 +2,15 @@ package pleasefivebank;
 
 import com.mongodb.MongoWriteException;
 import com.mongodb.bulk.BulkWriteResult;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.BulkWriteOptions;
 import com.mongodb.client.model.InsertOneModel;
 import org.bson.Document;
+
+import java.util.Base64;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
@@ -15,6 +18,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.mongodb.client.model.Filters.*;
 
 public class Mongo {
     public static com.mongodb.client.MongoClient client;
@@ -68,6 +73,44 @@ public class Mongo {
         }
     }
 
-    public void add() {
+    //andreea
+    public static boolean isAssociatedEmail(String email) {
+        Document filter = new Document("email", email);
+        FindIterable<Document> itr = coll.find(filter);
+        return itr.first() != null;
+    }
+
+    //andreea
+    public static void updatePassword(String newPass, String username ) {
+        coll.findOneAndUpdate(eq("user name", username),
+                new Document("$set", new Document("password", newPass)));
+    }
+
+    //andreea
+    public static boolean isUser(String username) {
+        Document filter = new Document("user name", username);
+        FindIterable<Document> itr = coll.find(filter);
+        return itr.first() != null;
+    }
+    //linus
+    public static String encrypt(String string){
+        //logic to encrypt here
+        String encryptedString = Base64.getEncoder().encodeToString(string.getBytes());
+        return encryptedString;
+    }
+
+    //andreea
+    public static Object extractKey(String newUser, String newPass){
+        FindIterable<Document> itr = Mongo.coll.find(and(eq("user name",newUser),
+                eq("password", "newPass")));
+        return itr.first().get("key");
+    }
+
+    //andreea
+    public static boolean isValidLogin(String newUser, String newPass){
+        FindIterable<Document> itr = Mongo.coll.find(and(eq("user name",newUser),
+                eq("password", "newPass")));
+        return itr.first() != null;
     }
 }
+

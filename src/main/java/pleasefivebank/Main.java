@@ -34,5 +34,4 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         mainWindow.setScene(scene);
     }
-    
 }

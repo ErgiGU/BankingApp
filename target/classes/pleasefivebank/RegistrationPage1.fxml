@@ -24,7 +24,7 @@
             </Text>
             <ImageView fitHeight="374.0" fitWidth="393.0" layoutX="369.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../PNGs/Please%205%20Bank-logos_transparent.png" />
+                  <Image url="@../PNGs/Please 5 Bank-logos_transparent.png" />
                </image>
             </ImageView>
             <TextField fx:id="LastName" layoutX="67.0" layoutY="304.0" prefHeight="34.0" prefWidth="216.0" promptText="Last Name" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />

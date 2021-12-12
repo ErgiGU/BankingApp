@@ -39,8 +39,8 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Hyperlink layoutX="103.0" layoutY="533.0" text="About Us" />
-            <Hyperlink layoutX="164.0" layoutY="533.0" text="Contact Us" />
+            <Hyperlink layoutX="103.0" layoutY="533.0" onAction="#AboutUsPressed" prefHeight="24.0" prefWidth="72.0" text="About Us" />
+            <Hyperlink layoutX="164.0" layoutY="533.0" onAction="#ContactUsPressed" prefHeight="24.0" prefWidth="72.0" text="Contact Us" />
             <Text fill="#1275ea" layoutX="161.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="|" />
             <Text fill="#1275ea" layoutX="233.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="|" />
             <Hyperlink layoutX="234.0" layoutY="533.0" text="User's Guide" />
@@ -62,7 +62,7 @@
          <children>
             <ImageView fitHeight="297.0" fitWidth="297.0" layoutX="40.0" layoutY="91.0" preserveRatio="true">
                <image>
-                  <Image url="@../PNGs/Please%205%20Bank-logos_white.png" />
+                  <Image url="@../PNGs/Please 5 Bank-logos_white.png" />
                </image>
             </ImageView>
          </children></AnchorPane>

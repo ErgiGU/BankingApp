@@ -1,12 +1,15 @@
 package pleasefivebank.Objects;
 
+import org.bson.Document;
+import pleasefivebank.Mongo;
+
 import java.util.ArrayList;
 import java.util.Base64;
 
 public class User {
     //variables storing basic user info + arraylist of his transactions + arraylist of his accounts
     private String firstName;
-    private int key;
+    private String key;
     private String birthdate;
     private String phoneNumber;
     private String personnummer;
@@ -19,9 +22,8 @@ public class User {
     private String userName;
     private String password;
     private ArrayList<Transaction> transactions = new ArrayList<>();
-    private ArrayList<Account> accounts = new ArrayList<>();
 
-    public User(String name, String middleName, String lastName, String address, String city, String postalCode, int key, String birthDate, String phoneNumber, String personNummer, String email) {
+    public User(String name, String middleName, String lastName, String address, String city, String postalCode, String key, String birthDate, String phoneNumber, String personNummer, String email) {
         this.firstName = name;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -33,7 +35,21 @@ public class User {
         this.address = address;
         this.city = city;
         this.postalCode = postalCode;
+        toDocument();
         //we store user transactions from the JSON file in the transactions ArrayList
+    }
+
+    //andreea
+    public Document toDocument(){
+        String id = "";
+        Document doc = new Document("first name", this.firstName).
+                append("middle name", this.middleName).append("last name", this.lastName).
+                append("key", this.key).append("birth date", this.birthdate).
+                append("personnummer", this.personnummer).append("phone number", this. phoneNumber).append("email", this.email).
+                append("address", this.address).append("city", this.city).
+                append("postal code", this.postalCode).append("transactions", this.transactions);
+        Mongo.coll.insertOne(doc);
+        return doc;
     }
 
     public String getFirstName() {
@@ -48,7 +64,7 @@ public class User {
         return this.lastName;
     }
 
-    public int getKey() {
+    public String getKey() {
         return this.key;
     }
 

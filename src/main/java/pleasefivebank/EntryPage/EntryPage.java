@@ -1,51 +1,30 @@
 package pleasefivebank.EntryPage;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import pleasefivebank.Objects.*;
+import org.bson.Document;
+import pleasefivebank.Mongo;
+
+import java.util.Base64;
 
 public class EntryPage {
-    public int login(String username, String password){
-        //encript
 
-        //check for encripted user with same credentials
-        String encryptedName = encrypt(username);
-        String encryptedPassword = encrypt(password);
 
-        if (userVerified(encryptedName,encryptedPassword)){
+    //juan + andreea
+    public boolean login(String username, String password){
+        //encrypt
+
+        //check for encrypted user with same credentials
+        String encryptedName = Mongo.encrypt(username);
+        String encryptedPassword = Mongo.encrypt(password);
+
+        if (Mongo.isValidLogin(encryptedName,encryptedPassword)) {
             //key will be the user key to access his info in the database
-            int key = 1;
-            return key;
-
+            Mongo.extractKey(encryptedName, encryptedPassword);
         }
-        return -1;
-    }
-    public boolean validatePage1(String firstName, String middleName, String lastName, String PersonalID){
-        //if(isAlpha(firstName) && isAlpha(lastName) && !isAlpha(personalID))
         return true;
-
     }
-    public boolean register(HashMap userInfo){
-        //we first see if user exists
 
-        //if he doesnt we create account
-
-
-        return false;
-    }
-    public String encrypt(String string){
-        //logic to encrypt here
-
-        //return encripted string
-        return string;
-    }
-    public boolean userVerified(String encriptedUsername, String encriptedPassword){
-        //if user is found and password corresponds
-
-        return true;
-
-        //else return false;
-
-    }
+    //juan
     public boolean isAlpha(String name) {
         char[] chars = name.toCharArray();
 
@@ -56,5 +35,13 @@ public class EntryPage {
         }
 
         return true;
+    }
+    //Ergi
+    public  boolean UserExists(String SSN){
+        Document filter = new Document( "personalID", SSN );
+        if(Mongo.coll.find(filter)!=null){
+            return true;
+        }
+        return false;
     }
 }
