@@ -182,27 +182,22 @@
                   <Font name="Avenir Next Bold" size="20.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="494.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IBAN:" wrappingWidth="362.49224853515625">
+            <Text fill="#2b5292" layoutX="494.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IBAN:" wrappingWidth="362.49224853515625">
                <font>
                   <Font name="Avenir Next Bold" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="495.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account number:" wrappingWidth="362.49224853515625">
+            <Text fill="#2b5292" layoutX="495.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account number:" wrappingWidth="362.49224853515625">
                <font>
                   <Font name="Avenir Next Bold" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="494.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BIC:" wrappingWidth="362.49224853515625">
+            <Text fill="#2b5292" layoutX="494.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BIC:" wrappingWidth="362.49224853515625">
                <font>
                   <Font name="Avenir Next Bold" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="491.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account type: " wrappingWidth="362.49224853515625">
-               <font>
-                  <Font name="Avenir Next Bold" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="494.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort code:" wrappingWidth="362.49224853515625">
+            <Text fill="#2b5292" layoutX="494.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort code:" wrappingWidth="362.49224853515625">
                <font>
                   <Font name="Avenir Next Bold" size="17.0" />
                </font>
@@ -227,27 +222,22 @@
                   <Font name="Kredit-Regular" size="14.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="510.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student account" wrappingWidth="362.49224853515625">
+            <Text fill="#2b5292" layoutX="511.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6385-8" wrappingWidth="362.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="511.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6385-8" wrappingWidth="362.49224853515625">
+            <Text fill="#2b5292" layoutX="511.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="217 623 868-6" wrappingWidth="362.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="511.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="217 623 868-6" wrappingWidth="362.49224853515625">
+            <Text fill="#2b5292" layoutX="508.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SE41 9116 3132 9621 7623 8686" wrappingWidth="362.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="508.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SE41 9116 3132 9621 7623 8686" wrappingWidth="362.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="508.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PFBBSESS" wrappingWidth="362.49224853515625">
+            <Text fill="#2b5292" layoutX="508.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PFBBSESS" wrappingWidth="362.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
@@ -257,7 +247,7 @@
                   <Font name="Avenir Book" size="24.0" />
                </font>
             </Text>
-            <Button layoutX="531.0" layoutY="481.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="197.0" style="-fx-background-color: #457B9D #457B9D;" text="Order new card" textFill="#f5f5f5">
+            <Button layoutX="543.0" layoutY="474.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="197.0" style="-fx-background-color: #457B9D #457B9D;" text="Order new card" textFill="#f5f5f5">
                <font>
                   <Font name="Avenir Book" size="16.0" />
                </font>
@@ -273,7 +263,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="531.0" layoutY="435.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="197.0" style="-fx-background-color: #457B9D #457B9D;" text="Freeze account" textFill="#f5f5f5">
+            <Button layoutX="543.0" layoutY="428.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="197.0" style="-fx-background-color: #457B9D #457B9D;" text="Freeze account" textFill="#f5f5f5">
                <font>
                   <Font name="Avenir Book" size="16.0" />
                </font>
