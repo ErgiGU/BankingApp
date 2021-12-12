@@ -4,6 +4,7 @@
     -fx-background-radius: 3px, 3px, 2px, 1px;
     -fx-font-size: 14px;
     -fx-font-family: "Arial Rounded MT Bold";
+    -fx-text-fill: RED;
 }
 #UniversityOptions .label {
     -fx-background-color:  WHITE;

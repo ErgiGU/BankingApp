@@ -11,7 +11,7 @@ public class EntryPage {
                 //"vasagatan", "Göteborg", "41112", 123456, "31/10/2000",
                 //"1234 5678", "0010915611", "juanWantsA5@gmail.com");
 
-        Document user1 = new Document("name","Juan").append("middleName","José").
+        /*Document user1 = new Document("name","Juan").append("middleName","José").
                 append("lastName","García");//Document(<field_name>,<field_value>) because Document implements Map(String, object)
         Document user2 = new Document("name","juan").append("middleName","").
                 append("lastName","Ahlback");
@@ -29,7 +29,7 @@ public class EntryPage {
         for(Document doc : cursor) {
            // System.out.println("2");
         }
-        Mongo.coll.deleteOne(user1);//remove document obj from the collection coll;
+        Mongo.coll.deleteOne(user1);//remove document obj from the collection coll;*/
     }
 
     public void loginUser() {

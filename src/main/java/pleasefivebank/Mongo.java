@@ -19,8 +19,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.mongodb.client.model.Filters.and;
-import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Filters.*;
 
 public class Mongo {
     public static com.mongodb.client.MongoClient client;

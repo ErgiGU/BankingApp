@@ -134,7 +134,7 @@
          <children>
             <ImageView fitHeight="60.0" fitWidth="102.0" layoutX="15.0" layoutY="10.0" preserveRatio="true">
                <image>
-                  <Image url="@../PNGs/P5B%20white%20small%20logo.png" />
+                  <Image url="@../PNGs/P5B white small logo.png" />
                </image>
             </ImageView>
             <Button layoutX="913.0" layoutY="20.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
@@ -214,7 +214,7 @@
             </Text>
             <ImageView fitHeight="215.0" fitWidth="308.0" layoutX="113.0" layoutY="207.0" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Downloads/output-onlinepngtools%20(8).png" />
+                  <Image url="@../PNGs/output-onlinepngtools_8.png" />
                </image>
             </ImageView>
             <Text fill="WHITE" layoutX="147.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8453 9009 1539 7340" wrappingWidth="362.49224853515625">

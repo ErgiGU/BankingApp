@@ -61,6 +61,16 @@ public class EntryPageController{
             ex.printStackTrace();
         }
     }
+    //andreea
+    @FXML
+    protected void AboutUsPressed(){
+        try {
+            Main.showPage("aboutUsPage.fxml");
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
 
 

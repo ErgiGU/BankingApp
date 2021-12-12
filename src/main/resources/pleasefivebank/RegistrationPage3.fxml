@@ -76,7 +76,7 @@
       <PasswordField fx:id="ConfirmPassword" layoutX="67.0" layoutY="294.0" prefHeight="34.0" prefWidth="216.0" promptText="Confirm Password" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />
       <ImageView fitHeight="374.0" fitWidth="394.0" layoutX="369.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../PNGs/Please%205%20Bank-logos_transparent.png" />
+            <Image url="@../PNGs/Please 5 Bank-logos_transparent.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="69.0" fitWidth="407.0" layoutX="179.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true">

@@ -308,7 +308,7 @@
             </Button>
             <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="366.0" layoutY="538.0" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../espressohouse.png" />
+                  <Image url="@../PNGs/espressohouse.png" />
                </image>
             </ImageView>
             <Text fill="#457b9d" layoutX="149.0" layoutY="530.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10% off at Espresso House" textAlignment="CENTER" wrappingWidth="197.80087280273438">
@@ -318,7 +318,7 @@
             </Text>
             <ImageView fitHeight="23.0" fitWidth="141.0" layoutX="101.0" layoutY="558.0" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Downloads/nordicicon.png" />
+                  <Image url="@../PNGs/nordicicon.png" />
                </image>
             </ImageView>
             <Text fill="#457b9d" layoutX="134.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50% off youre first month at Nordic Wellness" textAlignment="CENTER" wrappingWidth="233.22792053222656">

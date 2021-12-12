@@ -39,7 +39,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Hyperlink layoutX="103.0" layoutY="533.0" text="About Us" />
+            <Hyperlink layoutX="103.0" layoutY="533.0" onAction="#AboutUsPressed" prefHeight="24.0" prefWidth="72.0" text="About Us" />
             <Hyperlink layoutX="164.0" layoutY="533.0" onAction="#ContactUsPressed" prefHeight="24.0" prefWidth="72.0" text="Contact Us" />
             <Text fill="#1275ea" layoutX="161.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="|" />
             <Text fill="#1275ea" layoutX="233.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="|" />

@@ -36,7 +36,7 @@
             <Font name="Arial Bold" size="12.0" />
          </font>
       </Text>
-      <ComboBox id="UniversityOptions" fx:id="UniversityOption" layoutX="271.0" layoutY="364.0" onAction="#Select" prefHeight="45.0" prefWidth="221.0" promptText="Choose your University :" style="-fx-border-color: #1275EA#1275EA #1275EA#1275EA; -fx-border-width: 2; -fx-border-radius: 5;" stylesheets="@../CSS/Combo Style.css" visibleRowCount="2">
+      <ComboBox id="UniversityOptions" fx:id="UniversityOption" layoutX="271.0" layoutY="364.0" onAction="#Select" prefHeight="45.0" prefWidth="221.0" promptText="Choose your University :" style="-fx-border-color: #1275EA#1275EA #1275EA#1275EA; -fx-border-width: 2; -fx-border-radius: 5;" stylesheets="@../CSS/ComboStyle.css" visibleRowCount="2">
          <items>
             <FXCollections fx:factory="observableArrayList">
                <String fx:id="chalmers" fx:value="Chalmers University" />
