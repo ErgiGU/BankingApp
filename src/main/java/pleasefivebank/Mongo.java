@@ -74,20 +74,20 @@ public class Mongo {
         }
     }
 
-    //Andreea
+    //andreea
     public static boolean isAssociatedEmail(String email) {
         Document filter = new Document("email", email);
         FindIterable<Document> itr = coll.find(filter);
         return itr.first() != null;
     }
 
-    //Andreea
+    //andreea
     public static void updatePassword(String newPass, String username ) {
         coll.findOneAndUpdate(eq("user name", username),
                 new Document("$set", new Document("password", newPass)));
     }
 
-    //Andreea
+    //andreea
     public static boolean isUser(String username) {
         Document filter = new Document("user name", username);
         FindIterable<Document> itr = coll.find(filter);
@@ -98,13 +98,6 @@ public class Mongo {
         //logic to encrypt here
         String encryptedString = Base64.getEncoder().encodeToString(string.getBytes());
         return encryptedString;
-    }
-
-    //andreea
-    public static String decrypt(String string){
-        //logic to decrypt here
-        String decryptedString = String.valueOf(Base64.getDecoder().decode(string));
-        return decryptedString;
     }
 
     //andreea

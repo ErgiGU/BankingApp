@@ -1,0 +1,20 @@
+#UniversityOptions {
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, white;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+    -fx-font-size: 14px;
+    -fx-font-family: "Arial Rounded MT Bold";
+}
+#UniversityOptions .label {
+    -fx-background-color:  WHITE;
+    -fx-text-fill: RED;
+}
+
+
+
+
+
+
+
+
+

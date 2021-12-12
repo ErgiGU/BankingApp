@@ -1,20 +1,25 @@
 package pleasefivebank.EntryPage;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import pleasefivebank.Main;
-import pleasefivebank.Objects.User;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+public class RegistrationController{
 
-
-public class RegistrationController {
-    //User newUserInfo = new User();
+    /*ObservableList<String> UniversityOptionList = FXCollections.
+            observableArrayList("Select your University :", "Chalmers University", "GU University");
+    //User newUserInfo = new User();*/
     Registration registration = new Registration();
 
 
@@ -29,7 +34,6 @@ public class RegistrationController {
 
     @FXML
     private TextField PersonalID;
-
     //juan
     @FXML
     void BackToEntryPage() {
@@ -222,7 +226,17 @@ public class RegistrationController {
     private Button FinishRegister;
 
     @FXML
-    private ComboBox<?> UniversityOption;
+    private ComboBox<String> UniversityOption;
+    //andreea
+    @FXML
+    void Select(ActionEvent event) throws IOException {
+        String selection = UniversityOption.getSelectionModel().getSelectedItem();
+        if (selection.isEmpty()) {
+            selection = registration.getUniversity();
+        } else{
+            registration.setUniversity(selection);
+        }
+    }
     //juan
     @FXML
     void FinishRegister() {
@@ -249,11 +263,6 @@ public class RegistrationController {
 
 
     }
-
-
-
-
-
 }
 
 

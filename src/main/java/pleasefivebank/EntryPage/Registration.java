@@ -4,9 +4,6 @@ import com.mongodb.client.FindIterable;
 import org.bson.Document;
 import pleasefivebank.Mongo;
 import pleasefivebank.Objects.User;
-
-import java.util.Base64;
-
 import static com.mongodb.client.model.Filters.eq;
 
 public class Registration{
@@ -25,6 +22,7 @@ public class Registration{
     private String password;
     private String confirmPassword;
     private boolean checkbox;
+    private String university;
 
 
     //juan
@@ -42,6 +40,7 @@ public class Registration{
         this.password = "";
         this.confirmPassword = "";
         this.checkbox = false;
+        this.university = "";
     }
     //juan
     public String getFirstName(){
@@ -83,6 +82,7 @@ public class Registration{
     public boolean getCheckbox(){
         return checkbox;
     }
+    public String getUniversity() {return university;}
     public void setFirstName(String FirstName){
         this.firstName = FirstName;
     }
@@ -119,7 +119,7 @@ public class Registration{
     public void setConfirmPassword(String ConfirmPassword){
         this.confirmPassword = ConfirmPassword;
     }
-
+    public void setUniversity(String university){this.university = university;}
     
     //juan
     public void changeCheckBox(){
@@ -130,6 +130,27 @@ public class Registration{
             checkbox = true;
         }
 
+    }
+    //ergi and juan
+    public boolean validatePage1(String firstName, String middleName, String lastName, String PersonalID){
+        return true;
+    }
+    //ergi and juan
+    public boolean validatePage2(String streetname,String email, String city, String postalCode,String phoneNumber){
+        return true;
+    }
+    //ergi and juan
+    public boolean validatePage3(String username, String password, String confirmPassword){
+        return true;
+    }
+
+    //andreea
+    public boolean validateData(){
+        boolean validate;
+        validate = (validatePage1(this.firstName, this.middleName, this.lastName, this.personalID)&&
+                validatePage2(this.streetName, this.email, this.city, this.postalCode, this.phoneNumber)&&
+                validatePage3(this.username,this.password, this.confirmPassword));
+        return validate;
     }
 
     //andreea

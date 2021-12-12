@@ -14,6 +14,8 @@ public class ForgotPassword {
 
     //juan + andreea
     public ForgotPassword(String username,String password) {
+        this.username = username;
+        this.password = password;
         String newPass = Mongo.encrypt(password);
         String newUser = Mongo.encrypt(username);
         if (Mongo.isValidLogin(newUser, newPass)) {
