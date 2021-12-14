@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.bson.types.ObjectId;
 import pleasefivebank.Menus.EntryPage;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         try {
-            new Mongo();
+            Mongo.mongo();//Mongo is a utility class and cannot be instantiated
         } catch (Exception e) {
             e.printStackTrace();
         }

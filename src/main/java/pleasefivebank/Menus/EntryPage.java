@@ -2,37 +2,30 @@ package pleasefivebank.Menus;
 
 import com.mongodb.client.FindIterable;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 import pleasefivebank.Mongo;
 import pleasefivebank.Objects.User;
 
+import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
 
 public class EntryPage {
 
     public static void createUser() {
-        //User user = new User("juan", "ose", "garcia",
-                //"vasagatan", "Göteborg", "41112", 123456, "31/10/2000",
-                //"1234 5678", "0010915611", "juanWantsA5@gmail.com");
+        User user = new User("juan", "ose", "garcia",
+                "vasagatan", "Göteborg", "41112", "123456", "31/10/2000",
+                "1234 5678", "0010915611", "juanWantsA5@gmail.com");
+    }
 
-        /*Document user1 = new Document("name","Juan").append("middleName","José").
-                append("lastName","García");//Document(<field_name>,<field_value>) because Document implements Map(String, object)
-        Document user2 = new Document("name","juan").append("middleName","").
-                append("lastName","Ahlback");
-        Document docID = new Document("_id", "key");
-        //Mongo.coll.insertOne(docID);//inserts document with a given ID "key" into the collection coll;
-        //Mongo.coll.insertOne(user1);//inserts document user1 into the collection coll;
-        //Mongo.coll.updateOne(user1, user2);//upsert document user2 into the collection coll;
-        //Mongo.coll.find(doc);//retrieve a document doc from the collection coll;
-        Document filter = new Document("Transactions","");//Document(<field_name>,<field_value>) because Document implements Map(String, object)
-        FindIterable<Document> cursor = Mongo.coll.find(filter);//filter documents from the collection coll by a certain field name and field value;
-        if (cursor == null) {
-            //no values found
-        }
+    public static void updatePassword(String newPass, Object id) {
+        Mongo.coll.findOneAndUpdate(eq("_id", id),
+                new Document("$set", new Document("password", newPass)));
+    }
 
-        for(Document doc : cursor) {
-           // System.out.println("2");
-        }
-        Mongo.coll.deleteOne(user1);//remove document obj from the collection coll;*/
+    public static Object extractKey(String newUser, String newPass){
+        FindIterable<Document> itr = Mongo.coll.find(and(eq("user name",newUser),
+                eq("password", newPass)));
+        return itr.first().get("_id");
     }
 
     public void loginUser() {

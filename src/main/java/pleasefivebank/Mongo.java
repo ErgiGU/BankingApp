@@ -21,13 +21,12 @@ import java.util.List;
 
 import static com.mongodb.client.model.Filters.*;
 
-public class Mongo {
+public final class Mongo {//marked as final because it is a utility class and it cannot be instantiated
     public static com.mongodb.client.MongoClient client;
     public static MongoDatabase db;
     public static MongoCollection<Document> coll;
 
-    public Mongo() throws Exception {
-        mongo();
+    private Mongo(){//private constructor to prevent from instantiating
     }
 
     public static void mongo() throws Exception {
@@ -104,7 +103,7 @@ public class Mongo {
     public static Object extractKey(String newUser, String newPass){
         FindIterable<Document> itr = coll.find(and(eq("user name",newUser),
                 eq("password", newPass)));
-        return itr.first().get("key").toString();
+        return itr.first().get("key");
     }
 
     //andreea
