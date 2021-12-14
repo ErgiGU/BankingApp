@@ -29,6 +29,7 @@ public class RegistrationController {
 
 
 
+
     @FXML
     private TextField FirstName;
 
@@ -109,38 +110,6 @@ public class RegistrationController {
                 }
             }
         }
-
-            /*String firstName = FirstName.getText();
-            if (firstName.isEmpty()){
-                firstName = registration.getFirstName();
-            }
-            else{
-                registration.setFirstName(firstName);
-            }
-            String lastName = LastName.getText();
-            if (lastName.isEmpty()){
-                lastName = registration.getLastName();
-            }
-            else{
-                registration.setLastName(lastName);
-            }
-            String middleName = MiddleName.getText();
-            if (middleName.isEmpty()){
-                middleName = registration.getMiddleName();
-            }
-            else{
-                registration.setMiddleName(middleName);
-            }
-            String personalID = PersonalID.getText();
-            if (personalID.isBlank()){
-                personalID = registration.getPersonalID();
-            }
-            else{
-                registration.setPersonalID(personalID);
-            }
-            if(registration.validatePage1(firstName, middleName, lastName, personalID)){
-                Main.showPage("RegistrationPage2.fxml");
-            }*/
     }
 
     @FXML
@@ -163,10 +132,6 @@ public class RegistrationController {
     void Page2to1() {
         try {
             Main.showPage("RegistrationPage1.fxml");
-            //FirstName.setText("Ergi");
-            LastName.setText("Senja");
-            MiddleName.setText("Garcia");
-            PersonalID.setText("4206699420");
         }
         catch (IOException ex) {
             ex.printStackTrace();
@@ -274,7 +239,18 @@ public class RegistrationController {
     private Button FinishRegister;
 
     @FXML
-    private ComboBox<?> UniversityOption;
+    private ComboBox<String> UniversityOption;
+
+    @FXML
+    void Select(ActionEvent event) throws IOException {
+        String selection = UniversityOption.getSelectionModel().getSelectedItem();
+        if (selection.isEmpty()) {
+            selection = registration.getUniversity();
+        } else{
+            registration.setUniversity(selection);
+        }
+    }
+
     //juan
     @FXML
     void FinishRegister() {

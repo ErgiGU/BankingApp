@@ -188,7 +188,7 @@
                   <Font name="Avenir Next Bold" size="18.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="121.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Swish" wrappingWidth="125.49224853515625">
+            <Text fill="#2b5292" layoutX="121.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carlotta Hillger" wrappingWidth="125.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
@@ -237,7 +237,7 @@
                   <Font name="Avenir Book" size="16.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="121.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Swish" wrappingWidth="125.49224853515625">
+            <Text fill="#2b5292" layoutX="121.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Linus Carlberg" wrappingWidth="125.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>

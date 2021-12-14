@@ -30,6 +30,7 @@ public class DataValidation {
     }
 
 
+
     //Ergi (Java email validation permitted by RFC 5322)
 
     public static boolean validateField(String inputTextField, Label inputLabel, String regex, String validationText ){

@@ -73,6 +73,21 @@ public final class Mongo {//marked as final because it is a utility class and it
         }
     }
 
+    //Ergi && Andreea
+    public static boolean existsInDatabase(String itemToFind, String databaseVariable, Label inputLabel, String validationText) {
+        String validationString = null;
+        boolean exists = false;
+        Document filter = new Document(databaseVariable, itemToFind);
+        FindIterable<Document> itr = coll.find(filter);
+        if (itr.first() != null) {
+            exists = true;
+            validationString = validationText;
+        }
+
+        inputLabel.setText(validationString);
+        return exists;
+    }
+
     //andreea
     public static boolean isAssociatedEmail(String email) {
         Document filter = new Document("email", email);
