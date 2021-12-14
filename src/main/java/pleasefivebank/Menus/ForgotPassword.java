@@ -1,8 +1,5 @@
 package pleasefivebank.Menus;
-import com.mongodb.client.FindIterable;
-import javafx.beans.Observable;
 import org.bson.Document;
-import org.bson.types.ObjectId;
 import pleasefivebank.Mongo;
 
 import static com.mongodb.client.model.Filters.*;
@@ -19,8 +16,8 @@ public class ForgotPassword {
         String encrUser = Mongo.encrypt(username);
         if (Mongo.isValidLogin(encrPass, encrUser)) {
             Object key = Mongo.extractKey(encrUser, encrPass);
-            FindIterable<Document> itr = Mongo.coll.find(eq("key", key));
-            String email = itr.first().get("email").toString();
+            Document doc = Mongo.coll.find(eq("key", key)).first();
+            String email = doc.get("email").toString();
             //send bot email with new password
             //Bot logic here
             updatePassword(newPass, key);

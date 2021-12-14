@@ -1,9 +1,11 @@
 package pleasefivebank.EntryPage;
 
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 
-public class DataValidation {
+public final class DataValidation {//utility class
+
+    private DataValidation(){//private constructor to prevent from being instantiated
+    }
     //Ergi
     public static boolean textFieldIsEmpty(String inputTextField, Label inputLabel, String validationText){
         boolean isEmpty = false;

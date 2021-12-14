@@ -164,20 +164,24 @@ public class Registration{
                 append("password", Mongo.encrypt(this.password));
         Mongo.coll.insertOne(login);
         //get the automatically generated id of the document just inserted
-        FindIterable<Document> itr = Mongo.coll.find(login);
-        String key = itr.first().get("_id").toString();
+        Document doc = Mongo.coll.find(login).first();
+        String key = doc.get("_id").toString();
         //store the id in the key field of the user document and add the user to the database
         Mongo.coll.insertOne(user.append("key", key));
     }
 
     //andreea + ossian
     public String extractBirthdate(String personnummer){
+        int year;
         String yearString  = personnummer.substring(0,2);
-        if(Integer.parseInt(yearString) > 22){
-            yearString += 1990;
+        year = Integer.parseInt(yearString);
+        if(year > 22){
+            year += 1900;
+        } else {
+            year += 2000;
         }
         String month = personnummer.substring(2,4);
         String day = personnummer.substring(4,6);
-        return yearString+"/"+month + "/"+ day;
+        return year + "/"+ month + "/"+ day;
     }
 }

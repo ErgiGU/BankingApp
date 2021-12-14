@@ -1,13 +1,7 @@
 package pleasefivebank.EntryPage;
 
-import javafx.scene.control.Tooltip;
-import javafx.stage.PopupWindow;
-import javafx.util.Duration;
-import pleasefivebank.Objects.*;
 import org.bson.Document;
 import pleasefivebank.Mongo;
-
-import java.util.Base64;
 
 import static com.mongodb.client.model.Filters.eq;
 

@@ -2,7 +2,6 @@ package pleasefivebank;
 
 import com.mongodb.MongoWriteException;
 import com.mongodb.bulk.BulkWriteResult;
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -75,8 +74,8 @@ public final class Mongo {//marked as final because it is a utility class and it
     //andreea
     public static boolean isAssociatedEmail(String email) {
         Document filter = new Document("email", email);
-        FindIterable<Document> itr = coll.find(filter);
-        return itr.first() != null;
+        Document doc = coll.find(filter).first();
+        return doc != null;
     }
 
     //andreea
@@ -88,8 +87,8 @@ public final class Mongo {//marked as final because it is a utility class and it
     //andreea
     public static boolean isUser(String username) {
         Document filter = new Document("user name", username);
-        FindIterable<Document> itr = coll.find(filter);
-        return itr.first() != null;
+        Document doc = coll.find(filter).first();
+        return doc != null;
     }
 
     //linus
@@ -101,16 +100,16 @@ public final class Mongo {//marked as final because it is a utility class and it
 
     //andreea
     public static Object extractKey(String newUser, String newPass){
-        FindIterable<Document> itr = coll.find(and(eq("user name",newUser),
-                eq("password", newPass)));
-        return itr.first().get("key");
+        Document doc = coll.find(and(eq("user name",newUser),
+                eq("password", newPass))).first();
+        return doc.get("key");
     }
 
     //andreea
     public static boolean isValidLogin(String newUser, String newPass){
-        FindIterable<Document> itr = coll.find(and(eq("user name",newUser),
-                eq("password", newPass)));
-        return itr.first() != null;
+        Document doc = coll.find(and(eq("user name",newUser),
+                eq("password", newPass))).first();
+        return doc != null;
     }
 
     //andreea
@@ -118,8 +117,5 @@ public final class Mongo {//marked as final because it is a utility class and it
         coll.findOneAndDelete(eq("email", email));
         coll.findOneAndDelete(eq("user name", newUser));
     }
-
-    /*public static Document listAccounts(){
-    }*/
 }
 
