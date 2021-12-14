@@ -1,15 +1,17 @@
 package pleasefivebank.EntryPage;
 
+import com.mongodb.client.FindIterable;
+import org.bson.Document;
+import pleasefivebank.Mongo;
 import pleasefivebank.Objects.User;
 
-
-public class Registration {
+public class Registration{
     private String firstName;
     private String middleName;
     private String lastName;
     private String personalID;
 
-    private String address;
+    private String streetName;
     private String city;
     private String postalCode;
     private String email;
@@ -19,6 +21,7 @@ public class Registration {
     private String password;
     private String confirmPassword;
     private boolean checkbox;
+    private String university;
 
 
     //juan
@@ -27,7 +30,7 @@ public class Registration {
         this.middleName = "";
         this.lastName = "";
         this.personalID = "";
-        this.address = "";
+        this.streetName = "";
         this.city = "";
         this.postalCode = "";
         this.email = "";
@@ -36,6 +39,7 @@ public class Registration {
         this.password = "";
         this.confirmPassword = "";
         this.checkbox = false;
+        this.university = "";
     }
     //juan
     public String getFirstName(){
@@ -50,8 +54,8 @@ public class Registration {
     public String getPersonalID(){
         return personalID;
     }
-    public String getAdress(){
-        return address;
+    public String getStreetName(){
+        return streetName;
     }
     public String getCity(){
         return city;
@@ -77,6 +81,7 @@ public class Registration {
     public boolean getCheckbox(){
         return checkbox;
     }
+    public String getUniversity() {return university;}
     public void setFirstName(String FirstName){
         this.firstName = FirstName;
     }
@@ -96,7 +101,7 @@ public class Registration {
         this.postalCode = PostalCode;
     }
     public void setStreetName(String StreetName){
-        this.address = StreetName;
+        this.streetName = StreetName;
     }
     public void setEmail(String Email){
         this.email = Email;
@@ -113,7 +118,7 @@ public class Registration {
     public void setConfirmPassword(String ConfirmPassword){
         this.confirmPassword = ConfirmPassword;
     }
-
+    public void setUniversity(String university){this.university = university;}
     
     //juan
     public void changeCheckBox(){
@@ -127,10 +132,10 @@ public class Registration {
     }
     //ergi and juan
     public boolean validatePage1(String firstName, String middleName, String lastName, String PersonalID){
-        return false;
+        return true;
     }
     //ergi and juan
-    public boolean validatePage2(String address,String email, String city, String postalCode,String phoneNumber){
+    public boolean validatePage2(String streetname,String email, String city, String postalCode,String phoneNumber){
         return true;
     }
     //ergi and juan
@@ -138,13 +143,41 @@ public class Registration {
         return true;
     }
 
-    //juan
-    public boolean register(User newUserInfo){
-        //we first see if user exists
+    //andreea
+    public boolean validateData(){
+        boolean validate;
+        validate = (validatePage1(this.firstName, this.middleName, this.lastName, this.personalID)&&
+                validatePage2(this.streetName, this.email, this.city, this.postalCode, this.phoneNumber)&&
+                validatePage3(this.username,this.password, this.confirmPassword));
+        return validate;
+    }
 
-        //if he doesnt we create account
+    //andreea
+    public void register(){
+        String birthdate = extractBirthdate(this.personalID);
+        User newUser = new User(this.firstName, this.middleName, this.lastName, this.streetName, this.postalCode,
+                this.city, "", birthdate, this.phoneNumber, this.personalID, this.email, this.university);
+        //We write the user as document
+        Document user = newUser.toDocument();
+        //we create a document with encrypted credentials and add it to the database
+        Document login = new Document("user name", Mongo.encrypt(this.username)).
+                append("password", Mongo.encrypt(this.password));
+        Mongo.coll.insertOne(login);
+        //get the automatically generated id of the document just inserted
+        FindIterable<Document> itr = Mongo.coll.find(login);
+        String key = itr.first().get("_id").toString();
+        //store the id in the key field of the user document and add the user to the database
+        Mongo.coll.insertOne(user.append("key", key));
+    }
 
-
-        return false;
+    //andreea + ossian
+    public String extractBirthdate(String personnummer){
+        String yearString  = personnummer.substring(0,2);
+        if(Integer.parseInt(yearString) > 22){
+            yearString += 1990;
+        }
+        String month = personnummer.substring(2,4);
+        String day = personnummer.substring(4,6);
+        return yearString+"/"+month + "/"+ day;
     }
 }

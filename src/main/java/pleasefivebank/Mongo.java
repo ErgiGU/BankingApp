@@ -10,6 +10,8 @@ import com.mongodb.client.model.BulkWriteOptions;
 import com.mongodb.client.model.InsertOneModel;
 import javafx.scene.control.Label;
 import org.bson.Document;
+
+import java.util.Base64;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
@@ -18,13 +20,14 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Mongo {
+import static com.mongodb.client.model.Filters.*;
+
+public final class Mongo {//marked as final because it is a utility class and it cannot be instantiated
     public static com.mongodb.client.MongoClient client;
     public static MongoDatabase db;
     public static MongoCollection<Document> coll;
 
-    public Mongo() throws Exception {
-        mongo();
+    private Mongo(){//private constructor to prevent from instantiating
     }
 
     public static void mongo() throws Exception {
@@ -70,25 +73,54 @@ public class Mongo {
         }
     }
 
+    //andreea
     public static boolean isAssociatedEmail(String email) {
         Document filter = new Document("email", email);
         FindIterable<Document> itr = coll.find(filter);
         return itr.first() != null;
     }
 
-    public static boolean existsInDatabase(String itemToFind, String databaseVariable, Label inputLabel, String validationText) {
-        String validationString = null;
-        boolean exists = false;
-        Document filter = new Document(databaseVariable,itemToFind);
-        FindIterable<Document> itr = coll.find(filter);
-        if(itr.first() != null){
-            exists = true;
-            validationString = validationText;
-        }
-        inputLabel.setText(validationString);
-        return exists;
+    //andreea
+    public static void updatePassword(String newPass, String username ) {
+        coll.findOneAndUpdate(eq("user name", username),
+                new Document("$set", new Document("password", newPass)));
     }
 
-    public void add() {
+    //andreea
+    public static boolean isUser(String username) {
+        Document filter = new Document("user name", username);
+        FindIterable<Document> itr = coll.find(filter);
+        return itr.first() != null;
     }
+
+    //linus
+    public static String encrypt(String string){
+        //logic to encrypt here
+        String encryptedString = Base64.getEncoder().encodeToString(string.getBytes());
+        return encryptedString;
+    }
+
+    //andreea
+    public static Object extractKey(String newUser, String newPass){
+        FindIterable<Document> itr = coll.find(and(eq("user name",newUser),
+                eq("password", newPass)));
+        return itr.first().get("key");
+    }
+
+    //andreea
+    public static boolean isValidLogin(String newUser, String newPass){
+        FindIterable<Document> itr = coll.find(and(eq("user name",newUser),
+                eq("password", newPass)));
+        return itr.first() != null;
+    }
+
+    //andreea
+    public static void deleteUser(String newUser, String email) {
+        coll.findOneAndDelete(eq("email", email));
+        coll.findOneAndDelete(eq("user name", newUser));
+    }
+
+    /*public static Document listAccounts(){
+    }*/
 }
+

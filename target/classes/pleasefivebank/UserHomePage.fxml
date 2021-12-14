@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../CSS/hi.css">
    <left>
       <AnchorPane prefHeight="614.0" prefWidth="128.0" style="-fx-background-color: #457B9D;" BorderPane.alignment="CENTER">
          <children>
@@ -134,7 +134,7 @@
          <children>
             <ImageView fitHeight="60.0" fitWidth="102.0" layoutX="15.0" layoutY="10.0" preserveRatio="true">
                <image>
-                  <Image url="@../PNGs/P5B%20white%20small%20logo.png" />
+                  <Image url="@../PNGs/P5B white small logo.png" />
                </image>
             </ImageView>
             <Button layoutX="913.0" layoutY="20.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
@@ -188,7 +188,7 @@
                   <Font name="Avenir Next Bold" size="18.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="121.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carlotta Hillger" wrappingWidth="125.49224853515625">
+            <Text fill="#2b5292" layoutX="121.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Swish" wrappingWidth="125.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
@@ -237,7 +237,7 @@
                   <Font name="Avenir Book" size="16.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="121.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Linus Carlberg" wrappingWidth="125.49224853515625">
+            <Text fill="#2b5292" layoutX="121.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Swish" wrappingWidth="125.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
@@ -308,7 +308,7 @@
             </Button>
             <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="366.0" layoutY="538.0" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../espressohouse.png" />
+                  <Image url="@../PNGs/espressohouse.png" />
                </image>
             </ImageView>
             <Text fill="#457b9d" layoutX="149.0" layoutY="530.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10% off at Espresso House" textAlignment="CENTER" wrappingWidth="197.80087280273438">
@@ -318,7 +318,7 @@
             </Text>
             <ImageView fitHeight="23.0" fitWidth="141.0" layoutX="101.0" layoutY="558.0" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Downloads/nordicicon.png" />
+                  <Image url="@../PNGs/nordicicon.png" />
                </image>
             </ImageView>
             <Text fill="#457b9d" layoutX="134.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50% off youre first month at Nordic Wellness" textAlignment="CENTER" wrappingWidth="233.22792053222656">

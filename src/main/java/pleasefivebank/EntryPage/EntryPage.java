@@ -1,5 +1,8 @@
 package pleasefivebank.EntryPage;
 
+import javafx.scene.control.Tooltip;
+import javafx.stage.PopupWindow;
+import javafx.util.Duration;
 import pleasefivebank.Objects.*;
 import org.bson.Document;
 import pleasefivebank.Mongo;
@@ -9,37 +12,21 @@ import java.util.Base64;
 public class EntryPage {
 
 
-    //juan
-    public int login(String username, String password){
-        //encript
+    //juan + andreea
+    public boolean login(String username, String password){
+        //encrypt
 
-        //check for encripted user with same credentials
-        String encryptedName = encrypt(username);
-        String encryptedPassword = encrypt(password);
+        //check for encrypted user with same credentials
+        String encryptedName = Mongo.encrypt(username);
+        String encryptedPassword = Mongo.encrypt(password);
 
-        if (userVerified(encryptedName,encryptedPassword)){
+        if (Mongo.isValidLogin(encryptedName,encryptedPassword)) {
             //key will be the user key to access his info in the database
-            int key = 1;
-            return key;
-
+            Mongo.extractKey(encryptedName, encryptedPassword);
         }
-        return -1;
-    }
-    //linus
-    public String encrypt(String string){
-        //logic to encrypt here
-        String encryptedString = Base64.getEncoder().encodeToString(string.getBytes());
-        return encryptedString;
-    }
-    //juan
-    public boolean userVerified(String encriptedUsername, String encriptedPassword){
-        //if user is found and password corresponds
-
         return true;
-
-        //else return false;
-
     }
+
     //juan
     public boolean isAlpha(String name) {
         char[] chars = name.toCharArray();
@@ -51,13 +38,5 @@ public class EntryPage {
         }
 
         return true;
-    }
-    //Ergi
-    public  boolean UserExists(String SSN){
-        Document filter = new Document( "personalID", SSN );
-        if(Mongo.coll.find(filter)!=null){
-            return true;
-        }
-        return false;
     }
 }
