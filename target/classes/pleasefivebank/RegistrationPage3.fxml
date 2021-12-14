@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="588.0" prefWidth="765.0" style="-fx-background-color: EFEFEF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pleasefivebank.EntryPage.RegistrationController">
+<AnchorPane prefHeight="588.0" prefWidth="765.0" style="-fx-background-color: EFEFEF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pleasefivebank.EntryPage.RegistrationController" stylesheets="@../CSS/hi.css">
    <children>
       <Button layoutX="3.0" layoutY="7.0" mnemonicParsing="false" onAction="#BackToEntryPage" prefHeight="38.0" prefWidth="39.0" style="-fx-background-color: EFEFEF;">
          <cursor>
