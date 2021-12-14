@@ -4,11 +4,9 @@
     <data-source name="MongoDB - please5@please5.wavpm.mongodb.net" uuid="0e967d00-3904-4581-9d6c-2bed303af903">
       <database-info product="Mongo DB" version="4.4.10" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.12" dbms="MONGO" exact-version="4.4.10" exact-driver-version="1.12" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
-      <secret-storage>master_key</secret-storage>
-      <user-name>adminadmin</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema" qname="@" />
+          <node kind="schema" negative="1" />
         </introspection-scope>
       </schema-mapping>
     </data-source>

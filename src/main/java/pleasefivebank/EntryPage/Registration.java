@@ -41,83 +41,75 @@ public class Registration{
         this.checkbox = false;
         this.university = "";
     }
-    //juan
-    public String getFirstName(){
-        return firstName;
-    }
-    public String getMiddleName(){
-        return middleName;
-    }
-    public String getLastName(){
-        return lastName;
-    }
-    public String getPersonalID(){
-        return personalID;
-    }
-    public String getStreetName(){
-        return streetName;
-    }
-    public String getCity(){
-        return city;
-    }
-    public String getPostalCode(){
-        return postalCode;
-    }
+
     public String getEmail(){
         return email;
     }
-    public String getPhoneNumber(){
-        return phoneNumber;
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public void setStreetName(String streetName) {
+        this.streetName = streetName;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
+    }
+
+    public void setPersonalID(String personalID) {
+        this.personalID = personalID;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+    public void setCheckbox(boolean checkbox) {
+        this.checkbox = checkbox;
+    }
+
     public String getUsername(){
         return username;
     }
     public String getPassword(){
         return password;
     }
-    public String getConfirmPassword(){
-        return confirmPassword;
-    }
+
     public boolean getCheckbox(){
         return checkbox;
     }
     public String getUniversity() {return university;}
-    public void setFirstName(String FirstName){
-        this.firstName = FirstName;
-    }
-    public void setMiddleName(String MiddleName){
-        this.middleName = MiddleName;
-    }
-    public void setLastName(String LastName){
-        this.lastName = LastName;
-    }
-    public void setPersonalID(String PersonalID){
-        this.personalID = PersonalID;
-    }
-    public void setCity(String City){
-        this.city = City;
-    }
-    public void setPostalCode(String PostalCode){
-        this.postalCode = PostalCode;
-    }
-    public void setStreetName(String StreetName){
-        this.streetName = StreetName;
-    }
+
+
     public void setEmail(String Email){
         this.email = Email;
     }
-    public void setPhoneNumber(String PhoneNumber){
-        this.phoneNumber = PhoneNumber;
-    }
+
     public void setUsername(String Username){
         this.username = Username;
     }
     public void setPassword(String Password){
         this.password = Password;
     }
-    public void setConfirmPassword(String ConfirmPassword){
-        this.confirmPassword = ConfirmPassword;
-    }
+
     public void setUniversity(String university){this.university = university;}
     
     //juan
@@ -130,27 +122,8 @@ public class Registration{
         }
 
     }
-    //ergi and juan
-    public boolean validatePage1(String firstName, String middleName, String lastName, String PersonalID){
-        return true;
-    }
-    //ergi and juan
-    public boolean validatePage2(String streetname,String email, String city, String postalCode,String phoneNumber){
-        return true;
-    }
-    //ergi and juan
-    public boolean validatePage3(String username, String password, String confirmPassword){
-        return true;
-    }
 
-    //andreea
-    public boolean validateData(){
-        boolean validate;
-        validate = (validatePage1(this.firstName, this.middleName, this.lastName, this.personalID)&&
-                validatePage2(this.streetName, this.email, this.city, this.postalCode, this.phoneNumber)&&
-                validatePage3(this.username,this.password, this.confirmPassword));
-        return validate;
-    }
+
 
     //andreea
     public void register(){
@@ -172,12 +145,14 @@ public class Registration{
 
     //andreea + ossian
     public String extractBirthdate(String personnummer){
-        String yearString  = personnummer.substring(0,2);
-        if(Integer.parseInt(yearString) > 22){
+        String yearString  = personnummer.substring(0,4);
+ /*       if(Integer.parseInt(yearString) > 22){
             yearString += 1990;
-        }
-        String month = personnummer.substring(2,4);
-        String day = personnummer.substring(4,6);
-        return yearString+"/"+month + "/"+ day;
+        } else {
+            yearString += 2000;
+        }*/
+        String month = personnummer.substring(4,6);
+        String day = personnummer.substring(6,8);
+        return yearString +"/"+month + "/"+ day;
     }
 }

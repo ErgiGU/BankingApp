@@ -102,7 +102,6 @@ public class RegistrationController {
                 tempLastName = lastName;
                 tempMiddleName = middleName;
                 tempID = personalID;
-                FirstName.setText("Ergi");
                 try {
                     Main.showPage("RegistrationPage2.fxml");
                 } catch (IOException e) {
@@ -218,6 +217,8 @@ public class RegistrationController {
         if(passwordValidation) {
             boolean passwordsMatch = DataValidation.passwordsMatch(password,confirmPassword,confirmLabel,"Passwords must match");
             if (usernameValidation && passwordsMatch && registration.getCheckbox()) {
+                tempUsername = username;
+                tempPassword = password;
             try {
                 Main.showPage("RegistrationPage4.fxml");
             } catch (IOException e) {
@@ -244,11 +245,7 @@ public class RegistrationController {
     @FXML
     void Select(ActionEvent event) throws IOException {
         String selection = UniversityOption.getSelectionModel().getSelectedItem();
-        if (selection.isEmpty()) {
-            selection = registration.getUniversity();
-        } else{
-            registration.setUniversity(selection);
-        }
+        registration.setUniversity(selection);
     }
 
     //juan
@@ -257,6 +254,19 @@ public class RegistrationController {
         try {
             //you register the user
             //if user selects uni we save it
+            registration.setFirstName(tempFirstName);
+            registration.setLastName(tempLastName);
+            registration.setMiddleName(tempMiddleName);
+            registration.setPersonalID(tempID);
+            registration.setStreetName(tempAddress);
+            registration.setCity(tempCity);
+            registration.setPostalCode(tempPostal);
+            registration.setPhoneNumber(tempPhone);
+            registration.setEmail(tempEmail);
+            registration.setUsername(tempUsername);
+            registration.setPassword(tempPassword);
+            //registration.extractBirthdate(tempID);
+            //registration.register();
             Main.showPage("Entry-Page.fxml");
         }
         catch (IOException ex) {
