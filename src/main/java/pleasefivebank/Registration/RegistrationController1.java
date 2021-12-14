@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RegistrationController1 implements Initializable {
+public class RegistrationController1 {
 
     @FXML
     private Button BackToEntryPageButton;
@@ -38,8 +38,8 @@ public class RegistrationController1 implements Initializable {
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    @FXML
+    public void initialize() {
 
     }
 }

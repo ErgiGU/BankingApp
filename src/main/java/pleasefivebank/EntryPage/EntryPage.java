@@ -36,12 +36,4 @@ public class EntryPage {
 
         return true;
     }
-    //Ergi
-    public  boolean UserExists(String SSN){
-        Document filter = new Document( "personalID", SSN );
-        if(Mongo.coll.find(filter)!=null){
-            return true;
-        }
-        return false;
-    }
 }

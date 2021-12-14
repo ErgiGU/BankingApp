@@ -92,6 +92,7 @@ public class Mongo {
         FindIterable<Document> itr = coll.find(filter);
         return itr.first() != null;
     }
+
     //linus
     public static String encrypt(String string){
         //logic to encrypt here
@@ -101,16 +102,22 @@ public class Mongo {
 
     //andreea
     public static Object extractKey(String newUser, String newPass){
-        FindIterable<Document> itr = Mongo.coll.find(and(eq("user name",newUser),
-                eq("password", "newPass")));
-        return itr.first().get("key");
+        FindIterable<Document> itr = coll.find(and(eq("user name",newUser),
+                eq("password", newPass)));
+        return itr.first().get("key").toString();
     }
 
     //andreea
     public static boolean isValidLogin(String newUser, String newPass){
-        FindIterable<Document> itr = Mongo.coll.find(and(eq("user name",newUser),
-                eq("password", "newPass")));
+        FindIterable<Document> itr = coll.find(and(eq("user name",newUser),
+                eq("password", newPass)));
         return itr.first() != null;
+    }
+
+    //andreea
+    public static void deleteUser(String newUser, String email) {
+        coll.findOneAndDelete(eq("email", email));
+        coll.findOneAndDelete(eq("user name", newUser));
     }
 }
 

@@ -4,7 +4,6 @@ import com.mongodb.client.FindIterable;
 import org.bson.Document;
 import pleasefivebank.Mongo;
 import pleasefivebank.Objects.User;
-import static com.mongodb.client.model.Filters.eq;
 
 public class Registration{
     private String firstName;
@@ -155,32 +154,29 @@ public class Registration{
 
     //andreea
     public boolean register(){
-        //we first see if user exists
-        if(Mongo.isUser(this.username))
+        if(!validateData())//we check if the data is valid
             return false;
-        else{ //if he doesn´t we create account
+        else{ //if he doesn´t exist we create account
             String birthdate = extractBirthdate(this.personalID);
             User newUser = new User(this.firstName, this.middleName, this.lastName, this.streetName, this.postalCode,
                     this.city, "", birthdate, this.phoneNumber,this.personalID,this.email);
-            //We add the user to the database as document
+            //We write the user as document
             Document user = newUser.toDocument();
             //we create a document with encrypted credentials and add it to the database
-            Document doc = new Document("user name", Mongo.encrypt(this.username)).
+            Document login = new Document("user name", Mongo.encrypt(this.username)).
                     append("password", Mongo.encrypt(this.password));
-            Mongo.coll.insertOne(doc);
+            Mongo.coll.insertOne(login);
             //get the automatically generated id of the document just inserted
-            FindIterable<Document> itr = Mongo.coll.find(doc);
+            FindIterable<Document> itr = Mongo.coll.find(login);
             String key = itr.first().get("_id").toString();
-            //store the id in the key field of the user document
-            Mongo.coll.findOneAndUpdate(eq("personnummer", this.personalID),
-                    new Document("$set", new Document("key", key)));
+            //store the id in the key field of the user document and add the user to the database
+            Mongo.coll.insertOne(user.append("key", key));
         }
         return true;
     }
 
     //andreea
     public String extractBirthdate(String personnummer){
-        String birthday =  personnummer.substring(0, 8);
         String yearString  = personnummer.substring(0,4);
         String month = personnummer.substring(4,6);
         String day = personnummer.substring(6,8);

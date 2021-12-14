@@ -3,6 +3,9 @@ package pleasefivebank.Menus;
 import com.mongodb.client.FindIterable;
 import org.bson.Document;
 import pleasefivebank.Mongo;
+import pleasefivebank.Objects.User;
+
+import static com.mongodb.client.model.Filters.eq;
 
 public class EntryPage {
 

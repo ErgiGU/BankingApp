@@ -1,15 +1,15 @@
 #UniversityOptions {
-    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, white;
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, #FFFFFF;
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
     -fx-background-radius: 3px, 3px, 2px, 1px;
     -fx-font-size: 14px;
     -fx-font-family: "Arial Rounded MT Bold";
-    -fx-text-fill: RED;
+
 }
-#UniversityOptions .label {
-    -fx-background-color:  WHITE;
-    -fx-text-fill: RED;
+.combo-box.center-aligned>.list-cell {
+    -fx-alignment: center;
 }
+
 
 
 

@@ -43,12 +43,10 @@ public class User {
     public Document toDocument(){
         String id = "";
         Document doc = new Document("first name", this.firstName).
-                append("middle name", this.middleName).append("last name", this.lastName).
-                append("key", this.key).append("birth date", this.birthdate).
+                append("middle name", this.middleName).append("last name", this.lastName).append("birth date", this.birthdate).
                 append("personnummer", this.personnummer).append("phone number", this. phoneNumber).append("email", this.email).
                 append("address", this.address).append("city", this.city).
                 append("postal code", this.postalCode).append("transactions", this.transactions);
-        Mongo.coll.insertOne(doc);
         return doc;
     }
 

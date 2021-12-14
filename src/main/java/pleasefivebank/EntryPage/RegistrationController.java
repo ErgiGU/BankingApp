@@ -17,9 +17,7 @@ import java.util.ResourceBundle;
 
 public class RegistrationController{
 
-    /*ObservableList<String> UniversityOptionList = FXCollections.
-            observableArrayList("Select your University :", "Chalmers University", "GU University");
-    //User newUserInfo = new User();*/
+    //User newUserInfo = new User();
     Registration registration = new Registration();
 
 
