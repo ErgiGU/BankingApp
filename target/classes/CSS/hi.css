@@ -1,0 +1,24 @@
+#EntryPage {
+    opacity: 0;
+    font-size: 21px;
+    margin-top: 25px;
+    text-align: center;
+
+    -fx-effect-transition: opacity 5s ease-in;
+    -fx-moz-transition: opacity 5s ease-in;
+    -ms-transition: opacity 5s ease-in;
+    -o-transition: opacity 5s ease-in;
+    transition: opacity 5s ease-in;
+}
+
+#test p.load {
+    opacity: 1;
+}
+
+#Reg1 {
+
+
+}
+.button:hover{
+    -fx-opacity: 0.8;
+}
