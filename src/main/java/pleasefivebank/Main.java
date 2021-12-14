@@ -24,6 +24,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+
         try {
             Mongo.mongo();//Mongo is a utility class and cannot be instantiated
         } catch (Exception e) {

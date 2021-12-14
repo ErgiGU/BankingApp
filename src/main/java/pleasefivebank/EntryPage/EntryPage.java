@@ -1,5 +1,8 @@
 package pleasefivebank.EntryPage;
 
+import javafx.scene.control.Tooltip;
+import javafx.stage.PopupWindow;
+import javafx.util.Duration;
 import pleasefivebank.Objects.*;
 import org.bson.Document;
 import pleasefivebank.Mongo;
