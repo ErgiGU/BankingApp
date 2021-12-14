@@ -2,11 +2,13 @@ package pleasefivebank;
 
 import com.mongodb.MongoWriteException;
 import com.mongodb.bulk.BulkWriteResult;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.BulkWriteOptions;
 import com.mongodb.client.model.InsertOneModel;
+import javafx.scene.control.Label;
 import org.bson.Document;
 import java.util.logging.Logger;
 import java.util.logging.Level;
@@ -66,6 +68,25 @@ public class Mongo {
         } catch (MongoWriteException e) {
             System.out.println("There is another session open on another port or the server could be down");
         }
+    }
+
+    public static boolean isAssociatedEmail(String email) {
+        Document filter = new Document("email", email);
+        FindIterable<Document> itr = coll.find(filter);
+        return itr.first() != null;
+    }
+
+    public static boolean existsInDatabase(String itemToFind, String databaseVariable, Label inputLabel, String validationText) {
+        String validationString = null;
+        boolean exists = false;
+        Document filter = new Document(databaseVariable,itemToFind);
+        FindIterable<Document> itr = coll.find(filter);
+        if(itr.first() != null){
+            exists = true;
+            validationString = validationText;
+        }
+        inputLabel.setText(validationString);
+        return exists;
     }
 
     public void add() {

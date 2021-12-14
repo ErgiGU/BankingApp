@@ -2,13 +2,14 @@ package pleasefivebank.EntryPage;
 
 import pleasefivebank.Objects.User;
 
+
 public class Registration {
     private String firstName;
     private String middleName;
     private String lastName;
     private String personalID;
 
-    private String streetName;
+    private String address;
     private String city;
     private String postalCode;
     private String email;
@@ -26,7 +27,7 @@ public class Registration {
         this.middleName = "";
         this.lastName = "";
         this.personalID = "";
-        this.streetName = "";
+        this.address = "";
         this.city = "";
         this.postalCode = "";
         this.email = "";
@@ -49,8 +50,8 @@ public class Registration {
     public String getPersonalID(){
         return personalID;
     }
-    public String getStreetName(){
-        return streetName;
+    public String getAdress(){
+        return address;
     }
     public String getCity(){
         return city;
@@ -95,7 +96,7 @@ public class Registration {
         this.postalCode = PostalCode;
     }
     public void setStreetName(String StreetName){
-        this.streetName = StreetName;
+        this.address = StreetName;
     }
     public void setEmail(String Email){
         this.email = Email;
@@ -126,10 +127,10 @@ public class Registration {
     }
     //ergi and juan
     public boolean validatePage1(String firstName, String middleName, String lastName, String PersonalID){
-        return true;
+        return false;
     }
     //ergi and juan
-    public boolean validatePage2(String streetname,String email, String city, String postalCode,String phoneNumber){
+    public boolean validatePage2(String address,String email, String city, String postalCode,String phoneNumber){
         return true;
     }
     //ergi and juan

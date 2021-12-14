@@ -16,65 +16,32 @@ public class DataValidation {
         inputLabel.setText(validationString);
         return isEmpty;
     }
-    //Ergi
-    public static boolean dataLength(String inputTextField, Label inputLabel, String validationText, String requiredLength){
-        boolean isDataLength = true;
-        String validationString = null;
-        if(!inputTextField.matches("\\b\\w" +"{" + requiredLength + "}" + "\\b")){
-            //isDataLength = false;
-            validationString = validationText;
-        }
-        return isDataLength;
-    }
 
-    //Ergi
-    public static boolean textAlphabet(String inputTextField, Label inputLabel, String validationText){
+    public static boolean passwordsMatch(String password,String confirmPassword, Label inputLabel, String validationText){
+        boolean matches =true;
         String validationString = null;
-        boolean isAlphabet = true;
-        if(!inputTextField.matches("[a-z A-Z] +")){
-            isAlphabet = false;
+        if(!password.equals(confirmPassword) || password.isBlank()){
+            matches = false;
             validationString = validationText;
+
         }
         inputLabel.setText(validationString);
-
-        return isAlphabet;
+        return matches;
     }
 
-    //Ergi
-    public static boolean textNumeric(String inputTextField, Label inputLabel, String validationText){
-        boolean isNumeric = true;
-        String  validationString = null;
-        if(!inputTextField.matches("[0-9] +")){
-            isNumeric = false;
-            validationString = validationText;
-        }
-        inputLabel.setText(validationString);
-        return isNumeric;
-    }
 
     //Ergi (Java email validation permitted by RFC 5322)
-    public static boolean emailFormat(String inputTextField, Label inputLabel, String validationText){
-        boolean isEmail = true;
+
+    public static boolean validateField(String inputTextField, Label inputLabel, String regex, String validationText ){
+        boolean isValidated = true;
         String validationString = null;
-        if(!inputTextField.matches("^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")){
-            isEmail = false;
+        if(!inputTextField.matches(regex)){
+            isValidated = false;
             validationString = validationText;
         }
         inputLabel.setText(validationString);
-        return isEmail;
+        return isValidated;
     }
-
-    public static boolean postalCode(String inputTextField, Label inputLabel, String validationText, String requiredLength){
-        boolean isPostal = true;
-        String validationString = null;
-        if(!inputTextField.matches("\\d{5}")){
-            isPostal=false;
-            validationString = validationText;
-        }
-        inputLabel.setText(validationString);
-        return isPostal;
-    }
-
 
 
 }
