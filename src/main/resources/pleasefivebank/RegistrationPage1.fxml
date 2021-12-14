@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pleasefivebank.EntryPage.RegistrationController">
+<BorderPane id="Reg1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="765.0" styleClass="Reg1" stylesheets="@../CSS/hi.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pleasefivebank.EntryPage.RegistrationController">
    <left>
-      <AnchorPane prefHeight="588.0" prefWidth="765.0" style="-fx-background-color: EFEFEF;" BorderPane.alignment="CENTER">
+      <AnchorPane id="Reg1" prefHeight="588.0" prefWidth="765.0" style="-fx-background-color: EFEFEF;" styleClass="Reg1" BorderPane.alignment="CENTER" stylesheets="@../CSS/ComboStyle.css">
          <children>
             <TextField fx:id="FirstName" layoutX="67.0" layoutY="145.0" prefHeight="34.0" prefWidth="216.0" promptText="First Name" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />
             <TextField fx:id="MiddleName" layoutX="67.0" layoutY="224.0" prefHeight="34.0" prefWidth="216.0" promptText="Middle Name (Optional)" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />

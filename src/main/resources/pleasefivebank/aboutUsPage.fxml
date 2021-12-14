@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="774.0" style="-fx-background-color: #1275EA;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pleasefivebank.EntryPage.AboutUsController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="774.0" style="-fx-background-color: #1275EA;" stylesheets="@../CSS/hi.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pleasefivebank.EntryPage.AboutUsController">
    <children>
       <Label layoutX="336.0" layoutY="14.0" text="about us" textFill="WHITE">
          <font>
@@ -53,7 +54,7 @@
       <Label layoutX="85.0" layoutY="366.0" text="One where there is room " textFill="WHITE" />
       <Label layoutX="82.0" layoutY="383.0" text="for both personal growth  " textFill="WHITE" />
       <Label layoutX="94.0" layoutY="400.0" text="and experimentation. " textFill="WHITE" />
-      <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="20.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="44.0" fitWidth="44.0" layoutX="24.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PNGs/arrow-237-white.png" />
          </image>
@@ -63,6 +64,9 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Button layoutX="24.0" layoutY="20.0" mnemonicParsing="false" onAction="#BackToEntryPage" opacity="0.0" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: #1275EA;" />
+      <Button layoutX="24.0" layoutY="6.0" mnemonicParsing="false" onAction="#BackToEntryPage" opacity="0.0" prefHeight="50.0" prefWidth="170.0" style="-fx-background-color: #1275EA;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
    </children>
 </Pane>
