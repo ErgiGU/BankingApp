@@ -11,13 +11,13 @@ public class ForgotPassword {
     private String newPass;
 
     //juan + andreea
-    public ForgotPassword(String username,String password, String newPass) {
+    public ForgotPassword(String username, String password, String newPass) {
         //maybe this shouldn´t be  in the constructor
         String encrPass = Mongo.encrypt(password);
         String encrUser = Mongo.encrypt(username);
         if (Mongo.isValidLogin(encrPass, encrUser)) {
             Object key = Mongo.extractKey(encrUser, encrPass);
-            FindIterable<Document> itr = Mongo.coll.find(eq("key", key));
+            FindIterable<Document> itr = Mongo.coll.find(eq("key", key.toString()));
             String email = itr.first().get("email").toString();
             //send bot email with new password
             //Bot logic here
