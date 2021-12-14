@@ -176,154 +176,90 @@
    <right>
       <AnchorPane prefHeight="614.0" prefWidth="919.0" style="-fx-background-color: EFEFEF;" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="183.0" layoutX="60.0" layoutY="256.0" stroke="#efefef" strokeType="INSIDE" style="-fx-arc-height: 100; -fx-arc-width: 100;" width="800.0" />
-            <Text fill="#457b9d" layoutX="78.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello, Juan García Díaz!">
+            <Text fill="#2b5292" layoutX="78.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello, Juan García Díaz!">
                <font>
                   <Font name="Avenir Book" size="24.0" />
                </font>
             </Text>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="76.0" layoutX="59.0" layoutY="139.0" stroke="#efefef" strokeType="INSIDE" style="-fx-arc-height: 100; -fx-arc-width: 100;" width="800.0" />
-            <Text fill="#2b5292" layoutX="109.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Accounts">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="449.0" layoutX="59.0" layoutY="130.0" stroke="#efefef" strokeType="INSIDE" style="-fx-arc-height: 100; -fx-arc-width: 100;" width="800.0" />
+            <Text fill="#2b5292" layoutX="111.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Accounts">
                <font>
-                  <Font name="Avenir Next Bold" size="18.0" />
+                  <Font name="Avenir Next Bold" size="24.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="121.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carlotta Hillger" wrappingWidth="125.49224853515625">
+            <Text fill="#2b5292" layoutX="494.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IBAN:" wrappingWidth="362.49224853515625">
                <font>
-                  <Font name="Avenir Book" size="17.0" />
+                  <Font name="Avenir Next Bold" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="109.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recent transactions">
+            <Text fill="#2b5292" layoutX="495.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account number:" wrappingWidth="362.49224853515625">
                <font>
-                  <Font name="Avenir Next Bold" size="18.0" />
+                  <Font name="Avenir Next Bold" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="681.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ 8562,45 SEK" wrappingWidth="162.49224853515625">
+            <Text fill="#2b5292" layoutX="494.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BIC:" wrappingWidth="362.49224853515625">
                <font>
-                  <Font name="Avenir Book" size="17.0" />
+                  <Font name="Avenir Next Bold" size="17.0" />
                </font>
             </Text>
-            <Line endX="703.2929077148438" layoutX="140.0" layoutY="301.0" startX="-62.70709228515625" stroke="WHITE" />
-            <Line endX="703.2929077148438" layoutX="141.0" layoutY="392.0" startX="-62.70709228515625" stroke="WHITE" />
-            <Line endX="703.2929077148438" layoutX="138.0" layoutY="347.0" startX="-62.70709228515625" stroke="WHITE" />
-            <Text fill="#2b5292" layoutX="701.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ 50,00 SEK" textAlignment="RIGHT" wrappingWidth="98.49224853515625">
+            <Text fill="#2b5292" layoutX="491.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account type: " wrappingWidth="362.49224853515625">
                <font>
-                  <Font name="Avenir Book" size="17.0" />
+                  <Font name="Avenir Next Bold" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="704.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 460,98 SEK" textAlignment="RIGHT" wrappingWidth="98.49224853515625">
+            <Text fill="#2b5292" layoutX="494.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort code:" wrappingWidth="362.49224853515625">
                <font>
-                  <Font name="Avenir Book" size="17.0" />
+                  <Font name="Avenir Next Bold" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="696.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ 200,00 SEK" textAlignment="RIGHT" wrappingWidth="106.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="703.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 180,00 SEK" textAlignment="RIGHT" wrappingWidth="98.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#457b9d" layoutX="122.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="217 623 868-6" wrappingWidth="146.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="16.0" />
-               </font>
-            </Text>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="115.0" layoutX="61.0" layoutY="477.0" stroke="#efefef" strokeType="INSIDE" style="-fx-arc-height: 100; -fx-arc-width: 100;" width="383.0" />
-            <Text fill="#457b9d" layoutX="120.0" layoutY="506.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enjoy our latest student promotions!" textAlignment="CENTER" wrappingWidth="265.668701171875">
-               <font>
-                  <Font name="Avenir Book" size="16.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="121.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Linus Carlberg" wrappingWidth="125.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="121.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hemköp" wrappingWidth="125.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="121.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Willy's" wrappingWidth="125.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="371.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-12-07" wrappingWidth="125.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="371.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-12-04" wrappingWidth="125.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="371.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-12-04" wrappingWidth="125.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="371.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-12-05" wrappingWidth="125.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Button layoutX="77.0" layoutY="439.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="197.0" style="-fx-background-color: EFEFEF;" text="View all transactions" textFill="#457b9d">
-               <font>
-                  <Font name="Avenir Book" size="14.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button layoutX="100.0" layoutY="154.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="168.0" style="-fx-background-color: #e8e8e8;">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Text fill="#2b5292" layoutX="121.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student account" wrappingWidth="146.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="115.0" layoutX="476.0" layoutY="476.0" stroke="#efefef" strokeType="INSIDE" style="-fx-arc-height: 100; -fx-arc-width: 100;" width="383.0" />
-            <Text fill="#457b9d" layoutX="505.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We offer low interest loans to students to meet your educational and financial needs." textAlignment="CENTER" wrappingWidth="323.5670166015625">
-               <font>
-                  <Font name="Avenir Book" size="15.0" />
-               </font>
-            </Text>
-            <Text fill="#457b9d" layoutX="512.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Looking to apply for a loan?" textAlignment="CENTER" wrappingWidth="310.13958740234375">
-               <font>
-                  <Font name="Avenir Book" size="16.0" />
-               </font>
-            </Text>
-            <Button layoutX="617.0" layoutY="554.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #457b9d#457b9d;" text="Learn more" textFill="#efefef">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="366.0" layoutY="538.0" preserveRatio="true">
+            <ImageView fitHeight="215.0" fitWidth="308.0" layoutX="113.0" layoutY="207.0" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../espressohouse.png" />
+                  <Image url="@../../../../../../../Downloads/output-onlinepngtools%20(8).png" />
                </image>
             </ImageView>
-            <Text fill="#457b9d" layoutX="149.0" layoutY="530.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10% off at Espresso House" textAlignment="CENTER" wrappingWidth="197.80087280273438">
+            <Text fill="WHITE" layoutX="147.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8453 9009 1539 7340" wrappingWidth="362.49224853515625">
                <font>
-                  <Font name="Avenir Book" size="15.0" />
+                  <Font name="Kredit-Regular" size="25.0" />
                </font>
             </Text>
-            <ImageView fitHeight="23.0" fitWidth="141.0" layoutX="101.0" layoutY="558.0" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../../Downloads/nordicicon.png" />
-               </image>
-            </ImageView>
-            <Text fill="#457b9d" layoutX="134.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50% off youre first month at Nordic Wellness" textAlignment="CENTER" wrappingWidth="233.22792053222656">
+            <Text fill="WHITE" layoutX="144.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Juan García Díaz" wrappingWidth="101.32012939453125">
                <font>
-                  <Font name="Avenir Book" size="15.0" />
+                  <Font name="Kredit-Regular" size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="256.0" layoutY="370.0" strokeType="OUTSIDE" strokeWidth="0.0" text="08/24" wrappingWidth="46.09478759765625">
+               <font>
+                  <Font name="Kredit-Regular" size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#2b5292" layoutX="510.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student account" wrappingWidth="362.49224853515625">
+               <font>
+                  <Font name="Avenir Book" size="17.0" />
+               </font>
+            </Text>
+            <Text fill="#2b5292" layoutX="511.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6385-8" wrappingWidth="362.49224853515625">
+               <font>
+                  <Font name="Avenir Book" size="17.0" />
+               </font>
+            </Text>
+            <Text fill="#2b5292" layoutX="511.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="217 623 868-6" wrappingWidth="362.49224853515625">
+               <font>
+                  <Font name="Avenir Book" size="17.0" />
+               </font>
+            </Text>
+            <Text fill="#2b5292" layoutX="508.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SE41 9116 3132 9621 7623 8686" wrappingWidth="362.49224853515625">
+               <font>
+                  <Font name="Avenir Book" size="17.0" />
+               </font>
+            </Text>
+            <Text fill="#2b5292" layoutX="508.0" layoutY="448.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PFBBSESS" wrappingWidth="362.49224853515625">
+               <font>
+                  <Font name="Avenir Book" size="17.0" />
+               </font>
+            </Text>
+            <Text fill="#2b5292" layoutX="190.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ 8562 45 SEK">
+               <font>
+                  <Font name="Avenir Book" size="24.0" />
                </font>
             </Text>
          </children></AnchorPane>
