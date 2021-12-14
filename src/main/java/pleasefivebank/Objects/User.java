@@ -21,9 +21,12 @@ public class User {
     private String lastName;
     private String userName;
     private String password;
+    private String university;
     private ArrayList<Transaction> transactions = new ArrayList<>();
+    private Account account;
 
-    public User(String name, String middleName, String lastName, String address, String city, String postalCode, String key, String birthDate, String phoneNumber, String personNummer, String email) {
+    public User(String name, String middleName, String lastName, String address, String city, String postalCode, String key,
+                String birthDate, String phoneNumber, String personNummer, String email, String university) {
         this.firstName = name;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -35,7 +38,12 @@ public class User {
         this.address = address;
         this.city = city;
         this.postalCode = postalCode;
-        toDocument();
+        this.university = university;
+        if(this.university.isEmpty()) {
+            this.account = new BasicAccount(0, false, "","");//introduce account number and IBAN
+        } else {
+            this.account = new StudentAccount(0, false, "", "", this.university);//introduce account number and IBAN
+        }
         //we store user transactions from the JSON file in the transactions ArrayList
     }
 
@@ -105,7 +113,7 @@ public class User {
     public void setEmail(String newEmail) {
         this.email = newEmail;
     }
-    //override toString
+
     public String getPassword(){String password = ""; return  password;}
 
     public String setPassword(String newPassword){this.password = newPassword; return newPassword;}
@@ -113,14 +121,5 @@ public class User {
     public String getUserName(){String userName = ""; return  userName;}
 
     public String setUserName(String newUserName){this.userName = newUserName; return newUserName;}
-
-    public static String getEncryptedPassword (String password){
-        String encryptedPassword = Base64.getEncoder().encodeToString(password.getBytes());
-        return encryptedPassword;
-    }
-    public static String getEncryptedUserName (String userName){
-        String encryptedUserName = Base64.getEncoder().encodeToString(userName.getBytes());
-        return encryptedUserName;
-    }
 }
 

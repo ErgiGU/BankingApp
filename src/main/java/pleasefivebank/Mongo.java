@@ -118,5 +118,8 @@ public final class Mongo {//marked as final because it is a utility class and it
         coll.findOneAndDelete(eq("email", email));
         coll.findOneAndDelete(eq("user name", newUser));
     }
+
+    /*public static Document listAccounts(){
+    }*/
 }
 

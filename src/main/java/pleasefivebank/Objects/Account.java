@@ -4,6 +4,8 @@ public abstract class Account {
     private long balance;
     private int rewardPoints;
     private boolean frozen;
+    private String accountNr;
+    private String accountIBAN;
 
     //gu student account
 
@@ -26,15 +28,15 @@ public abstract class Account {
         this.frozen = false;
     }
 
-    public void makeTransaction() {
+    public void makeTransaction() {//this in User class
         //ask for input in gui and make transaction if input is valid
     }
 
-    public void requestTransaction() {
+    public void requestTransaction() {//this in User class
         //ask for input in gui and request transaction if input is valid
     }
 
-    public void showCard() {
+    public void showCard() {//this in User class
         //get card info and show it
     }
 

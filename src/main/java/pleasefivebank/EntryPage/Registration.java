@@ -153,33 +153,31 @@ public class Registration{
     }
 
     //andreea
-    public boolean register(){
-        if(!validateData())//we check if the data is valid
-            return false;
-        else{ //if he doesn´t exist we create account
-            String birthdate = extractBirthdate(this.personalID);
-            User newUser = new User(this.firstName, this.middleName, this.lastName, this.streetName, this.postalCode,
-                    this.city, "", birthdate, this.phoneNumber,this.personalID,this.email);
-            //We write the user as document
-            Document user = newUser.toDocument();
-            //we create a document with encrypted credentials and add it to the database
-            Document login = new Document("user name", Mongo.encrypt(this.username)).
-                    append("password", Mongo.encrypt(this.password));
-            Mongo.coll.insertOne(login);
-            //get the automatically generated id of the document just inserted
-            FindIterable<Document> itr = Mongo.coll.find(login);
-            String key = itr.first().get("_id").toString();
-            //store the id in the key field of the user document and add the user to the database
-            Mongo.coll.insertOne(user.append("key", key));
-        }
-        return true;
+    public void register(){
+        String birthdate = extractBirthdate(this.personalID);
+        User newUser = new User(this.firstName, this.middleName, this.lastName, this.streetName, this.postalCode,
+                this.city, "", birthdate, this.phoneNumber, this.personalID, this.email, this.university);
+        //We write the user as document
+        Document user = newUser.toDocument();
+        //we create a document with encrypted credentials and add it to the database
+        Document login = new Document("user name", Mongo.encrypt(this.username)).
+                append("password", Mongo.encrypt(this.password));
+        Mongo.coll.insertOne(login);
+        //get the automatically generated id of the document just inserted
+        FindIterable<Document> itr = Mongo.coll.find(login);
+        String key = itr.first().get("_id").toString();
+        //store the id in the key field of the user document and add the user to the database
+        Mongo.coll.insertOne(user.append("key", key));
     }
 
-    //andreea
+    //andreea + ossian
     public String extractBirthdate(String personnummer){
-        String yearString  = personnummer.substring(0,4);
-        String month = personnummer.substring(4,6);
-        String day = personnummer.substring(6,8);
+        String yearString  = personnummer.substring(0,2);
+        if(Integer.parseInt(yearString) > 22){
+            yearString += 1990;
+        }
+        String month = personnummer.substring(2,4);
+        String day = personnummer.substring(4,6);
         return yearString+"/"+month + "/"+ day;
     }
 }

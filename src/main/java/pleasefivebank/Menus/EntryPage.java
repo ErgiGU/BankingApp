@@ -12,9 +12,10 @@ import static com.mongodb.client.model.Filters.eq;
 public class EntryPage {
 
     public static void createUser() {
-        User user = new User("juan", "ose", "garcia",
+        /*User user = new User("juan", "ose", "garcia",
                 "vasagatan", "Göteborg", "41112", "123456", "31/10/2000",
-                "1234 5678", "0010915611", "juanWantsA5@gmail.com");
+                "1234 5678", "0010915611", "juanWantsA5@gmail.com",
+                "GU University");
     }
 
     public static void updatePassword(String newPass, Object id) {
@@ -25,7 +26,7 @@ public class EntryPage {
     public static Object extractKey(String newUser, String newPass){
         FindIterable<Document> itr = Mongo.coll.find(and(eq("user name",newUser),
                 eq("password", newPass)));
-        return itr.first().get("_id");
+        return itr.first().get("_id");*/
     }
 
     public void loginUser() {
