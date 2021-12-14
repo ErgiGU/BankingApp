@@ -36,7 +36,7 @@ public abstract class Account {
         //ask for input in gui and request transaction if input is valid
     }
 
-    public void showCard() {//this in User class
+    public void showCard() {
         //get card info and show it
     }
 

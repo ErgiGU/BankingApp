@@ -9,22 +9,26 @@ import pleasefivebank.Mongo;
 
 import java.util.Base64;
 
+import static com.mongodb.client.model.Filters.eq;
+
 public class EntryPage {
 
 
     //juan + andreea
     public boolean login(String username, String password){
         //encrypt
-
-        //check for encrypted user with same credentials
         String encryptedName = Mongo.encrypt(username);
         String encryptedPassword = Mongo.encrypt(password);
-
+        //check for encrypted user with same credentials
         if (Mongo.isValidLogin(encryptedName,encryptedPassword)) {
-            //key will be the user key to access his info in the database
-            Mongo.extractKey(encryptedName, encryptedPassword);
+            //key will be the user key to access their info in the database
+            Object id = Mongo.extractKey(encryptedName, encryptedPassword);
+            Document user = Mongo.coll.find(eq("_id", id)).first();//locate the user data inside the database
+            //user.get(..);
+            //
+            return true;
         }
-        return true;
+        return false;
     }
 
     //juan
