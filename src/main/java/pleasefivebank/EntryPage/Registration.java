@@ -127,9 +127,9 @@ public class Registration{
 
     //andreea
     public void register(){
-        String birthdate = extractBirthdate(this.personalID);
+        //String birthdate = extractBirthdate(this.personalID);
         User newUser = new User(this.firstName, this.middleName, this.lastName, this.streetName, this.postalCode,
-                this.city, "", birthdate, this.phoneNumber, this.personalID, this.email, this.university);
+                this.city, "", "21/12/2009", this.phoneNumber, this.personalID, this.email, this.university);
         //We write the user as document
         Document user = newUser.toDocument();
         //we create a document with encrypted credentials and add it to the database

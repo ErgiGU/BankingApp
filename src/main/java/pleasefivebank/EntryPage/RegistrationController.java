@@ -212,7 +212,7 @@ public class RegistrationController {
         String password = Password.getText();
         String confirmPassword = ConfirmPassword.getText();
         boolean usernameValidation = DataValidation.validateField(username,usernameLabel,"^[A-Za-z][A-Za-z0-9_]{7,29}$","The username must be at least 8 characters");
-        boolean passwordValidation = DataValidation.validateField(password, passwordLabel,"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,30}$", "Password must contain at least one(number,digit,uppercase,lowercase,special character)");
+        boolean passwordValidation = true;//DataValidation.validateField(password, passwordLabel,"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,30}$", "Password must contain at least one(number,digit,uppercase,lowercase,special character)");
         //boolean usernameExists = Mongo.existsInDatabase(username, "user name",usernameLabel,"Username already exists");
         if(passwordValidation) {
             boolean passwordsMatch = DataValidation.passwordsMatch(password,confirmPassword,confirmLabel,"Passwords must match");
@@ -250,7 +250,7 @@ public class RegistrationController {
 
     //juan
     @FXML
-    void FinishRegister() {
+    void FinishRegister(ActionEvent event) {
         try {
             //you register the user
             //if user selects uni we save it
@@ -266,7 +266,7 @@ public class RegistrationController {
             registration.setUsername(tempUsername);
             registration.setPassword(tempPassword);
             //registration.extractBirthdate(tempID);
-            //registration.register();
+            registration.register();
             Main.showPage("Entry-Page.fxml");
         }
         catch (IOException ex) {
