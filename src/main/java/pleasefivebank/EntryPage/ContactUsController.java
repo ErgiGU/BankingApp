@@ -35,12 +35,12 @@ public class ContactUsController {
     void SendPressed(ActionEvent event) throws IOException {
         try {
             String email = EmailTextField.getText();
-            String name = NameTextField.getText();
+            String username = NameTextField.getText();
             String message = MessageField.getText();
             //validate data then add to database
-            /*Document review = new Document("email", email).append("name", name).
+            Document review = new Document("email", email).append("user name", username).
                     append("text", message);
-            Mongo.coll.insertOne(review);*/
+            Mongo.coll4.insertOne(review);
             Main.showPage("Entry-Page.fxml");
         } catch (IOException ex) {
             ex.printStackTrace();

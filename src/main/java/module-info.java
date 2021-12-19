@@ -11,9 +11,9 @@ module pleasefivebank.bank {
     requires eu.hansolo.tilesfx;
     requires mongo.java.driver;
     requires java.logging;
+    requires iban4j;
 
     opens pleasefivebank to javafx.fxml;
     opens pleasefivebank.EntryPage to javafx.fxml;
-    opens pleasefivebank.Registration to javafx.fxml;
     exports pleasefivebank;
 }

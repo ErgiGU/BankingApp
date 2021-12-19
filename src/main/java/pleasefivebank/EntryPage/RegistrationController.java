@@ -3,32 +3,31 @@ package pleasefivebank.EntryPage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import org.iban4j.CountryCode;
+import org.iban4j.Iban;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
+import pleasefivebank.Objects.Account;
 
+import java.io.FileWriter;
 import java.io.IOException;
-
-
 
 public class RegistrationController {
     //User newUserInfo = new User();
-    Registration registration = new Registration();
+    private Registration registration = new Registration();
 
     private static String tempFirstName="k";
-    private String tempLastName="";
-    private String tempMiddleName="";
-    private String tempID="";
-    private String tempCity="";
-    private String tempEmail="";
-    private String tempPhone="";
-    private String tempPostal="";
-    private String tempAddress="";
-    private String tempUsername="";
-    private String tempPassword="";
-    private String tempConfirmPassword="";
-
-
-
+    private static String tempLastName="";
+    private static String tempMiddleName="";
+    private static String tempID="";
+    private static String tempCity="";
+    private static String tempEmail="";
+    private static String tempPhone="";
+    private static String tempPostal="";
+    private static String tempAddress="";
+    private static String tempUsername="";
+    private static String tempPassword="";
+    private static String tempConfirmPassword="";
 
     @FXML
     private TextField FirstName;
@@ -90,13 +89,18 @@ public class RegistrationController {
         String lastName = LastName.getText();
         String middleName = MiddleName.getText();
         String personalID = PersonalID.getText();
-        boolean firstNameValidation = DataValidation.validateField(firstName, firstNameLabel, "([\\p{L}]+\s)*[\\p{L}]+", "Enter your real name");
-        boolean lastNameValidation = DataValidation.validateField(lastName, lastNameLabel, "([\\p{L}]+\s)*[\\p{L}]+","Enter your real last name");
-        boolean idValidation = DataValidation.validateField(personalID,idLabel, "\\d{10}","Enter a valid ID");
-        boolean middleValidation = DataValidation.validateField(middleName,middleNameLabel,"[a-zA-Z]*","Enter your real middle name");
+        boolean firstNameValidation = DataValidation.validateField(firstName, firstNameLabel,
+                "([\\p{L}]+\s)*[\\p{L}]+", "Enter your real name");
+        boolean lastNameValidation = DataValidation.validateField(lastName, lastNameLabel,
+                "([\\p{L}]+\s)*[\\p{L}]+","Enter your real last name");
+        boolean idValidation = DataValidation.validateField(personalID,idLabel,
+                "\\d{10}","Enter a valid ID");
+        boolean middleValidation = DataValidation.validateField(middleName,middleNameLabel,
+                "[a-zA-Z]*","Enter your real middle name");
         //boolean idExists = Mongo.existsInDatabase(personalID,"personnummer",idLabel,"Personal ID already exists")
         if(idValidation) {
-            boolean idExists = Mongo.existsInDatabase(personalID,"personnummer",idLabel,"Personal ID already exists");
+            boolean idExists = Mongo.existsInDatabase(personalID,"personnummer",
+                    idLabel,"Personal ID already exists");
             if (firstNameValidation && lastNameValidation && middleValidation && !idExists) {
                 tempFirstName = firstName;
                 tempLastName = lastName;
@@ -148,8 +152,10 @@ public class RegistrationController {
         boolean addressVerification = DataValidation.validateField(address, addressLabel, "^\\w+?\\s\\d+$", "Enter a valid address");
         boolean cityVerification = DataValidation.validateField(city, cityLabel, "([\\p{L}]+\s)*[\\p{L}]+", "Enter a valid city name");
         //RFC 5322 Official Standard
-        boolean emailVerification = DataValidation.validateField(email, emailLabel, "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)" +
-                "+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])", "Wrong email format");
+        boolean emailVerification = DataValidation.validateField(email, emailLabel, "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[" +
+                "\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)" +
+                "+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[" +
+                "\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])", "Wrong email format");
         boolean phoneVerification = DataValidation.validateField(phone, phoneLabel, "\\d{10}", "Enter a valid phone number");
         //boolean phoneExists = Mongo.existsInDatabase(phone,"phone number",phoneLabel,"Phone is already registered" );
         boolean postalVerification = DataValidation.validateField(postalCode, postalLabel, "\\d{5}", "Enter a valid postal code");
@@ -170,7 +176,6 @@ public class RegistrationController {
                     }
                 }
             }
-
         }
     }
 
@@ -195,14 +200,12 @@ public class RegistrationController {
     //Ergi
     @FXML
     void Page3to2(ActionEvent event) {
-
         try {
             Main.showPage("RegistrationPage2.fxml");
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
-
     }
 
     //Ergi
@@ -211,24 +214,25 @@ public class RegistrationController {
         String username = UserName.getText();
         String password = Password.getText();
         String confirmPassword = ConfirmPassword.getText();
-        boolean usernameValidation = DataValidation.validateField(username,usernameLabel,"^[A-Za-z][A-Za-z0-9_]{7,29}$","The username must be at least 8 characters");
-        boolean passwordValidation = true;//DataValidation.validateField(password, passwordLabel,"^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,30}$", "Password must contain at least one(number,digit,uppercase,lowercase,special character)");
+        boolean usernameValidation = DataValidation.validateField(username,usernameLabel,
+                "^[A-Za-z][A-Za-z0-9_]{7,29}$","The username must be at least 8 characters");
+        boolean passwordValidation = DataValidation.validateField(password, passwordLabel,
+                "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,30}$",
+                "Password must contain at least one(number,digit,uppercase,lowercase,special character)");
         //boolean usernameExists = Mongo.existsInDatabase(username, "user name",usernameLabel,"Username already exists");
         if(passwordValidation) {
             boolean passwordsMatch = DataValidation.passwordsMatch(password,confirmPassword,confirmLabel,"Passwords must match");
             if (usernameValidation && passwordsMatch && registration.getCheckbox()) {
                 tempUsername = username;
                 tempPassword = password;
-            try {
-                Main.showPage("RegistrationPage4.fxml");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+                try {
+                    Main.showPage("RegistrationPage4.fxml");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
-
-
 
     //juan
     @FXML
@@ -265,16 +269,16 @@ public class RegistrationController {
             registration.setEmail(tempEmail);
             registration.setUsername(tempUsername);
             registration.setPassword(tempPassword);
-            //registration.extractBirthdate(tempID);
+
+            //registration.setAccount();
             registration.register();
-            Main.showPage("Entry-Page.fxml");
+            Main.showPage("Registration Complete.fxml");
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
-
-
     }
+
     //juan
     @FXML
     void Page4to3(ActionEvent event) {
@@ -284,13 +288,7 @@ public class RegistrationController {
         catch (IOException ex) {
             ex.printStackTrace();
         }
-
-
     }
-
-
-
-
 }
 
 

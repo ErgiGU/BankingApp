@@ -9,24 +9,14 @@ import pleasefivebank.Objects.User;
 import static com.mongodb.client.model.Filters.and;
 import static com.mongodb.client.model.Filters.eq;
 
-public class EntryPage {
+public class EntryPage {//this class is not being used, I just run tests here
 
     public static void createUser() {
         /*User user = new User("juan", "ose", "garcia",
                 "vasagatan", "Göteborg", "41112", "123456", "31/10/2000",
                 "1234 5678", "0010915611", "juanWantsA5@gmail.com",
-                "GU University");
-    }
+                "GU University");*/
 
-    public static void updatePassword(String newPass, Object id) {
-        Mongo.coll.findOneAndUpdate(eq("_id", id),
-                new Document("$set", new Document("password", newPass)));
-    }
-
-    public static Object extractKey(String newUser, String newPass){
-        FindIterable<Document> itr = Mongo.coll.find(and(eq("user name",newUser),
-                eq("password", newPass)));
-        return itr.first().get("_id");*/
     }
 
     public void loginUser() {

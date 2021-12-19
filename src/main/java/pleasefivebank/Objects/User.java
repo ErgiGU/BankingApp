@@ -1,36 +1,37 @@
 package pleasefivebank.Objects;
 
 import org.bson.Document;
+import org.bson.types.ObjectId;
+import org.w3c.dom.events.DocumentEvent;
 import pleasefivebank.Mongo;
 
 import java.util.ArrayList;
-import java.util.Base64;
+import java.util.Date;
+
+import static java.util.Arrays.asList;
 
 public class User {
     //variables storing basic user info + arraylist of his transactions + arraylist of his accounts
     private String firstName;
-    private String key;
-    private String birthdate;
+    private final String birthdate;
     private String phoneNumber;
-    private String personnummer;
+    private final String personnummer;
     private String email;
     private String address;
     private String city;
     private String postalCode;
     private String middleName;
     private String lastName;
-    private String userName;
-    private String password;
     private String university;
-    private ArrayList<Transaction> transactions = new ArrayList<>();
     private Account account;
+    private Document doc;
 
-    public User(String name, String middleName, String lastName, String address, String city, String postalCode, String key,
-                String birthDate, String phoneNumber, String personNummer, String email, String university) {
+    public User(String name, String middleName, String lastName, String address, String city, String postalCode,
+                String birthDate, String phoneNumber, String personNummer, String email, String university,
+                Account account) {
         this.firstName = name;
         this.middleName = middleName;
         this.lastName = lastName;
-        this.key = key;
         this.birthdate = birthDate;
         this.phoneNumber = phoneNumber;
         this.personnummer = personNummer;
@@ -39,23 +40,46 @@ public class User {
         this.city = city;
         this.postalCode = postalCode;
         this.university = university;
-        if(this.university.isEmpty()) {
-            this.account = new BasicAccount(0, false, "","");//introduce account number and IBAN
-        } else {
-            this.account = new StudentAccount(0, false, "", "", this.university);//introduce account number and IBAN
-        }
-        //we store user transactions from the JSON file in the transactions ArrayList
+        this.account = account;
     }
 
     //andreea
-    public Document toDocument(){
-        String id = "";
-        Document doc = new Document("first name", this.firstName).
-                append("middle name", this.middleName).append("last name", this.lastName).append("birth date", this.birthdate).
-                append("personnummer", this.personnummer).append("phone number", this. phoneNumber).append("email", this.email).
+    public Document toDocument(){//same method to add the user at registration and to update
+        //changes in the account or transactions, etc.
+        doc = new Document("_id", new ObjectId()).append("first name", this.firstName).
+                append("middle name", this.middleName).append("last name", this.lastName).
+                append("birth date", this.birthdate).append("personnummer", this.personnummer).
+                append("phone number", this. phoneNumber).append("email", this.email).
                 append("address", this.address).append("city", this.city).
-                append("postal code", this.postalCode).append("transactions", this.transactions);
+                append("postal code", this.postalCode).append("university", this.university).
+                append("account", asList(new Document("account number", this.account.accountNr),
+                        new Document("account IBAN", this.account.accountIBAN),
+                        new Document("balance", this.account.balance),
+                        new Document("frozen", this.account.frozen),
+                        new Document("reward points", this.account.rewardPoints))).
+                append("transactions", asList(new Document("sent", ""/*this.account.sent*/),
+                        new Document("received", ""/*this.account.received*/)));
+        if(this.account instanceof StudentAccount) {doc.append("loans",
+                asList(new Document("status", ""), new Document("quantity", 0),
+                        new Document("due date", "")));}
         return doc;
+    }
+
+    //andreea
+    public Document toAccounts(){//same method to add the account at registration and to update
+        //changes in the account or transactions, etc.
+        Document account = new Document("_id", doc.get("_id")).append("account IBAN", this.account.accountIBAN).
+                append("transactions", asList(new Document("sent", this.account.sent),
+                        new Document("received", this.account.received)));
+        return account;
+    }
+
+    //andreea
+    public Document toTransactions(){//this method to update the user activity
+        Document transaction = new Document("_id", new ObjectId()).append("sender", this.firstName+ " "
+                + " " + this.middleName + " " + this.lastName).append("receiver", this.account.sent).
+                append("quantity", "").append("date","").append("concept","");
+        return transaction;
     }
 
     public String getFirstName() {
@@ -68,10 +92,6 @@ public class User {
 
     public String getLastName() {
         return this.lastName;
-    }
-
-    public String getKey() {
-        return this.key;
     }
 
     public String getPhoneNumber() {
@@ -114,12 +134,7 @@ public class User {
         this.email = newEmail;
     }
 
-    public String getPassword(){String password = ""; return  password;}
-
-    public String setPassword(String newPassword){this.password = newPassword; return newPassword;}
-
-    public String getUserName(){String userName = ""; return  userName;}
-
-    public String setUserName(String newUserName){this.userName = newUserName; return newUserName;}
+    public void setTransactions(){
+    }
 }
 

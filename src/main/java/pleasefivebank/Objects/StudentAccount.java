@@ -1,14 +1,14 @@
 package pleasefivebank.Objects;
 
 public class StudentAccount extends Account{
-    private final String university;
-    private final String accountNr;
-    private final String accountIBAN;
+    private final String university = "";
+    private int rewardPoints;
+    private Loan loan;
 
-    public StudentAccount(long balance, boolean frozen, String accountNr, String accountIBAN, String university) {
-        super(balance, frozen);
-        this.accountNr = accountNr;
-        this.accountIBAN = accountIBAN;
-        this.university = university;
+    public StudentAccount(String accountNr, String accountIBAN, long balance, boolean frozen){
+        super(accountNr, accountIBAN, balance, frozen);
+    }
+
+    public void requestLoan(){
     }
 }
