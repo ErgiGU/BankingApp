@@ -63,7 +63,7 @@ public final class Mongo {//marked as final because it is a utility class and it
             int batch = 100;
             List<InsertOneModel<Document>> docs = new ArrayList<>();
 
-            try (BufferedReader br = new BufferedReader(new FileReader("UserDB.json"))) {
+            try (BufferedReader br = new BufferedReader(new FileReader("UserDB2.json"))) {
                 String line;
                 while ((line = br.readLine()) != null) {
                     docs.add(new InsertOneModel<>(Document.parse(line)));

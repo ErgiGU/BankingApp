@@ -136,7 +136,7 @@
          <children>
             <ImageView fitHeight="68.0" fitWidth="107.0" layoutX="10.0" layoutY="10.0" preserveRatio="true">
                <image>
-                  <Image url="@../PNGs/P5B%20white%20small%20logo.png" />
+                  <Image url="@../PNGs/P5B white small logo.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="49.0" fitWidth="48.0" layoutX="750.0" layoutY="19.0" preserveRatio="true">
@@ -198,17 +198,17 @@
                   <Font size="22.0" />
                </font>
             </Text>
-            <TextField fx:id="Email" layoutX="573.0" layoutY="139.0" prefHeight="34.0" prefWidth="240.0" promptText="Amount:" style="-fx-background-color: EFEFEFEFEFEF; -fx-border-color: #1275EA#1275EA; -fx-border-width: 1px 1px 1px 1px;">
+            <TextField fx:id="ammount" layoutX="573.0" layoutY="139.0" prefHeight="34.0" prefWidth="240.0" promptText="Amount:" style="-fx-background-color: EFEFEFEFEFEF; -fx-border-color: #1275EA#1275EA; -fx-border-width: 1px 1px 1px 1px;">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="Email1" layoutX="575.0" layoutY="224.0" prefHeight="34.0" prefWidth="240.0" promptText="Amount:" style="-fx-background-color: EFEFEFEFEFEF; -fx-border-color: #1275EA#1275EA; -fx-border-width: 1px 1px 1px 1px;">
+            <TextField fx:id="newAmount" layoutX="575.0" layoutY="224.0" prefHeight="34.0" prefWidth="240.0" promptText="Amount:" style="-fx-background-color: EFEFEFEFEFEF; -fx-border-color: #1275EA#1275EA; -fx-border-width: 1px 1px 1px 1px;">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="Email2" layoutX="574.0" layoutY="312.0" prefHeight="34.0" prefWidth="240.0" promptText="Amount:" style="-fx-background-color: EFEFEFEFEFEF; -fx-border-color: #1275EA#1275EA; -fx-border-width: 1px 1px 1px 1px;">
+            <TextField fx:id="totalAmount" layoutX="574.0" layoutY="312.0" prefHeight="34.0" prefWidth="240.0" promptText="Amount:" style="-fx-background-color: EFEFEFEFEFEF; -fx-border-color: #1275EA#1275EA; -fx-border-width: 1px 1px 1px 1px;">
                <font>
                   <Font size="15.0" />
                </font>

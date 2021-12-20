@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="IU-212.5457.46">
-    <data-source name="please5@please5.wavpm.mongodb.net" uuid="08e55fd5-e49b-4729-b800-953b9528eca5">
-      <database-info product="Mongo DB" version="4.4.10" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.12" dbms="MONGO" exact-version="4.4.10" exact-driver-version="1.12" />
+  <component name="dataSourceStorageLocal" created-in="IU-213.5744.223">
+    <data-source name="MongoDB - @localhost" uuid="8f63b597-0db7-48cb-873e-75cfd780f188">
+      <database-info product="Mongo DB" version="" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.12" dbms="UNKNOWN" exact-version="0" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
-      <user-name>adminadmin</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema" qname="@" />
+          <node kind="database" qname="@">
+            <node kind="schema" qname="@" />
+          </node>
         </introspection-scope>
       </schema-mapping>
     </data-source>
