@@ -14,7 +14,10 @@ import javafx.scene.control.Label;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Base64;
+import java.util.Date;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
 import java.util.logging.Level;
@@ -118,6 +121,15 @@ public final class Mongo {//marked as final because it is a utility class and it
         return doc != null;
     }
 
+    //andreea
+    public static boolean isAccount(String fullName, String iban) {//display message in the GUI to only use first and last name
+        var names = fullName.split(" ");
+        Document filter1 = new Document("first name", names[0]);
+        Document filter2 = new Document("last name", names[1]);
+        Document doc = coll.find(and(eq(filter1),eq(filter2), eq("accountIban", iban))).first();
+        return doc != null;
+    }
+
     //linus
     public static String encrypt(String string){
         //logic to encrypt here
@@ -126,16 +138,15 @@ public final class Mongo {//marked as final because it is a utility class and it
     }
 
     //andreea
-    public static boolean isValidLogin(String newUser, String newPass){
-        Document doc = coll.find(and(eq("user name",newUser),
+    public static boolean isValidLogin(String username, String newPass){
+        Document doc = coll.find(and(eq("user name",username),
                 eq("password", newPass))).first();
         return doc != null;
     }
 
     //andreea
-    public static Object extractKey(String newUser, String newPass){//encrypted user & pass
-        Document doc = coll.find(and(eq("user name",newUser),
-                eq("password", newPass))).first();
+    public static Object extractKey(String newPass){//encrypted pass
+        Document doc = coll.find(eq("password", newPass)).first();
         return doc.get("key");
     }
 
@@ -166,6 +177,13 @@ public final class Mongo {//marked as final because it is a utility class and it
         doc = coll2.find().sort(new Document("_id",-1)).limit(1).first();
         coll2.deleteOne(doc);//delete account
         //doesn't delete it from the file, nothing will..
+    }
+
+    //andreea
+    public static String formatTime() {//this methods registers the time an object Date is created
+        Date time = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        return dateFormat.format(time);
     }
 }
 

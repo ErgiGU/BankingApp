@@ -29,13 +29,12 @@ public class Registration{
 
     private String username;
     private String password;
-    private String confirmPassword;
     private boolean checkbox;
     private String university;
     private Account account;
 
     //juan
-    public Registration(){
+    public Registration(){//in RegistrationController we create an object and then set the attributes values
         this.firstName = "";
         this.middleName = "";
         this.lastName = "";
@@ -47,7 +46,6 @@ public class Registration{
         this.phoneNumber = "";
         this.username = "";
         this.password = "";
-        this.confirmPassword = "";
         this.checkbox = false;
         this.university = "";
         this.account = null;
@@ -89,17 +87,10 @@ public class Registration{
         this.phoneNumber = phoneNumber;
     }
 
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
-
-    public void setCheckbox(boolean checkbox) {
-        this.checkbox = checkbox;
-    }
-
     public String getUsername(){
         return username;
     }
+
     public String getPassword(){
         return password;
     }
@@ -107,6 +98,7 @@ public class Registration{
     public boolean getCheckbox(){
         return checkbox;
     }
+
     public String getUniversity() {return university;}
 
 
@@ -117,6 +109,7 @@ public class Registration{
     public void setUsername(String username){
         this.username = username;
     }
+
     public void setPassword(String password){
         this.password = password;
     }
@@ -127,10 +120,7 @@ public class Registration{
     public void changeCheckBox(){
         if(checkbox){
             checkbox = false;
-        }
-        else{
-            checkbox = true;
-        }
+        } else{ checkbox = true; }
     }
 
     //andreea

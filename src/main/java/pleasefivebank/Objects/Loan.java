@@ -4,11 +4,13 @@ public class Loan {
     private String status;
     private long quantity;
     private String dueDate;
+    private boolean checkbox;
 
-    public Loan(String status, long quantity, String dueDate){
+    public Loan(){
         this.status = "pending";
-        this.quantity = quantity;
-        this.dueDate = dueDate;
+        this.quantity = 0;
+        this.dueDate = "";
+        this.checkbox = false;
     }
 
     public String getStatus() {
@@ -33,5 +35,12 @@ public class Loan {
 
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
+    }
+
+    //juan
+    public void changeCheckBox(){
+        if(checkbox){
+            checkbox = false;
+        } else{ checkbox = true; }
     }
 }

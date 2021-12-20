@@ -5,21 +5,20 @@ import org.bson.types.ObjectId;
 
 public final class Transaction {
 
-    private final String date;
+    private String date;
     private final String receiver;
     private final String receiverIBAN;
-    private final Double quantity;
+    private final long quantity;
     private final String concept;
     private String status;
 
-    public Transaction(String date, String receiver, String receiverIban, Double quantity,
-                       String concept, String status){
-        this.date = date;
-        this.receiver = receiver;
-        this.receiverIBAN = receiverIban;
-        this.quantity = quantity;
-        this.concept = concept;
-        this.status = status;
+    public Transaction(String receiver, String receiverIBAN, long quantity, String concept){//in TransactionsController we set the date and status
+        this.date = "";
+        this.receiver = "";
+        this.receiverIBAN = "";
+        this.quantity = 0;
+        this.concept = "";
+        this.status = "";
     }
 
     public String getDate() {
@@ -32,7 +31,7 @@ public final class Transaction {
 
     public String getReceiverIBAN() { return receiverIBAN; }
 
-    public Double getQuantity() {
+    public long getQuantity() {
         return quantity;
     }
 
@@ -42,8 +41,9 @@ public final class Transaction {
 
     public String getStatus() { return status; }
 
-
     public void setStatus(String status) { this.status = status; }
+
+    public void setDate(String date) { this.date = date; }
 
     //andreea
     public Document save() {//method to save transaction in collection 4

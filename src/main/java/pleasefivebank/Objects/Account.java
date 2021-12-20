@@ -12,8 +12,8 @@ public abstract class Account {
     protected boolean frozen;
     protected final String accountNr;
     protected final String accountIBAN;
-    protected ArrayList<Transaction> sent = new ArrayList<>();
-    protected ArrayList<Transaction> received = new ArrayList<>();
+    protected ArrayList<Transaction> activity = new ArrayList<>();
+    protected ArrayList<Transaction> pending = new ArrayList<>();
 
     public Account(String accountNr, String accountIBAN, long balance, boolean frozen) {
         this.accountNr = accountNr;
@@ -42,11 +42,11 @@ public abstract class Account {
     }
 
     public ArrayList<Transaction> getSent() {
-        return sent;
+        return activity;
     }
 
     public ArrayList<Transaction> getReceived() {
-        return received;
+        return pending;
     }
 
 
@@ -63,11 +63,11 @@ public abstract class Account {
     }
 
     public void setSent(ArrayList<Transaction> sent) {
-        this.sent = sent;
+        this.activity = activity;
     }
 
     public void setReceived(ArrayList<Transaction> received) {
-        this.received = received;
+        this.pending = pending;
     }
 
     public void addPoint(int pointsToAdd) {

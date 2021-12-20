@@ -2,6 +2,7 @@ package pleasefivebank.EntryPage;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -12,6 +13,7 @@ import pleasefivebank.Mongo;
 import java.io.IOException;
 
 public class ContactUsController {
+
     @FXML
     private TextField EmailTextField;
 
@@ -20,6 +22,9 @@ public class ContactUsController {
 
     @FXML
     private TextField NameTextField;
+
+    @FXML
+    private Label messageLabel;
 
     //andreea
     @FXML
@@ -30,18 +35,24 @@ public class ContactUsController {
             ex.printStackTrace();
         }
     }
+
     //andreea
     @FXML
-    void SendPressed(ActionEvent event) throws IOException {
+    void SendPressed(ActionEvent event){
+        //get user input
+        String email = EmailTextField.getText();
+        String username = NameTextField.getText();
+        String message = MessageField.getText();
+        //validate data
+        if((!Mongo.isUser(username)) || (!Mongo.isAssociatedEmail(email))
+                || (email.isEmpty()) || (username.isEmpty()) || (message.isEmpty())){
+            messageLabel.setText("please try again...");
+        }
+        Document review = new Document("email", email).append("user name", username).
+                append("text", message);
+        Mongo.coll4.insertOne(review);
         try {
-            String email = EmailTextField.getText();
-            String username = NameTextField.getText();
-            String message = MessageField.getText();
-            //validate data then add to database
-            Document review = new Document("email", email).append("user name", username).
-                    append("text", message);
-            Mongo.coll4.insertOne(review);
-            Main.showPage("Entry-Page.fxml");
+            Main.showPage("EmailSent.fxml");
         } catch (IOException ex) {
             ex.printStackTrace();
         }

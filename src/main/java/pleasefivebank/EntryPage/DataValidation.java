@@ -3,7 +3,11 @@ package pleasefivebank.EntryPage;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class DataValidation {
+public final class DataValidation {//marked as final because it is a utility class and it cannot be instantiated
+
+    private DataValidation(){//private constructor to prevent from instantiating
+    }
+
     //Ergi
     public static boolean textFieldIsEmpty(String inputTextField, Label inputLabel, String validationText){
         boolean isEmpty = false;
@@ -17,6 +21,7 @@ public class DataValidation {
         return isEmpty;
     }
 
+    //Ergi
     public static boolean passwordsMatch(String password,String confirmPassword, Label inputLabel, String validationText){
         boolean matches =true;
         String validationString = null;
@@ -29,10 +34,7 @@ public class DataValidation {
         return matches;
     }
 
-
-
     //Ergi (Java email validation permitted by RFC 5322)
-
     public static boolean validateField(String inputTextField, Label inputLabel, String regex, String validationText ){
         boolean isValidated = true;
         String validationString = null;

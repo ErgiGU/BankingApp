@@ -13,10 +13,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class RegistrationController {
-    //User newUserInfo = new User();
+
     private Registration registration = new Registration();
 
-    private static String tempFirstName="k";
+    private static String tempFirstName="";
     private static String tempLastName="";
     private static String tempMiddleName="";
     private static String tempID="";
@@ -40,9 +40,6 @@ public class RegistrationController {
 
     @FXML
     private TextField PersonalID;
-
-    public RegistrationController() {
-    }
 
     //juan
     @FXML
@@ -269,10 +266,9 @@ public class RegistrationController {
             registration.setEmail(tempEmail);
             registration.setUsername(tempUsername);
             registration.setPassword(tempPassword);
-
             //registration.setAccount();
             registration.register();
-            Main.showPage("Registration Complete.fxml");
+            Main.showPage("EmailPendingApproval.fxml");
         }
         catch (IOException ex) {
             ex.printStackTrace();
