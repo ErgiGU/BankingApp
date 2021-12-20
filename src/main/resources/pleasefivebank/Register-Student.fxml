@@ -75,7 +75,7 @@
       </ImageView>
       <ImageView fitHeight="297.0" fitWidth="297.0" layoutX="499.0" layoutY="113.0" preserveRatio="true">
          <image>
-            <Image url="@../PNGs/Please%205%20Bank-logos_transparent.png" />
+            <Image url="@../PNGs/Please 5 Bank-logos_transparent.png" />
          </image>
       </ImageView>
       <Button layoutX="708.0" layoutY="507.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="45.0" style="-fx-background-color: EFEFEF;">
