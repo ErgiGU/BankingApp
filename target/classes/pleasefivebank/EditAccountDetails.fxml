@@ -31,7 +31,7 @@
       </Text>
       <ImageView fitHeight="242.0" fitWidth="239.0" layoutX="496.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../PNGs/Please%205%20Bank-logos_transparent.png" />
+            <Image url="@../PNGs/Please 5 Bank-logos_transparent.png" />
          </image>
       </ImageView>
       <Button layoutX="712.0" layoutY="536.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="45.0" style="-fx-background-color: EFEFEF;">
