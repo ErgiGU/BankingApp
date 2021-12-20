@@ -129,7 +129,7 @@ public class Registration{
         String iban = generateIBAN();
         //remove the empty spaces
         iban = iban.replace(" ","");
-        String accountNr = iban.substring(7,24);
+        String accountNr = iban.substring(7,19);
         //create basic or student account
         if(this.university.isEmpty()){
             this.account = new BasicAccount(accountNr, iban, 0, false);
@@ -173,7 +173,7 @@ public class Registration{
     public String generateIBAN(){
         Iban iban = new Iban.Builder()
                 .countryCode(CountryCode.SE)
-                .bankCode("55555")
+                .bankCode("555")
                 .buildRandom();
         String ibanString = iban.toString();
         return ibanString;
