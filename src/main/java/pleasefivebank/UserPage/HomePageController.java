@@ -7,7 +7,7 @@ import pleasefivebank.EntryPage.EntryPageController;
 
 import java.io.IOException;
 
-public class HomePageController {
+public class HomePageController { //need the attributes from EntryPage controller
 
     @FXML
     void ToCards(ActionEvent event) {

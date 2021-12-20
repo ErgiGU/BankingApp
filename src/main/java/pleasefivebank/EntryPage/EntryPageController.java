@@ -13,8 +13,6 @@ import java.util.HashMap;
 
 public class EntryPageController{
 
-
-
     private static String tempUserName = "";
     private static String tempPassword = "";
 
