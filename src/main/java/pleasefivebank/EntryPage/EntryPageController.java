@@ -46,7 +46,7 @@ public class EntryPageController{
         //try at most 3 times
         Boolean k = Mongo.isValidLogin(username, encryptedPassword);
         if (k && i < 3) {
-            EntryPage login = new EntryPage(encryptedPassword);
+            EntryPage login = new EntryPage(encryptedPassword,username);
             tempUserName = username;
             tempPassword = encryptedPassword;
             login.setUsername(tempUserName);
