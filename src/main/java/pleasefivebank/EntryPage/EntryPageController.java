@@ -36,8 +36,7 @@ public class EntryPageController{
         i++;
         //try at most 3 times
         if(Mongo.isValidLogin(username, encryptedPassword) && i<3){
-            System.out.println("hello");
-            EntryPage login = new EntryPage(encryptedPassword);
+            EntryPage login = new EntryPage(encryptedPassword, username);
             tempUserName = username;
             tempPassword = encryptedPassword;
             login.setUsername(tempUserName);//set the user and password as attributes
