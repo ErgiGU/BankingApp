@@ -85,6 +85,14 @@ public abstract class Account {
     public void showCard() {
         //get card info and show it
     }
+    public String getAllTransactions(){
+        String toReturn = "";
+        for(int i=0; i<activity.size(); i++){
+            Transaction transaction = activity.get(i);
+            toReturn.concat(transaction.toString());
+        }
+        return toReturn;
+    }
 }
 
 
