@@ -15,6 +15,7 @@ public class EntryPageController{
 
     private static String tempUserName = "";
     private static String tempPassword = "";
+    private static int i = 0;
 
     //juan && andreea
     @FXML
@@ -22,25 +23,23 @@ public class EntryPageController{
         String username = "";
         String password = "";
         String encryptedPassword = "";
-        int i = 0;
-        do {//get user input
-            username = LoginUsername.getText();
-            password = LoginPassword.getText();
-            //make sure input it is not empty
-            if ((username.isEmpty()) || (password.isEmpty())) {
-                confirmLabel.setText("try again...");
-                i++;
-                continue;
-            }
-            //encrypt the password to search for it in the database
-            encryptedPassword = Mongo.encrypt(password);
-            i++;
-        } while (!Mongo.isValidLogin(username, encryptedPassword) && (i<3));//try at most 3 times
-        if(i==3){ confirmLabel.setText("press forgot password");
-        } else {
-            EntryPage login = new EntryPage();
+
+        //get user input
+        username = LoginUsername.getText();
+        password = LoginPassword.getText();
+        //make sure input it is not empty
+        if ((username.isEmpty()) || (password.isEmpty())) {
+            confirmLabel.setText("try again...");
+        }
+        //encrypt the password to search for it in the database
+        encryptedPassword = Mongo.encrypt(password);
+        i++;
+        //try at most 3 times
+        if(Mongo.isValidLogin(username, encryptedPassword) && i<3){
+            System.out.println("hello");
+            EntryPage login = new EntryPage(encryptedPassword);
             tempUserName = username;
-            tempPassword = password;
+            tempPassword = encryptedPassword;
             login.setUsername(tempUserName);//set the user and password as attributes
             login.setPassword(tempPassword);
             try {
@@ -48,6 +47,8 @@ public class EntryPageController{
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
+        } else {
+            confirmLabel.setText("press forgot password");
         }
     }
 

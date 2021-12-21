@@ -3,10 +3,8 @@ package pleasefivebank.EntryPage;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public final class DataValidation {//marked as final because it is a utility class and it cannot be instantiated
+public class DataValidation {//marked as final because it is a utility class and it cannot be instantiated
 
-    private DataValidation(){//private constructor to prevent from instantiating
-    }
 
     //Ergi
     public static boolean textFieldIsEmpty(String inputTextField, Label inputLabel, String validationText){

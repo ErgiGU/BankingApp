@@ -3,7 +3,7 @@ package pleasefivebank.Objects;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
-public final class Transaction {
+public class Transaction {
 
     private String date;
     private final String receiver;
