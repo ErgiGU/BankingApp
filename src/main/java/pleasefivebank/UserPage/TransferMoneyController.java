@@ -3,6 +3,7 @@ package pleasefivebank.UserPage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
@@ -10,35 +11,33 @@ import pleasefivebank.Objects.Transaction;
 
 import java.io.IOException;
 
-public class PayMoneyController {
-
+public class TransferMoneyController {
     private static String tempReceiver;
     private static String tempReceiverIBAN;
     private static long tempQuantity;
     private static String tempConcept;
 
     @FXML
-    private TextField Receiver;
+    private TextField amount;
 
     @FXML
-    private TextField ReceiverIban;
+    private TextField iban;
 
     @FXML
-    private TextField Quantity;
+    private TextArea message;
 
     @FXML
-    private TextField Concept;
+    private TextField name;
 
     @FXML
-    private Label confirmLabel;
+    private Label label;
 
-    //andreea
     @FXML
-    public void ToTransferMoney(ActionEvent actionEvent) {
-        String receiver = Receiver.getText();
-        String receiverIban = ReceiverIban.getText();
-        long quantity = Long.parseLong(Quantity.getText());
-        String concept = Concept.getText();
+    public void sendMoney(ActionEvent actionEvent) {
+        String receiver = name.getText();
+        String receiverIban = iban.getText();
+        long quantity = Long.parseLong(amount.getText());
+        String concept = message.getText();
         if((Mongo.isAccount(receiver, receiverIban)) && (quantity>0) && (!concept.isEmpty())){
             tempReceiver = receiver;
             tempReceiverIBAN = receiverIban;
@@ -52,8 +51,19 @@ public class PayMoneyController {
             purchase.setStatus("approved");
             Mongo.coll3.insertOne(purchase.save());
         }
-        else{confirmLabel.setText("this user does not have an account yet");
+        else{label.setText("this user does not have an account yet");
         }
+    }
+
+    @FXML
+    void Logout(ActionEvent event) {
+        try {
+            Main.showPage("Entry-Page.fxml");
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
     }
 
     @FXML
@@ -64,26 +74,7 @@ public class PayMoneyController {
         catch (IOException ex) {
             ex.printStackTrace();
         }
-    }
 
-    @FXML
-    void ToHome(ActionEvent event) {
-        try {
-            Main.showPage("UserHomePage.fxml");
-        }
-        catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    @FXML
-    void ToLoans(ActionEvent event) {
-        try {
-            Main.showPage("StudentLoans.fxml");
-        }
-        catch (IOException ex) {
-            ex.printStackTrace();
-        }
     }
 
     @FXML
@@ -94,16 +85,48 @@ public class PayMoneyController {
         catch (IOException ex) {
             ex.printStackTrace();
         }
+
     }
 
     @FXML
-    public void Logout(ActionEvent event) {
-        //save the activity
+    void ToHome(ActionEvent event) {
         try {
-            Main.showPage("Entry-Page.fxml");
+            Main.showPage("UserHomePage.fxml");
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
+
     }
+
+    @FXML
+    void ToLoans(ActionEvent event) {
+        try {
+            Main.showPage("StudentLoans.fxml");
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    void ToNotifications(ActionEvent event) {
+
+    }
+
+    @FXML
+    void ToTransactions(ActionEvent event) {
+        try {
+            Main.showPage("Transactions.fxml");
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+    }
+
+
+
 }
+
