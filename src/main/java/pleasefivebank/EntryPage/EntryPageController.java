@@ -35,8 +35,9 @@ public class EntryPageController{
             //encrypt the password to search for it in the database
             encryptedPassword = Mongo.encrypt(password);
             i++;
-        } while (!Mongo.isValidLogin(username, encryptedPassword) && (i<3));//try at most 3 times
-        if(i==3){ confirmLabel.setText("press forgot password");
+        } while (!Mongo.isValidLogin(username, encryptedPassword) || (i<3));//try at most 3 times
+        if(i==3){
+            confirmLabel.setText("press forgot password");
         } else {
             EntryPage login = new EntryPage();
             tempUserName = username;
@@ -82,7 +83,7 @@ public class EntryPageController{
         }
     }
 
-    //andreea
+    //juan
     @FXML
     protected void ContactUsPressed(){
         try {

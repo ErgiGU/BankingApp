@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.control.Label?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" stylesheets="@../CSS/hi.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pleasefivebank.UserPage.RequestMoneyController">
+   <left>
+      <AnchorPane prefHeight="614.0" prefWidth="128.0" style="-fx-background-color: #457B9D;" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="23.0" layoutY="110.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="86.0" style="-fx-background-radius: 25; -fx-border-image-width: 20; -fx-background-color: #457B9D;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../PNGs/transactions.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Text fill="WHITE" layoutX="26.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Request Money">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Text>
+            <Button layoutX="24.0" layoutY="8.0" mnemonicParsing="false" onAction="#ToHome" prefHeight="73.0" prefWidth="84.0" style="-fx-background-radius: 25; -fx-border-image-width: 20; -fx-background-color: #457B9D;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../PNGs/home.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="21.0" layoutY="212.0" mnemonicParsing="false" onAction="#ToCards" prefHeight="73.0" prefWidth="84.0" style="-fx-background-radius: 25; -fx-border-image-width: 20; -fx-background-color: #457B9D;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../PNGs/credit-card-2056.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Text fill="WHITE" layoutX="45.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cards">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Text>
+            <Text fill="WHITE" layoutX="46.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Text>
+            <Line endX="75.0" endY="-7.62939453125E-6" layoutX="53.0" layoutY="100.0" startX="-52.99998474121094" startY="-7.62939453125E-6" stroke="WHITE" />
+            <Line endX="75.0" layoutX="53.0" layoutY="202.0" startX="-52.99998474121094" startY="-7.62939453125E-6" stroke="WHITE" />
+            <Line endX="75.0" layoutX="53.0" layoutY="304.0" startX="-52.99998474121094" startY="-7.62939453125E-6" stroke="WHITE" />
+            <Button layoutX="21.0" layoutY="314.0" mnemonicParsing="false" onAction="#ToLoans" prefHeight="73.0" prefWidth="84.0" style="-fx-background-radius: 25; -fx-border-image-width: 20; -fx-background-color: #457B9D;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../PNGs/salaryicon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Text fill="WHITE" layoutX="19.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student loans">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Text>
+            <Line endX="75.0" layoutX="54.0" layoutY="406.0" startX="-52.99998474121094" startY="-7.62939453125E-6" stroke="WHITE" />
+            <ImageView fitHeight="87.0" fitWidth="97.0" layoutX="28.0" layoutY="421.0" preserveRatio="true">
+               <image>
+                  <Image url="@../PNGs/support-and-service-1678.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="24.0" layoutY="532.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Need help?">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Text>
+            <Text fill="WHITE" layoutX="25.0" layoutY="554.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact us" wrappingWidth="89.32926940917969">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Text>
+            <Text fill="WHITE" layoutX="14.0" layoutY="583.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone: 031-12 26 31" textAlignment="CENTER" wrappingWidth="89.32926940917969">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Text>
+         </children>
+      </AnchorPane>
+   </left>
+   <top>
+      <AnchorPane prefHeight="86.0" prefWidth="1050.0" style="-fx-background-color: #2b5292;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="68.0" fitWidth="107.0" layoutX="10.0" layoutY="10.0" preserveRatio="true">
+               <image>
+                  <Image url="@../PNGs/P5B white small logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="49.0" fitWidth="48.0" layoutX="750.0" layoutY="19.0" preserveRatio="true">
+               <image>
+                  <Image url="@../PNGs/user-3296.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="934.0" layoutY="22.0" onAction="#Logout" mnemonicParsing="false" prefHeight="38.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="679.0" layoutY="21.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: #2b5292;">
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="42.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../PNGs/bell-3063.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="799.0" layoutY="21.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #2b5292;" text="Juan Garcia" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+   </top>
+   <right>
+      <AnchorPane prefHeight="614.0" prefWidth="919.0" style="-fx-background-color: EFEFEF;" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="84.0" layoutY="74.0" mnemonicParsing="false" onAction="#ToRequestMoney" prefHeight="82.0" prefWidth="180.0" style="-fx-background-color: #457B9D;" text="Request Money" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <TextField fx:id="FullName" layoutX="84.0" layoutY="202.0" prefHeight="34.0" prefWidth="285.0" promptText="  Full Name with Spaces" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </TextField>
+            <Label fx:id="confirmLabel" layoutX="67.0" layoutY="331.0" prefHeight="19.0" prefWidth="216.0" textFill="RED">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="Quantity" layoutX="84.0" layoutY="202.0" prefHeight="34.0" prefWidth="285.0" promptText="  Quantity" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="Concept" layoutX="84.0" layoutY="202.0" prefHeight="34.0" prefWidth="285.0" promptText="  Concept" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </TextField>
+
+         </children></AnchorPane>
+   </right>
+</BorderPane>
