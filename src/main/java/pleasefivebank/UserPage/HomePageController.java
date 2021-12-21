@@ -2,12 +2,14 @@ package pleasefivebank.UserPage;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import pleasefivebank.Main;
 import pleasefivebank.EntryPage.EntryPageController;
 
 import java.io.IOException;
 
 public class HomePageController { //need the attributes from EntryPage controller
+
 
     @FXML
     void ToCards(ActionEvent event) {

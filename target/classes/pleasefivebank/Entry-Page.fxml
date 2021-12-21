@@ -3,81 +3,87 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.control.Label?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="765.0" stylesheets="@../CSS/hi.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pleasefivebank.EntryPage.EntryPageController">
-   <left>
-      <AnchorPane id="EntryPage" prefHeight="588.0" prefWidth="398.0" style="-fx-background-color: EFEFEF;" BorderPane.alignment="CENTER">
-         <children>
-            <TextField fx:id="LoginUsername" layoutX="73.0" layoutY="168.0" prefHeight="34.0" prefWidth="285.0" promptText="  Username" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </TextField>
-            <PasswordField fx:id="LoginPassword" layoutX="73.0" layoutY="224.0" prefHeight="34.0" prefWidth="285.0" promptText="  Password" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </PasswordField>
-            <Text fill="#1275ea" layoutX="161.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log In" wrappingWidth="95.84332275390625">
-               <font>
-                  <Font size="31.0" />
-               </font>
-            </Text>
-            <Label fx:id="confirmLabel" layoutX="67.0" layoutY="331.0" prefHeight="19.0" prefWidth="216.0" textFill="RED">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Hyperlink layoutX="239.0" layoutY="264.0" onAction="#ForgotPasswordPressed" text="Forgot Your Password?">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Hyperlink>
-            <Text layoutX="120.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" />
-            <Hyperlink layoutX="244.0" layoutY="330.0" onAction="#ChangeToRegisterPage" prefHeight="24.0" prefWidth="72.0" text="Sign Up" />
-            <Button layoutX="97.0" layoutY="294.0" mnemonicParsing="false" onAction="#PressedLoginButton" prefHeight="34.0" prefWidth="222.0" style="-fx-background-color: #1275EA; -fx-background-radius: 30;" text="Sign In" textFill="#fffefe">
-               <font>
-                  <Font size="15.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Hyperlink layoutX="103.0" layoutY="533.0" onAction="#AboutUsPressed" prefHeight="24.0" prefWidth="72.0" text="About Us" />
-            <Hyperlink layoutX="164.0" layoutY="533.0" onAction="#ContactUsPressed" prefHeight="24.0" prefWidth="72.0" text="Contact Us" />
-            <Text fill="#1275ea" layoutX="161.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="|" />
-            <Text fill="#1275ea" layoutX="233.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="|" />
-            <Hyperlink layoutX="234.0" layoutY="533.0" text="User's Guide" />
-            <ImageView fitHeight="33.0" fitWidth="30.0" layoutX="41.0" layoutY="226.0" preserveRatio="true">
-               <image>
-                  <Image url="@../PNGs/padlock-11733.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="42.0" layoutY="172.0" preserveRatio="true">
-               <image>
-                  <Image url="@../PNGs/user-6772.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-   </left>
-   <right>
-      <AnchorPane prefHeight="588.0" prefWidth="366.0" style="-fx-background-color: #1275EA;" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="297.0" fitWidth="297.0" layoutX="40.0" layoutY="91.0" preserveRatio="true">
-               <image>
-                  <Image url="@../PNGs/Please 5 Bank-logos_white.png" />
-               </image>
-            </ImageView>
-         </children></AnchorPane>
-   </right>
-</BorderPane>
+<StackPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pleasefivebank.EntryPage.EntryPageController">
+   <children>
+      <BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="765.0" stylesheets="@../CSS/hi.css">
+         <left>
+            <AnchorPane id="EntryPage" prefHeight="588.0" prefWidth="398.0" style="-fx-background-color: EFEFEF;" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="LoginUsername" layoutX="73.0" layoutY="168.0" prefHeight="34.0" prefWidth="285.0" promptText="  Username" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </TextField>
+                  <PasswordField fx:id="LoginPassword" layoutX="73.0" layoutY="224.0" prefHeight="34.0" prefWidth="285.0" promptText="  Password" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </PasswordField>
+                  <Text fill="#1275ea" layoutX="161.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log In" wrappingWidth="95.84332275390625">
+                     <font>
+                        <Font size="31.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="confirmLabel" layoutX="66.0" layoutY="265.0" prefHeight="19.0" prefWidth="182.0" textFill="RED">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink layoutX="244.0" layoutY="264.0" onAction="#ForgotPasswordPressed" text="Forgot Your Password?">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Hyperlink>
+                  <Text layoutX="120.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" />
+                  <Hyperlink layoutX="244.0" layoutY="330.0" onAction="#ChangeToRegisterPage" prefHeight="24.0" prefWidth="72.0" text="Sign Up" />
+                  <Button layoutX="97.0" layoutY="294.0" mnemonicParsing="false" onAction="#PressedLoginButton" prefHeight="34.0" prefWidth="222.0" style="-fx-background-color: #1275EA; -fx-background-radius: 30;" text="Sign In" textFill="#fffefe">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Hyperlink layoutX="103.0" layoutY="533.0" onAction="#AboutUsPressed" prefHeight="24.0" prefWidth="72.0" text="About Us" />
+                  <Hyperlink layoutX="164.0" layoutY="533.0" onAction="#ContactUsPressed" prefHeight="24.0" prefWidth="72.0" text="Contact Us" />
+                  <Text fill="#1275ea" layoutX="161.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="|" />
+                  <Text fill="#1275ea" layoutX="233.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="|" />
+                  <Hyperlink layoutX="234.0" layoutY="533.0" text="User's Guide" />
+                  <ImageView fitHeight="33.0" fitWidth="30.0" layoutX="41.0" layoutY="226.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../PNGs/padlock-11733.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="42.0" layoutY="172.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../PNGs/user-6772.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </left>
+         <right>
+            <AnchorPane prefHeight="588.0" prefWidth="366.0" style="-fx-background-color: #1275EA;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="297.0" fitWidth="297.0" layoutX="40.0" layoutY="91.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../PNGs/Please 5 Bank-logos_white.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </right>
+      </BorderPane>
+   </children>
+</StackPane>

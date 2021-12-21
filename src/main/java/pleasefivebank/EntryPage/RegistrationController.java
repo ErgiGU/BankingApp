@@ -268,7 +268,7 @@ public class RegistrationController {
             registration.setPassword(tempPassword);
             //registration.setAccount();
             registration.register();
-            Main.showPage("EmailPendingApproval.fxml");
+            Main.showPage("Entry-Page.fxml");
         }
         catch (IOException ex) {
             ex.printStackTrace();

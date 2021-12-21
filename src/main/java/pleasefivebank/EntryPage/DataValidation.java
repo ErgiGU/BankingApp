@@ -3,7 +3,7 @@ package pleasefivebank.EntryPage;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class DataValidation {//marked as final because it is a utility class and it cannot be instantiated
+public class DataValidation {
 
 
     //Ergi
