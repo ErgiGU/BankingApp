@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.bson.types.ObjectId;
 import pleasefivebank.Menus.EntryPage;
+import pleasefivebank.Objects.Transaction;
 
 import java.io.IOException;
 import java.util.Map;

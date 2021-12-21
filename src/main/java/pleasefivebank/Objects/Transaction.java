@@ -14,10 +14,10 @@ public class Transaction {
 
     public Transaction(String receiver, String receiverIBAN, long quantity, String concept){//in TransactionsController we set the date and status
         this.date = "";
-        this.receiver = "";
-        this.receiverIBAN = "";
-        this.quantity = 0;
-        this.concept = "";
+        this.receiver = receiver;
+        this.receiverIBAN = receiverIBAN;
+        this.quantity = quantity;
+        this.concept = concept;
         this.status = "";
     }
 
@@ -51,5 +51,14 @@ public class Transaction {
         append("receiver iban", this.receiverIBAN).append("quantity", this.quantity).
                 append("date", this.date).append("concept", this.concept).append("status", this.status);
         return transaction;
+    }
+
+    @Override
+    public String toString() {
+        return "Date: " + date + '\n' +
+                "Receiver: " + receiver + " IBAN: " + receiverIBAN + '\n' +
+                "Quantity: " + quantity +
+                "Concept: " + concept +
+                "Status: " + status + '\n';
     }
 }
