@@ -185,5 +185,15 @@ public final class Mongo {//marked as final because it is a utility class and it
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         return dateFormat.format(time);
     }
+
+    public static boolean usernameExists(String username) {
+        boolean exists = false;
+        Document filter = new Document("user name", username);
+        Document doc = coll.find(filter).first();
+        if (doc != null) {
+            exists = true;
+        }
+        return exists;
+    }
 }
 

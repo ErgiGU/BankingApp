@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import org.bson.Document;
 import pleasefivebank.*;
 
 import javafx.event.ActionEvent;
@@ -23,6 +24,8 @@ import com.jfoenix.transitions.CachedTransition;
 
 import java.io.IOException;
 import java.util.HashMap;
+
+import static com.mongodb.client.model.Filters.eq;
 
 public class EntryPageController{
 
@@ -60,7 +63,7 @@ public class EntryPageController{
         } else if (!k) {
             i++;
             confirmLabel.setText("Invalid username or password");
-            if (i == 3) {
+            if (i >= 3) {
                 BoxBlur blur = new BoxBlur(3, 3, 3);
                 JFXDialogLayout layout = new JFXDialogLayout();
                 JFXButton button = new JFXButton("OK");
