@@ -187,7 +187,7 @@
             </Button>
             <ScrollPane fx:id="activity" layoutX="81.0" layoutY="231.0" onScroll="#showTransactions" prefHeight="308.0" prefWidth="733.0">
                <content>
-                  <TextArea id="scrollbar" prefHeight="53.0" prefWidth="731.0" />
+                  <TextArea id="scrollbar" fx:id="DisplayTransactions" prefHeight="313.0" prefWidth="731.0" />
                </content>
             </ScrollPane>
             <Text fill="#2b5292" layoutX="349.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transactions">

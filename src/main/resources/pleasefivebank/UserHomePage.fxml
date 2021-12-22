@@ -150,7 +150,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="NameDisplay" layoutX="691.0" layoutY="17.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="222.0" style="-fx-background-color: #2b5292;" text="Juan García Díaz" textFill="WHITE">
+            <Button fx:id="NameDisplay" layoutX="691.0" layoutY="17.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="222.0" style="-fx-background-color: #2b5292;" text="Name" textFill="WHITE">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>

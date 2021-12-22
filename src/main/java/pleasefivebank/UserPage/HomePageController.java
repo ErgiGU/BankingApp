@@ -10,6 +10,11 @@ import java.io.IOException;
 
 public class HomePageController { //need the attributes from EntryPage controller
 
+    @FXML
+    private Button NameDisplay;
+
+    @FXML
+    private Button logout;
 
     @FXML
     void ToCards(ActionEvent event) {
@@ -60,6 +65,10 @@ public class HomePageController { //need the attributes from EntryPage controlle
         catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public void setName(String name){
+        NameDisplay.setText(name);
     }
 }
 

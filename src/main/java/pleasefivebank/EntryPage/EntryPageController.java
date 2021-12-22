@@ -41,6 +41,7 @@ public class EntryPageController{
         String username = "";
         String password = "";
         String encryptedPassword = "";
+        Main main = new Main();
         //get user input
         username = LoginUsername.getText();
         password = LoginPassword.getText();
@@ -56,7 +57,8 @@ public class EntryPageController{
             login.setPassword(tempPassword);
             i = 0;
             try {
-                Main.showPage("UserHomePage.fxml");
+                main.showLoginPage(username);
+                //Main.showPage("UserHomePage.fxml");
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
