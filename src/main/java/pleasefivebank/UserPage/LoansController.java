@@ -16,10 +16,10 @@ public class LoansController {
 
 
     @FXML
-    public TextField rentTotal;
+    public Label rentTotal;
 
     @FXML
-    public TextField totalCost;
+    public Label totalCost;
 
     @FXML
     public TextField amountPerMonth;
@@ -29,7 +29,7 @@ public class LoansController {
     private TextField LoanPeriod;
 
     @FXML
-    private TextField totalAmount;
+    private Label totalAmount;
 
 
     @FXML
@@ -40,7 +40,6 @@ public class LoansController {
 
     double amountPerMonthPrompt = 0;
     int estPayBackTimePrompt = 0;
-    Interest totalWRent = null;
     int loanPeriodPrompt = 0;
 
     @FXML
