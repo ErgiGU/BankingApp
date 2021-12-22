@@ -12,6 +12,7 @@ module pleasefivebank.bank {
     requires mongo.java.driver;
     requires java.logging;
     requires iban4j;
+    requires java.mail;
 
     opens pleasefivebank to javafx.fxml;
     opens pleasefivebank.EntryPage to javafx.fxml;

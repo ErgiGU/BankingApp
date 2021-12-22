@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="BANK" />
         <module name="dit094-group-4" />
+        <module name="dit094-group" />
       </profile>
     </annotationProcessing>
   </component>
