@@ -13,4 +13,10 @@
       <module name="dit094-group-4" target="16" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="BANK" options="--add-exports com.jfoenix/com.jfoenix.converters=pleasefivebank.bank" />
+      <module name="dit094-group-4" options="--add-exports com.jfoenix/com.jfoenix.converters=pleasefivebank.bank" />
+    </option>
+  </component>
 </project>

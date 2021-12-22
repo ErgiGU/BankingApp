@@ -14,13 +14,13 @@ public class EntryPage {//in EntryPageController we create an object and then se
     User login;
     Document session;
     String username;
-    String password;
+    String encryptedPassword;
 
     //juan && andreea
-    public EntryPage(){
-        String encryptedPassword = Mongo.encrypt(this.password);
+    public EntryPage(String password, String username){
+        this.encryptedPassword = password;
         //key will be the user key to access his info in the database
-        Object key = Mongo.extractKey(encryptedPassword);
+        Object key = Mongo.extractKey(username);
         //find the document wth the user information in the database
         session = Mongo.coll.find(new Document("key", key.toString())).first();
         //create new user object with the information from database
@@ -39,7 +39,7 @@ public class EntryPage {//in EntryPageController we create an object and then se
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.encryptedPassword= password;
     }
 
     //andreea

@@ -194,7 +194,7 @@ public class RegistrationController {
     @FXML
     private TextField UserName;
 
-    //Ergi
+    //juan
     @FXML
     void Page3to2(ActionEvent event) {
         try {
@@ -205,7 +205,7 @@ public class RegistrationController {
         }
     }
 
-    //Ergi
+    //Ergi and juan
     @FXML
     void Page3to4(ActionEvent event) {
         String username = UserName.getText();
@@ -268,7 +268,7 @@ public class RegistrationController {
             registration.setPassword(tempPassword);
             //registration.setAccount();
             registration.register();
-            Main.showPage("EmailPendingApproval.fxml");
+            Main.showPage("Entry-Page.fxml");
         }
         catch (IOException ex) {
             ex.printStackTrace();
