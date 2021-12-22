@@ -85,7 +85,7 @@ public class AccountDetailsController {
 
         lastName.setText(user.getLastName());
 
-        personalID.setText(user.getPersonalID());
+        personalID.setText(user.getPersonnummer());
 
         phoneNumber.setText(user.getPhoneNumber());
 

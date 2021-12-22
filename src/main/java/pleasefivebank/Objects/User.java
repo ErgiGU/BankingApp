@@ -25,7 +25,7 @@ public class User {
     private String university;
     private Document doc;
     private String username;
-    private String personalID;
+
 
     protected String balance;
     protected int rewardPoints;
@@ -36,7 +36,7 @@ public class User {
     protected ArrayList<Transaction> pending = new ArrayList<>();
 
     public User(String name, String middleName, String lastName, String address, String city, String postalCode,
-                String birthDate, String phoneNumber, String personNummer, String email, String university, String username, String personalID, String accountNr, String accountIBAN, String balance, String frozen) {
+                String birthDate, String phoneNumber, String personNummer, String email, String university, String username, String accountNr, String accountIBAN, String balance, String frozen) {
         this.firstName = name;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -49,7 +49,7 @@ public class User {
         this.postalCode = postalCode;
         this.university = university;
         this.username = username;
-        this.personalID = personalID;
+
 
         this.accountNr = accountNr;
         this.accountIBAN = accountIBAN;
@@ -129,8 +129,6 @@ public class User {
     public String getUniversity() { return this.university; }
 
     public String getUsername(){ return this.username; }
-
-    public String getPersonalID() { return this.personalID; }
 
     public void setFirstName(String newName) {
         this.firstName = newName;
