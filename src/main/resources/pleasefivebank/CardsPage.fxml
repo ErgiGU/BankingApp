@@ -51,6 +51,13 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../PNGs/credit-card-2056.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
             <Text fill="WHITE" layoutX="45.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cards">
                <font>
@@ -121,11 +128,6 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Text>
-            <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="40.0" layoutY="222.0" preserveRatio="true">
-               <image>
-                  <Image url="@../PNGs/credit-card-2056.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
    </left>
@@ -150,7 +152,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="691.0" layoutY="17.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="222.0" style="-fx-background-color: #2b5292;" text="Juan García Díaz" textFill="WHITE">
+            <Button fx:id="NameLabel" layoutX="691.0" layoutY="17.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="222.0" style="-fx-background-color: #2b5292;" textFill="WHITE">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>

@@ -5,8 +5,11 @@ import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import pleasefivebank.Main;
 import pleasefivebank.Objects.User;
+import pleasefivebank.Main;
 
 import java.io.IOException;
+
+import static pleasefivebank.EntryPage.EntryPageController.user;
 
 public class AccountDetailsController {
 
@@ -43,21 +46,21 @@ public class AccountDetailsController {
     @FXML
     private Text username;
 
+    //juan
     @FXML
     void EditDetails(ActionEvent event) {
 
     }
-
+    //juan
     @FXML
     void ToUserHomePage(ActionEvent event) {
         try {
-            Main.showPage("UserHomePage.fxml");
-        }
-        catch (IOException ex) {
+            Main.showLoginPage(user.getFirstName()+ " " + user.getLastName());
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
-
+    //juan
     @FXML
     public void Logout(ActionEvent event) {
         //save the activity
@@ -68,7 +71,7 @@ public class AccountDetailsController {
             ex.printStackTrace();
         }
     }
-
+    //Elisa, Juan and Ergi
     public void setInformation(User user){
         //username.setText
         IBAN.setText(user.getAccountIBAN());

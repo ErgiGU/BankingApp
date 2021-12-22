@@ -18,20 +18,14 @@ import java.io.IOException;
 import static pleasefivebank.EntryPage.EntryPageController.user;
 import static pleasefivebank.Main.mainWindow;
 
-public class RequestMoneyController {
-
-    private static String tempName;
+public class MakeTransferController {
+    private static String tempReceiver;
+    private static String tempReceiverIBAN;
     private static long tempQuantity;
     private static String tempConcept;
 
     @FXML
-    private TextField Amount;
-
-    @FXML
     private TextField IBAN;
-
-    @FXML
-    private TextArea Message;
 
     @FXML
     private TextField Name;
@@ -40,27 +34,25 @@ public class RequestMoneyController {
     private Button NameLabel;
 
     @FXML
+    private Button SendMoney;
+
+    @FXML
+    private TextField amount;
+
+    @FXML
+    private TextArea message;
+
+    @FXML
     void LogOut(ActionEvent event) {
+        try {
+            Main.showPage("Entry-Page.fxml");
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
     }
-    //andreea
-    @FXML
-    void Request(ActionEvent event) {
-        String name = Name.getText();//must modify to check for the whole name
-        long quantity = Long.parseLong(Amount.getText());
-        String concept = Message.getText();
-        if((Mongo.isUser(name)) && (quantity>0) && (!concept.isEmpty())) {
-            tempName = name;
-            tempQuantity = quantity;
-            tempConcept = concept;
-            Transaction purchase = new Transaction(tempName, "", tempQuantity, tempConcept);
-            String date = Mongo.formatTime();// we register the time
-            purchase.setDate(date);
-            purchase.setStatus("pending");
-            Mongo.coll3.insertOne(purchase.save());//will modify to add it to collection 2 instead
-        }
-    }
-    //juan
+
     @FXML
     void ToCards(ActionEvent event) {
         try {
@@ -71,7 +63,7 @@ public class RequestMoneyController {
         }
 
     }
-    //juan
+
     @FXML
     void ToDetails(ActionEvent event) {
         try {
@@ -89,7 +81,7 @@ public class RequestMoneyController {
         }
 
     }
-    //juan
+
     @FXML
     void ToHome(ActionEvent event) {
         try {
@@ -97,8 +89,10 @@ public class RequestMoneyController {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+
+
     }
-    //juan
+
     @FXML
     void ToLoans(ActionEvent event) {
         try {
@@ -114,7 +108,7 @@ public class RequestMoneyController {
     void ToNotifications(ActionEvent event) {
 
     }
-    //juan
+
     @FXML
     void ToTransactions(ActionEvent event) {
         try {
@@ -125,10 +119,33 @@ public class RequestMoneyController {
         }
 
     }
+    @FXML
+    void SendMoney(ActionEvent event) {
+        String receiver = Name.getText();
+        String receiverIban = IBAN.getText();
+        long quantity = Long.parseLong(amount.getText());
+        String concept = message.getText();
+        if((Mongo.isAccount(receiver, receiverIban)) && (quantity>0) && (!concept.isEmpty())){
+            tempReceiver = receiver;
+            tempReceiverIBAN = receiverIban;
+            tempQuantity = quantity;
+            tempConcept = concept;
+            Transaction purchase = new Transaction(tempReceiver, receiverIban, tempQuantity, tempConcept);
+            String date = Mongo.formatTime();// we register the time
+            purchase.setDate(date);
+            //validate balance
+            //update balance
+            purchase.setStatus("approved");
+            Mongo.coll3.insertOne(purchase.save());
+        }
+
+    }
+
     public void setName(String name){
         NameLabel.setText(name);
     }
 
-}
 
+
+}
 
