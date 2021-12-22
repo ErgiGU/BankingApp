@@ -259,9 +259,11 @@ public class RegistrationController {
             String iban = Registration.generateIBAN();
             String accNr = iban.substring(7,19);
             Random rand = new Random();
-            double random=rand.nextDouble(8000000);
+            double r = rand.nextDouble(8000000);
+            String random = Double.toString(r);
+
             User user = new User(tempFirstName,tempMiddleName,tempLastName,tempAddress,tempCity,tempCity,Registration.extractBirthdate(tempID),
-                    tempPhone,tempID,tempEmail,tempUni,accNr,iban,random,false);
+                    tempPhone,tempID,tempEmail,tempUni,accNr,iban,random,"false");
             Registration.register(user,tempUsername,tempPassword);
             Main.showPage("Entry-Page.fxml");
         }

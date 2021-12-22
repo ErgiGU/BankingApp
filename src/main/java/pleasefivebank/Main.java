@@ -48,4 +48,5 @@ public class Main extends Application {
         homePageController.setName(username);
         mainWindow.setScene(scene);
     }
+
 }

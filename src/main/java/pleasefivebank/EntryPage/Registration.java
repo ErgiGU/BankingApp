@@ -14,12 +14,7 @@ public class Registration{
 
     private boolean checkbox;
     private String university;
-
-
-
-
-
-
+    
     public boolean getCheckbox(){
         return checkbox;
     }
