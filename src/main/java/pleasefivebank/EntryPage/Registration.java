@@ -11,84 +11,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Registration{
-    private String firstName;
-    private String middleName;
-    private String lastName;
-    private String personalID;
 
-    private String streetName;
-    private String city;
-    private String postalCode;
-    private String email;
-    private String phoneNumber;
-
-    private String username;
-    private String password;
     private boolean checkbox;
     private String university;
 
-    //juan
-    public Registration(){//in RegistrationController we create an object and then set the attributes values
-        this.firstName = "";
-        this.middleName = "";
-        this.lastName = "";
-        this.personalID = "";
-        this.streetName = "";
-        this.city = "";
-        this.postalCode = "";
-        this.email = "";
-        this.phoneNumber = "";
-        this.username = "";
-        this.password = "";
-        this.checkbox = false;
-        this.university = "";
 
 
-    }
 
-    public String getEmail(){
-        return email;
-    }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    public void setPersonalID(String personalID) {
-        this.personalID = personalID;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getUsername(){
-        return username;
-    }
-
-    public String getPassword(){
-        return password;
-    }
 
     public boolean getCheckbox(){
         return checkbox;
@@ -97,17 +27,6 @@ public class Registration{
     public String getUniversity() {return university;}
 
 
-    public void setEmail(String email){
-        this.email = email;
-    }
-
-    public void setUsername(String username){
-        this.username = username;
-    }
-
-    public void setPassword(String password){
-        this.password = password;
-    }
 
     public void setUniversity(String university){this.university = university;}
     
@@ -135,13 +54,13 @@ public class Registration{
 
 
     //andreea
-    public void register(User user){
-        String birthdate = extractBirthdate(this.personalID);//set the birthdate
+    public static void register(User user, String username, String password){
+        //String birthdate = extractBirthdate(this.personalID);//set the birthdate
         //We write the user as document
         Document userdoc = user.toDocument();
         //we create a document with encrypted credentials and add it to the database
-        Document login = new Document("_id", new ObjectId()).append("user name", this.username).
-                append("password", Mongo.encrypt(this.password));
+        Document login = new Document("_id", new ObjectId()).append("user name", username).
+                append("password", Mongo.encrypt(password));
         Mongo.coll.insertOne(login);
         //get the automatically generated id of the document just inserted
         String key = login.get("_id").toString();
@@ -173,7 +92,7 @@ public class Registration{
     }
 
     //andreea
-    public void toFile(Document user, Document login, Object key) {
+    public static void toFile(Document user, Document login, Object key) {
         try {
             FileWriter writer = new FileWriter("UserDB2.json", true);
             writer.write(login.append("_id", key).toJson() + System.lineSeparator());

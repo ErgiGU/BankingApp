@@ -215,19 +215,22 @@ public class RegistrationController {
         boolean passwordValidation = DataValidation.validateField(password, passwordLabel,
                 "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,30}$",
                 "Password must contain at least one(number,digit,uppercase,lowercase,special character)");
-        //boolean usernameExists = Mongo.existsInDatabase(username, "user name",usernameLabel,"Username already exists");
-        if(passwordValidation) {
-            boolean passwordsMatch = DataValidation.passwordsMatch(password,confirmPassword,confirmLabel,"Passwords must match");
-            if (usernameValidation && passwordsMatch && registration.getCheckbox()) {
-                tempUsername = username;
-                tempPassword = password;
-                try {
-                    Main.showPage("RegistrationPage4.fxml");
-                } catch (IOException e) {
-                    e.printStackTrace();
+        if(usernameValidation){
+            boolean usernameExists = Mongo.existsInDatabase(username, "user name",usernameLabel,"Username already exists");
+            if(passwordValidation && !usernameExists) {
+                boolean passwordsMatch = DataValidation.passwordsMatch(password,confirmPassword,confirmLabel,"Passwords must match");
+                if (usernameValidation && passwordsMatch && registration.getCheckbox()) {
+                    tempUsername = username;
+                    tempPassword = password;
+                    try {
+                        Main.showPage("RegistrationPage4.fxml");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
+
     }
 
     //juan
@@ -252,26 +255,14 @@ public class RegistrationController {
     @FXML
     void FinishRegister(ActionEvent event) {
         try {
-            //you register the user
-            //if user selects uni we save it
-/*            registration.setFirstName(tempFirstName);
-            registration.setLastName(tempLastName);
-            registration.setMiddleName(tempMiddleName);
-            registration.setPersonalID(tempID);
-            registration.setStreetName(tempAddress);
-            registration.setCity(tempCity);
-            registration.setPostalCode(tempPostal);
-            registration.setPhoneNumber(tempPhone);
-            registration.setEmail(tempEmail);
-            registration.setUsername(tempUsername);
-            registration.setPassword(tempPassword);*/
+
             String iban = Registration.generateIBAN();
             String accNr = iban.substring(7,19);
             Random rand = new Random();
-            double random=rand.nextDouble(8000000.0);
+            double random=rand.nextDouble(8000000);
             User user = new User(tempFirstName,tempMiddleName,tempLastName,tempAddress,tempCity,tempCity,Registration.extractBirthdate(tempID),
                     tempPhone,tempID,tempEmail,tempUni,accNr,iban,random,false);
-            //registration.register();
+            Registration.register(user,tempUsername,tempPassword);
             Main.showPage("Entry-Page.fxml");
         }
         catch (IOException ex) {
