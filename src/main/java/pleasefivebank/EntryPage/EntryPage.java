@@ -17,7 +17,7 @@ public class EntryPage {//in EntryPageController we create an object and then se
     String encryptedPassword;
 
     //juan && andreea
-    public EntryPage(String password, String username){
+/*    public EntryPage(String password, String username){
         this.encryptedPassword = password;
         //key will be the user key to access his info in the database
         Object key = Mongo.extractKey(username);
@@ -32,7 +32,7 @@ public class EntryPage {//in EntryPageController we create an object and then se
                 session.get("university").toString(), null);
         session.get("account");
         //login.setAccount(); must construct the account object with the info from database
-    }
+    }*/
 
     public void setUsername(String username) {
         this.username = username;

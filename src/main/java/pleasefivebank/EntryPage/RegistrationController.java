@@ -5,10 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
+import pleasefivebank.Objects.User;
 
 import java.io.IOException;
+import java.util.Random;
 
-public class mRegistrationController {
+public class RegistrationController {
 
     private Registration registration = new Registration();
 
@@ -24,6 +26,7 @@ public class mRegistrationController {
     private static String tempUsername="";
     private static String tempPassword="";
     private static String tempConfirmPassword="";
+    private static String tempUni="";
 
     @FXML
     private TextField FirstName;
@@ -201,7 +204,7 @@ public class mRegistrationController {
         }
     }
 
-    //Ergi and juan
+    //Ergi
     @FXML
     void Page3to4(ActionEvent event) {
         String username = UserName.getText();
@@ -242,7 +245,7 @@ public class mRegistrationController {
     @FXML
     void Select(ActionEvent event) throws IOException {
         String selection = UniversityOption.getSelectionModel().getSelectedItem();
-        registration.setUniversity(selection);
+        tempUni=selection;
     }
 
     //juan
@@ -251,7 +254,7 @@ public class mRegistrationController {
         try {
             //you register the user
             //if user selects uni we save it
-            registration.setFirstName(tempFirstName);
+/*            registration.setFirstName(tempFirstName);
             registration.setLastName(tempLastName);
             registration.setMiddleName(tempMiddleName);
             registration.setPersonalID(tempID);
@@ -261,7 +264,13 @@ public class mRegistrationController {
             registration.setPhoneNumber(tempPhone);
             registration.setEmail(tempEmail);
             registration.setUsername(tempUsername);
-            registration.setPassword(tempPassword);
+            registration.setPassword(tempPassword);*/
+            String iban = Registration.generateIBAN();
+            String accNr = iban.substring(7,19);
+            Random rand = new Random();
+            double random=rand.nextDouble(8000000.0);
+            User user = new User(tempFirstName,tempMiddleName,tempLastName,tempAddress,tempCity,tempCity,Registration.extractBirthdate(tempID),
+                    tempPhone,tempID,tempEmail,tempUni,accNr,iban,random,false);
             //registration.register();
             Main.showPage("Entry-Page.fxml");
         }

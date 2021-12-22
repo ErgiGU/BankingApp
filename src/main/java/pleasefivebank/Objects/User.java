@@ -25,7 +25,7 @@ public class User {
     private String university;
     private Document doc;
 
-    protected long balance;
+    protected double balance;
     protected int rewardPoints;
     protected boolean frozen;
     protected final String accountNr;
@@ -34,7 +34,7 @@ public class User {
     protected ArrayList<Transaction> pending = new ArrayList<>();
 
     public User(String name, String middleName, String lastName, String address, String city, String postalCode,
-                String birthDate, String phoneNumber, String personNummer, String email, String university, String accountNr, String accountIBAN, long balance, boolean frozen) {
+                String birthDate, String phoneNumber, String personNummer, String email, String university, String accountNr, String accountIBAN, double balance, boolean frozen) {
         this.firstName = name;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -70,7 +70,6 @@ public class User {
                 append("transactions", asList(new Document("sent", ""/*this.account.sent*/), new Document("received", ""/*this.account.received*/))).
                 append("loans", asList(new Document("status", ""), new Document("quantity", 0),
                                         new Document("due date", "")));
-
         return doc;
     }
 
@@ -147,7 +146,7 @@ public class User {
     }
 
 
-    public long getBalance() {
+    public double getBalance() {
         return balance;
     }
 

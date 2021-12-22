@@ -152,7 +152,7 @@ public class Registration{
     }
 
     //andreea && ossian
-    public String extractBirthdate(String personnummer){
+    public static String extractBirthdate(String personnummer){
         String yearString  = personnummer.substring(0,2);
         int year = Integer.parseInt(yearString);
         if(year > 22){ year += 1900; }
@@ -163,7 +163,7 @@ public class Registration{
     }
 
     //juan
-    public String generateIBAN(){
+    public static String generateIBAN(){
         Iban iban = new Iban.Builder()
                 .countryCode(CountryCode.SE)
                 .bankCode("555")

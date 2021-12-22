@@ -38,7 +38,7 @@ public class EntryPageController{
     //juan && andreea
     @FXML
     protected void PressedLoginButton(ActionEvent event) {
-        String username = "";
+       /* String username = "";
         String password = "";
         String encryptedPassword = "";
         Main main = new Main();
@@ -85,7 +85,7 @@ public class EntryPageController{
 
             }
 
-        }
+        }*/
     }
     @FXML
     private BorderPane borderpane;
