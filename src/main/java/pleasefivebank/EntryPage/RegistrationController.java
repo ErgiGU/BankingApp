@@ -3,16 +3,12 @@ package pleasefivebank.EntryPage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import org.iban4j.CountryCode;
-import org.iban4j.Iban;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
-import pleasefivebank.Objects.Account;
 
-import java.io.FileWriter;
 import java.io.IOException;
 
-public class RegistrationController {
+public class mRegistrationController {
 
     private Registration registration = new Registration();
 
@@ -266,8 +262,7 @@ public class RegistrationController {
             registration.setEmail(tempEmail);
             registration.setUsername(tempUsername);
             registration.setPassword(tempPassword);
-            //registration.setAccount();
-            registration.register();
+            //registration.register();
             Main.showPage("Entry-Page.fxml");
         }
         catch (IOException ex) {

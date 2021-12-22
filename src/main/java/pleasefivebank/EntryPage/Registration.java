@@ -1,19 +1,14 @@
 package pleasefivebank.EntryPage;
 
-import com.mongodb.client.FindIterable;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.iban4j.CountryCode;
 import org.iban4j.Iban;
 import pleasefivebank.Mongo;
-import pleasefivebank.Objects.Account;
-import pleasefivebank.Objects.BasicAccount;
-import pleasefivebank.Objects.StudentAccount;
 import pleasefivebank.Objects.User;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.DateFormat;
 
 public class Registration{
     private String firstName;
@@ -31,7 +26,6 @@ public class Registration{
     private String password;
     private boolean checkbox;
     private String university;
-    private Account account;
 
     //juan
     public Registration(){//in RegistrationController we create an object and then set the attributes values
@@ -48,7 +42,8 @@ public class Registration{
         this.password = "";
         this.checkbox = false;
         this.university = "";
-        this.account = null;
+
+
     }
 
     public String getEmail(){
@@ -124,7 +119,7 @@ public class Registration{
     }
 
     //andreea
-    public void setAccount(){
+    /*public void setAccount(){
         //generate random IBAN
         String iban = generateIBAN();
         //remove the empty spaces
@@ -136,16 +131,14 @@ public class Registration{
         } else {
             this.account = new StudentAccount(accountNr, iban, 0, false);
         }
-    }
+    }*/
+
 
     //andreea
-    public void register(){
+    public void register(User user){
         String birthdate = extractBirthdate(this.personalID);//set the birthdate
-        setAccount();//set the basic or student account
-        User newUser = new User(this.firstName, this.middleName, this.lastName, this.streetName, this.postalCode,
-                this.city, birthdate, this.phoneNumber, this.personalID, this.email, this.university, this.account);
         //We write the user as document
-        Document user = newUser.toDocument();
+        Document userdoc = user.toDocument();
         //we create a document with encrypted credentials and add it to the database
         Document login = new Document("_id", new ObjectId()).append("user name", this.username).
                 append("password", Mongo.encrypt(this.password));
@@ -153,9 +146,9 @@ public class Registration{
         //get the automatically generated id of the document just inserted
         String key = login.get("_id").toString();
         //store the id in the key field of the user document and add the user to the database
-        Mongo.coll.insertOne(user.append("key", key));
+        Mongo.coll.insertOne(userdoc.append("key", key));
         //print at the end of file UserDB2
-        toFile(user, login, key);
+        toFile(userdoc, login, key);
     }
 
     //andreea && ossian
