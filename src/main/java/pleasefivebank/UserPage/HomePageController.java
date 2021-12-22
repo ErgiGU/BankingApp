@@ -2,6 +2,8 @@ package pleasefivebank.UserPage;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import pleasefivebank.Main;
 import pleasefivebank.EntryPage.EntryPageController;
@@ -49,7 +51,11 @@ public class HomePageController { //need the attributes from EntryPage controlle
     @FXML
     void ToDetails(ActionEvent event) {
         try {
-            Main.showPage("AccountDetails.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("UserHomePage.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            AccountDetailsController = fxmlLoader.getController();
+            HomePageController.set(username);
+            mainWindow.setScene(scene);
         }
         catch (IOException ex) {
             ex.printStackTrace();

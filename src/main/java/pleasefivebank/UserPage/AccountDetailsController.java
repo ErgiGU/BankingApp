@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import pleasefivebank.Main;
+import pleasefivebank.Objects.User;
 
 import java.io.IOException;
 
@@ -68,7 +69,28 @@ public class AccountDetailsController {
         }
     }
 
-    public void setInformation(String username, String university, String phoneNumber, String personalID, String lastName, String firstName, String email, String address, String accountNumber, String accountFrozen, String IBAN){
+    public void setInformation(User user){
         //username.setText
+        IBAN.setText(user.getAccountIBAN());
+
+        accountFrozen.setText(user.getFrozen());
+
+        accountNumber.setText(user.getAccountNr());
+
+        address.setText(user.getAddress());
+
+        email.setText(user.getEmail());
+
+        firstName.setText(user.getFirstName());
+
+        lastName.setText(user.getLastName());
+
+        personalID.setText(user.getPersonalID());
+
+        phoneNumber.setText(user.getPhoneNumber());
+
+        university.setText(user.getUniversity());
+
+        username.setText(user.getUsername());
     }
 }

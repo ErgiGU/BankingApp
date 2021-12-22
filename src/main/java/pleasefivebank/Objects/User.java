@@ -24,17 +24,19 @@ public class User {
     private String lastName;
     private String university;
     private Document doc;
+    private String username;
+    private String personalID;
 
     protected String balance;
     protected int rewardPoints;
-    protected boolean frozen;
+    protected String frozen;
     protected final String accountNr;
     protected final String accountIBAN;
     protected ArrayList<Transaction> activity = new ArrayList<>();
     protected ArrayList<Transaction> pending = new ArrayList<>();
 
     public User(String name, String middleName, String lastName, String address, String city, String postalCode,
-                String birthDate, String phoneNumber, String personNummer, String email, String university, String accountNr, String accountIBAN, String balance, String frozen) {
+                String birthDate, String phoneNumber, String personNummer, String email, String university, String username, String personalID, String accountNr, String accountIBAN, String balance, String frozen) {
         this.firstName = name;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -46,11 +48,13 @@ public class User {
         this.city = city;
         this.postalCode = postalCode;
         this.university = university;
+        this.username = username;
+        this.personalID = personalID;
 
         this.accountNr = accountNr;
         this.accountIBAN = accountIBAN;
         this.balance = balance;
-        this.frozen = false;
+        this.frozen = "false";
         this.rewardPoints = 0;
         toDocument();
     }
@@ -122,6 +126,12 @@ public class User {
         return this.birthdate;
     }
 
+    public String getUniversity() { return this.university; }
+
+    public String getUsername(){ return this.username; }
+
+    public String getPersonalID() { return this.personalID; }
+
     public void setFirstName(String newName) {
         this.firstName = newName;
     }
@@ -150,9 +160,7 @@ public class User {
         return balance;
     }
 
-    public boolean getFrozen() {
-        return frozen;
-    }
+    public String getFrozen() {return frozen;}
 
     /*public int getRewardPoints() { return rewardPoints; }*/
 
@@ -181,10 +189,6 @@ public class User {
         this.rewardPoints = rewardPoints;
     }
 
-    public void setFrozen(boolean frozen) {
-        this.frozen = frozen;
-    }
-
     public void setSent(ArrayList<Transaction> sent) {
         this.activity = activity;
     }
@@ -198,11 +202,11 @@ public class User {
     }
 
     public void freezeAccount() {
-        this.frozen = true;
+        this.frozen = "true";
     }
 
     public void unfreezeAccount() {
-        this.frozen = false;
+        this.frozen = "false";
     }
 
     public void showCard() {
