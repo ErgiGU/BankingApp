@@ -23,12 +23,18 @@ public class User {
     private String middleName;
     private String lastName;
     private String university;
-    private Account account;
     private Document doc;
 
+    protected String balance;
+    protected int rewardPoints;
+    protected boolean frozen;
+    protected final String accountNr;
+    protected final String accountIBAN;
+    protected ArrayList<Transaction> activity = new ArrayList<>();
+    protected ArrayList<Transaction> pending = new ArrayList<>();
+
     public User(String name, String middleName, String lastName, String address, String city, String postalCode,
-                String birthDate, String phoneNumber, String personNummer, String email, String university,
-                Account account) {
+                String birthDate, String phoneNumber, String personNummer, String email, String university, String accountNr, String accountIBAN, String balance, String frozen) {
         this.firstName = name;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -40,7 +46,13 @@ public class User {
         this.city = city;
         this.postalCode = postalCode;
         this.university = university;
-        this.account = account;
+
+        this.accountNr = accountNr;
+        this.accountIBAN = accountIBAN;
+        this.balance = balance;
+        this.frozen = false;
+        this.rewardPoints = 0;
+        toDocument();
     }
 
     //andreea
@@ -52,25 +64,21 @@ public class User {
                 append("phone number", this. phoneNumber).append("email", this.email).
                 append("address", this.address).append("city", this.city).
                 append("postal code", this.postalCode).append("university", this.university).
-                append("account", asList(new Document("account number", this.account.accountNr),
-                        new Document("account IBAN", this.account.accountIBAN),
-                        new Document("balance", this.account.balance),
-                        new Document("frozen", this.account.frozen),
-                        new Document("reward points", this.account.rewardPoints))).
-                append("transactions", asList(new Document("sent", ""/*this.account.sent*/),
-                        new Document("received", ""/*this.account.received*/)));
-        if(this.account instanceof StudentAccount) {doc.append("loans",
-                asList(new Document("status", ""), new Document("quantity", 0),
-                        new Document("due date", "")));}
+                append("account number", this.accountNr).
+                append("account IBAN", this.accountIBAN).append("balance", this.balance).
+                append("frozen", this.frozen).append("reward points", this.rewardPoints).
+                append("transactions", asList(new Document("sent", ""/*this.account.sent*/), new Document("received", ""/*this.account.received*/))).
+                append("loans", asList(new Document("status", ""), new Document("quantity", 0),
+                                        new Document("due date", "")));
         return doc;
     }
 
     //andreea
     public Document toAccounts(){//same method to add the account at registration and to update
         //changes in the account or transactions, etc.
-        Document account = new Document("_id", doc.get("_id")).append("account IBAN", this.account.accountIBAN).
-                append("transactions", asList(new Document("activity", this.account.activity),
-                        new Document("pending", this.account.pending)));
+        Document account = new Document("_id", doc.get("_id")).append("account IBAN", this.accountIBAN).
+                append("transactions", asList(new Document("activity", this.activity),
+                        new Document("pending", this.pending)));
         return account;
     }
 
@@ -135,6 +143,78 @@ public class User {
     }
 
     public void setTransactions(){
+    }
+
+
+    public String getBalance() {
+        return balance;
+    }
+
+    public boolean getFrozen() {
+        return frozen;
+    }
+
+    /*public int getRewardPoints() { return rewardPoints; }*/
+
+    public String getAccountNr() {
+        return accountNr;
+    }
+
+    public String getAccountIBAN() {
+        return accountIBAN;
+    }
+
+    public ArrayList<Transaction> getSent() {
+        return activity;
+    }
+
+    public ArrayList<Transaction> getReceived() {
+        return pending;
+    }
+
+
+    public void setBalance(String balance) {
+        this.balance = balance;
+    }
+
+    public void setRewardPoints(int rewardPoints) {
+        this.rewardPoints = rewardPoints;
+    }
+
+    public void setFrozen(boolean frozen) {
+        this.frozen = frozen;
+    }
+
+    public void setSent(ArrayList<Transaction> sent) {
+        this.activity = activity;
+    }
+
+    public void setReceived(ArrayList<Transaction> received) {
+        this.pending = pending;
+    }
+
+    public void addPoint(int pointsToAdd) {
+        this.rewardPoints += pointsToAdd;
+    }
+
+    public void freezeAccount() {
+        this.frozen = true;
+    }
+
+    public void unfreezeAccount() {
+        this.frozen = false;
+    }
+
+    public void showCard() {
+        //get card info and show it
+    }
+    public String getAllTransactions(){
+        String toReturn = "";
+        for(int i=0; i<activity.size(); i++){
+            Transaction transaction = activity.get(i);
+            toReturn.concat(transaction.toString());
+        }
+        return toReturn;
     }
 }
 

@@ -2,11 +2,45 @@ package pleasefivebank.UserPage;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.text.Text;
 import pleasefivebank.Main;
 
 import java.io.IOException;
 
 public class AccountDetailsController {
+
+    @FXML
+    private Text IBAN;
+
+    @FXML
+    private Text accountFrozen;
+
+    @FXML
+    private Text accountNumber;
+
+    @FXML
+    private Text address;
+
+    @FXML
+    private Text email;
+
+    @FXML
+    private Text firstName;
+
+    @FXML
+    private Text lastName;
+
+    @FXML
+    private Text personalID;
+
+    @FXML
+    private Text phoneNumber;
+
+    @FXML
+    private Text university;
+
+    @FXML
+    private Text username;
 
     @FXML
     void EditDetails(ActionEvent event) {
@@ -15,7 +49,12 @@ public class AccountDetailsController {
 
     @FXML
     void ToUserHomePage(ActionEvent event) {
-
+        try {
+            Main.showPage("UserHomePage.fxml");
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     @FXML
@@ -27,5 +66,9 @@ public class AccountDetailsController {
         catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+
+    public void setInformation(String username, String university, String phoneNumber, String personalID, String lastName, String firstName, String email, String address, String accountNumber, String accountFrozen, String IBAN){
+        //username.setText
     }
 }

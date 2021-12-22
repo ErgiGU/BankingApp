@@ -3,14 +3,12 @@ package pleasefivebank.EntryPage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import org.iban4j.CountryCode;
-import org.iban4j.Iban;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
-import pleasefivebank.Objects.Account;
+import pleasefivebank.Objects.User;
 
-import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Random;
 
 public class RegistrationController {
 
@@ -28,6 +26,7 @@ public class RegistrationController {
     private static String tempUsername="";
     private static String tempPassword="";
     private static String tempConfirmPassword="";
+    private static String tempUni="";
 
     @FXML
     private TextField FirstName;
@@ -205,7 +204,7 @@ public class RegistrationController {
         }
     }
 
-    //Ergi and juan
+    //Ergi
     @FXML
     void Page3to4(ActionEvent event) {
         String username = UserName.getText();
@@ -216,19 +215,22 @@ public class RegistrationController {
         boolean passwordValidation = DataValidation.validateField(password, passwordLabel,
                 "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,30}$",
                 "Password must contain at least one(number,digit,uppercase,lowercase,special character)");
-        //boolean usernameExists = Mongo.existsInDatabase(username, "user name",usernameLabel,"Username already exists");
-        if(passwordValidation) {
-            boolean passwordsMatch = DataValidation.passwordsMatch(password,confirmPassword,confirmLabel,"Passwords must match");
-            if (usernameValidation && passwordsMatch && registration.getCheckbox()) {
-                tempUsername = username;
-                tempPassword = password;
-                try {
-                    Main.showPage("RegistrationPage4.fxml");
-                } catch (IOException e) {
-                    e.printStackTrace();
+        if(usernameValidation){
+            boolean usernameExists = Mongo.existsInDatabase(username, "user name",usernameLabel,"Username already exists");
+            if(passwordValidation && !usernameExists) {
+                boolean passwordsMatch = DataValidation.passwordsMatch(password,confirmPassword,confirmLabel,"Passwords must match");
+                if (usernameValidation && passwordsMatch && registration.getCheckbox()) {
+                    tempUsername = username;
+                    tempPassword = password;
+                    try {
+                        Main.showPage("RegistrationPage4.fxml");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
+
     }
 
     //juan
@@ -246,28 +248,23 @@ public class RegistrationController {
     @FXML
     void Select(ActionEvent event) throws IOException {
         String selection = UniversityOption.getSelectionModel().getSelectedItem();
-        registration.setUniversity(selection);
+        tempUni=selection;
     }
 
     //juan
     @FXML
     void FinishRegister(ActionEvent event) {
         try {
-            //you register the user
-            //if user selects uni we save it
-            registration.setFirstName(tempFirstName);
-            registration.setLastName(tempLastName);
-            registration.setMiddleName(tempMiddleName);
-            registration.setPersonalID(tempID);
-            registration.setStreetName(tempAddress);
-            registration.setCity(tempCity);
-            registration.setPostalCode(tempPostal);
-            registration.setPhoneNumber(tempPhone);
-            registration.setEmail(tempEmail);
-            registration.setUsername(tempUsername);
-            registration.setPassword(tempPassword);
-            //registration.setAccount();
-            registration.register();
+
+            String iban = Registration.generateIBAN();
+            String accNr = iban.substring(7,19);
+            Random rand = new Random();
+            double r = rand.nextDouble(8000000);
+            String random = Double.toString(r);
+
+            User user = new User(tempFirstName,tempMiddleName,tempLastName,tempAddress,tempCity,tempCity,Registration.extractBirthdate(tempID),
+                    tempPhone,tempID,tempEmail,tempUni,accNr,iban,random,"false");
+            Registration.register(user,tempUsername,tempPassword);
             Main.showPage("Entry-Page.fxml");
         }
         catch (IOException ex) {

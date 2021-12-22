@@ -68,27 +68,27 @@
             <Font name="Avenir Next Bold" size="16.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="263.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Juan ">
+      <Text fx:id="firstName" fill="#2b5292" layoutX="263.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Juan ">
          <font>
             <Font name="Avenir Book" size="16.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="263.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="García Díaz">
+      <Text fx:id="lastName" fill="#2b5292" layoutX="263.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="García Díaz">
          <font>
             <Font name="Avenir Book" size="16.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="263.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="juangarciadiaz1">
+      <Text fx:id="username" fill="#2b5292" layoutX="263.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="juangarciadiaz1">
          <font>
             <Font name="Avenir Book" size="16.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="263.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7608072856">
+      <Text fx:id="personalID" fill="#2b5292" layoutX="263.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7608072856">
          <font>
             <Font name="Avenir Book" size="16.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="263.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0471-5734024 ">
+      <Text fx:id="phoneNumber" fill="#2b5292" layoutX="263.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0471-5734024 ">
          <font>
             <Font name="Avenir Book" size="16.0" />
          </font>
@@ -123,32 +123,32 @@
             <Font name="Avenir Next Bold" size="16.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="263.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="juangarc1@gmail.com">
+      <Text fx:id="email" fill="#2b5292" layoutX="263.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="juangarc1@gmail.com">
          <font>
             <Font name="Avenir Book" size="16.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="263.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Skomakaregatan 2, 411 29 Göteborg">
+      <Text fx:id="address" fill="#2b5292" layoutX="263.0" layoutY="334.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Skomakaregatan 2, 411 29 Göteborg">
          <font>
             <Font name="Avenir Book" size="16.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="263.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="University of Gothenburg">
+      <Text fx:id="university" fill="#2b5292" layoutX="263.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="University of Gothenburg">
          <font>
             <Font name="Avenir Book" size="16.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="262.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SE41 9116 3132 9621 7623 8686">
+      <Text fx:id="IBAN" fill="#2b5292" layoutX="262.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SE41 9116 3132 9621 7623 8686">
          <font>
             <Font name="Avenir Book" size="16.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="263.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="217 623 868-6">
+      <Text fx:id="accountNumber" fill="#2b5292" layoutX="263.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="217 623 868-6">
          <font>
             <Font name="Avenir Book" size="16.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="262.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No">
+      <Text fx:id="accountFrozen" fill="#2b5292" layoutX="262.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No">
          <font>
             <Font name="Avenir Book" size="16.0" />
          </font>

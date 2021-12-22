@@ -29,7 +29,10 @@ public class EntryPage {//in EntryPageController we create an object and then se
                 session.get("city").toString(), session.get("postal code").toString(),
                 session.get("birth date").toString(), session.get("phone number").toString(),
                 session.get("personnummer").toString(), session.get("email").toString(),
-                session.get("university").toString(), null);
+                session.get("university").toString(), session.get("account number").toString(),
+                session.get("account IBAN").toString(),session.get("balance").toString(),session.get("frozen").toString()
+                 );
+
         session.get("account");
         //login.setAccount(); must construct the account object with the info from database
     }
@@ -47,6 +50,8 @@ public class EntryPage {//in EntryPageController we create an object and then se
         Document save = login.toDocument();
         Mongo.coll.findOneAndUpdate(session, save);
     }
+
+    public User getLogin() {return login;}
 
     //juan
     public boolean isAlpha(String name) {
