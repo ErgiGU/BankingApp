@@ -156,10 +156,10 @@ public final class Mongo {//marked as final because it is a utility class and it
     }
 
     //Ergi and juan
-    public static Object getUsername(String dbLabel, String thingToLookFor, String returnThing){
-        Document doc = coll.find(eq(dbLabel,thingToLookFor)).first();
+    public static Object getUsername(String id, String returnThing){
+        Document doc = coll.find(eq("_id",id)).first();
+        System.out.println(returnThing);
         Object username = doc.get(returnThing);
-
         return username;
     }
 

@@ -218,7 +218,7 @@ public class User {
     public String getUsername1(){
         Object key= Mongo.extractKey2("personnummer",getPersonnummer());
         System.out.println(key.toString());
-        String username = Mongo.getUsername("_id",key.toString(),"user name").toString();
+        String username = Mongo.getUsername(key.toString(),"user name").toString();
         return username;
     }
 }
