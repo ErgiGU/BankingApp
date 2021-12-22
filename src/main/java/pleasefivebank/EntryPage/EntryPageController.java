@@ -16,6 +16,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.control.Hyperlink;
+import pleasefivebank.Objects.User;
 import pleasefivebank.UserPage.HomePageController;
 import com.jfoenix.controls.events.JFXDialogEvent;
 import com.jfoenix.converters.DialogTransitionConverter;
@@ -51,14 +52,14 @@ public class EntryPageController{
         Boolean k = Mongo.isValidLogin(username, encryptedPassword);
         if (k && i < 3) {
             EntryPage login = new EntryPage(encryptedPassword,username);
+            User user = login.getLogin();
             tempUserName = username;
             tempPassword = encryptedPassword;
             login.setUsername(tempUserName);
             login.setPassword(tempPassword);
             i = 0;
             try {
-                main.showLoginPage(username);
-                //Main.showPage("UserHomePage.fxml");
+                main.showLoginPage(user.getFirstName()+" " + user.getLastName());
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
@@ -74,7 +75,6 @@ public class EntryPageController{
                 button.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent mousevent) -> {
                     dialog.close();
                 });
-
                 layout.setHeading(new Label("Your account is now frozen"));
                 layout.setActions(button);
                 dialog.show();
