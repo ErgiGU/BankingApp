@@ -91,6 +91,6 @@ public class AccountDetailsController {
 
         university.setText(user.getUniversity());
 
-        username.setText(user.getUsername());
+        username.setText(user.getUsername1());
     }
 }

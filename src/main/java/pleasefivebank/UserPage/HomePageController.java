@@ -7,10 +7,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import pleasefivebank.Main;
 import pleasefivebank.EntryPage.EntryPageController;
+import pleasefivebank.Objects.User;
 
 import java.io.IOException;
 
+import static pleasefivebank.Main.mainWindow;
+
 public class HomePageController { //need the attributes from EntryPage controller
+
+    User user;
+
+    public void setUser(User currentUser){
+        this.user = currentUser;
+    }
 
     @FXML
     private Button NameDisplay;
@@ -51,11 +60,14 @@ public class HomePageController { //need the attributes from EntryPage controlle
     @FXML
     void ToDetails(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("UserHomePage.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AccountDetails.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
-            AccountDetailsController = fxmlLoader.getController();
-            HomePageController.set(username);
-            mainWindow.setScene(scene);
+            AccountDetailsController accountDetailsController = fxmlLoader.getController();
+            User currentUser = EntryPageController.user;
+            if(!currentUser.equals(null)) {
+                accountDetailsController.setInformation(EntryPageController.user);
+                mainWindow.setScene(scene);
+            }
         }
         catch (IOException ex) {
             ex.printStackTrace();

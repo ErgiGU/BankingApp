@@ -145,9 +145,22 @@ public final class Mongo {//marked as final because it is a utility class and it
     }
 
     //andreea
-    public static Object extractKey(String username){
-        Document doc = coll.find(eq("user name", username)).first();
+    public static Object extractKey(String thingToLookFor,String username){
+        Document doc = coll.find(eq(thingToLookFor, username)).first();
         return doc.get("_id");
+    }
+    //juan and Ergi
+    public static Object extractKey2(String thingToLookFor,String username){
+        Document doc = coll.find(eq(thingToLookFor, username)).first();
+        return doc.get("key");
+    }
+
+    //Ergi and juan
+    public static Object getUsername(String dbLabel, String thingToLookFor, String returnThing){
+        Document doc = coll.find(eq(dbLabel,thingToLookFor)).first();
+        Object username = doc.get(returnThing);
+
+        return username;
     }
 
     //andreea

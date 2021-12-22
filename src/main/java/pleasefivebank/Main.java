@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import org.bson.types.ObjectId;
 import pleasefivebank.Menus.EntryPage;
 import pleasefivebank.Objects.Transaction;
+import pleasefivebank.Objects.User;
 import pleasefivebank.UserPage.HomePageController;
 
 import java.io.IOException;
@@ -14,7 +15,7 @@ import java.util.Map;
 
 public class Main extends Application {
 
-    private static Stage mainWindow = null;
+    public static Stage mainWindow = null;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -41,11 +42,11 @@ public class Main extends Application {
         mainWindow.setScene(scene);
     }
     //lotti and juan
-    public void showLoginPage(String username) throws IOException {
+    public void showLoginPage(String fullName) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("UserHomePage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         HomePageController homePageController = fxmlLoader.getController();
-        homePageController.setName(username);
+        homePageController.setName(fullName);
         mainWindow.setScene(scene);
     }
 

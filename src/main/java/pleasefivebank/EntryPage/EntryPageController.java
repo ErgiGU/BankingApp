@@ -19,7 +19,7 @@ import javafx.scene.control.Hyperlink;
 import pleasefivebank.Objects.User;
 import pleasefivebank.UserPage.HomePageController;
 import com.jfoenix.controls.events.JFXDialogEvent;
-import com.jfoenix.converters.DialogTransitionConverter;
+//import com.jfoenix.converters.DialogTransitionConverter;
 import com.jfoenix.effects.JFXDepthManager;
 import com.jfoenix.transitions.CachedTransition;
 
@@ -33,6 +33,7 @@ public class EntryPageController{
     private static String tempUserName = "";
     private static String tempPassword = "";
     private static int i = 0;
+    public static User user;
     @FXML
     private StackPane rootPane;
 
@@ -52,14 +53,15 @@ public class EntryPageController{
         Boolean k = Mongo.isValidLogin(username, encryptedPassword);
         if (k && i < 3) {
             EntryPage login = new EntryPage(encryptedPassword,username);
-            User user = login.getLogin();
+            User user1 = login.getLogin();
+            user= user1;
             tempUserName = username;
             tempPassword = encryptedPassword;
             login.setUsername(tempUserName);
             login.setPassword(tempPassword);
             i = 0;
             try {
-                main.showLoginPage(user.getFirstName()+" " + user.getLastName());
+                main.showLoginPage(user.getFirstName()+ " " + user.getLastName());
             } catch (IOException ex) {
                 ex.printStackTrace();
             }

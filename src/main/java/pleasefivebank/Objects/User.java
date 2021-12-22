@@ -8,6 +8,7 @@ import pleasefivebank.Mongo;
 import java.util.ArrayList;
 import java.util.Date;
 
+import static com.mongodb.client.model.Filters.eq;
 import static java.util.Arrays.asList;
 
 public class User {
@@ -24,7 +25,7 @@ public class User {
     private String lastName;
     private String university;
     private Document doc;
-    private String username;
+
 
 
     protected String balance;
@@ -36,7 +37,7 @@ public class User {
     protected ArrayList<Transaction> pending = new ArrayList<>();
 
     public User(String name, String middleName, String lastName, String address, String city, String postalCode,
-                String birthDate, String phoneNumber, String personNummer, String email, String university, String username, String accountNr, String accountIBAN, String balance, String frozen) {
+                String birthDate, String phoneNumber, String personNummer, String email, String university, String accountNr, String accountIBAN, String balance, String frozen) {
         this.firstName = name;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -48,7 +49,6 @@ public class User {
         this.city = city;
         this.postalCode = postalCode;
         this.university = university;
-        this.username = username;
 
 
         this.accountNr = accountNr;
@@ -128,8 +128,6 @@ public class User {
 
     public String getUniversity() { return this.university; }
 
-    public String getUsername(){ return this.username; }
-
     public void setFirstName(String newName) {
         this.firstName = newName;
     }
@@ -150,9 +148,7 @@ public class User {
         this.email = newEmail;
     }
 
-    public void setTransactions(){
-    }
-
+    public void setTransactions(){}
 
     public String getBalance() {
         return balance;
@@ -217,6 +213,13 @@ public class User {
             toReturn.concat(transaction.toString());
         }
         return toReturn;
+    }
+    //Juan and Ergi
+    public String getUsername1(){
+        Object key= Mongo.extractKey2("personnummer",getPersonnummer());
+        System.out.println(key.toString());
+        String username = Mongo.getUsername("_id",key.toString(),"user name").toString();
+        return username;
     }
 }
 
