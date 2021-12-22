@@ -67,6 +67,7 @@ public class HomePageController { //need the attributes from EntryPage controlle
         }
     }
 
+
     public void setName(String name){
         NameDisplay.setText(name);
     }

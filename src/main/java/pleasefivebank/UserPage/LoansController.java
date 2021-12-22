@@ -1,15 +1,19 @@
 package pleasefivebank.UserPage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import pleasefivebank.Main;
+import pleasefivebank.Objects.Interest;
 import pleasefivebank.Objects.Loan;
 
 import java.io.IOException;
-
+//Linus and Andreea
 public class LoansController {
 
     Loan loan = new Loan();
+
 
     @FXML
     public TextField rentTotal;
@@ -18,13 +22,67 @@ public class LoansController {
     public TextField totalCost;
 
     @FXML
-    public TextField totalAmount;
+    public TextField amountPerMonth;
 
-    @FXML
-    private TextField AmountPerMonth;
 
     @FXML
     private TextField LoanPeriod;
+
+    @FXML
+    private TextField totalAmount;
+
+
+    @FXML
+    private TextField EstPayBackTime;
+
+    @FXML
+    private Button calculateButton;
+
+    double amountPerMonthPrompt = 0;
+    int estPayBackTimePrompt = 0;
+    Interest totalWRent = null;
+    int loanPeriodPrompt = 0;
+
+    @FXML
+    public double getAmountPerMonthPrompt(){
+        amountPerMonthPrompt = Double.parseDouble(amountPerMonth.getText());
+        return amountPerMonthPrompt;
+    }
+    @FXML
+    public int getEstPayBackTimePrompt(){
+        estPayBackTimePrompt = Integer.parseInt(EstPayBackTime.getText());
+        return estPayBackTimePrompt;
+    }
+    @FXML
+    public int getLoanPeriodPrompt(){
+        loanPeriodPrompt = Integer.parseInt(LoanPeriod.getText());
+        return loanPeriodPrompt;
+    }
+
+    @FXML
+    public void calculate(ActionEvent event){
+
+        Interest interest = loan.totalCosts(getAmountPerMonthPrompt(), getEstPayBackTimePrompt(), getLoanPeriodPrompt());
+        double totalWRent = interest.getTotal();
+        double rentOnly = interest.getRentOnly();
+        totalCost.setText(String.valueOf(totalWRent));
+        rentTotal.setText(String.valueOf(rentOnly));
+        totalAmount.setText(String.valueOf(totalWRent));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @FXML
     void ToCards(ActionEvent event) {

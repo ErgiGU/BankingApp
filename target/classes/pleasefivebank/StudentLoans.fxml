@@ -240,14 +240,24 @@
                      </font>
                   </Text>
                   <TextField fx:id="totalAmount" layoutX="172.0" layoutY="357.0" prefHeight="37.0" prefWidth="160.0" />
+                  <Button id="calculateButton" fx:id="calculateButton" layoutX="174.0" layoutY="421.0" mnemonicParsing="false" onAction="#calculate" prefHeight="53.0" prefWidth="160.0" style="-fx-background-color: #84bdf9;" text="Calculate">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
-            <TextField fx:id="AmountPerMonth" layoutX="66.0" layoutY="160.0" prefHeight="59.0" prefWidth="325.0" promptText="Desired amount Per Month:" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;">
+            <TextField id="AmountPerMonth" fx:id="amountPerMonth" layoutX="66.0" layoutY="160.0" prefHeight="59.0" prefWidth="325.0" promptText="Desired amount Per Month:" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;">
                <font>
                   <Font size="20.0" />
                </font>
             </TextField>
             <TextField fx:id="LoanPeriod" layoutX="69.0" layoutY="236.0" prefHeight="59.0" prefWidth="325.0" promptText="Loan period in years:" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="EstPayBackTime" layoutX="66.0" layoutY="320.0" prefHeight="59.0" prefWidth="325.0" promptText="Estimated payback time (years)" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;">
                <font>
                   <Font size="20.0" />
                </font>

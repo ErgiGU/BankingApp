@@ -1,11 +1,12 @@
 package pleasefivebank.Objects;
 
-public class Loan {
+public class Loan{
     private String status;
     private long quantity;
     private String dueDate;
     private boolean checkbox;
     private int estPayBack;
+    private  int loanPeriod;
 
     public Loan(){
         this.status = "pending";
@@ -13,6 +14,7 @@ public class Loan {
         this.dueDate = "";
         this.checkbox = false;
         this.estPayBack = 0;
+        this.loanPeriod = 0;
     }
 
     public Loan(double total, double totalRent) {
@@ -51,9 +53,10 @@ public class Loan {
         } else{ checkbox = true; }
     }
     //Linus
-    public Interest totalCosts(double quantity, int estPayBack){
-        double monthlyPayBack = quantity; //the quantity the user specifies are monthly payments
-        quantity = quantity*estPayBack*12;
+    public Interest totalCosts(double quantity, int estPayBack, int loanPeriod){
+         //the quantity the user specifies are monthly payments
+        quantity = quantity*loanPeriod*12;
+        double monthlyPayBack = quantity/estPayBack/12;
         double total = 0;
         double rentOnly =0;
         double originalQuantity = quantity;
