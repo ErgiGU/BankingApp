@@ -49,11 +49,16 @@ public class AccountDetailsController {
     //juan
     @FXML
     void EditDetails(ActionEvent event) {
+        try {
+            Main.showEditDetailsPage(user.getFirstName()+ " " + user.getLastName());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
     }
     //juan
     @FXML
-    void ToUserHomePage(ActionEvent event) {
+    public void ToUserHomePage(ActionEvent event) {
         try {
             Main.showLoginPage(user.getFirstName()+ " " + user.getLastName());
         } catch (IOException ex) {

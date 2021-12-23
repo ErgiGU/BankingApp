@@ -89,5 +89,13 @@ public class Main extends Application {
         transferMoneyController.setName(fullName);
         mainWindow.setScene(scene);
     }
+    //juan
+    public static void showEditDetailsPage(String fullName) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("EditAccountDetails.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        EditDetailsController editDetailsController = fxmlLoader.getController();
+        editDetailsController.setData(fullName);
+        mainWindow.setScene(scene);
+    }
 
 }

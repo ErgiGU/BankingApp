@@ -130,6 +130,10 @@ public class User {
         return this.address;
     }
 
+    public String getCity(){return this.city;}
+
+    public String getPostalCode(){return this.postalCode;}
+
     public String getBirthdate() {
         return this.birthdate;
     }

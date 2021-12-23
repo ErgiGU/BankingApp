@@ -262,7 +262,7 @@ public class RegistrationController {
             double r = rand.nextDouble(8000000);
             String random = Double.toString(r);
 
-            User user = new User(registration.generateCardNr(), registration.calculateExpirationDate() ,tempFirstName,tempMiddleName,tempLastName,tempAddress,tempCity,tempCity,Registration.extractBirthdate(tempID),
+            User user = new User(registration.generateCardNr(), registration.calculateExpirationDate() ,tempFirstName,tempMiddleName,tempLastName,tempAddress,tempCity,tempPostal,Registration.extractBirthdate(tempID),
                     tempPhone,tempID,tempEmail,tempUni,accNr,iban,random,"false");
             Registration.register(user,tempUsername,tempPassword);
             Main.showPage("Entry-Page.fxml");

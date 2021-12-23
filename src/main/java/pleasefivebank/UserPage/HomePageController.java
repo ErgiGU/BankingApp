@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import pleasefivebank.Main;
 import pleasefivebank.EntryPage.EntryPageController;
 import pleasefivebank.Objects.User;
@@ -22,6 +23,9 @@ public class HomePageController { //need the attributes from EntryPage controlle
 
     @FXML
     private Button logout;
+
+    @FXML
+    private Text HelloMessage;
     //juan
     @FXML
     void ToCards(ActionEvent event) {
@@ -84,6 +88,7 @@ public class HomePageController { //need the attributes from EntryPage controlle
 
     public void setName(String name){
         NameDisplay.setText(name);
+        HelloMessage.setText("Hello, "+ name+"!");
     }
 }
 
