@@ -216,7 +216,7 @@ public class User {
     }
     //Juan and Ergi
     public String getUsername1(){
-        Object key= Mongo.extractKey2("personnummer",getPersonnummer());
+        Object key= Mongo.extractKey2("personnummer",this.getPersonnummer());
         String username = Mongo.getUsername(key.toString(),"user name").toString();
         return username;
     }

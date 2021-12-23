@@ -61,6 +61,12 @@ public class Registration{
         Mongo.coll.insertOne(userdoc.append("key", key));
         //print at the end of file UserDB2
         toFile(userdoc, login, key);
+        //restart the database to get the new information there
+        try {
+            Mongo.mongo();//Mongo is a utility class and cannot be instantiated
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //andreea && ossian
