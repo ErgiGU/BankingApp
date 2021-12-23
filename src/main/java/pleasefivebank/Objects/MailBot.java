@@ -8,7 +8,7 @@ import javax.mail.internet.*;
 import java.io.IOException;
 import java.util.Properties;
 
-
+//ive yet to do enough research to give a satisfactory explanation of the functions. further description pending
     public class MailBot {
         Session newSession = null;
         MimeMessage mimeMessage = null;
