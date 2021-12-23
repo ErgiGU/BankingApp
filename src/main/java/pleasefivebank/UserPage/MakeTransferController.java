@@ -41,7 +41,7 @@ public class MakeTransferController {
 
     @FXML
     private TextArea message;
-
+    //juan
     @FXML
     void LogOut(ActionEvent event) {
         try {
@@ -52,7 +52,7 @@ public class MakeTransferController {
         }
 
     }
-
+    //juan
     @FXML
     void ToCards(ActionEvent event) {
         try {
@@ -63,7 +63,7 @@ public class MakeTransferController {
         }
 
     }
-
+    //juan
     @FXML
     void ToDetails(ActionEvent event) {
         try {
@@ -81,7 +81,7 @@ public class MakeTransferController {
         }
 
     }
-
+    //juan
     @FXML
     void ToHome(ActionEvent event) {
         try {
@@ -92,7 +92,7 @@ public class MakeTransferController {
 
 
     }
-
+    //juan
     @FXML
     void ToLoans(ActionEvent event) {
         try {
@@ -109,6 +109,7 @@ public class MakeTransferController {
 
     }
 
+    //juan
     @FXML
     void ToTransactions(ActionEvent event) {
         try {
@@ -119,6 +120,8 @@ public class MakeTransferController {
         }
 
     }
+
+    //juan
     @FXML
     void SendMoney(ActionEvent event) {
         String receiver = Name.getText();
@@ -141,6 +144,7 @@ public class MakeTransferController {
 
     }
 
+    //juan
     public void setName(String name){
         NameLabel.setText(name);
     }

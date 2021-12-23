@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import pleasefivebank.EntryPage.EntryPageController;
 import pleasefivebank.Main;
 import pleasefivebank.Objects.User;
@@ -15,6 +16,27 @@ import static pleasefivebank.EntryPage.EntryPageController.user;
 import static pleasefivebank.Main.mainWindow;
 
 public class CardsController {
+
+    @FXML
+    private Text AccountNumber;
+
+    @FXML
+    private Text BIC;
+
+    @FXML
+    private Text Balance;
+
+    @FXML
+    private Text CardName;
+
+    @FXML
+    private Text CardNumber;
+
+    @FXML
+    private Text ExpirationDate;
+
+    @FXML
+    private Text IBAN;
 
     @FXML
     private Button NameLabel;
@@ -81,7 +103,15 @@ public class CardsController {
     //juan
     public void setName(String name){
         NameLabel.setText(user.getFirstName()+ " " + user.getLastName());
+        CardName.setText(user.getFirstName()+ " " + user.getLastName());
+        CardNumber.setText(user.getCardNumber());
+        ExpirationDate.setText(user.getExpirationDate());
+        Balance.setText(user.getBalance());
+        AccountNumber.setText(user.getAccountNr());
+        IBAN.setText(user.getAccountIBAN());
+        BIC.setText("PFBSEGBGXXX");
     }
+
 }
 
 

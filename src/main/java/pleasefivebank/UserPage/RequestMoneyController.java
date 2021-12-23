@@ -125,6 +125,7 @@ public class RequestMoneyController {
         }
 
     }
+    //juan
     public void setName(String name){
         NameLabel.setText(name);
     }

@@ -5,8 +5,10 @@ import org.bson.types.ObjectId;
 import org.w3c.dom.events.DocumentEvent;
 import pleasefivebank.Mongo;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 import static com.mongodb.client.model.Filters.eq;
 import static java.util.Arrays.asList;
@@ -27,7 +29,8 @@ public class User {
     private Document doc;
 
 
-
+    protected String cardNumber;
+    protected String expirationDate;
     protected String balance;
     protected int rewardPoints;
     protected String frozen;
@@ -49,6 +52,8 @@ public class User {
         this.city = city;
         this.postalCode = postalCode;
         this.university = university;
+        this.cardNumber = generateCardNr();
+        this.expirationDate = calculateExpirationDate();
 
 
         this.accountNr = accountNr;
@@ -71,6 +76,7 @@ public class User {
                 append("account number", this.accountNr).
                 append("account IBAN", this.accountIBAN).append("balance", this.balance).
                 append("frozen", this.frozen).append("reward points", this.rewardPoints).
+                append("cardNumber", this.cardNumber).append("expiration date", this.expirationDate).
                 append("transactions", asList(new Document("sent", ""/*this.account.sent*/), new Document("received", ""/*this.account.received*/))).
                 append("loans", asList(new Document("status", ""), new Document("quantity", 0),
                                         new Document("due date", "")));
@@ -93,6 +99,8 @@ public class User {
                 append("quantity", "").append("date","").append("concept","");
         return transaction;
     }*/
+
+    //all of the following getters and setters were done by Juan
 
     public String getFirstName() {
         return this.firstName;
@@ -128,6 +136,8 @@ public class User {
 
     public String getUniversity() { return this.university; }
 
+    public String getCardNumber(){return this.cardNumber;}
+
     public void setFirstName(String newName) {
         this.firstName = newName;
     }
@@ -155,6 +165,8 @@ public class User {
     }
 
     public String getFrozen() {return frozen;}
+
+    public String getExpirationDate(){return this.expirationDate;}
 
     /*public int getRewardPoints() { return rewardPoints; }*/
 
@@ -219,6 +231,41 @@ public class User {
         Object key= Mongo.extractKey2("personnummer",this.getPersonnummer());
         String username = Mongo.getUsername(key.toString(),"user name").toString();
         return username;
+    }
+    //Carlotta
+    public String generateCardNr() {
+        Random random = new Random();
+        int randomNumberLength = 16;
+        int counter = 0;
+
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < randomNumberLength; i++) {
+            int digit = random.nextInt(10);
+            builder.append(digit);
+            counter++;
+            if(counter == 4){
+                builder.append(" ");
+                counter = 0;
+            }
+        }
+        return builder.toString();
+    }
+    //carlotta
+    public String calculateExpirationDate(){
+        String expirationDate = "";
+        String pattern = "MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
+        pattern = "yyyy";
+        SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat(pattern);
+        String year = simpleDateFormat2.format(new Date());
+
+        int yearInt = Integer.parseInt(year);
+        yearInt = yearInt + 5;
+        expirationDate=expirationDate.concat(Integer.toString(yearInt)+"-");
+        expirationDate=expirationDate.concat(date);
+
+        return expirationDate;
     }
 }
 

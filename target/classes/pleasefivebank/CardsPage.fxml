@@ -199,52 +199,42 @@
                   <Font name="Avenir Next Bold" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="494.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort code:" wrappingWidth="362.49224853515625">
-               <font>
-                  <Font name="Avenir Next Bold" size="17.0" />
-               </font>
-            </Text>
             <ImageView fitHeight="215.0" fitWidth="308.0" layoutX="113.0" layoutY="100.0" preserveRatio="true">
                <image>
                   <Image url="@../PNGs/output-onlinepngtools_8.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="147.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8453 9009 1539 7340" wrappingWidth="362.49224853515625">
+            <Text fx:id="CardNumber" fill="WHITE" layoutX="144.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8453 9009 1539 7340" wrappingWidth="269.49224853515625">
                <font>
                   <Font name="Kredit-Regular" size="25.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="144.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Juan García Díaz" wrappingWidth="101.32012939453125">
+            <Text fx:id="CardName" fill="WHITE" layoutX="144.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Juan García Díaz" wrappingWidth="101.32012939453125">
                <font>
                   <Font name="Kredit-Regular" size="14.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="256.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="08/24" wrappingWidth="46.09478759765625">
+            <Text fx:id="ExpirationDate" fill="WHITE" layoutX="256.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="08/24" wrappingWidth="46.09478759765625">
                <font>
                   <Font name="Kredit-Regular" size="14.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="511.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6385-8" wrappingWidth="362.49224853515625">
+            <Text fx:id="AccountNumber" fill="#2b5292" layoutX="511.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="217 623 868-6" wrappingWidth="362.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="511.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="217 623 868-6" wrappingWidth="362.49224853515625">
+            <Text fx:id="IBAN" fill="#2b5292" layoutX="508.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SE41 9116 3132 9621 7623 8686" wrappingWidth="362.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="508.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SE41 9116 3132 9621 7623 8686" wrappingWidth="362.49224853515625">
+            <Text fx:id="BIC" fill="#2b5292" layoutX="508.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PFBBSESS" wrappingWidth="362.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="508.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PFBBSESS" wrappingWidth="362.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="508.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ 8562,45 SEK">
+            <Text fx:id="Balance" fill="#2b5292" layoutX="508.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ 8562,45 SEK">
                <font>
                   <Font name="Avenir Book" size="24.0" />
                </font>
