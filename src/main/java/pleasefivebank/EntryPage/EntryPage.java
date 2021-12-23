@@ -24,7 +24,7 @@ public class EntryPage {//in EntryPageController we create an object and then se
         //find the document wth the user information in the database
         session = Mongo.coll.find(new Document("key", key.toString())).first();
         //create new user object with the information from database
-        login = new User(session.get("first name").toString(), session.get("middle name").toString(),
+        login = new User(session.get("card number").toString(),session.get("expiration date").toString(),session.get("first name").toString(), session.get("middle name").toString(),
                 session.get("last name").toString(), session.get("address").toString(),
                 session.get("city").toString(), session.get("postal code").toString(),
                 session.get("birth date").toString(), session.get("phone number").toString(),

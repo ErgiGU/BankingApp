@@ -9,6 +9,9 @@ import pleasefivebank.Objects.User;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Random;
 
 public class Registration{
 
@@ -100,5 +103,40 @@ public class Registration{
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    //Carlotta
+    public String generateCardNr() {
+        Random random = new Random();
+        int randomNumberLength = 16;
+        int counter = 0;
+
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < randomNumberLength; i++) {
+            int digit = random.nextInt(10);
+            builder.append(digit);
+            counter++;
+            if(counter == 4){
+                builder.append(" ");
+                counter = 0;
+            }
+        }
+        return builder.toString();
+    }
+    //carlotta
+    public String calculateExpirationDate(){
+        String expirationDate = "";
+        String pattern = "MM";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
+        pattern = "yyyy";
+        SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat(pattern);
+        String year = simpleDateFormat2.format(new Date());
+
+        int yearInt = Integer.parseInt(year);
+        yearInt = yearInt + 5;
+        expirationDate=expirationDate.concat(Integer.toString(yearInt)+"-");
+        expirationDate=expirationDate.concat(date);
+
+        return expirationDate.substring(2);
     }
 }

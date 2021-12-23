@@ -41,7 +41,12 @@ public class RequestMoneyController {
 
     @FXML
     void LogOut(ActionEvent event) {
-
+        try {
+            Main.showPage("Entry-Page.fxml");
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
     //andreea
     @FXML

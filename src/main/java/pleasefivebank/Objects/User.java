@@ -39,7 +39,7 @@ public class User {
     protected ArrayList<Transaction> activity = new ArrayList<>();
     protected ArrayList<Transaction> pending = new ArrayList<>();
 
-    public User(String name, String middleName, String lastName, String address, String city, String postalCode,
+    public User(String cardNumber,String expirationDate ,String name, String middleName, String lastName, String address, String city, String postalCode,
                 String birthDate, String phoneNumber, String personNummer, String email, String university, String accountNr, String accountIBAN, String balance, String frozen) {
         this.firstName = name;
         this.middleName = middleName;
@@ -52,8 +52,8 @@ public class User {
         this.city = city;
         this.postalCode = postalCode;
         this.university = university;
-        this.cardNumber = generateCardNr();
-        this.expirationDate = calculateExpirationDate();
+        this.cardNumber = cardNumber;
+        this.expirationDate = expirationDate;
 
 
         this.accountNr = accountNr;
@@ -76,7 +76,7 @@ public class User {
                 append("account number", this.accountNr).
                 append("account IBAN", this.accountIBAN).append("balance", this.balance).
                 append("frozen", this.frozen).append("reward points", this.rewardPoints).
-                append("cardNumber", this.cardNumber).append("expiration date", this.expirationDate).
+                append("card number", this.cardNumber).append("expiration date", this.expirationDate).
                 append("transactions", asList(new Document("sent", ""/*this.account.sent*/), new Document("received", ""/*this.account.received*/))).
                 append("loans", asList(new Document("status", ""), new Document("quantity", 0),
                                         new Document("due date", "")));
@@ -232,40 +232,6 @@ public class User {
         String username = Mongo.getUsername(key.toString(),"user name").toString();
         return username;
     }
-    //Carlotta
-    public String generateCardNr() {
-        Random random = new Random();
-        int randomNumberLength = 16;
-        int counter = 0;
 
-        StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < randomNumberLength; i++) {
-            int digit = random.nextInt(10);
-            builder.append(digit);
-            counter++;
-            if(counter == 4){
-                builder.append(" ");
-                counter = 0;
-            }
-        }
-        return builder.toString();
-    }
-    //carlotta
-    public String calculateExpirationDate(){
-        String expirationDate = "";
-        String pattern = "MM-dd";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String date = simpleDateFormat.format(new Date());
-        pattern = "yyyy";
-        SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat(pattern);
-        String year = simpleDateFormat2.format(new Date());
-
-        int yearInt = Integer.parseInt(year);
-        yearInt = yearInt + 5;
-        expirationDate=expirationDate.concat(Integer.toString(yearInt)+"-");
-        expirationDate=expirationDate.concat(date);
-
-        return expirationDate;
-    }
 }
 

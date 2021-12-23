@@ -106,7 +106,9 @@ public class CardsController {
         CardName.setText(user.getFirstName()+ " " + user.getLastName());
         CardNumber.setText(user.getCardNumber());
         ExpirationDate.setText(user.getExpirationDate());
-        Balance.setText(user.getBalance());
+        float balance = Float.parseFloat(user.getBalance());
+        balance -= balance % 0.001;
+        Balance.setText("+" + balance +" SEK");
         AccountNumber.setText(user.getAccountNr());
         IBAN.setText(user.getAccountIBAN());
         BIC.setText("PFBSEGBGXXX");
