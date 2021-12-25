@@ -211,8 +211,10 @@ public class User {
         this.rewardPoints += pointsToAdd;
     }
 
+    //Ergi
     public void freezeAccount() {
         this.frozen = "true";
+        Mongo.updateInformation("frozen",frozen,personnummer);
     }
 
     public void unfreezeAccount() {

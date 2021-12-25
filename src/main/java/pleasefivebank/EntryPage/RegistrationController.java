@@ -265,10 +265,13 @@ public class RegistrationController {
             User user = new User(registration.generateCardNr(), registration.calculateExpirationDate() ,tempFirstName,tempMiddleName,tempLastName,tempAddress,tempCity,tempPostal,Registration.extractBirthdate(tempID),
                     tempPhone,tempID,tempEmail,tempUni,accNr,iban,random,"false");
             Registration.register(user,tempUsername,tempPassword);
+            Mongo.mongo();
             Main.showPage("Entry-Page.fxml");
         }
         catch (IOException ex) {
             ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
