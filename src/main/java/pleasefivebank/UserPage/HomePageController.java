@@ -5,21 +5,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import pleasefivebank.Main;
 import pleasefivebank.EntryPage.EntryPageController;
 import pleasefivebank.Objects.User;
 
 import java.io.IOException;
 
+import static pleasefivebank.EntryPage.EntryPageController.user;
 import static pleasefivebank.Main.mainWindow;
 
 public class HomePageController { //need the attributes from EntryPage controller
 
-    User user;
-
-    public void setUser(User currentUser){
-        this.user = currentUser;
-    }
 
     @FXML
     private Button NameDisplay;
@@ -28,44 +25,48 @@ public class HomePageController { //need the attributes from EntryPage controlle
     private Button logout;
 
     @FXML
+    private Text HelloMessage;
+    //juan
+    @FXML
     void ToCards(ActionEvent event) {
         try {
-            Main.showPage("CardsPage.fxml");
+            Main.showCardsPage(user.getFirstName()+ " " + user.getLastName());
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
     }
-
+    //juan
     @FXML
     void ToLoans(ActionEvent event) {
         try {
-            Main.showPage("StudentLoans.fxml");
+            Main.showLoansPage(user.getFirstName()+ " " + user.getLastName());
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
     }
-
+    //juan
     @FXML
     void ToTransactions(ActionEvent event) {
         try {
-            Main.showPage("Transactions.fxml");
+            Main.showTransactionsPage(user.getFirstName()+ " " + user.getLastName());
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
 
     }
+    //Juan and Ergi
     @FXML
     void ToDetails(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AccountDetails.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             AccountDetailsController accountDetailsController = fxmlLoader.getController();
-            User currentUser = EntryPageController.user;
+            User currentUser = user;
             if(!currentUser.equals(null)) {
-                accountDetailsController.setInformation(EntryPageController.user);
+                accountDetailsController.setInformation(user);
                 mainWindow.setScene(scene);
             }
         }
@@ -73,7 +74,7 @@ public class HomePageController { //need the attributes from EntryPage controlle
             ex.printStackTrace();
         }
     }
-
+    //juan
     @FXML
     public void Logout(ActionEvent event) {
         //save the activity
@@ -87,6 +88,7 @@ public class HomePageController { //need the attributes from EntryPage controlle
 
     public void setName(String name){
         NameDisplay.setText(name);
+        HelloMessage.setText("Hello, "+ name+"!");
     }
 }
 

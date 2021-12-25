@@ -177,7 +177,7 @@
       <AnchorPane prefHeight="614.0" prefWidth="919.0" style="-fx-background-color: EFEFEF;" BorderPane.alignment="CENTER">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="183.0" layoutX="60.0" layoutY="256.0" stroke="#efefef" strokeType="INSIDE" style="-fx-arc-height: 100; -fx-arc-width: 100;" width="800.0" />
-            <Text fill="#457b9d" layoutX="78.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello, Juan García Díaz!">
+            <Text fx:id="HelloMessage" fill="#457b9d" layoutX="78.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello, Juan García Díaz!">
                <font>
                   <Font name="Avenir Book" size="24.0" />
                </font>

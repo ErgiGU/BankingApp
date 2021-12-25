@@ -5,8 +5,10 @@ import org.bson.types.ObjectId;
 import org.w3c.dom.events.DocumentEvent;
 import pleasefivebank.Mongo;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 import static com.mongodb.client.model.Filters.eq;
 import static java.util.Arrays.asList;
@@ -26,6 +28,9 @@ public class User {
     private String university;
     private Document doc;
 
+
+    protected String cardNumber;
+    protected String expirationDate;
     protected String balance;
     protected int rewardPoints;
     protected String frozen;
@@ -34,7 +39,7 @@ public class User {
     protected ArrayList<Transaction> activity = new ArrayList<>();
     protected ArrayList<Transaction> pending = new ArrayList<>();
 
-    public User(String name, String middleName, String lastName, String address, String city, String postalCode,
+    public User(String cardNumber,String expirationDate ,String name, String middleName, String lastName, String address, String city, String postalCode,
                 String birthDate, String phoneNumber, String personNummer, String email, String university, String accountNr, String accountIBAN, String balance, String frozen) {
         this.firstName = name;
         this.middleName = middleName;
@@ -47,6 +52,8 @@ public class User {
         this.city = city;
         this.postalCode = postalCode;
         this.university = university;
+        this.cardNumber = cardNumber;
+        this.expirationDate = expirationDate;
 
 
         this.accountNr = accountNr;
@@ -69,6 +76,7 @@ public class User {
                 append("account number", this.accountNr).
                 append("account IBAN", this.accountIBAN).append("balance", this.balance).
                 append("frozen", this.frozen).append("reward points", this.rewardPoints).
+                append("card number", this.cardNumber).append("expiration date", this.expirationDate).
                 append("transactions", asList(new Document("sent", ""/*this.account.sent*/), new Document("received", ""/*this.account.received*/))).
                 append("loans", asList(new Document("status", ""), new Document("quantity", 0),
                                         new Document("due date", "")));
@@ -91,6 +99,8 @@ public class User {
                 append("quantity", "").append("date","").append("concept","");
         return transaction;
     }*/
+
+    //all of the following getters and setters were done by Juan
 
     public String getFirstName() {
         return this.firstName;
@@ -120,11 +130,17 @@ public class User {
         return this.address;
     }
 
+    public String getCity(){return this.city;}
+
+    public String getPostalCode(){return this.postalCode;}
+
     public String getBirthdate() {
         return this.birthdate;
     }
 
     public String getUniversity() { return this.university; }
+
+    public String getCardNumber(){return this.cardNumber;}
 
     public void setFirstName(String newName) {
         this.firstName = newName;
@@ -153,6 +169,8 @@ public class User {
     }
 
     public String getFrozen() {return frozen;}
+
+    public String getExpirationDate(){return this.expirationDate;}
 
     /*public int getRewardPoints() { return rewardPoints; }*/
 
@@ -195,7 +213,6 @@ public class User {
 
     public void freezeAccount() {
         this.frozen = "true";
-        Mongo.updateInformation("frozen",frozen,personnummer);
     }
 
     public void unfreezeAccount() {
@@ -215,10 +232,10 @@ public class User {
     }
     //Juan and Ergi
     public String getUsername1(){
-        Object key= Mongo.extractKey2("personnummer",getPersonnummer());
-        System.out.println(key.toString());
+        Object key= Mongo.extractKey2("personnummer",this.getPersonnummer());
         String username = Mongo.getUsername(key.toString(),"user name").toString();
         return username;
     }
+
 }
 
