@@ -8,12 +8,14 @@ import pleasefivebank.Mongo;
 import pleasefivebank.Objects.User;
 
 import java.io.FileWriter;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class Registration{
 
     private boolean checkbox;
     private String university;
+
 
     public boolean getCheckbox(){
         return checkbox;

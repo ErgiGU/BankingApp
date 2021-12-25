@@ -26,8 +26,6 @@ public class User {
     private String university;
     private Document doc;
 
-
-
     protected String balance;
     protected int rewardPoints;
     protected String frozen;
@@ -197,6 +195,7 @@ public class User {
 
     public void freezeAccount() {
         this.frozen = "true";
+        Mongo.updateInformation("frozen",frozen,personnummer);
     }
 
     public void unfreezeAccount() {

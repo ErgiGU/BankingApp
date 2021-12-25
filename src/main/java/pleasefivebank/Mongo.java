@@ -10,22 +10,24 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.BulkWriteOptions;
 import com.mongodb.client.model.InsertOneModel;
 import com.mongodb.client.model.Projections;
+import com.mongodb.client.model.UpdateOptions;
 import javafx.scene.control.Label;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import org.bson.json.JsonReader;
+import pleasefivebank.Objects.User;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Base64;
-import java.util.Date;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.mongodb.client.model.Filters.*;
 
@@ -192,6 +194,23 @@ public final class Mongo {//marked as final because it is a utility class and it
         //doesn't delete it from the file, nothing will..
     }
 
+    //Lotti
+    public static void updateJson(){
+        try {
+            FileWriter writer1 = new FileWriter("UserDB2.json", false);
+            FindIterable<Document> iterDoc = coll.find();
+            System.out.println(coll.find());
+            Iterator it = iterDoc.iterator();
+            while (it.hasNext()) {
+                Document doc = (Document) it.next();
+                writer1.write(doc.toJson() +  System.lineSeparator());
+            }
+            writer1.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     //andreea
     public static String formatTime() {//this methods registers the time an object Date is created
         Date time = new Date();
@@ -208,5 +227,12 @@ public final class Mongo {//marked as final because it is a utility class and it
         }
         return exists;
     }
+
+    //Ergi
+    public static void updateInformation(String dbLabel, String updatedVar, String personalID ) {
+        Mongo.coll.findOneAndUpdate(eq("personnummer", personalID),
+                new Document("$set", new Document(dbLabel, updatedVar)));
+    }
+
 }
 

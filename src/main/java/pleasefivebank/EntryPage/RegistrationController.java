@@ -219,7 +219,7 @@ public class RegistrationController {
             boolean usernameExists = Mongo.existsInDatabase(username, "user name",usernameLabel,"Username already exists");
             if(passwordValidation && !usernameExists) {
                 boolean passwordsMatch = DataValidation.passwordsMatch(password,confirmPassword,confirmLabel,"Passwords must match");
-                if (usernameValidation && passwordsMatch && registration.getCheckbox()) {
+                if (passwordsMatch && registration.getCheckbox()) {
                     tempUsername = username;
                     tempPassword = password;
                     try {
@@ -251,7 +251,7 @@ public class RegistrationController {
         tempUni=selection;
     }
 
-    //juan
+    //Ergi
     @FXML
     void FinishRegister(ActionEvent event) {
         try {
@@ -261,7 +261,6 @@ public class RegistrationController {
             Random rand = new Random();
             double r = rand.nextDouble(8000000);
             String random = Double.toString(r);
-
             User user = new User(tempFirstName,tempMiddleName,tempLastName,tempAddress,tempCity,tempCity,Registration.extractBirthdate(tempID),
                     tempPhone,tempID,tempEmail,tempUni,accNr,iban,random,"false");
             Registration.register(user,tempUsername,tempPassword);

@@ -17,8 +17,8 @@ public class EntryPage {//in EntryPageController we create an object and then se
     String encryptedPassword;
 
     //juan && andreea
-    public EntryPage(String password, String username){
-        this.encryptedPassword = password;
+    public EntryPage(String username){
+        //this.encryptedPassword = password;
         //key will be the user key to access his info in the database
         Object key = Mongo.extractKey("user name",username);
         //find the document wth the user information in the database
