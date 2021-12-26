@@ -85,7 +85,7 @@ public class HomePageController { //need the attributes from EntryPage controlle
             ex.printStackTrace();
         }
     }
-
+    //juan
     public void setName(String name){
         NameDisplay.setText(name);
         HelloMessage.setText("Hello, "+ name+"!");

@@ -55,7 +55,7 @@ public class LoansController {
             ex.printStackTrace();
         }
     }
-
+    //juan and Ergi
     @FXML
     void Accept(ActionEvent event) { loan.changeCheckBox();}
     //juan

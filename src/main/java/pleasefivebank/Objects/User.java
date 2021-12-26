@@ -142,25 +142,21 @@ public class User {
 
     public String getCardNumber(){return this.cardNumber;}
 
-    public void setFirstName(String newName) {
-        this.firstName = newName;
+    public void setPhoneNumber(String phoneNumber){this.phoneNumber = phoneNumber;}
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
-    public void setMiddleName(String newName) {
-        this.middleName = newName;
-    }
-
-    public void setLastName(String newName) {
-        this.lastName = newName;
-    }
-
-    public void setPhoneNumber(String newPhoneNumber) {
-        this.phoneNumber = newPhoneNumber;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public void setEmail(String newEmail) {
         this.email = newEmail;
     }
+
+    public void setCity(String city){this.city = city;}
 
     public void setTransactions(){}
 
