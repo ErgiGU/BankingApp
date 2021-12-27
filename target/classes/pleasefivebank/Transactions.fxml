@@ -2,8 +2,8 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -134,9 +134,9 @@
       </AnchorPane>
    </left>
    <top>
-      <AnchorPane prefHeight="86.0" prefWidth="1050.0" style="-fx-background-color: #2b5292;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="78.0" prefWidth="1050.0" style="-fx-background-color: #2b5292;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="68.0" fitWidth="107.0" layoutX="10.0" layoutY="10.0" preserveRatio="true">
+            <ImageView fitHeight="60.0" fitWidth="102.0" layoutX="15.0" layoutY="10.0" preserveRatio="true">
                <image>
                   <Image url="@../PNGs/P5B white small logo.png" />
                </image>
@@ -146,7 +146,7 @@
                   <Image url="@../PNGs/user-3296.png" />
                </image>
             </ImageView>
-            <Button layoutX="934.0" layoutY="22.0" mnemonicParsing="false" onAction="#Logout" prefHeight="38.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
+            <Button layoutX="913.0" layoutY="20.0" mnemonicParsing="false" onAction="#Logout" prefHeight="0.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -156,7 +156,7 @@
             </Button>
             <Button layoutX="679.0" layoutY="21.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: #2b5292;">
                <graphic>
-                  <ImageView fitHeight="38.0" fitWidth="42.0" preserveRatio="true">
+                  <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="657.0" layoutY="26.0" preserveRatio="true">
                      <image>
                         <Image url="@../PNGs/bell-3063.png" />
                      </image>
@@ -166,7 +166,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="NameLabel" layoutX="799.0" layoutY="21.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #2b5292;" textFill="WHITE">
+            <Button fx:id="NameLabel" layoutX="799.0" layoutY="21.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="112.0" style="-fx-background-color: #2b5292;" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -180,17 +180,12 @@
    <right>
       <AnchorPane prefHeight="614.0" prefWidth="919.0" style="-fx-background-color: EFEFEF;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="84.0" layoutY="74.0" mnemonicParsing="false" onAction="#ToRequestMoney" prefHeight="82.0" prefWidth="180.0" style="-fx-background-color: #457B9D;" text="Request Money" textFill="WHITE">
+            <Button layoutX="84.0" layoutY="78.0" mnemonicParsing="false" onAction="#ToRequestMoney" prefHeight="72.0" prefWidth="180.0" style="-fx-background-color: #457B9D;" text="Request Money" textFill="WHITE">
                <font>
                   <Font size="21.0" />
                </font>
             </Button>
-            <ScrollPane fx:id="activity" layoutX="81.0" layoutY="231.0" onScroll="#showTransactions" prefHeight="308.0" prefWidth="733.0">
-               <content>
-                  <TextArea id="scrollbar" fx:id="DisplayTransactions" prefHeight="313.0" prefWidth="731.0" />
-               </content>
-            </ScrollPane>
-            <Text fill="#2b5292" layoutX="349.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transactions">
+            <Text fill="#2b5292" layoutX="349.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transactions">
                <font>
                   <Font size="37.0" />
                </font>
@@ -200,7 +195,7 @@
                   <Font size="32.0" />
                </font>
             </Text>
-            <Button layoutX="635.0" layoutY="77.0" mnemonicParsing="false" onAction="#ToTransferMoney" prefHeight="82.0" prefWidth="180.0" style="-fx-background-color: #457B9D;" text="Transfer Money" textFill="WHITE">
+            <Button layoutX="634.0" layoutY="78.0" mnemonicParsing="false" onAction="#ToTransferMoney" prefHeight="72.0" prefWidth="180.0" style="-fx-background-color: #457B9D;" text="Transfer Money" textFill="WHITE">
                <font>
                   <Font size="21.0" />
                </font>
@@ -210,6 +205,16 @@
                   <Font size="18.0" />
                </font>
             </TextField>
+            <TableView fx:id="tableView" layoutX="85.0" layoutY="250.0" prefHeight="316.0" prefWidth="730.0">
+              <columns>
+                <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />
+                <TableColumn fx:id="receiverColumn" prefWidth="77.0" text="Receiver" />
+                  <TableColumn fx:id="IBANColumn" prefWidth="195.0" text="Receiver IBAN" />
+                  <TableColumn fx:id="amountColumn" prefWidth="152.0" text="Amount" />
+                  <TableColumn fx:id="conceptColumn" prefWidth="135.0" text="Concept" />
+                  <TableColumn fx:id="statusColumn" prefWidth="95.0" text="Status" />
+              </columns>
+            </TableView>
          </children></AnchorPane>
    </right>
 </BorderPane>

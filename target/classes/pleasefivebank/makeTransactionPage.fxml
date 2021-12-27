@@ -133,9 +133,9 @@
       </AnchorPane>
    </left>
    <top>
-      <AnchorPane prefHeight="86.0" prefWidth="1050.0" style="-fx-background-color: #2b5292;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="78.0" prefWidth="1050.0" style="-fx-background-color: #2b5292;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="68.0" fitWidth="107.0" layoutX="10.0" layoutY="10.0" preserveRatio="true">
+            <ImageView fitHeight="60.0" fitWidth="102.0" layoutX="15.0" layoutY="10.0" preserveRatio="true">
                <image>
                   <Image url="@../PNGs/P5B%20white%20small%20logo.png" />
                </image>
@@ -145,7 +145,7 @@
                   <Image url="@../PNGs/user-3296.png" />
                </image>
             </ImageView>
-            <Button layoutX="934.0" layoutY="22.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="38.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
+            <Button layoutX="913.0" layoutY="20.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="0.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -155,7 +155,7 @@
             </Button>
             <Button layoutX="679.0" layoutY="21.0" mnemonicParsing="false" onAction="#ToNotifications" prefHeight="45.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: #2b5292;">
                <graphic>
-                  <ImageView fitHeight="38.0" fitWidth="42.0" preserveRatio="true">
+                  <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="657.0" layoutY="26.0" preserveRatio="true">
                      <image>
                         <Image url="@../PNGs/bell-3063.png" />
                      </image>
@@ -165,7 +165,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="NameLabel" layoutX="799.0" layoutY="21.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #2b5292;" text="Juan Garcia" textFill="WHITE">
+            <Button fx:id="NameLabel" layoutX="799.0" layoutY="21.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="114.0" style="-fx-background-color: #2b5292;" text="Juan Garcia" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -194,12 +194,12 @@
                   <Font size="14.0" />
                </font>
             </TextArea>
-            <Text fill="#1275ea" layoutX="139.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Make a Transaction" textAlignment="CENTER" wrappingWidth="234.18243408203125">
+            <Text fill="#2b5292" layoutX="136.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Make a Transaction" textAlignment="CENTER" wrappingWidth="252.18243408203125">
                <font>
-                  <Font name="Arial" size="25.0" />
+                  <Font name="Avenir Book" size="25.0" />
                </font>
             </Text>
-            <Button fx:id="SendMoney" layoutX="136.0" layoutY="503.0" mnemonicParsing="false" onAction="#SendMoney" prefHeight="38.0" prefWidth="251.0" style="-fx-background-color: #1275EA#1275EA;" text="Send Money" textFill="WHITE">
+            <Button fx:id="SendMoney" layoutX="136.0" layoutY="503.0" mnemonicParsing="false" onAction="#SendMoney" prefHeight="38.0" prefWidth="251.0" style="-fx-background-color: #457B9D;" text="Send Money" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
