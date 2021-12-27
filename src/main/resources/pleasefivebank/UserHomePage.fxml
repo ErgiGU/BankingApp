@@ -177,7 +177,7 @@
       <AnchorPane prefHeight="614.0" prefWidth="919.0" style="-fx-background-color: EFEFEF;" BorderPane.alignment="CENTER">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="183.0" layoutX="60.0" layoutY="256.0" stroke="#efefef" strokeType="INSIDE" style="-fx-arc-height: 100; -fx-arc-width: 100;" width="800.0" />
-            <Text fill="#457b9d" layoutX="78.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello, Juan García Díaz!">
+            <Text fx:id="HelloMessage" fill="#457b9d" layoutX="78.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello, Juan García Díaz!">
                <font>
                   <Font name="Avenir Book" size="24.0" />
                </font>
@@ -198,7 +198,7 @@
                   <Font name="Avenir Next Bold" size="18.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="681.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ 8562,45 SEK" wrappingWidth="162.49224853515625">
+            <Text fx:id="BalanceLabel" fill="#2b5292" layoutX="681.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ 8562,45 SEK" wrappingWidth="162.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
@@ -226,7 +226,7 @@
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fill="#457b9d" layoutX="122.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="217 623 868-6" wrappingWidth="146.49224853515625">
+            <Text fx:id="AccountNumberLabel" fill="#457b9d" layoutX="122.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="217 623 868-6" wrappingWidth="146.49224853515625">
                <font>
                   <Font name="Avenir Book" size="16.0" />
                </font>

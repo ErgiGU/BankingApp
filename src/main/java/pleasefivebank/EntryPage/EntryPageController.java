@@ -16,10 +16,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.scene.control.Hyperlink;
+import pleasefivebank.Menus.UsefulFunctions;
 import pleasefivebank.Objects.User;
 import pleasefivebank.UserPage.HomePageController;
 import com.jfoenix.controls.events.JFXDialogEvent;
-import com.jfoenix.converters.DialogTransitionConverter;
+//import com.jfoenix.converters.DialogTransitionConverter;
 import com.jfoenix.effects.JFXDepthManager;
 import com.jfoenix.transitions.CachedTransition;
 
@@ -33,10 +34,11 @@ public class EntryPageController{
     private static String tempUserName = "";
     private static String tempPassword = "";
     private static int i = 0;
+    public static User user;
     @FXML
     private StackPane rootPane;
 
-    //juan && andreea
+    //Ergi && Andreea
     @FXML
     protected void PressedLoginButton(ActionEvent event) {
         String username = "";
@@ -49,42 +51,46 @@ public class EntryPageController{
         //encrypt the password to search for it in the database
         encryptedPassword = Mongo.encrypt(password);
         //try at most 3 times
-        Boolean k = Mongo.isValidLogin(username, encryptedPassword);
-        if (k && i < 3) {
-            EntryPage login = new EntryPage(encryptedPassword,username);
-            User user = login.getLogin();
-            tempUserName = username;
-            tempPassword = encryptedPassword;
-            login.setUsername(tempUserName);
-            login.setPassword(tempPassword);
-            i = 0;
-            try {
-                main.showLoginPage(user.getFirstName()+" " + user.getLastName());
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        } else if (!k) {
-            i++;
-            confirmLabel.setText("Invalid username or password");
-            if (i >= 3) {
-                BoxBlur blur = new BoxBlur(3, 3, 3);
-                JFXDialogLayout layout = new JFXDialogLayout();
-                JFXButton button = new JFXButton("OK");
-                button.getStyleClass().add("dialog-button");
-                JFXDialog dialog = new JFXDialog(rootPane, layout, JFXDialog.DialogTransition.TOP);
-                button.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent mousevent) -> {
-                    dialog.close();
-                });
-                layout.setHeading(new Label("Your account is now frozen"));
-                layout.setActions(button);
-                dialog.show();
-                dialog.setOnDialogClosed((JFXDialogEvent event1) -> {
-                    borderpane.setEffect(null);
-                });
-                borderpane.setEffect(blur);
+        boolean k = Mongo.isValidLogin(username, encryptedPassword);
+        boolean validUsername = Mongo.usernameExists(username);
+        if(validUsername) {
+            EntryPage login = new EntryPage(username);
+            User user1 = login.getLogin();
+            //checks if the password is right
+            if (k && i < 3 && user1.getFrozen().equals("false")) {
+                user = user1;
+                tempUserName = username;
+                tempPassword = encryptedPassword;
+                login.setUsername(tempUserName);
+                login.setPassword(tempPassword);
+                i = 0;
+                try {
+                    main.showLoginPage(user.getFirstName() + " " + user.getLastName());
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            } else if (!k) {
+                i++;
+                if (i == 1) {
+                    confirmLabel.setText("Wrong password, 3 attempt(s) left");
+                } else if (i == 2) {
+                    confirmLabel.setText("Wrong password, 2 attempt(s) left");
+                } else if (i == 3) {
+                    confirmLabel.setText("Wrong password, 1 attempt(s) left");
+                } else if (i == 4) {
+                    //freezes account and displays a popup
+                    user1.freezeAccount();
+                    confirmLabel.setText(null);
+                    UsefulFunctions.popup("Your account is frozen, please contact us.",borderpane,rootPane);
 
+                }else{
+                    UsefulFunctions.popup("Your account is frozen, please contact us.",borderpane,rootPane);
+                }
+            }else if(user1.getFrozen().equals("false")){
+                UsefulFunctions.popup("Your account is frozen, please contact us.",borderpane,rootPane);
             }
-
+            }else {
+            confirmLabel.setText("Invalid username");
         }
     }
     @FXML

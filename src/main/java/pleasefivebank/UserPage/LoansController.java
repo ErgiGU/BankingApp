@@ -1,16 +1,20 @@
 package pleasefivebank.UserPage;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import pleasefivebank.EntryPage.EntryPageController;
 import pleasefivebank.Main;
 import pleasefivebank.Objects.Interest;
 import pleasefivebank.Objects.Loan;
+import pleasefivebank.Objects.User;
 
 import java.io.IOException;
+
+import static pleasefivebank.EntryPage.EntryPageController.user;
+import static pleasefivebank.Main.mainWindow;
 
 //Linus and Andreea
 public class LoansController {
@@ -102,7 +106,8 @@ public class LoansController {
     void ToCards(ActionEvent event) {
         try {
             Main.showPage("CardsPage.fxml");
-        } catch (IOException ex) {
+        }
+        catch (IOException ex) {
             ex.printStackTrace();
         }
     }
@@ -111,31 +116,38 @@ public class LoansController {
     void ToHome(ActionEvent event) {
         try {
             Main.showPage("UserHomePage.fxml");
-        } catch (IOException ex) {
+        }
+        catch (IOException ex) {
             ex.printStackTrace();
         }
     }
 
     @FXML
-    void Accept(ActionEvent event) {
-        loan.changeCheckBox();
-        checkBoxBoo = true;
-    }
+    void Accept(ActionEvent event) { loan.changeCheckBox();}
 
     @FXML
     void ToTransactions(ActionEvent event) {
         try {
             Main.showPage("Transactions.fxml");
-        } catch (IOException ex) {
+        }
+        catch (IOException ex) {
             ex.printStackTrace();
         }
     }
-
+    //Juan and Ergi
     @FXML
     void ToDetails(ActionEvent event) {
         try {
-            Main.showPage("AccountDetails.fxml");
-        } catch (IOException ex) {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AccountDetails.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            AccountDetailsController accountDetailsController = fxmlLoader.getController();
+            User currentUser = user;
+            if(!currentUser.equals(null)) {
+                accountDetailsController.setInformation(user);
+                mainWindow.setScene(scene);
+            }
+        }
+        catch (IOException ex) {
             ex.printStackTrace();
         }
     }
@@ -157,6 +169,10 @@ public class LoansController {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+    //juan and lotti
+    public void setName(String name){
+        NameLabel.setText(user.getFirstName()+ " " + user.getLastName());
     }
 
     @FXML

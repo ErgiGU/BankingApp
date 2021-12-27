@@ -2,13 +2,21 @@ package pleasefivebank.UserPage;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import pleasefivebank.EntryPage.EntryPageController;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
 import pleasefivebank.Objects.Transaction;
+import pleasefivebank.Objects.User;
 
 import java.io.IOException;
+
+import static pleasefivebank.EntryPage.EntryPageController.user;
+import static pleasefivebank.Main.mainWindow;
 
 public class RequestMoneyController {
 
@@ -17,24 +25,36 @@ public class RequestMoneyController {
     private static String tempConcept;
 
     @FXML
-    private TextField FullName;
+    private TextField Amount;
 
     @FXML
-    private TextField Quantity;
+    private TextField IBAN;
 
     @FXML
-    private TextField Concept;
+    private TextArea Message;
 
     @FXML
-    private Label confirmLabel;
+    private TextField Name;
 
+    @FXML
+    private Button NameLabel;
+
+    @FXML
+    void LogOut(ActionEvent event) {
+        try {
+            Main.showPage("Entry-Page.fxml");
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
     //andreea
     @FXML
-    public void ToRequestMoney(ActionEvent actionEvent) {
-        String name = FullName.getText();//must modify to check for the whole name
-        long quantity = Long.parseLong(Quantity.getText());
-        String concept = Concept.getText();
-        if((Mongo.isUser(name)) && (quantity>0) && (!concept.isEmpty())){
+    void Request(ActionEvent event) {
+        String name = Name.getText();//must modify to check for the whole name
+        long quantity = Long.parseLong(Amount.getText());
+        String concept = Message.getText();
+        if((Mongo.isUser(name)) && (quantity>0) && (!concept.isEmpty())) {
             tempName = name;
             tempQuantity = quantity;
             tempConcept = concept;
@@ -44,58 +64,76 @@ public class RequestMoneyController {
             purchase.setStatus("pending");
             Mongo.coll3.insertOne(purchase.save());//will modify to add it to collection 2 instead
         }
-        else{confirmLabel.setText("this user does not have an account yet");
-        }
     }
-
+    //juan
     @FXML
     void ToCards(ActionEvent event) {
         try {
-            Main.showPage("CardsPage.fxml");
+            Main.showCardsPage(user.getFirstName()+ " " + user.getLastName());
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
-    }
 
-    @FXML
-    void ToHome(ActionEvent event) {
-        try {
-            Main.showPage("UserHomePage.fxml");
-        }
-        catch (IOException ex) {
-            ex.printStackTrace();
-        }
     }
-
-    @FXML
-    void ToLoans(ActionEvent event) {
-        try {
-            Main.showPage("StudentLoans.fxml");
-        }
-        catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-
+    //Juan and Ergi
     @FXML
     void ToDetails(ActionEvent event) {
         try {
-            Main.showPage("AccountDetails.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AccountDetails.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            AccountDetailsController accountDetailsController = fxmlLoader.getController();
+            User currentUser = user;
+            if(!currentUser.equals(null)) {
+                accountDetailsController.setInformation(user);
+                mainWindow.setScene(scene);
+            }
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+    //juan
+    @FXML
+    void ToHome(ActionEvent event) {
+        try {
+            Main.showLoginPage(user.getFirstName()+ " " + user.getLastName());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+    //juan
+    @FXML
+    void ToLoans(ActionEvent event) {
+        try {
+            Main.showLoansPage(user.getFirstName()+ " " + user.getLastName());
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
     }
 
     @FXML
-    public void Logout(ActionEvent event) {
-        //save the activity
+    void ToNotifications(ActionEvent event) {
+
+    }
+    //juan
+    @FXML
+    void ToTransactions(ActionEvent event) {
         try {
-            Main.showPage("Entry-Page.fxml");
+            Main.showTransactionsPage(user.getFirstName()+ " " + user.getLastName());
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
+
     }
+    //juan
+    public void setName(String name){
+        NameLabel.setText(name);
+    }
+
 }
+
+

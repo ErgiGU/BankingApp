@@ -5,9 +5,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.text.Text;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import pleasefivebank.EntryPage.EntryPageController;
 import pleasefivebank.Main;
+import pleasefivebank.Mongo;
+import pleasefivebank.Objects.Transaction;
 import pleasefivebank.Objects.User;
 
 import java.io.IOException;
@@ -15,32 +18,51 @@ import java.io.IOException;
 import static pleasefivebank.EntryPage.EntryPageController.user;
 import static pleasefivebank.Main.mainWindow;
 
-public class CardsController {
+public class MakeTransferController {
+    private static String tempReceiver;
+    private static String tempReceiverIBAN;
+    private static long tempQuantity;
+    private static String tempConcept;
 
     @FXML
-    private Text AccountNumber;
+    private TextField IBAN;
 
     @FXML
-    private Text BIC;
-
-    @FXML
-    private Text Balance;
-
-    @FXML
-    private Text CardName;
-
-    @FXML
-    private Text CardNumber;
-
-    @FXML
-    private Text ExpirationDate;
-
-    @FXML
-    private Text IBAN;
+    private TextField Name;
 
     @FXML
     private Button NameLabel;
 
+    @FXML
+    private Button SendMoney;
+
+    @FXML
+    private TextField amount;
+
+    @FXML
+    private TextArea message;
+    //juan
+    @FXML
+    void LogOut(ActionEvent event) {
+        try {
+            Main.showPage("Entry-Page.fxml");
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+    }
+    //juan
+    @FXML
+    void ToCards(ActionEvent event) {
+        try {
+            Main.showCardsPage(user.getFirstName()+ " " + user.getLastName());
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+    }
     //Juan and Ergi
     @FXML
     void ToDetails(ActionEvent event) {
@@ -66,6 +88,8 @@ public class CardsController {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+
+
     }
     //juan
     @FXML
@@ -78,6 +102,12 @@ public class CardsController {
         }
 
     }
+
+    @FXML
+    void ToNotifications(ActionEvent event) {
+
+    }
+
     //juan
     @FXML
     void ToTransactions(ActionEvent event) {
@@ -87,34 +117,38 @@ public class CardsController {
         catch (IOException ex) {
             ex.printStackTrace();
         }
+
     }
+
     //juan
     @FXML
-    public void Logout(ActionEvent event) {
-        //save the activity
-        try {
-            Main.showPage("Entry-Page.fxml");
+    void SendMoney(ActionEvent event) {
+        String receiver = Name.getText();
+        String receiverIban = IBAN.getText();
+        long quantity = Long.parseLong(amount.getText());
+        String concept = message.getText();
+        if((Mongo.isAccount(receiver, receiverIban)) && (quantity>0) && (!concept.isEmpty())){
+            tempReceiver = receiver;
+            tempReceiverIBAN = receiverIban;
+            tempQuantity = quantity;
+            tempConcept = concept;
+            Transaction purchase = new Transaction(tempReceiver, receiverIban, tempQuantity, tempConcept);
+            String date = Mongo.formatTime();// we register the time
+            purchase.setDate(date);
+            //validate balance
+            //update balance
+            purchase.setStatus("approved");
+            Mongo.coll3.insertOne(purchase.save());
         }
-        catch (IOException ex) {
-            ex.printStackTrace();
-        }
+
     }
+
     //juan
     public void setName(String name){
-        NameLabel.setText(user.getFirstName()+ " " + user.getLastName());
-        CardName.setText(user.getFirstName()+ " " + user.getLastName());
-        CardNumber.setText(user.getCardNumber());
-        ExpirationDate.setText(user.getExpirationDate());
-        float balance = Float.parseFloat(user.getBalance());
-        balance -= balance % 0.001;
-        Balance.setText("+" + balance +" SEK");
-        AccountNumber.setText(user.getAccountNr());
-        IBAN.setText(user.getAccountIBAN());
-        BIC.setText("PFBSEGBGXXX");
+        NameLabel.setText(name);
     }
 
+
+
 }
-
-
-
 

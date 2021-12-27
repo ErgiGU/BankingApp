@@ -1,67 +1,93 @@
 package pleasefivebank.UserPage;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import pleasefivebank.Main;
 import pleasefivebank.Objects.Transaction;
+import pleasefivebank.Objects.User;
 
 import java.io.IOException;
 
+import static pleasefivebank.EntryPage.EntryPageController.user;
+import static pleasefivebank.Main.mainWindow;
+
 public class TransactionsController {
+    @FXML
+    private TableColumn<?, ?> IBANColumn;
+
+    @FXML
+    private Button NameLabel;
+
+    @FXML
+    private TableColumn<?, ?> amountColumn;
+
+    @FXML
+    private TableColumn<?, ?> conceptColumn;
+
+    @FXML
+    private TableColumn<?, ?> dateColumn;
+
+    @FXML
+    private TableColumn<?, ?> receiverColumn;
 
     @FXML
     private TextField showBalance;
 
     @FXML
-    private ScrollPane activity;
+    private TableColumn<?, ?> statusColumn;
 
+    @FXML
+    private TableView<Transaction> tableView;
+    //juan
     @FXML
     void ToCards(ActionEvent event) {
         try {
-            Main.showPage("CardsPage.fxml");
+            Main.showCardsPage(user.getFirstName()+ " " + user.getLastName());
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
     }
-
+    //juan
     @FXML
     void ToHome(ActionEvent event) {
         try {
-            Main.showPage("UserHomePage.fxml");
-        }
-        catch (IOException ex) {
+            Main.showLoginPage(user.getFirstName()+ " " + user.getLastName());
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
-
+    //juan
     @FXML
     void ToLoans(ActionEvent event) {
         try {
-            Main.showPage("StudentLoans.fxml");
+            Main.showLoansPage(user.getFirstName()+ " " + user.getLastName());
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
     }
-
+    //juan
     @FXML
     void ToRequestMoney(ActionEvent event) {
         try {
-            Main.showPage("RequestMoney.fxml");
+            Main.showRequestTransactionsPage(user.getFirstName()+ " " + user.getLastName());
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
     }
-
+    //juan
     @FXML
     void ToTransferMoney(ActionEvent event) {
         try {
-            Main.showPage("PayMoney.fxml");
+            Main.showTransferMoneyPage(user.getFirstName()+ " " + user.getLastName());
         }
         catch (IOException ex) {
             ex.printStackTrace();
@@ -71,17 +97,24 @@ public class TransactionsController {
     @FXML
     void showTransactions(ActionEvent event) {
     }
-
+    //Juan and Ergi
     @FXML
     void ToDetails(ActionEvent event) {
         try {
-            Main.showPage("AccountDetails.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AccountDetails.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            AccountDetailsController accountDetailsController = fxmlLoader.getController();
+            User currentUser = user;
+            if(!currentUser.equals(null)) {
+                accountDetailsController.setInformation(user);
+                mainWindow.setScene(scene);
+            }
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
     }
-
+    //juan
     @FXML
     public void Logout(ActionEvent event) {
         //save the activity
@@ -91,6 +124,23 @@ public class TransactionsController {
         catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+    public void setName(String name){
+        NameLabel.setText(name);
+    }
+
+    public void setupTable(){
+        dateColumn = new TableColumn<Transaction, String>();
+        dateColumn.setText("Date");
+        dateColumn.setCellValueFactory(new PropertyValueFactory("date"));
+
+        receiverColumn = new TableColumn<Transaction, String>();
+        receiverColumn.setText("Receiver");
+        receiverColumn.setCellValueFactory(new PropertyValueFactory("receiver"));
+
+        //tableView.getColumns().addAll(dateColumn,receiverColumn,);
+        ObservableList<Transaction> transactions = FXCollections.observableArrayList(user.getReceived());
+        tableView.setItems(transactions);
     }
 }
 
