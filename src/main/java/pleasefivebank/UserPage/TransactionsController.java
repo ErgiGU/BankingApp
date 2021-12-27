@@ -4,9 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import pleasefivebank.EntryPage.EntryPageController;
 import pleasefivebank.Main;
@@ -20,13 +18,31 @@ import static pleasefivebank.Main.mainWindow;
 
 public class TransactionsController {
     @FXML
+    private TableColumn<?, ?> IBANColumn;
+
+    @FXML
     private Button NameLabel;
+
+    @FXML
+    private TableColumn<?, ?> amountColumn;
+
+    @FXML
+    private TableColumn<?, ?> conceptColumn;
+
+    @FXML
+    private TableColumn<?, ?> dateColumn;
+
+    @FXML
+    private TableColumn<?, ?> receiverColumn;
 
     @FXML
     private TextField showBalance;
 
     @FXML
-    private ScrollPane activity;
+    private TableColumn<?, ?> statusColumn;
+
+    @FXML
+    private TableView<?> tableView;
     //juan
     @FXML
     void ToCards(ActionEvent event) {
