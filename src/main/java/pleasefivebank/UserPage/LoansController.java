@@ -1,11 +1,13 @@
 package pleasefivebank.UserPage;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import pleasefivebank.EntryPage.EntryPageController;
 import pleasefivebank.Main;
 import pleasefivebank.Objects.Interest;
 import pleasefivebank.Objects.Loan;
@@ -15,13 +17,16 @@ import java.io.IOException;
 
 import static pleasefivebank.EntryPage.EntryPageController.user;
 import static pleasefivebank.Main.mainWindow;
-
 //Linus and Andreea
 public class LoansController {
+
 
     private boolean checkBoxBoo;
     Loan loan = new Loan();
 
+
+    @FXML
+    private Button NameLabel;
 
     @FXML
     public Label rentTotal;
@@ -106,31 +111,7 @@ public class LoansController {
     void ToCards(ActionEvent event) {
         try {
             Main.showPage("CardsPage.fxml");
-        }
-        catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    @FXML
-    void ToHome(ActionEvent event) {
-        try {
-            Main.showPage("UserHomePage.fxml");
-        }
-        catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    @FXML
-    void Accept(ActionEvent event) { loan.changeCheckBox();}
-
-    @FXML
-    void ToTransactions(ActionEvent event) {
-        try {
-            Main.showPage("Transactions.fxml");
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
@@ -153,6 +134,30 @@ public class LoansController {
     }
 
     @FXML
+    void ToHome(ActionEvent event) {
+        try {
+            Main.showPage("UserHomePage.fxml");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    @FXML
+    void Accept(ActionEvent event) {
+        loan.changeCheckBox();
+        checkBoxBoo = true;
+    }
+
+    @FXML
+    void ToTransactions(ActionEvent event) {
+        try {
+            Main.showPage("Transactions.fxml");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    @FXML
     public void Logout(ActionEvent event) {
         //save the activity
         try {
@@ -169,10 +174,6 @@ public class LoansController {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-    }
-    //juan and lotti
-    public void setName(String name){
-        NameLabel.setText(user.getFirstName()+ " " + user.getLastName());
     }
 
     @FXML
@@ -198,6 +199,10 @@ public class LoansController {
         if (EstPayBackTime.getText() == "") {
             notBlank3.setText("Cannot be blank");
         }else{notBlank3.setText("");}
+    }
+    //juan and lotti
+    public void setName(String name){
+        NameLabel.setText(user.getFirstName()+ " " + user.getLastName());
     }
 }
 
