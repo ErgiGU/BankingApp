@@ -34,7 +34,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Text>
-            <Button layoutX="24.0" layoutY="8.0" onAction="#toEntryPage" mnemonicParsing="false" prefHeight="73.0" prefWidth="84.0" style="-fx-background-radius: 25; -fx-border-image-width: 20; -fx-background-color: #457B9D;">
+            <Button layoutX="24.0" layoutY="8.0" mnemonicParsing="false" onAction="#toEntryPage" prefHeight="73.0" prefWidth="84.0" style="-fx-background-radius: 25; -fx-border-image-width: 20; -fx-background-color: #457B9D;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -131,19 +131,19 @@
       </AnchorPane>
    </left>
    <top>
-      <AnchorPane prefHeight="86.0" prefWidth="1050.0" style="-fx-background-color: #2b5292;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="78.0" prefWidth="1050.0" style="-fx-background-color: #2b5292;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="68.0" fitWidth="107.0" layoutX="10.0" layoutY="10.0" preserveRatio="true">
+            <ImageView fitHeight="60.0" fitWidth="102.0" layoutX="15.0" layoutY="10.0" preserveRatio="true">
                <image>
                   <Image url="@../PNGs/P5B white small logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="49.0" fitWidth="48.0" layoutX="750.0" layoutY="19.0" preserveRatio="true">
+            <ImageView fitHeight="49.0" fitWidth="48.0" layoutX="745.0" layoutY="19.0" preserveRatio="true">
                <image>
                   <Image url="@../PNGs/user-3296.png" />
                </image>
             </ImageView>
-            <Button layoutX="934.0" layoutY="22.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
+            <Button layoutX="913.0" layoutY="20.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -153,7 +153,7 @@
             </Button>
             <Button layoutX="679.0" layoutY="21.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: #2b5292;">
                <graphic>
-                  <ImageView fitHeight="38.0" fitWidth="42.0" preserveRatio="true">
+                  <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="657.0" layoutY="26.0" preserveRatio="true">
                      <image>
                         <Image url="@../PNGs/bell-3063.png" />
                      </image>
@@ -163,7 +163,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="799.0" layoutY="21.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #2b5292;" text="Juan Garcia" textFill="WHITE">
+            <Button layoutX="795.0" layoutY="21.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="121.0" style="-fx-background-color: #2b5292;" text="Juan Garcia" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -177,7 +177,7 @@
    <center>
       <AnchorPane prefHeight="614.0" prefWidth="919.0" style="-fx-background-color: EFEFEF;" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="#2b5292" layoutX="111.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thanks for registring, your email is pending for approval.">
+            <Text fill="#2b5292" layoutX="111.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thanks for registering, your email is pending for approval.">
                <font>
                   <Font size="26.0" />
                </font>
