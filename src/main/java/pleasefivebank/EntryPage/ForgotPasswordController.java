@@ -27,7 +27,7 @@ public class ForgotPasswordController {
 
     @FXML
     //andreea and ossian
-    protected void NewPasswordPressed(ActionEvent event){
+    protected void NewPasswordPressed(ActionEvent event) throws MessagingException, IOException {
         //get user input
         String email = Email.getText();
         String userName = Username.getText();
@@ -48,12 +48,8 @@ public class ForgotPasswordController {
             //preparing to send email
             MailBot mail = new MailBot();
             mail.setupServerProperties();
-            try {
-                mail.draftEmail(email,"New Password","Hi "+userName+" here is your new password: "+newpass );
-                mail.sendEmail();
-            } catch (MessagingException | IOException e) {
-                e.printStackTrace();
-            }
+            mail.draftEmail(email,"New Password","Hi "+userName+" here is your new password: "+newpass );
+            mail.sendEmail();
             try {
                 Main.showPage("Entry-Page.fxml");
             } catch (IOException ex) {
