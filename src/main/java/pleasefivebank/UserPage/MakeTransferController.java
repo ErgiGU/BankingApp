@@ -63,23 +63,22 @@ public class MakeTransferController {
         }
 
     }
-    //juan
+    //Juan and Ergi
     @FXML
     void ToDetails(ActionEvent event) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AccountDetails.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             AccountDetailsController accountDetailsController = fxmlLoader.getController();
-            User currentUser = EntryPageController.user;
+            User currentUser = user;
             if(!currentUser.equals(null)) {
-                accountDetailsController.setInformation(EntryPageController.user);
+                accountDetailsController.setInformation(user);
                 mainWindow.setScene(scene);
             }
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
-
     }
     //juan
     @FXML
