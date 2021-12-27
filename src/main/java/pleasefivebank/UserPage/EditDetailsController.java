@@ -2,9 +2,11 @@ package pleasefivebank.UserPage;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import org.bson.Document;
 import pleasefivebank.EntryPage.DataValidation;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
@@ -12,9 +14,15 @@ import pleasefivebank.Objects.User;
 
 import java.io.IOException;
 
+import static com.mongodb.client.model.Filters.eq;
 import static pleasefivebank.EntryPage.EntryPageController.user;
 
 public class EditDetailsController {
+
+    String university;
+
+    @FXML
+    private ComboBox<?> UniversityOption;
 
     @FXML
     private Label addressLabel;
@@ -27,9 +35,6 @@ public class EditDetailsController {
 
     @FXML
     private Label phoneLabel;
-
-    @FXML
-    private Label usernameLabel;
 
     @FXML
     private Label postalLabel;
@@ -68,9 +73,6 @@ public class EditDetailsController {
     private TextField phonenumberTextfield;
 
     @FXML
-    private TextField universityTextfield;
-
-    @FXML
     private Label NameLabel;
 
     //juan
@@ -96,9 +98,7 @@ public class EditDetailsController {
 
         String city = cityTextfield.getText();
         boolean cityVerification = DataValidation.validateField(city, cityLabel, "([\\p{L}]+\s)*[\\p{L}]+", "Enter a valid city name");
-        //im lacking this one cause we have to discuss how to do regex
-        //id rather change this to an optionbox as we cant rely on users to write their uni perfectly
-        String uni = universityTextfield.getText();
+        String uni = university;
 
         //if data is valid and doesnt use other users unique data make changes efective
         if(phoneVerification && emailVerification && addressVerification &&
@@ -108,12 +108,17 @@ public class EditDetailsController {
             user.setCity(city);
             user.setPostalCode(postal);
             user.setAddress(street);
-            //user.setUni
+            user.setUniversity(university);
 
             //update db by calling the mongo db lines
-
+            Mongo.updateInformation("phone number", user.getPhoneNumber(), user.getPersonnummer());
+            Mongo.updateInformation("email", user.getEmail(), user.getPersonnummer());
+            Mongo.updateInformation("city", user.getCity(), user.getPersonnummer());
+            Mongo.updateInformation("postal code", user.getPostalCode(), user.getPersonnummer());
+            Mongo.updateInformation("address", user.getAddress(), user.getPersonnummer());
+            Mongo.updateInformation("university", user.getUniversity(), user.getPersonnummer());
             //update json with lottis method
-
+            Mongo.updateJson();
         }
 
 
@@ -124,6 +129,11 @@ public class EditDetailsController {
         user.setCity(cityTextfield.getText());
 
 
+    }
+    @FXML
+    void Select(ActionEvent event) throws IOException {
+        String selection = (String) UniversityOption.getSelectionModel().getSelectedItem();
+        university = selection;
     }
 
     @FXML
@@ -146,7 +156,6 @@ public class EditDetailsController {
         emailTextfield.setText(user.getEmail());
         personalidLabel.setText(user.getPersonnummer());
         phonenumberTextfield.setText(user.getPhoneNumber());
-        universityTextfield.setText(user.getUniversity());
         NameLabel.setText(user.getUsername1());
     }
 

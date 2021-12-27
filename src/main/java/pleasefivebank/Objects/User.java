@@ -158,6 +158,10 @@ public class User {
 
     public void setCity(String city){this.city = city;}
 
+    public void setUniversity(String university) {
+        this.university = university;
+    }
+
     public void setTransactions(){}
 
     public String getBalance() {
