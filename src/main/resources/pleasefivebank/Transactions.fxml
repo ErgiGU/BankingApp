@@ -146,7 +146,7 @@
                   <Image url="@../PNGs/user-3296.png" />
                </image>
             </ImageView>
-            <Button layoutX="934.0" layoutY="22.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
+            <Button layoutX="934.0" layoutY="22.0" mnemonicParsing="false" onAction="#Logout" prefHeight="38.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -166,7 +166,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="799.0" layoutY="21.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #2b5292;" text="Juan Garcia" textFill="WHITE">
+            <Button fx:id="NameLabel" layoutX="799.0" layoutY="21.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #2b5292;" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -187,7 +187,7 @@
             </Button>
             <ScrollPane fx:id="activity" layoutX="81.0" layoutY="231.0" onScroll="#showTransactions" prefHeight="308.0" prefWidth="733.0">
                <content>
-                  <TextArea id="scrollbar" prefHeight="53.0" prefWidth="731.0" />
+                  <TextArea id="scrollbar" fx:id="DisplayTransactions" prefHeight="313.0" prefWidth="731.0" />
                </content>
             </ScrollPane>
             <Text fill="#2b5292" layoutX="349.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transactions">

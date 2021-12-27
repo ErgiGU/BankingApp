@@ -1,56 +1,100 @@
 
 package pleasefivebank.EntryPage;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import javafx.scene.control.Label;
+import javafx.scene.effect.BoxBlur;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import org.bson.Document;
 import pleasefivebank.*;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
 import javafx.scene.control.Hyperlink;
+import pleasefivebank.Menus.UsefulFunctions;
+import pleasefivebank.Objects.User;
+import pleasefivebank.UserPage.HomePageController;
+import com.jfoenix.controls.events.JFXDialogEvent;
+//import com.jfoenix.converters.DialogTransitionConverter;
+import com.jfoenix.effects.JFXDepthManager;
+import com.jfoenix.transitions.CachedTransition;
+
 import java.io.IOException;
 import java.util.HashMap;
+
+import static com.mongodb.client.model.Filters.eq;
 
 public class EntryPageController{
 
     private static String tempUserName = "";
     private static String tempPassword = "";
+    private static int i = 0;
+    public static User user;
+    @FXML
+    private StackPane rootPane;
 
-    //juan && andreea
+    //Ergi && Andreea
     @FXML
     protected void PressedLoginButton(ActionEvent event) {
         String username = "";
         String password = "";
         String encryptedPassword = "";
-        int i = 0;
-        do {//get user input
-            username = LoginUsername.getText();
-            password = LoginPassword.getText();
-            //make sure input it is not empty
-            if ((username.isEmpty()) || (password.isEmpty())) {
-                confirmLabel.setText("try again...");
+        Main main = new Main();
+        //get user input
+        username = LoginUsername.getText();
+        password = LoginPassword.getText();
+        //encrypt the password to search for it in the database
+        encryptedPassword = Mongo.encrypt(password);
+        //try at most 3 times
+        boolean k = Mongo.isValidLogin(username, encryptedPassword);
+        boolean validUsername = Mongo.usernameExists(username);
+        if(validUsername) {
+            EntryPage login = new EntryPage(username);
+            User user1 = login.getLogin();
+            //checks if the password is right
+            if (k && i < 3 && user1.getFrozen().equals("false")) {
+                user = user1;
+                tempUserName = username;
+                tempPassword = encryptedPassword;
+                login.setUsername(tempUserName);
+                login.setPassword(tempPassword);
+                i = 0;
+                try {
+                    main.showLoginPage(user.getFirstName() + " " + user.getLastName());
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            } else if (!k) {
                 i++;
-                continue;
+                if (i == 1) {
+                    confirmLabel.setText("Wrong password, 3 attempt(s) left");
+                } else if (i == 2) {
+                    confirmLabel.setText("Wrong password, 2 attempt(s) left");
+                } else if (i == 3) {
+                    confirmLabel.setText("Wrong password, 1 attempt(s) left");
+                } else if (i == 4) {
+                    //freezes account and displays a popup
+                    user1.freezeAccount();
+                    confirmLabel.setText(null);
+                    UsefulFunctions.popup("Your account is frozen, please contact us.",borderpane,rootPane);
+
+                }else{
+                    UsefulFunctions.popup("Your account is frozen, please contact us.",borderpane,rootPane);
+                }
+            }else if(user1.getFrozen().equals("false")){
+                UsefulFunctions.popup("Your account is frozen, please contact us.",borderpane,rootPane);
             }
-            //encrypt the password to search for it in the database
-            encryptedPassword = Mongo.encrypt(password);
-            i++;
-        } while (!Mongo.isValidLogin(username, encryptedPassword) || (i<3));//try at most 3 times
-        if(i==3){
-            confirmLabel.setText("press forgot password");
-        } else {
-            EntryPage login = new EntryPage();
-            tempUserName = username;
-            tempPassword = password;
-            login.setUsername(tempUserName);//set the user and password as attributes
-            login.setPassword(tempPassword);
-            try {
-                Main.showPage("UserHomePage.fxml");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            }else {
+            confirmLabel.setText("Invalid username");
         }
     }
+    @FXML
+    private BorderPane borderpane;
 
     @FXML
     private PasswordField LoginPassword;
@@ -60,6 +104,10 @@ public class EntryPageController{
 
     @FXML
     private Label confirmLabel;
+
+
+
+
 
     //juan
     @FXML
@@ -83,7 +131,7 @@ public class EntryPageController{
         }
     }
 
-    //juan
+    //andreea
     @FXML
     protected void ContactUsPressed(){
         try {

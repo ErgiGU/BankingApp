@@ -2,55 +2,94 @@ package pleasefivebank.UserPage;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.text.Text;
+import pleasefivebank.EntryPage.EntryPageController;
 import pleasefivebank.Main;
+import pleasefivebank.Objects.User;
 
 import java.io.IOException;
+
+import static pleasefivebank.EntryPage.EntryPageController.user;
+import static pleasefivebank.Main.mainWindow;
 
 public class CardsController {
 
     @FXML
+    private Text AccountNumber;
+
+    @FXML
+    private Text BIC;
+
+    @FXML
+    private Text Balance;
+
+    @FXML
+    private Text CardName;
+
+    @FXML
+    private Text CardNumber;
+
+    @FXML
+    private Text ExpirationDate;
+
+    @FXML
+    private Text IBAN;
+
+    @FXML
+    private Button NameLabel;
+
+    //juan and Ergi
+    @FXML
     void ToDetails(ActionEvent event) {
         try {
-            Main.showPage("AccountDetails.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AccountDetails.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            AccountDetailsController accountDetailsController = fxmlLoader.getController();
+            User currentUser = EntryPageController.user;
+            if(!currentUser.equals(null)) {
+                accountDetailsController.setInformation(EntryPageController.user);
+                mainWindow.setScene(scene);
+            }
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
 
     }
-
+    //juan
     @FXML
     void ToHome(ActionEvent event) {
         try {
-            Main.showPage("UserHomePage.fxml");
-        }
-        catch (IOException ex) {
+            Main.showLoginPage(user.getFirstName()+ " " + user.getLastName());
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
-
     }
-
+    //juan
     @FXML
     void ToLoans(ActionEvent event) {
         try {
-            Main.showPage("StudentLoans.fxml");
+            Main.showLoansPage(user.getFirstName()+ " " + user.getLastName());
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
 
     }
-
+    //juan
     @FXML
     void ToTransactions(ActionEvent event) {
         try {
-            Main.showPage("Transactions.fxml");
+            Main.showTransactionsPage(user.getFirstName()+ " " + user.getLastName());
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
     }
-
+    //juan
     @FXML
     public void Logout(ActionEvent event) {
         //save the activity
@@ -61,6 +100,20 @@ public class CardsController {
             ex.printStackTrace();
         }
     }
+    //juan
+    public void setName(String name){
+        NameLabel.setText(user.getFirstName()+ " " + user.getLastName());
+        CardName.setText(user.getFirstName()+ " " + user.getLastName());
+        CardNumber.setText(user.getCardNumber());
+        ExpirationDate.setText(user.getExpirationDate());
+        float balance = Float.parseFloat(user.getBalance());
+        balance -= balance % 0.001;
+        Balance.setText("+" + balance +" SEK");
+        AccountNumber.setText(user.getAccountNr());
+        IBAN.setText(user.getAccountIBAN());
+        BIC.setText("PFBSEGBGXXX");
+    }
+
 }
 
 

@@ -2,7 +2,6 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -13,12 +12,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.control.Label?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" stylesheets="@../CSS/hi.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pleasefivebank.UserPage.PayMoneyController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pleasefivebank.UserPage.RequestMoneyController">
    <left>
       <AnchorPane prefHeight="614.0" prefWidth="128.0" style="-fx-background-color: #457B9D;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="23.0" layoutY="110.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="86.0" style="-fx-background-radius: 25; -fx-border-image-width: 20; -fx-background-color: #457B9D;">
+            <Button layoutX="23.0" layoutY="110.0" mnemonicParsing="false" onAction="#ToTransactions" prefHeight="72.0" prefWidth="86.0" style="-fx-background-radius: 25; -fx-border-image-width: 20; -fx-background-color: #457B9D;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -139,7 +137,7 @@
          <children>
             <ImageView fitHeight="68.0" fitWidth="107.0" layoutX="10.0" layoutY="10.0" preserveRatio="true">
                <image>
-                  <Image url="@../PNGs/P5B white small logo.png" />
+                  <Image url="@../PNGs/P5B%20white%20small%20logo.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="49.0" fitWidth="48.0" layoutX="750.0" layoutY="19.0" preserveRatio="true">
@@ -147,7 +145,7 @@
                   <Image url="@../PNGs/user-3296.png" />
                </image>
             </ImageView>
-            <Button layoutX="934.0" layoutY="22.0" onAction="#Logout" mnemonicParsing="false" prefHeight="38.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
+            <Button layoutX="934.0" layoutY="22.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="38.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -155,7 +153,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="679.0" layoutY="21.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: #2b5292;">
+            <Button layoutX="679.0" layoutY="21.0" mnemonicParsing="false" onAction="#ToNotifications" prefHeight="45.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: #2b5292;">
                <graphic>
                   <ImageView fitHeight="38.0" fitWidth="42.0" preserveRatio="true">
                      <image>
@@ -167,7 +165,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="799.0" layoutY="21.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #2b5292;" text="Juan Garcia" textFill="WHITE">
+            <Button fx:id="NameLabel" layoutX="799.0" layoutY="21.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #2b5292;" text="Juan Garcia" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -178,44 +176,47 @@
          </children>
       </AnchorPane>
    </top>
-   <right>
+   <center>
       <AnchorPane prefHeight="614.0" prefWidth="919.0" style="-fx-background-color: EFEFEF;" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="#2b5292" layoutX="349.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transfer Money">
+            <ImageView fitHeight="428.0" fitWidth="354.0" layoutX="474.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Downloads/dit094-group-4-entrypage/dit094-group-4-entrypage/src/main/resources/PNGs/Please%205%20Bank-logos.jpeg" />
+               </image>
+            </ImageView>
+            <TextField fx:id="Name" layoutX="136.0" layoutY="180.0" prefHeight="46.0" prefWidth="251.0" promptText="Name" style="-fx-background-color: EFEFEFEFEFEF; -fx-border-color: #1275EA#1275EA;">
                <font>
-                  <Font size="37.0" />
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextArea fx:id="Message" layoutX="135.0" layoutY="411.0" prefHeight="68.0" prefWidth="253.0" promptText="Message (30 character limit)" style="-fx-background-color: efefef; -fx-border-color: #1275EA;" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextArea>
+            <Text fill="#1275ea" layoutX="139.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Make a Request" textAlignment="CENTER" wrappingWidth="234.18243408203125">
+               <font>
+                  <Font name="Arial" size="25.0" />
                </font>
             </Text>
-            <TextField fx:id="Receiver" layoutX="84.0" layoutY="202.0" prefHeight="34.0" prefWidth="285.0" promptText="  Receiver" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;">
+            <Button layoutX="136.0" layoutY="503.0" mnemonicParsing="false" onAction="#Request" prefHeight="38.0" prefWidth="251.0" style="-fx-background-color: #1275EA#1275EA;" text="Send Request" textFill="WHITE">
                <font>
-                  <Font size="32.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
-            </TextField>
-            <TextField fx:id="ReceiverIban" layoutX="84.0" layoutY="202.0" prefHeight="34.0" prefWidth="285.0" promptText="  ReceiverIban" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;">
-               <font>
-                  <Font size="32.0" />
-               </font>
-            </TextField>
-            <Label fx:id="confirmLabel" layoutX="67.0" layoutY="331.0" prefHeight="19.0" prefWidth="216.0" textFill="RED">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <TextField fx:id="Quantity" layoutX="84.0" layoutY="202.0" prefHeight="34.0" prefWidth="285.0" promptText="  Quantity" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;">
-               <font>
-                  <Font size="32.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="Concept" layoutX="84.0" layoutY="202.0" prefHeight="34.0" prefWidth="285.0" promptText="  Concept" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;">
-               <font>
-                  <Font size="32.0" />
-               </font>
-            </TextField>
-            <Button layoutX="635.0" layoutY="77.0" mnemonicParsing="false" onAction="#ToTransferMoney" prefHeight="82.0" prefWidth="180.0" style="-fx-background-color: #457B9D;" text="Transfer Money" textFill="WHITE">
-               <font>
-                  <Font size="21.0" />
-               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
+            <TextField fx:id="IBAN" layoutX="136.0" layoutY="255.0" prefHeight="46.0" prefWidth="251.0" promptText="IBAN" style="-fx-background-color: EFEFEFEFEFEF; -fx-border-color: #1275EA#1275EA;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="Amount" layoutX="136.0" layoutY="333.0" prefHeight="46.0" prefWidth="251.0" promptText="Amount" style="-fx-background-color: EFEFEFEFEFEF; -fx-border-color: #1275EA#1275EA;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
          </children></AnchorPane>
-   </right>
+   </center>
 </BorderPane>

@@ -5,9 +5,12 @@ import org.bson.types.ObjectId;
 import org.w3c.dom.events.DocumentEvent;
 import pleasefivebank.Mongo;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
+import static com.mongodb.client.model.Filters.eq;
 import static java.util.Arrays.asList;
 
 public class User {
@@ -23,12 +26,21 @@ public class User {
     private String middleName;
     private String lastName;
     private String university;
-    private Account account;
     private Document doc;
 
-    public User(String name, String middleName, String lastName, String address, String city, String postalCode,
-                String birthDate, String phoneNumber, String personNummer, String email, String university,
-                Account account) {
+
+    protected String cardNumber;
+    protected String expirationDate;
+    protected String balance;
+    protected int rewardPoints;
+    protected String frozen;
+    protected final String accountNr;
+    protected final String accountIBAN;
+    protected ArrayList<Transaction> activity = new ArrayList<>();
+    protected ArrayList<Transaction> pending = new ArrayList<>();
+
+    public User(String cardNumber,String expirationDate ,String name, String middleName, String lastName, String address, String city, String postalCode,
+                String birthDate, String phoneNumber, String personNummer, String email, String university, String accountNr, String accountIBAN, String balance, String frozen) {
         this.firstName = name;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -40,7 +52,16 @@ public class User {
         this.city = city;
         this.postalCode = postalCode;
         this.university = university;
-        this.account = account;
+        this.cardNumber = cardNumber;
+        this.expirationDate = expirationDate;
+
+
+        this.accountNr = accountNr;
+        this.accountIBAN = accountIBAN;
+        this.balance = balance;
+        this.frozen = "false";
+        this.rewardPoints = 0;
+        toDocument();
     }
 
     //andreea
@@ -52,25 +73,22 @@ public class User {
                 append("phone number", this. phoneNumber).append("email", this.email).
                 append("address", this.address).append("city", this.city).
                 append("postal code", this.postalCode).append("university", this.university).
-                append("account", asList(new Document("account number", this.account.accountNr),
-                        new Document("account IBAN", this.account.accountIBAN),
-                        new Document("balance", this.account.balance),
-                        new Document("frozen", this.account.frozen),
-                        new Document("reward points", this.account.rewardPoints))).
-                append("transactions", asList(new Document("sent", ""/*this.account.sent*/),
-                        new Document("received", ""/*this.account.received*/)));
-        if(this.account instanceof StudentAccount) {doc.append("loans",
-                asList(new Document("status", ""), new Document("quantity", 0),
-                        new Document("due date", "")));}
+                append("account number", this.accountNr).
+                append("account IBAN", this.accountIBAN).append("balance", this.balance).
+                append("frozen", this.frozen).append("reward points", this.rewardPoints).
+                append("card number", this.cardNumber).append("expiration date", this.expirationDate).
+                append("transactions", asList(new Document("sent", ""/*this.account.sent*/), new Document("received", ""/*this.account.received*/))).
+                append("loans", asList(new Document("status", ""), new Document("quantity", 0),
+                                        new Document("due date", "")));
         return doc;
     }
 
     //andreea
     public Document toAccounts(){//same method to add the account at registration and to update
         //changes in the account or transactions, etc.
-        Document account = new Document("_id", doc.get("_id")).append("account IBAN", this.account.accountIBAN).
-                append("transactions", asList(new Document("activity", this.account.activity),
-                        new Document("pending", this.account.pending)));
+        Document account = new Document("_id", doc.get("_id")).append("account IBAN", this.accountIBAN).
+                append("transactions", asList(new Document("activity", this.activity),
+                        new Document("pending", this.pending)));
         return account;
     }
 
@@ -81,6 +99,8 @@ public class User {
                 append("quantity", "").append("date","").append("concept","");
         return transaction;
     }*/
+
+    //all of the following getters and setters were done by Juan
 
     public String getFirstName() {
         return this.firstName;
@@ -110,31 +130,114 @@ public class User {
         return this.address;
     }
 
+    public String getCity(){return this.city;}
+
+    public String getPostalCode(){return this.postalCode;}
+
     public String getBirthdate() {
         return this.birthdate;
     }
 
-    public void setFirstName(String newName) {
-        this.firstName = newName;
+    public String getUniversity() { return this.university; }
+
+    public String getCardNumber(){return this.cardNumber;}
+
+    public void setPhoneNumber(String phoneNumber){this.phoneNumber = phoneNumber;}
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
-    public void setMiddleName(String newName) {
-        this.middleName = newName;
-    }
-
-    public void setLastName(String newName) {
-        this.lastName = newName;
-    }
-
-    public void setPhoneNumber(String newPhoneNumber) {
-        this.phoneNumber = newPhoneNumber;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public void setEmail(String newEmail) {
         this.email = newEmail;
     }
 
-    public void setTransactions(){
+    public void setCity(String city){this.city = city;}
+
+    public void setUniversity(String university) {
+        this.university = university;
     }
+
+    public void setTransactions(){}
+
+    public String getBalance() {
+        return balance;
+    }
+
+    public String getFrozen() {return frozen;}
+
+    public String getExpirationDate(){return this.expirationDate;}
+
+    /*public int getRewardPoints() { return rewardPoints; }*/
+
+    public String getAccountNr() {
+        return accountNr;
+    }
+
+    public String getAccountIBAN() {
+        return accountIBAN;
+    }
+
+    public ArrayList<Transaction> getSent() {
+        return activity;
+    }
+
+    public ArrayList<Transaction> getReceived() {
+        return pending;
+    }
+
+
+    public void setBalance(String balance) {
+        this.balance = balance;
+    }
+
+    public void setRewardPoints(int rewardPoints) {
+        this.rewardPoints = rewardPoints;
+    }
+
+    public void setSent(ArrayList<Transaction> sent) {
+        this.activity = activity;
+    }
+
+    public void setReceived(ArrayList<Transaction> received) {
+        this.pending = pending;
+    }
+
+    public void addPoint(int pointsToAdd) {
+        this.rewardPoints += pointsToAdd;
+    }
+
+    //Ergi
+    public void freezeAccount() {
+        this.frozen = "true";
+        Mongo.updateInformation("frozen",frozen,personnummer);
+    }
+
+    public void unfreezeAccount() {
+        this.frozen = "false";
+    }
+
+    public void showCard() {
+        //get card info and show it
+    }
+    public String getAllTransactions(){
+        String toReturn = "";
+        for(int i=0; i<activity.size(); i++){
+            Transaction transaction = activity.get(i);
+            toReturn.concat(transaction.toString());
+        }
+        return toReturn;
+    }
+    //Juan and Ergi
+    public String getUsername1(){
+        Object key= Mongo.extractKey2("personnummer",this.getPersonnummer());
+        String username = Mongo.getUsername(key.toString(),"user name").toString();
+        return username;
+    }
+
 }
 

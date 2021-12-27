@@ -2,66 +2,75 @@ package pleasefivebank.UserPage;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import pleasefivebank.EntryPage.EntryPageController;
 import pleasefivebank.Main;
 import pleasefivebank.Objects.Transaction;
+import pleasefivebank.Objects.User;
 
 import java.io.IOException;
 
+import static pleasefivebank.EntryPage.EntryPageController.user;
+import static pleasefivebank.Main.mainWindow;
+
 public class TransactionsController {
+    @FXML
+    private Button NameLabel;
 
     @FXML
     private TextField showBalance;
 
     @FXML
     private ScrollPane activity;
-
+    //juan
     @FXML
     void ToCards(ActionEvent event) {
         try {
-            Main.showPage("CardsPage.fxml");
+            Main.showCardsPage(user.getFirstName()+ " " + user.getLastName());
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
     }
-
+    //juan
     @FXML
     void ToHome(ActionEvent event) {
         try {
-            Main.showPage("UserHomePage.fxml");
-        }
-        catch (IOException ex) {
+            Main.showLoginPage(user.getFirstName()+ " " + user.getLastName());
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }
-
+    //juan
     @FXML
     void ToLoans(ActionEvent event) {
         try {
-            Main.showPage("StudentLoans.fxml");
+            Main.showLoansPage(user.getFirstName()+ " " + user.getLastName());
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
     }
-
+    //juan
     @FXML
     void ToRequestMoney(ActionEvent event) {
         try {
-            Main.showPage("RequestMoney.fxml");
+            Main.showRequestTransactionsPage(user.getFirstName()+ " " + user.getLastName());
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
     }
-
+    //juan
     @FXML
     void ToTransferMoney(ActionEvent event) {
         try {
-            Main.showPage("PayMoney.fxml");
+            Main.showTransferMoneyPage(user.getFirstName()+ " " + user.getLastName());
         }
         catch (IOException ex) {
             ex.printStackTrace();
@@ -71,17 +80,24 @@ public class TransactionsController {
     @FXML
     void showTransactions(ActionEvent event) {
     }
-
+    //juan and Ergi
     @FXML
     void ToDetails(ActionEvent event) {
         try {
-            Main.showPage("AccountDetails.fxml");
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AccountDetails.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            AccountDetailsController accountDetailsController = fxmlLoader.getController();
+            User currentUser = EntryPageController.user;
+            if(!currentUser.equals(null)) {
+                accountDetailsController.setInformation(EntryPageController.user);
+                mainWindow.setScene(scene);
+            }
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
     }
-
+    //juan
     @FXML
     public void Logout(ActionEvent event) {
         //save the activity
@@ -91,6 +107,9 @@ public class TransactionsController {
         catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+    public void setName(String name){
+        NameLabel.setText(name);
     }
 }
 

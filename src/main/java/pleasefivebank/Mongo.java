@@ -10,22 +10,24 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.BulkWriteOptions;
 import com.mongodb.client.model.InsertOneModel;
 import com.mongodb.client.model.Projections;
+import com.mongodb.client.model.UpdateOptions;
 import javafx.scene.control.Label;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import org.bson.json.JsonReader;
+import pleasefivebank.Objects.User;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Base64;
-import java.util.Date;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.mongodb.client.model.Filters.*;
 
@@ -63,7 +65,7 @@ public final class Mongo {//marked as final because it is a utility class and it
             int batch = 100;
             List<InsertOneModel<Document>> docs = new ArrayList<>();
 
-            try (BufferedReader br = new BufferedReader(new FileReader("UserDB.json"))) {
+            try (BufferedReader br = new BufferedReader(new FileReader("UserDB2.json"))) {
                 String line;
                 while ((line = br.readLine()) != null) {
                     docs.add(new InsertOneModel<>(Document.parse(line)));
@@ -145,9 +147,21 @@ public final class Mongo {//marked as final because it is a utility class and it
     }
 
     //andreea
-    public static Object extractKey(String newPass){//encrypted pass
-        Document doc = coll.find(eq("password", newPass)).first();
+    public static Object extractKey(String thingToLookFor,String username){
+        Document doc = coll.find(eq(thingToLookFor, username)).first();
+        return doc.get("_id");
+    }
+    //juan and Ergi
+    public static Object extractKey2(String thingToLookFor,String username){
+        Document doc = coll.find(eq(thingToLookFor, username)).first();
         return doc.get("key");
+    }
+
+    //Ergi and juan
+    public static Object getUsername(String id, String returnThing){
+        Document doc = coll.find(eq("_id",id)).first();
+        Object username = doc.get(returnThing);
+        return username;
     }
 
     //andreea
@@ -179,11 +193,45 @@ public final class Mongo {//marked as final because it is a utility class and it
         //doesn't delete it from the file, nothing will..
     }
 
+    //Lotti
+    public static void updateJson(){
+        try {
+            FileWriter writer1 = new FileWriter("UserDB2.json", false);
+            FindIterable<Document> iterDoc = coll.find();
+            System.out.println(coll.find());
+            Iterator it = iterDoc.iterator();
+            while (it.hasNext()) {
+                Document doc = (Document) it.next();
+                writer1.write(doc.toJson() +  System.lineSeparator());
+            }
+            writer1.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     //andreea
     public static String formatTime() {//this methods registers the time an object Date is created
         Date time = new Date();
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         return dateFormat.format(time);
     }
+
+    public static boolean usernameExists(String username) {
+        boolean exists = false;
+        Document filter = new Document("user name", username);
+        Document doc = coll.find(filter).first();
+        if (doc != null) {
+            exists = true;
+        }
+        return exists;
+    }
+
+    //Ergi
+    public static void updateInformation(String dbLabel, String updatedVar, String personalID ) {
+        Mongo.coll.findOneAndUpdate(eq("personnummer", personalID),
+                new Document("$set", new Document(dbLabel, updatedVar)));
+    }
+
 }
 

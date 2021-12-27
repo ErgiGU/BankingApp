@@ -1,118 +1,30 @@
 package pleasefivebank.EntryPage;
 
-import com.mongodb.client.FindIterable;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.iban4j.CountryCode;
 import org.iban4j.Iban;
 import pleasefivebank.Mongo;
-import pleasefivebank.Objects.Account;
-import pleasefivebank.Objects.BasicAccount;
-import pleasefivebank.Objects.StudentAccount;
 import pleasefivebank.Objects.User;
 
 import java.io.FileWriter;
+import java.io.FileReader;
 import java.io.IOException;
-import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Random;
 
 public class Registration{
-    private String firstName;
-    private String middleName;
-    private String lastName;
-    private String personalID;
 
-    private String streetName;
-    private String city;
-    private String postalCode;
-    private String email;
-    private String phoneNumber;
-
-    private String username;
-    private String password;
     private boolean checkbox;
     private String university;
-    private Account account;
 
-    //juan
-    public Registration(){//in RegistrationController we create an object and then set the attributes values
-        this.firstName = "";
-        this.middleName = "";
-        this.lastName = "";
-        this.personalID = "";
-        this.streetName = "";
-        this.city = "";
-        this.postalCode = "";
-        this.email = "";
-        this.phoneNumber = "";
-        this.username = "";
-        this.password = "";
-        this.checkbox = false;
-        this.university = "";
-        this.account = null;
-    }
-
-    public String getEmail(){
-        return email;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setMiddleName(String middleName) {
-        this.middleName = middleName;
-    }
-
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    public void setPersonalID(String personalID) {
-        this.personalID = personalID;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getUsername(){
-        return username;
-    }
-
-    public String getPassword(){
-        return password;
-    }
 
     public boolean getCheckbox(){
         return checkbox;
     }
 
     public String getUniversity() {return university;}
-
-
-    public void setEmail(String email){
-        this.email = email;
-    }
-
-    public void setUsername(String username){
-        this.username = username;
-    }
-
-    public void setPassword(String password){
-        this.password = password;
-    }
 
     public void setUniversity(String university){this.university = university;}
     
@@ -124,7 +36,7 @@ public class Registration{
     }
 
     //andreea
-    public void setAccount(){
+    /*public void setAccount(){
         //generate random IBAN
         String iban = generateIBAN();
         //remove the empty spaces
@@ -136,30 +48,34 @@ public class Registration{
         } else {
             this.account = new StudentAccount(accountNr, iban, 0, false);
         }
-    }
+    }*/
+
 
     //andreea
-    public void register(){
-        String birthdate = extractBirthdate(this.personalID);//set the birthdate
-        setAccount();//set the basic or student account
-        User newUser = new User(this.firstName, this.middleName, this.lastName, this.streetName, this.postalCode,
-                this.city, birthdate, this.phoneNumber, this.personalID, this.email, this.university, this.account);
+    public static void register(User user, String username, String password){
+        //String birthdate = extractBirthdate(this.personalID);//set the birthdate
         //We write the user as document
-        Document user = newUser.toDocument();
+        Document userdoc = user.toDocument();
         //we create a document with encrypted credentials and add it to the database
-        Document login = new Document("_id", new ObjectId()).append("user name", this.username).
-                append("password", Mongo.encrypt(this.password));
+        Document login = new Document("_id", new ObjectId()).append("user name", username).
+                append("password", Mongo.encrypt(password));
         Mongo.coll.insertOne(login);
         //get the automatically generated id of the document just inserted
         String key = login.get("_id").toString();
         //store the id in the key field of the user document and add the user to the database
-        Mongo.coll.insertOne(user.append("key", key));
+        Mongo.coll.insertOne(userdoc.append("key", key));
         //print at the end of file UserDB2
-        toFile(user, login, key);
+        toFile(userdoc, login, key);
+        //restart the database to get the new information there
+        try {
+            Mongo.mongo();//Mongo is a utility class and cannot be instantiated
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     //andreea && ossian
-    public String extractBirthdate(String personnummer){
+    public static String extractBirthdate(String personnummer){
         String yearString  = personnummer.substring(0,2);
         int year = Integer.parseInt(yearString);
         if(year > 22){ year += 1900; }
@@ -170,7 +86,7 @@ public class Registration{
     }
 
     //juan
-    public String generateIBAN(){
+    public static String generateIBAN(){
         Iban iban = new Iban.Builder()
                 .countryCode(CountryCode.SE)
                 .bankCode("555")
@@ -180,7 +96,7 @@ public class Registration{
     }
 
     //andreea
-    public void toFile(Document user, Document login, Object key) {
+    public static void toFile(Document user, Document login, Object key) {
         try {
             FileWriter writer = new FileWriter("UserDB2.json", true);
             writer.write(login.append("_id", key).toJson() + System.lineSeparator());
@@ -189,5 +105,40 @@ public class Registration{
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    //Carlotta
+    public String generateCardNr() {
+        Random random = new Random();
+        int randomNumberLength = 16;
+        int counter = 0;
+
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < randomNumberLength; i++) {
+            int digit = random.nextInt(10);
+            builder.append(digit);
+            counter++;
+            if(counter == 4){
+                builder.append(" ");
+                counter = 0;
+            }
+        }
+        return builder.toString();
+    }
+    //carlotta
+    public String calculateExpirationDate(){
+        String expirationDate = "";
+        String pattern = "MM";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
+        pattern = "yyyy";
+        SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat(pattern);
+        String year = simpleDateFormat2.format(new Date());
+
+        int yearInt = Integer.parseInt(year);
+        yearInt = yearInt + 5;
+        expirationDate=expirationDate.concat(Integer.toString(yearInt)+"-");
+        expirationDate=expirationDate.concat(date);
+
+        return expirationDate.substring(2);
     }
 }
