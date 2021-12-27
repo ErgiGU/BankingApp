@@ -71,17 +71,12 @@ public class EditDetailsController {
     private TextField universityTextfield;
 
     @FXML
-    private TextField usernameTextfield;
+    private Label NameLabel;
 
     //juan
     @FXML
     void SaveChanges(ActionEvent event) {
         //get user input and validate with regex
-        String username = usernameTextfield.getText();
-        boolean usernameValidation = DataValidation.validateField(username,usernameLabel,
-                "^[A-Za-z][A-Za-z0-9_]{7,29}$","The username must be at least 8 characters");
-        boolean usernameExists = Mongo.existsInDatabase(username, "user name",usernameLabel,"Username already exists");
-
         String phoneNumber = phonenumberTextfield.getText();
         boolean phoneVerification = DataValidation.validateField(phoneNumber, phoneLabel, "\\d{10}", "Enter a valid phone number");
         boolean phoneExists = Mongo.existsInDatabase(phoneNumber, "phone number", phoneLabel, "Phone is already registered");
@@ -106,18 +101,19 @@ public class EditDetailsController {
         String uni = universityTextfield.getText();
 
         //if data is valid and doesnt use other users unique data make changes efective
-        if(usernameValidation && phoneVerification && emailVerification && addressVerification &&
-        postalVerification && cityVerification && !phoneExists && !checkIfEmailExists && !usernameExists){
-            //user.setUsername
+        if(phoneVerification && emailVerification && addressVerification &&
+        postalVerification && cityVerification && !phoneExists && !checkIfEmailExists){
             user.setPhoneNumber(phoneNumber);
             user.setEmail(email);
             user.setCity(city);
             user.setPostalCode(postal);
             user.setAddress(street);
             //user.setUni
-            //update json with lottis method
 
             //update db by calling the mongo db lines
+
+            //update json with lottis method
+
         }
 
 
@@ -151,7 +147,7 @@ public class EditDetailsController {
         personalidLabel.setText(user.getPersonnummer());
         phonenumberTextfield.setText(user.getPhoneNumber());
         universityTextfield.setText(user.getUniversity());
-        usernameTextfield.setText(user.getUsername1());
+        NameLabel.setText(user.getUsername1());
     }
 
 }
