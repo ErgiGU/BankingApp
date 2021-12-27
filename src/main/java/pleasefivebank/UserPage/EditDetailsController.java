@@ -120,12 +120,6 @@ public class EditDetailsController {
             //update json with lottis method
             Mongo.updateJson();
         }
-
-
-
-
-
-
         user.setCity(cityTextfield.getText());
 
 
