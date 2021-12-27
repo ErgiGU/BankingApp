@@ -195,12 +195,12 @@
                   <Font size="14.0" />
                </font>
             </Text>
-            <Button layoutX="782.0" layoutY="541.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: #84bdf9;" text="Apply">
+            <Button fx:id="applyButton" layoutX="782.0" layoutY="541.0" mnemonicParsing="false" onAction="#ToConfirmation" prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: #84bdf9;" text="Apply">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <CheckBox fx:id="CheckBox" layoutX="529.0" layoutY="550.0" mnemonicParsing="false" onAction="#Accept" prefHeight="35.0" prefWidth="243.0" text="Accept terms and conditions">
+            <CheckBox fx:id="checkBox" layoutX="529.0" layoutY="550.0" mnemonicParsing="false" onAction="#Accept" prefHeight="35.0" prefWidth="243.0" text="Accept terms and conditions">
                <font>
                   <Font size="15.0" />
                </font>
@@ -275,6 +275,10 @@
                   <Font size="20.0" />
                </font>
             </TextField>
+            <Label fx:id="pleaseAccept" layoutX="528.0" layoutY="586.0" prefHeight="17.0" prefWidth="218.0" textFill="#e60f0f" />
+            <Label fx:id="notBlank1" layoutX="66.0" layoutY="219.0" prefHeight="17.0" prefWidth="326.0" textFill="#e60f0f" />
+            <Label fx:id="notBlank2" layoutX="69.0" layoutY="295.0" prefHeight="17.0" prefWidth="326.0" textFill="#e60f0f" />
+            <Label fx:id="notBlank3" layoutX="66.0" layoutY="379.0" prefHeight="17.0" prefWidth="326.0" textFill="#e60f0f" />
          </children></AnchorPane>
    </center>
 </BorderPane>
