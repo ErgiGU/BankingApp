@@ -32,5 +32,6 @@ public class ForgotPassword{
     public void updatePassword(String newPass, String email) {
         Mongo.coll.findOneAndUpdate(eq("email", email),
                 new Document("$set", new Document("password", newPass)));
+        Mongo.updateJson();
     }
 }

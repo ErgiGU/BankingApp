@@ -181,7 +181,7 @@
          <children>
             <ImageView fitHeight="428.0" fitWidth="354.0" layoutX="474.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../Downloads/dit094-group-4-entrypage/dit094-group-4-entrypage/src/main/resources/PNGs/Please%205%20Bank-logos.jpeg" />
+                  <Image url="@../PNGs/Please%205%20Bank-logos_transparent.png" />
                </image>
             </ImageView>
             <TextField fx:id="Name" layoutX="136.0" layoutY="180.0" prefHeight="46.0" prefWidth="251.0" promptText="Name" style="-fx-background-color: EFEFEFEFEFEF; -fx-border-color: #1275EA#1275EA;">

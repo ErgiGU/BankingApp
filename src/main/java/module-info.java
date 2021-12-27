@@ -13,6 +13,8 @@ module pleasefivebank.bank {
     requires java.logging;
     requires iban4j;
     requires com.jfoenix;
+    requires mail;
+    requires passay;
 
     opens pleasefivebank to javafx.fxml;
     opens pleasefivebank.EntryPage to javafx.fxml;
