@@ -198,7 +198,7 @@
                   <Font name="Avenir Next Bold" size="18.0" />
                </font>
             </Text>
-            <Text fx:id="BalanceLabel" fill="#2b5292" layoutX="681.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ 8562,45 SEK" wrappingWidth="162.49224853515625">
+            <Text fill="#2b5292" layoutX="681.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ 8562,45 SEK" wrappingWidth="162.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
@@ -226,7 +226,7 @@
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fx:id="AccountNumberLabel" fill="#457b9d" layoutX="122.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="217 623 868-6" wrappingWidth="146.49224853515625">
+            <Text fill="#457b9d" layoutX="122.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="217 623 868-6" wrappingWidth="146.49224853515625">
                <font>
                   <Font name="Avenir Book" size="16.0" />
                </font>
