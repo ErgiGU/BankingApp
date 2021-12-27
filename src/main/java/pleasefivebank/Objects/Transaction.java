@@ -6,15 +6,15 @@ import org.bson.types.ObjectId;
 public class Transaction {
 
     private String date;
-    private final String receiver;
+    private final String receiverName;
     private final String receiverIBAN;
     private final long quantity;
     private final String concept;
     private String status;
 
-    public Transaction(String receiver, String receiverIBAN, long quantity, String concept){//in TransactionsController we set the date and status
+    public Transaction(String receiverName, String receiverIBAN, long quantity, String concept){//in TransactionsController we set the date and status
         this.date = "";
-        this.receiver = receiver;
+        this.receiverName = receiverName;
         this.receiverIBAN = receiverIBAN;
         this.quantity = quantity;
         this.concept = concept;
@@ -26,7 +26,7 @@ public class Transaction {
     }
 
     public String getReceiver() {
-        return receiver;
+        return receiverName;
     }
 
     public String getReceiverIBAN() { return receiverIBAN; }
@@ -47,7 +47,7 @@ public class Transaction {
 
     //andreea
     public Document save() {//method to save transaction in collection 4
-        Document transaction = new Document("_id", new ObjectId()).append("receiver", this.receiver).
+        Document transaction = new Document("_id", new ObjectId()).append("receiver", this.receiverName).
         append("receiver iban", this.receiverIBAN).append("quantity", this.quantity).
                 append("date", this.date).append("concept", this.concept).append("status", this.status);
         return transaction;
@@ -56,7 +56,7 @@ public class Transaction {
     @Override
     public String toString() {
         return "Date: " + date + '\n' +
-                "Receiver: " + receiver + " IBAN: " + receiverIBAN + '\n' +
+                "Receiver: " + receiverName + " IBAN: " + receiverIBAN + '\n' +
                 "Quantity: " + quantity +
                 "Concept: " + concept +
                 "Status: " + status + '\n';
