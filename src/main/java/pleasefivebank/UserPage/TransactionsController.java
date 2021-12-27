@@ -1,12 +1,13 @@
 package pleasefivebank.UserPage;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.text.Text;
-import pleasefivebank.EntryPage.EntryPageController;
+import javafx.scene.control.cell.PropertyValueFactory;
 import pleasefivebank.Main;
 import pleasefivebank.Objects.Transaction;
 import pleasefivebank.Objects.User;
@@ -42,7 +43,7 @@ public class TransactionsController {
     private TableColumn<?, ?> statusColumn;
 
     @FXML
-    private TableView<?> tableView;
+    private TableView<Transaction> tableView;
     //juan
     @FXML
     void ToCards(ActionEvent event) {
@@ -126,6 +127,20 @@ public class TransactionsController {
     }
     public void setName(String name){
         NameLabel.setText(name);
+    }
+
+    public void setupTable(){
+        dateColumn = new TableColumn<Transaction, String>();
+        dateColumn.setText("Date");
+        dateColumn.setCellValueFactory(new PropertyValueFactory("date"));
+
+        receiverColumn = new TableColumn<Transaction, String>();
+        receiverColumn.setText("Receiver");
+        receiverColumn.setCellValueFactory(new PropertyValueFactory("receiver"));
+
+        //tableView.getColumns().addAll(dateColumn,receiverColumn,);
+        ObservableList<Transaction> transactions = FXCollections.observableArrayList(user.getReceived());
+        tableView.setItems(transactions);
     }
 }
 
