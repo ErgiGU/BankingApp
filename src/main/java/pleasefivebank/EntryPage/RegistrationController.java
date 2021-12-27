@@ -251,7 +251,7 @@ public class RegistrationController {
         tempUni=selection;
     }
 
-    //juan
+    //Ergi
     @FXML
     void FinishRegister(ActionEvent event) {
         try {
