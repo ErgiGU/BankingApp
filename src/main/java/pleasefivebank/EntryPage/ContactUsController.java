@@ -9,7 +9,9 @@ import javafx.scene.control.TextField;
 import org.bson.Document;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
+import pleasefivebank.Objects.MailBot;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
 
 public class ContactUsController {
@@ -36,7 +38,7 @@ public class ContactUsController {
         }
     }
 
-    //andreea
+    //andreea and ossian
     @FXML
     void SendPressed(ActionEvent event){
         //get user input
@@ -51,6 +53,16 @@ public class ContactUsController {
         Document review = new Document("email", email).append("user name", username).
                 append("text", message);
         Mongo.coll4.insertOne(review);
+        //preparing to send email
+        MailBot mail = new MailBot();
+        mail.setupServerProperties();
+        try {
+            mail.draftEmail(email,"New Password","Hi "+username+" thank you for your feedback." );
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         try {
             Main.showPage("EmailSent.fxml");
         } catch (IOException ex) {

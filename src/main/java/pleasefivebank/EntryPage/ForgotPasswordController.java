@@ -5,7 +5,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
+import pleasefivebank.Objects.MailBot;
+import pleasefivebank.Objects.PasswordGen;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
 
 public class ForgotPasswordController {
@@ -23,7 +26,7 @@ public class ForgotPasswordController {
     private Label confirmationLabel;
 
     @FXML
-    //andreea
+    //andreea and ossian
     protected void NewPasswordPressed(ActionEvent event){
         //get user input
         String email = Email.getText();
@@ -38,6 +41,18 @@ public class ForgotPasswordController {
             forgotPassword.setEmail(tempEmail);//set email and user as attributes
             forgotPassword.setUsername(tempUsername);
             forgotPassword.reset();
+            //resetting password
+            PasswordGen generator = new PasswordGen();
+            String newpass = generator.GeneratePassword();
+            forgotPassword.updatePassword(newpass,email);
+            //preparing to send email
+            MailBot mail = new MailBot();
+            mail.setupServerProperties();
+            try {
+                mail.draftEmail(email,"New Password","Hi "+userName+" here is your new password: "+newpass );
+            } catch (MessagingException | IOException e) {
+                e.printStackTrace();
+            }
             try {
                 Main.showPage("Entry-Page.fxml");
             } catch (IOException ex) {
