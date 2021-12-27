@@ -21,8 +21,6 @@ public class HomePageController { //need the attributes from EntryPage controlle
     @FXML
     private Button NameDisplay;
 
-    @FXML
-    private Button logout;
 
     @FXML
     private Text HelloMessage;

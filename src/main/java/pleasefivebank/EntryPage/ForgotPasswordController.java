@@ -50,6 +50,7 @@ public class ForgotPasswordController {
             mail.setupServerProperties();
             try {
                 mail.draftEmail(email,"New Password","Hi "+userName+" here is your new password: "+newpass );
+                mail.sendEmail();
             } catch (MessagingException | IOException e) {
                 e.printStackTrace();
             }

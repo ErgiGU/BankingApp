@@ -73,7 +73,7 @@ public class EditDetailsController {
     private TextField phonenumberTextfield;
 
     @FXML
-    private Label NameLabel;
+    private Label usernameLabel;
 
     //juan
     @FXML
@@ -150,7 +150,7 @@ public class EditDetailsController {
         emailTextfield.setText(user.getEmail());
         personalidLabel.setText(user.getPersonnummer());
         phonenumberTextfield.setText(user.getPhoneNumber());
-        NameLabel.setText(user.getUsername1());
+        usernameLabel.setText(user.getUsername1());
     }
 
 }

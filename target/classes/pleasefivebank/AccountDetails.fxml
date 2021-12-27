@@ -38,124 +38,124 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="94.0" layoutY="93.0" text="Account details" textFill="#2b5292">
+      <Label layoutX="94.0" layoutY="79.0" text="Account details" textFill="#2b5292">
          <font>
             <Font name="Avenir Next Bold" size="32.0" />
          </font>
       </Label>
-      <Text fill="#2b5292" layoutX="143.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name">
+      <Text fill="#2b5292" layoutX="143.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name">
          <font>
-            <Font name="Avenir Next Bold" size="22.0" />
+            <Font name="Avenir Next Bold" size="21.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="143.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name">
+      <Text fill="#2b5292" layoutX="143.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name">
          <font>
-            <Font name="Avenir Next Bold" size="22.0" />
+            <Font name="Avenir Next Bold" size="21.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="143.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+      <Text fill="#2b5292" layoutX="143.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
          <font>
-            <Font name="Avenir Next Bold" size="22.0" />
+            <Font name="Avenir Next Bold" size="21.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="143.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal ID">
+      <Text fill="#2b5292" layoutX="143.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal ID">
          <font>
-            <Font name="Avenir Next Bold" size="22.0" />
+            <Font name="Avenir Next Bold" size="21.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="143.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number">
+      <Text fill="#2b5292" layoutX="143.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number">
          <font>
-            <Font name="Avenir Next Bold" size="22.0" />
+            <Font name="Avenir Next Bold" size="21.0" />
          </font>
       </Text>
-      <Text fx:id="firstName" fill="#2b5292" layoutX="410.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Juan ">
+      <Text fx:id="firstName" fill="#2b5292" layoutX="410.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Juan ">
          <font>
-            <Font name="Avenir Book" size="22.0" />
+            <Font name="Avenir Book" size="21.0" />
          </font>
       </Text>
-      <Text fx:id="lastName" fill="#2b5292" layoutX="410.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="García Díaz">
+      <Text fx:id="lastName" fill="#2b5292" layoutX="410.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="García Díaz">
          <font>
-            <Font name="Avenir Book" size="22.0" />
+            <Font name="Avenir Book" size="21.0" />
          </font>
       </Text>
-      <Text fx:id="username" fill="#2b5292" layoutX="410.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="juangarciadiaz1">
+      <Text fx:id="username" fill="#2b5292" layoutX="410.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="juangarciadiaz1">
          <font>
-            <Font name="Avenir Book" size="22.0" />
+            <Font name="Avenir Book" size="21.0" />
          </font>
       </Text>
-      <Text fx:id="personalID" fill="#2b5292" layoutX="410.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7608072856">
+      <Text fx:id="personalID" fill="#2b5292" layoutX="410.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7608072856">
          <font>
-            <Font name="Avenir Book" size="22.0" />
+            <Font name="Avenir Book" size="21.0" />
          </font>
       </Text>
-      <Text fx:id="phoneNumber" fill="#2b5292" layoutX="410.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0471-5734024 ">
+      <Text fx:id="phoneNumber" fill="#2b5292" layoutX="410.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0471-5734024 ">
          <font>
-            <Font name="Avenir Book" size="22.0" />
+            <Font name="Avenir Book" size="21.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="143.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
+      <Text fill="#2b5292" layoutX="143.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
          <font>
-            <Font name="Avenir Next Bold" size="22.0" />
+            <Font name="Avenir Next Bold" size="21.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="143.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
+      <Text fill="#2b5292" layoutX="143.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
          <font>
-            <Font name="Avenir Next Bold" size="22.0" />
+            <Font name="Avenir Next Bold" size="21.0" />
          </font>
       </Text>
       <Text fill="#2b5292" layoutX="143.0" layoutY="480.0" strokeType="OUTSIDE" strokeWidth="0.0" text="University/College">
          <font>
-            <Font name="Avenir Next Bold" size="22.0" />
+            <Font name="Avenir Next Bold" size="21.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="143.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account number">
+      <Text fill="#2b5292" layoutX="143.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account number">
          <font>
-            <Font name="Avenir Next Bold" size="22.0" />
+            <Font name="Avenir Next Bold" size="21.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="143.0" layoutY="560.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IBAN">
+      <Text fill="#2b5292" layoutX="143.0" layoutY="570.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IBAN">
          <font>
-            <Font name="Avenir Next Bold" size="22.0" />
+            <Font name="Avenir Next Bold" size="21.0" />
          </font>
       </Text>
-      <Text fill="#2b5292" layoutX="143.0" layoutY="600.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account frozen">
+      <Text fill="#2b5292" layoutX="143.0" layoutY="615.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account frozen">
          <font>
-            <Font name="Avenir Next Bold" size="22.0" />
+            <Font name="Avenir Next Bold" size="21.0" />
          </font>
       </Text>
-      <Text fx:id="email" fill="#2b5292" layoutX="410.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="juangarc1@gmail.com">
+      <Text fx:id="email" fill="#2b5292" layoutX="410.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="juangarc1@gmail.com">
          <font>
-            <Font name="Avenir Book" size="22.0" />
+            <Font name="Avenir Book" size="21.0" />
          </font>
       </Text>
-      <Text fx:id="address" fill="#2b5292" layoutX="410.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Skomakaregatan 2, 411 29 Göteborg">
+      <Text fx:id="address" fill="#2b5292" layoutX="410.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Skomakaregatan 2, 411 29 Göteborg">
          <font>
-            <Font name="Avenir Book" size="22.0" />
+            <Font name="Avenir Book" size="21.0" />
          </font>
       </Text>
       <Text fx:id="university" fill="#2b5292" layoutX="410.0" layoutY="480.0" strokeType="OUTSIDE" strokeWidth="0.0" text="University of Gothenburg">
          <font>
-            <Font name="Avenir Book" size="22.0" />
+            <Font name="Avenir Book" size="21.0" />
          </font>
       </Text>
-      <Text fx:id="IBAN" fill="#2b5292" layoutX="410.0" layoutY="560.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SE41 9116 3132 9621 7623 8686">
+      <Text fx:id="IBAN" fill="#2b5292" layoutX="410.0" layoutY="570.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SE41 9116 3132 9621 7623 8686">
          <font>
-            <Font name="Avenir Book" size="22.0" />
+            <Font name="Avenir Book" size="21.0" />
          </font>
       </Text>
-      <Text fx:id="accountNumber" fill="#2b5292" layoutX="410.0" layoutY="520.0" strokeType="OUTSIDE" strokeWidth="0.0" text="217 623 868-6">
+      <Text fx:id="accountNumber" fill="#2b5292" layoutX="410.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="217 623 868-6">
          <font>
-            <Font name="Avenir Book" size="22.0" />
+            <Font name="Avenir Book" size="21.0" />
          </font>
       </Text>
-      <Text fx:id="accountFrozen" fill="#2b5292" layoutX="410.0" layoutY="600.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No">
+      <Text fx:id="accountFrozen" fill="#2b5292" layoutX="410.0" layoutY="615.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No">
          <font>
-            <Font name="Avenir Book" size="22.0" />
+            <Font name="Avenir Book" size="21.0" />
          </font>
       </Text>
-      <Button layoutX="712.0" layoutY="598.0" mnemonicParsing="false" onAction="#EditDetails" prefHeight="43.0" prefWidth="214.0" style="-fx-background-color: #1275ea#1275ea;" text="Edit account details" textFill="#efefef">
+      <Button layoutX="758.0" layoutY="607.0" mnemonicParsing="false" onAction="#EditDetails" prefHeight="43.0" prefWidth="214.0" style="-fx-background-color: #1275ea#1275ea;" text="Edit account details" textFill="#efefef">
          <font>
-            <Font name="Avenir Book" size="19.0" />
+            <Font name="Avenir Book" size="20.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
