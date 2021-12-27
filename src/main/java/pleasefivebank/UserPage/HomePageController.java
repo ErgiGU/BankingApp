@@ -26,6 +26,13 @@ public class HomePageController { //need the attributes from EntryPage controlle
 
     @FXML
     private Text HelloMessage;
+
+
+    @FXML
+    private Text AccountNumberLabel;
+
+    @FXML
+    private Text BalanceLabel;
     //juan
     @FXML
     void ToCards(ActionEvent event) {
@@ -89,6 +96,10 @@ public class HomePageController { //need the attributes from EntryPage controlle
     public void setName(String name){
         NameDisplay.setText(name);
         HelloMessage.setText("Hello, "+ name+"!");
+        float balance = Float.parseFloat(user.getBalance());
+        balance -= balance % 0.001;
+        BalanceLabel.setText("+" + balance +" SEK");
+        AccountNumberLabel.setText(user.getAccountNr());
     }
 }
 
