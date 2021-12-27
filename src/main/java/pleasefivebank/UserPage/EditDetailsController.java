@@ -81,14 +81,14 @@ public class EditDetailsController {
         //get user input and validate with regex
         String phoneNumber = phonenumberTextfield.getText();
         boolean phoneVerification = DataValidation.validateField(phoneNumber, phoneLabel, "\\d{10}", "Enter a valid phone number");
-        boolean phoneExists = Mongo.existsInDatabase(phoneNumber, "phone number", phoneLabel, "Phone is already registered");
+
 
         String email = emailTextfield.getText();
         boolean emailVerification = DataValidation.validateField(email, emailLabel, "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[" +
                 "\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)" +
                 "+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[" +
                 "\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])", "Wrong email format");
-        boolean checkIfEmailExists = Mongo.existsInDatabase(email, "email", emailLabel, "Email already exists");
+
 
         String street = streetTextfield.getText();
         boolean addressVerification = DataValidation.validateField(street, addressLabel, "^\\w+?\\s\\d+$", "Enter a valid address");
@@ -100,9 +100,16 @@ public class EditDetailsController {
         boolean cityVerification = DataValidation.validateField(city, cityLabel, "([\\p{L}]+\s)*[\\p{L}]+", "Enter a valid city name");
         String uni = university;
 
-        //if data is valid and doesnt use other users unique data make changes efective
+        if (!phoneNumber.equals(user.getPhoneNumber())){
+            boolean phoneExists = Mongo.existsInDatabase(phoneNumber, "phone number", phoneLabel, "Phone is already registered");
+        }
+        if (!email.equals(user.getEmail())){
+            boolean checkIfEmailExists = Mongo.existsInDatabase(email, "email", emailLabel, "Email already exists");
+        }
+
+        //if data is valid and doesn't use other users unique data make changes effective
         if(phoneVerification && emailVerification && addressVerification &&
-        postalVerification && cityVerification && !phoneExists && !checkIfEmailExists){
+        postalVerification && cityVerification){
             user.setPhoneNumber(phoneNumber);
             user.setEmail(email);
             user.setCity(city);
