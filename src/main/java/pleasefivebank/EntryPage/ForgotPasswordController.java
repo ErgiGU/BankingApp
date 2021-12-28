@@ -31,10 +31,10 @@ public class ForgotPasswordController {
         //get user input
         String email = Email.getText();
         String userName = Username.getText();
-        if(!Mongo.isAssociatedEmail(email) || !Mongo.isUser(userName) ||
+/*        if(!Mongo.isAssociatedEmail(email) || !Mongo.isUser(userName) ||
                 (email.isEmpty()) || (userName.isEmpty())){
             confirmationLabel.setText("this account doesn't exist in our database");
-        } else {
+        } else {*/
             tempEmail = email;
             tempUsername = userName;
             ForgotPassword forgotPassword = new ForgotPassword();//might need to be moved to the first line
@@ -56,7 +56,7 @@ public class ForgotPasswordController {
                 ex.printStackTrace();
             }
         }
-    }
+    //}
 
     @FXML
     protected void BackToEntryPage() {
