@@ -99,7 +99,7 @@
                </cursor>
             </Text>
             <Line endX="75.0" layoutX="54.0" layoutY="406.0" startX="-52.99998474121094" startY="-7.62939453125E-6" stroke="WHITE" />
-            <ImageView fitHeight="64.0" fitWidth="61.0" layoutX="32.0" layoutY="434.0" preserveRatio="true">
+            <ImageView fitHeight="87.0" fitWidth="97.0" layoutX="28.0" layoutY="421.0" preserveRatio="true">
                <image>
                   <Image url="@../PNGs/support-and-service-1678.png" />
                </image>
@@ -160,7 +160,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <graphic>
-                  <ImageView fitHeight="39.0" fitWidth="42.0" preserveRatio="true">
+                  <ImageView fitHeight="39.0" fitWidth="222.0" preserveRatio="true">
                      <image>
                         <Image url="@../PNGs/user-3296.png" />
                      </image>
