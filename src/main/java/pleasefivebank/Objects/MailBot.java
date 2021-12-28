@@ -43,6 +43,7 @@ import java.util.Properties;
             properties.put("mail.smtp.auth", "true");
             properties.put("mail.smtp.starttls.enable", "true");
             newSession = Session.getDefaultInstance(properties,null);
+
         }
     }
 
