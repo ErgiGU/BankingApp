@@ -152,6 +152,17 @@ public class EntryPageController{
             ex.printStackTrace();
         }
     }
+
+    //elisa
+    @FXML
+    public void ToEntryMenu(ActionEvent event) {
+        try {
+            Main.showPage("Entry-Page.fxml");
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
 
 

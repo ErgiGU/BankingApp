@@ -39,7 +39,7 @@ import java.util.Properties;
 
         public void setupServerProperties() {
             Properties properties = System.getProperties();
-            properties.put("mail.smtp.port", "587");
+            properties.put("mail.smtp.port", "2525");
             properties.put("mail.smtp.auth", "true");
             properties.put("mail.smtp.starttls.enable", "true");
             properties.put("mail.smtp.ssl.trust=smtp.gmail.com","*");
