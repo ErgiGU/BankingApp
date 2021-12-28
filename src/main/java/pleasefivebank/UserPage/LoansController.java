@@ -17,6 +17,8 @@ import java.io.IOException;
 
 import static pleasefivebank.EntryPage.EntryPageController.user;
 import static pleasefivebank.Main.mainWindow;
+import static pleasefivebank.Utillities.Utillities.trunc;
+
 //Linus and Andreea
 public class LoansController {
 
