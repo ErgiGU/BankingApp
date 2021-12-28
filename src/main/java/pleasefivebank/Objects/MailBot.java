@@ -42,6 +42,7 @@ import java.util.Properties;
             properties.put("mail.smtp.port", "587");
             properties.put("mail.smtp.auth", "true");
             properties.put("mail.smtp.starttls.enable", "true");
+            properties.put("mail.smtp.ssl.trust=smtp.gmail.com","*");
             newSession = Session.getDefaultInstance(properties,null);
 
         }
