@@ -10,12 +10,12 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="774.0" style="-fx-background-color: #1275EA;" stylesheets="@../CSS/hi.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pleasefivebank.EntryPage.AboutUsController">
    <children>
-      <Label layoutX="336.0" layoutY="14.0" text="about us" textFill="WHITE">
+      <Label layoutX="336.0" layoutY="20.0" text="About us" textFill="WHITE">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <ImageView fitHeight="214.0" fitWidth="216.0" layoutX="280.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="214.0" fitWidth="216.0" layoutX="280.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../PNGs/Please 5 Bank-logos_white.png" />
          </image>

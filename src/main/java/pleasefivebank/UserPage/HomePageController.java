@@ -84,6 +84,18 @@ public class HomePageController { //need the attributes from EntryPage controlle
             ex.printStackTrace();
         }
     }
+    //elisa
+    @FXML
+    void ToContactUs(ActionEvent event) {
+        try {
+            Main.showPage("ContactPage.fxml");;
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
     //juan
     @FXML
     public void Logout(ActionEvent event) {

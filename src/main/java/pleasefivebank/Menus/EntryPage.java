@@ -29,8 +29,6 @@ public class EntryPage {//this class is not being used, I just run tests here
     //we ask for username and password
     //we hash the password and compare it to our json file
 
-    //if the input is correct we log in
-    UserMenu userMenu = new UserMenu();
 
 
     //register user

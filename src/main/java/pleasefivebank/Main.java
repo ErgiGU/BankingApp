@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.bson.types.ObjectId;
+import pleasefivebank.EntryPage.RegistrationController;
 import pleasefivebank.Menus.EntryPage;
 import pleasefivebank.Objects.Transaction;
 import pleasefivebank.Objects.User;
@@ -49,7 +50,7 @@ public class Main extends Application {
         homePageController.setName(fullName);
         mainWindow.setScene(scene);
     }
-    //juan
+    //Juan
     public static void showCardsPage(String fullName) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CardsPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -57,7 +58,7 @@ public class Main extends Application {
         cardsController.setName(fullName);
         mainWindow.setScene(scene);
     }
-    //juan and Lotti
+    //Juan and Lotti
     public static void showLoansPage(String fullName) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("StudentLoans.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -65,7 +66,7 @@ public class Main extends Application {
         loansController.setName(fullName);
         mainWindow.setScene(scene);
     }
-    //juan
+    //Juan
     public static void showTransactionsPage(String fullName) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Transactions.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -73,7 +74,7 @@ public class Main extends Application {
         transactionsController.setName(fullName);
         mainWindow.setScene(scene);
     }
-    //juan
+    //Juan
     public static void showRequestTransactionsPage(String fullName) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("requestTransactionPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -81,7 +82,7 @@ public class Main extends Application {
         requestMoneyController.setName(fullName);
         mainWindow.setScene(scene);
     }
-    //juan
+    //Juan
     public static void showTransferMoneyPage(String fullName) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("makeTransactionPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -89,7 +90,7 @@ public class Main extends Application {
         transferMoneyController.setName(fullName);
         mainWindow.setScene(scene);
     }
-    //juan
+    //Juan
     public static void showEditDetailsPage(String fullName) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("EditAccountDetails.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -97,5 +98,7 @@ public class Main extends Application {
         editDetailsController.setData(fullName);
         mainWindow.setScene(scene);
     }
+
+
 
 }

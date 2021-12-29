@@ -10,35 +10,22 @@ import pleasefivebank.Objects.User;
 import java.io.IOException;
 import java.util.Random;
 
-public class RegistrationController {
+public class RegistrationController{
 
-    private Registration registration = new Registration();
+    private final Registration registration = new Registration();
 
-    private static String tempFirstName="";
-    private static String tempLastName="";
-    private static String tempMiddleName="";
-    private static String tempID="";
-    private static String tempCity="";
-    private static String tempEmail="";
-    private static String tempPhone="";
-    private static String tempPostal="";
-    private static String tempAddress="";
-    private static String tempUsername="";
-    private static String tempPassword="";
-    private static String tempConfirmPassword="";
-    private static String tempUni="";
 
     @FXML
-    private TextField FirstName;
+    protected TextField FirstName;
 
     @FXML
-    private TextField LastName;
+    protected TextField LastName;
 
     @FXML
-    private TextField MiddleName;
+    protected TextField MiddleName;
 
     @FXML
-    private TextField PersonalID;
+    protected TextField PersonalID;
 
     //juan
     @FXML
@@ -52,85 +39,59 @@ public class RegistrationController {
     }
 
     @FXML
-    private Label firstNameLabel;
+    protected Label firstNameLabel;
 
     @FXML
-    private Label addressLabel;
+    protected Label addressLabel;
 
     @FXML
-    private Label cityLabel;
+    protected Label cityLabel;
 
     @FXML
-    private Label postalLabel;
+    protected Label postalLabel;
 
     @FXML
-    private Label emailLabel;
+    protected Label emailLabel;
 
     @FXML
-    private Label phoneLabel;
+    protected Label phoneLabel;
 
     @FXML
-    private Label lastNameLabel;
+    protected Label lastNameLabel;
 
     @FXML
-    private Label idLabel;
+    protected Label idLabel;
 
     @FXML
-    private Label middleNameLabel;
+    protected Label middleNameLabel;
 
     //Ergi
     @FXML
     void Page1to2() {
-        String firstName = FirstName.getText();
-        String lastName = LastName.getText();
-        String middleName = MiddleName.getText();
-        String personalID = PersonalID.getText();
-        boolean firstNameValidation = DataValidation.validateField(firstName, firstNameLabel,
-                "([\\p{L}]+\s)*[\\p{L}]+", "Enter your real name");
-        boolean lastNameValidation = DataValidation.validateField(lastName, lastNameLabel,
-                "([\\p{L}]+\s)*[\\p{L}]+","Enter your real last name");
-        boolean idValidation = DataValidation.validateField(personalID,idLabel,
-                "\\d{10}","Enter a valid ID");
-        boolean middleValidation = DataValidation.validateField(middleName,middleNameLabel,
-                "[a-zA-Z]*","Enter your real middle name");
-        //boolean idExists = Mongo.existsInDatabase(personalID,"personnummer",idLabel,"Personal ID already exists")
-        if(idValidation) {
-            boolean idExists = Mongo.existsInDatabase(personalID,"personnummer",
-                    idLabel,"Personal ID already exists");
-            if (firstNameValidation && lastNameValidation && middleValidation && !idExists) {
-                tempFirstName = firstName;
-                tempLastName = lastName;
-                tempMiddleName = middleName;
-                tempID = personalID;
-                try {
-                    Main.showPage("RegistrationPage2.fxml");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        registration.Page1to2Logic(FirstName,LastName,MiddleName,PersonalID,
+                firstNameLabel,lastNameLabel,middleNameLabel,idLabel);
     }
 
     @FXML
-    private TextField City;
+    protected TextField City;
 
     @FXML
-    private TextField Email;
+    protected TextField Email;
 
     @FXML
-    private TextField PhoneNumber;
+    protected TextField PhoneNumber;
 
     @FXML
-    private TextField PostalCode;
+    protected TextField PostalCode;
 
     @FXML
-    private TextField Address;
+    protected TextField Address;
 
     //juan && Ergi
     @FXML
     void Page2to1() {
         try {
-            Main.showPage("RegistrationPage1.fxml");
+            Registration.backToPage("RegistrationPage1.fxml",1);
         }
         catch (IOException ex) {
             ex.printStackTrace();
@@ -140,64 +101,33 @@ public class RegistrationController {
     //Ergi
     @FXML
     void Page2to3() {
-        String address = Address.getText();
-        String city = City.getText();
-        String postalCode = PostalCode.getText();
-        String email = Email.getText();
-        String phone = PhoneNumber.getText();
-        boolean addressVerification = DataValidation.validateField(address, addressLabel, "^\\w+?\\s\\d+$", "Enter a valid address");
-        boolean cityVerification = DataValidation.validateField(city, cityLabel, "([\\p{L}]+\s)*[\\p{L}]+", "Enter a valid city name");
-        //RFC 5322 Official Standard
-        boolean emailVerification = DataValidation.validateField(email, emailLabel, "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[" +
-                "\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)" +
-                "+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[" +
-                "\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])", "Wrong email format");
-        boolean phoneVerification = DataValidation.validateField(phone, phoneLabel, "\\d{10}", "Enter a valid phone number");
-        //boolean phoneExists = Mongo.existsInDatabase(phone,"phone number",phoneLabel,"Phone is already registered" );
-        boolean postalVerification = DataValidation.validateField(postalCode, postalLabel, "\\d{5}", "Enter a valid postal code");
-        if (emailVerification) {
-            boolean checkIfEmailExists = Mongo.existsInDatabase(email, "email", emailLabel, "Email already exists");
-            if (phoneVerification && !checkIfEmailExists) {
-                boolean phoneExists = Mongo.existsInDatabase(phone, "phone number", phoneLabel, "Phone is already registered");
-                if (addressVerification && cityVerification && !phoneExists && postalVerification ) {
-                    try {
-                        tempAddress = address;
-                        tempCity = city;
-                        tempPostal = postalCode;
-                        tempEmail = email;
-                        tempPhone = phone;
-                        Main.showPage("RegistrationPage3.fxml");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
+        registration.page2to3Logic(Address,City,PostalCode,Email,PhoneNumber,
+                addressLabel,cityLabel,postalLabel,emailLabel,phoneLabel);
     }
 
     @FXML
-    private PasswordField ConfirmPassword;
+    protected PasswordField ConfirmPassword;
 
     @FXML
-    private Label confirmLabel;
+    protected Label confirmLabel;
 
     @FXML
-    private Label passwordLabel;
+    protected Label passwordLabel;
 
     @FXML
-    private Label usernameLabel;
+    protected Label usernameLabel;
 
     @FXML
-    private PasswordField Password;
+    protected PasswordField Password;
 
     @FXML
-    private TextField UserName;
+    protected TextField UserName;
 
-    //juan
+    //juan && Ergi
     @FXML
     void Page3to2(ActionEvent event) {
         try {
-            Main.showPage("RegistrationPage2.fxml");
+            Registration.backToPage("RegistrationPage2.fxml",2);
         }
         catch (IOException ex) {
             ex.printStackTrace();
@@ -207,30 +137,7 @@ public class RegistrationController {
     //Ergi
     @FXML
     void Page3to4(ActionEvent event) {
-        String username = UserName.getText();
-        String password = Password.getText();
-        String confirmPassword = ConfirmPassword.getText();
-        boolean usernameValidation = DataValidation.validateField(username,usernameLabel,
-                "^[A-Za-z][A-Za-z0-9_]{7,29}$","The username must be at least 8 characters");
-        boolean passwordValidation = DataValidation.validateField(password, passwordLabel,
-                "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,30}$",
-                "Password must contain at least one(number,digit,uppercase,lowercase,special character)");
-        if(usernameValidation){
-            boolean usernameExists = Mongo.existsInDatabase(username, "user name",usernameLabel,"Username already exists");
-            if(passwordValidation && !usernameExists) {
-                boolean passwordsMatch = DataValidation.passwordsMatch(password,confirmPassword,confirmLabel,"Passwords must match");
-                if (usernameValidation && passwordsMatch && registration.getCheckbox()) {
-                    tempUsername = username;
-                    tempPassword = password;
-                    try {
-                        Main.showPage("RegistrationPage4.fxml");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-
+        registration.page3to4Logic(UserName,Password,ConfirmPassword,usernameLabel,passwordLabel,confirmLabel);
     }
 
     //juan
@@ -240,50 +147,59 @@ public class RegistrationController {
     }
 
     @FXML
-    private Button FinishRegister;
+    protected Button FinishRegister;
 
     @FXML
-    private ComboBox<String> UniversityOption;
+    protected ComboBox<String> UniversityOption;
 
+    //Ergi && Juan
     @FXML
     void Select(ActionEvent event) throws IOException {
         String selection = UniversityOption.getSelectionModel().getSelectedItem();
-        tempUni=selection;
+        Registration.tempUni = selection;
+
     }
 
     //Ergi
     @FXML
     void FinishRegister(ActionEvent event) {
+        registration.FinishRegisterLogic();
+    }
+
+
+
+    //juan && Ergi
+    @FXML
+    void Page4to3(ActionEvent event) {
         try {
-
-            String iban = Registration.generateIBAN();
-            String accNr = iban.substring(7,19);
-            Random rand = new Random();
-            double r = rand.nextDouble(8000000);
-            String random = Double.toString(r);
-
-            User user = new User(registration.generateCardNr(), registration.calculateExpirationDate() ,tempFirstName,tempMiddleName,tempLastName,tempAddress,tempCity,tempPostal,Registration.extractBirthdate(tempID),
-                    tempPhone,tempID,tempEmail,tempUni,accNr,iban,random,"false");
-            Registration.register(user,tempUsername,tempPassword);
-            Mongo.mongo();
-            Main.showPage("Entry-Page.fxml");
+            Registration.backToPage("RegistrationPage3.fxml",3);
         }
         catch (IOException ex) {
             ex.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
     //juan
-    @FXML
-    void Page4to3(ActionEvent event) {
-        try {
-            Main.showPage("RegistrationPage3.fxml");
-        }
-        catch (IOException ex) {
-            ex.printStackTrace();
-        }
+    public void setData1(){
+        FirstName.setText(Registration.tempFirstName);
+        LastName.setText(Registration.tempLastName);
+        MiddleName.setText(Registration.tempMiddleName);
+        PersonalID.setText(Registration.tempID);
+    }
+    //Ergi && Juan
+    public void setData2(){
+        Address.setText(Registration.tempAddress);
+        City.setText(Registration.tempCity);
+        PostalCode.setText(Registration.tempPostal);
+        Email.setText(Registration.tempEmail);
+        PhoneNumber.setText(Registration.tempPhone);
+    }
+    //Ergi && Juan
+    public void setData3(){
+        UserName.setText(Registration.tempUsername);
+        Password.setText(Registration.tempPassword);
+        ConfirmPassword.setText(Registration.tempConfirmPassword);
+
     }
 }
 

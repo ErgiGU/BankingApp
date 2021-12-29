@@ -1,0 +1,7 @@
+.button:hover{
+    -fx-border-color: #1275EA;
+    -fx-text-fill: #1275EA;
+    -fx-background-radius: 30;
+    -fx-background-color: #EFEFEF;
+}
+div { width: 100%; height: 100%; -fx-min-width: 1000px; -fx-min-height: 1000px; }

@@ -1,10 +1,10 @@
 package pleasefivebank.EntryPage;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import pleasefivebank.Main;
-import pleasefivebank.Mongo;
 import pleasefivebank.Objects.MailBot;
 import pleasefivebank.Objects.PasswordGen;
 
@@ -27,14 +27,14 @@ public class ForgotPasswordController {
 
     @FXML
     //andreea and ossian
-    protected void NewPasswordPressed(ActionEvent event){
+    protected void NewPasswordPressed(ActionEvent event) throws MessagingException, IOException {
         //get user input
         String email = Email.getText();
         String userName = Username.getText();
-        if(!Mongo.isAssociatedEmail(email) || !Mongo.isUser(userName) ||
-                (email.isEmpty()) || (userName.isEmpty())){
-            confirmationLabel.setText("this account doesn't exist in our database");
-        } else {
+        //if(!Mongo.isAssociatedEmail(email) || !Mongo.isUser(userName) ||
+        //(email.isEmpty()) || (userName.isEmpty())){
+          //  confirmationLabel.setText("this account doesn't exist in our database");
+        //} else {
             tempEmail = email;
             tempUsername = userName;
             ForgotPassword forgotPassword = new ForgotPassword();//might need to be moved to the first line
@@ -48,19 +48,15 @@ public class ForgotPasswordController {
             //preparing to send email
             MailBot mail = new MailBot();
             mail.setupServerProperties();
-            try {
-                mail.draftEmail(email,"New Password","Hi "+userName+" here is your new password: "+newpass );
-                mail.sendEmail();
-            } catch (MessagingException | IOException e) {
-                e.printStackTrace();
-            }
+            mail.draftEmail(email,"New Password","Hi "+userName+" here is your new password: "+newpass );
+            mail.sendEmail();
             try {
                 Main.showPage("Entry-Page.fxml");
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
         }
-    }
+
 
     @FXML
     protected void BackToEntryPage() {
