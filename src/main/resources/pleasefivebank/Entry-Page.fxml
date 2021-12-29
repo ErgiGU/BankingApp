@@ -47,7 +47,7 @@
                   </Hyperlink>
                   <Text layoutX="120.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?" />
                   <Hyperlink layoutX="244.0" layoutY="330.0" onAction="#ChangeToRegisterPage" prefHeight="24.0" prefWidth="72.0" text="Sign Up" />
-                  <Button layoutX="97.0" layoutY="294.0" mnemonicParsing="false" onAction="#PressedLoginButton" prefHeight="34.0" prefWidth="222.0" style="-fx-background-color: #1275EA; -fx-background-radius: 30;" text="Sign In" textFill="#fffefe">
+                  <Button layoutX="97.0" layoutY="294.0" mnemonicParsing="false" onAction="#PressedLoginButton" prefHeight="34.0" prefWidth="222.0" style="-fx-background-color: #1275EA; -fx-background-radius: 30; -fx-border-radius: 30; -fx-text-fill: #fffefe;" text="Sign In" textFill="#fffefe">
                      <font>
                         <Font size="15.0" />
                      </font>
