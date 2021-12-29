@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" stylesheets="@../CSS/hi.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pleasefivebank.UserPage.HomePageController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" stylesheets="@../CSS/hi.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pleasefivebank.UserPage.ContactController">
    <left>
       <AnchorPane prefHeight="614.0" prefWidth="128.0" style="-fx-background-color: #457B9D;" BorderPane.alignment="CENTER">
          <children>
@@ -178,154 +178,93 @@
    <right>
       <AnchorPane prefHeight="614.0" prefWidth="919.0" style="-fx-background-color: EFEFEF;" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="183.0" layoutX="60.0" layoutY="256.0" stroke="#efefef" strokeType="INSIDE" style="-fx-arc-height: 100; -fx-arc-width: 100;" width="800.0" />
-            <Text fx:id="HelloMessage" fill="#457b9d" layoutX="78.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello, Juan García Díaz!">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fcfcfc" height="156.0" layoutX="478.0" layoutY="412.0" stroke="#efefef" strokeType="INSIDE" style="-fx-arc-height: 30; -fx-arc-width: 30;" width="383.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="168.0" layoutX="472.0" layoutY="157.0" stroke="#efefef" strokeType="INSIDE" style="-fx-arc-height: 100; -fx-arc-width: 100;" width="383.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="222.0" layoutX="61.0" layoutY="346.0" stroke="#efefef" strokeType="INSIDE" style="-fx-arc-height: 100; -fx-arc-width: 100;" width="383.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="168.0" layoutX="61.0" layoutY="157.0" stroke="#efefef" strokeType="INSIDE" style="-fx-arc-height: 100; -fx-arc-width: 100;" width="383.0" />
+            <Text fx:id="HelloMessage" fill="#457b9d" layoutX="380.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact us">
                <font>
-                  <Font name="Avenir Book" size="24.0" />
+                  <Font name="Avenir Book" size="34.0" />
                </font>
             </Text>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="76.0" layoutX="59.0" layoutY="139.0" stroke="#efefef" strokeType="INSIDE" style="-fx-arc-height: 100; -fx-arc-width: 100;" width="800.0" />
-            <Text fill="#2b5292" layoutX="109.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My Accounts">
+            <Text fill="#2b5292" layoutX="205.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Do you have any questions? We can help you answer them">
                <font>
                   <Font name="Avenir Next Bold" size="18.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="121.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carlotta Hillger" wrappingWidth="125.49224853515625">
+            <Text fill="#457b9d" layoutX="502.0" layoutY="225.0" lineSpacing="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Follow us on our social media to get the latest information!" textAlignment="CENTER" wrappingWidth="323.5670166015625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="109.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recent transactions">
+            <Text fill="#457b9d" layoutX="494.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Social media" textAlignment="CENTER" wrappingWidth="336.8214111328125">
                <font>
-                  <Font name="Avenir Next Bold" size="18.0" />
+                  <Font name="Avenir Next Bold" size="17.0" />
                </font>
             </Text>
-            <Text fx:id="BalanceLabel" fill="#2b5292" layoutX="681.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ 8562,45 SEK" wrappingWidth="162.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Line endX="703.2929077148438" layoutX="140.0" layoutY="301.0" startX="-62.70709228515625" stroke="WHITE" />
-            <Line endX="703.2929077148438" layoutX="141.0" layoutY="392.0" startX="-62.70709228515625" stroke="WHITE" />
-            <Line endX="703.2929077148438" layoutX="138.0" layoutY="347.0" startX="-62.70709228515625" stroke="WHITE" />
-            <Text fill="#2b5292" layoutX="701.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ 50,00 SEK" textAlignment="RIGHT" wrappingWidth="98.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="704.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 460,98 SEK" textAlignment="RIGHT" wrappingWidth="98.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="696.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ 200,00 SEK" textAlignment="RIGHT" wrappingWidth="106.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="703.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 180,00 SEK" textAlignment="RIGHT" wrappingWidth="98.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fx:id="AccountNumberLabel" fill="#457b9d" layoutX="122.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="217 623 868-6" wrappingWidth="146.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="16.0" />
-               </font>
-            </Text>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="115.0" layoutX="61.0" layoutY="477.0" stroke="#efefef" strokeType="INSIDE" style="-fx-arc-height: 100; -fx-arc-width: 100;" width="383.0" />
-            <Text fill="#457b9d" layoutX="120.0" layoutY="506.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enjoy our latest student promotions!" textAlignment="CENTER" wrappingWidth="265.668701171875">
-               <font>
-                  <Font name="Avenir Book" size="16.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="121.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Linus Carlberg" wrappingWidth="125.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="121.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hemköp" wrappingWidth="125.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="121.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Willy's" wrappingWidth="125.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="371.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-12-07" wrappingWidth="125.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="371.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-12-04" wrappingWidth="125.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="371.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-12-04" wrappingWidth="125.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Text fill="#2b5292" layoutX="371.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-12-05" wrappingWidth="125.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Button layoutX="77.0" layoutY="439.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="197.0" style="-fx-background-color: EFEFEF;" text="View all transactions" textFill="#457b9d">
-               <font>
-                  <Font name="Avenir Book" size="14.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button layoutX="100.0" layoutY="154.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="168.0" style="-fx-background-color: #e8e8e8;">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Text fill="#2b5292" layoutX="121.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student account" wrappingWidth="146.49224853515625">
-               <font>
-                  <Font name="Avenir Book" size="17.0" />
-               </font>
-            </Text>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e8e8e8" height="115.0" layoutX="476.0" layoutY="476.0" stroke="#efefef" strokeType="INSIDE" style="-fx-arc-height: 100; -fx-arc-width: 100;" width="383.0" />
-            <Text fill="#457b9d" layoutX="505.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="We offer low interest loans to students to meet your educational and financial needs." textAlignment="CENTER" wrappingWidth="323.5670166015625">
-               <font>
-                  <Font name="Avenir Book" size="15.0" />
-               </font>
-            </Text>
-            <Text fill="#457b9d" layoutX="512.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Looking to apply for a loan?" textAlignment="CENTER" wrappingWidth="310.13958740234375">
-               <font>
-                  <Font name="Avenir Book" size="16.0" />
-               </font>
-            </Text>
-            <Button layoutX="617.0" layoutY="554.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #457b9d#457b9d;" text="Learn more" textFill="#efefef">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="366.0" layoutY="538.0" preserveRatio="true">
+            <ImageView fitHeight="49.0" fitWidth="66.0" layoutX="504.0" layoutY="351.0" preserveRatio="true">
                <image>
-                  <Image url="@../PNGs/espressohouse.png" />
+                  <Image url="@../../../../../../../Downloads/24-7-support-10895.png" />
                </image>
             </ImageView>
-            <Text fill="#457b9d" layoutX="149.0" layoutY="530.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10% off at Espresso House" textAlignment="CENTER" wrappingWidth="197.80087280273438">
-               <font>
-                  <Font name="Avenir Book" size="15.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="23.0" fitWidth="141.0" layoutX="101.0" layoutY="558.0" preserveRatio="true">
+            <ImageView fitHeight="92.0" fitWidth="102.0" layoutX="751.0" layoutY="479.0" preserveRatio="true">
                <image>
-                  <Image url="@../PNGs/nordicicon.png" />
+                  <Image url="@../../../../../../../Downloads/chat-support-1707.png" />
                </image>
             </ImageView>
-            <Text fill="#457b9d" layoutX="134.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50% off youre first month at Nordic Wellness" textAlignment="CENTER" wrappingWidth="233.22792053222656">
+            <ImageView fitHeight="42.0" fitWidth="66.0" layoutX="675.0" layoutY="495.0" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Downloads/typing-animation-3x.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="42.0" layoutX="649.0" layoutY="270.0" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Downloads/instagram-logo-8869.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="591.0" layoutY="270.0" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Downloads/facebook-2870.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="707.0" layoutY="270.0" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Downloads/whatsapp-logo-4450.png" />
+               </image>
+            </ImageView>
+            <Text fill="#457b9d" layoutX="558.0" layoutY="371.0" lineSpacing="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If you want immediate support, chat to our chat bot regarding any doubts" wrappingWidth="290.21466064453125">
                <font>
-                  <Font name="Avenir Book" size="15.0" />
+                  <Font name="Avenir Book" size="17.0" />
+               </font>
+            </Text>
+            <Text fill="#457b9d" layoutX="83.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer support" textAlignment="CENTER" wrappingWidth="336.8214111328125">
+               <font>
+                  <Font name="Avenir Next Bold" size="17.0" />
+               </font>
+            </Text>
+            <Text fill="#457b9d" layoutX="90.0" layoutY="225.0" lineSpacing="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Call us and we will happily help you. Calls open everyday 08.00-17.00 " textAlignment="CENTER" wrappingWidth="323.5670166015625">
+               <font>
+                  <Font name="Avenir Book" size="17.0" />
+               </font>
+            </Text>
+            <Text fill="#2b5292" layoutX="83.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Call 08-735 86 40" textAlignment="CENTER" wrappingWidth="336.8214111328125">
+               <font>
+                  <Font name="Avenir Next Bold" size="17.0" />
+               </font>
+            </Text>
+            <Text fill="#457b9d" layoutX="84.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact by email" textAlignment="CENTER" wrappingWidth="336.8214111328125">
+               <font>
+                  <Font name="Avenir Next Bold" size="17.0" />
+               </font>
+            </Text>
+            <Text fill="#457b9d" layoutX="92.0" layoutY="428.0" lineSpacing="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email us your concerns and we will get back to as soon as possible. Estimated reply time is 2 to 5 working days." textAlignment="CENTER" wrappingWidth="323.5670166015625">
+               <font>
+                  <Font name="Avenir Book" size="17.0" />
+               </font>
+            </Text>
+            <Text fill="#2b5292" layoutX="83.0" layoutY="529.0" strokeType="OUTSIDE" strokeWidth="0.0" text="customerservice@fivebank.se" textAlignment="CENTER" wrappingWidth="336.8214111328125">
+               <font>
+                  <Font name="Avenir Next Bold" size="17.0" />
                </font>
             </Text>
          </children></AnchorPane>
