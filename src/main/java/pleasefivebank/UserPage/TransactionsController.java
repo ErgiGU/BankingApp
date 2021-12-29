@@ -132,15 +132,33 @@ public class TransactionsController {
     public void setupTable(){
         dateColumn = new TableColumn<Transaction, String>();
         dateColumn.setText("Date");
-        dateColumn.setCellValueFactory(new PropertyValueFactory("date"));
 
         receiverColumn = new TableColumn<Transaction, String>();
         receiverColumn.setText("Receiver");
-        receiverColumn.setCellValueFactory(new PropertyValueFactory("receiver"));
 
-        //tableView.getColumns().addAll(dateColumn,receiverColumn,);
+        IBANColumn = new TableColumn<Transaction, String>();
+        IBANColumn.setText("Receiver IBAN");
+
+        amountColumn = new TableColumn<Transaction, String>();
+        amountColumn.setText("quantity");
+
+        conceptColumn = new TableColumn<Transaction, String>();
+        conceptColumn.setText("Concept");
+
+        statusColumn = new TableColumn<Transaction, String>();
+        statusColumn.setText("Status");
+
+        //tableView.getColumns().addAll(dateColumn,receiverColumn,IBANColumn,amountColumn,conceptColumn,statusColumn);
+        user.addTransaction("Lotti","SE123456789123423","123", "birthday");
+        user.addTransaction("juan","SE123456789123423","123", "holiday");
+        user.addTransaction("elisa","SE123456789123423","123", "tunis");
+        Transaction transaction = new Transaction("Juanus","SE123456789123423","234","carlotta");
         ObservableList<Transaction> transactions = FXCollections.observableArrayList(user.getReceived());
+        System.out.println(transactions);
         tableView.setItems(transactions);
+        tableView.getItems().add(transaction);
+        System.out.println(tableView.getItems());
+        tableView.refresh();
     }
 }
 

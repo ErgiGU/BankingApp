@@ -21,7 +21,7 @@ import static pleasefivebank.Main.mainWindow;
 public class RequestMoneyController {
 
     private static String tempName;
-    private static long tempQuantity;
+    private static String tempQuantity;
     private static String tempConcept;
 
     @FXML
@@ -52,9 +52,9 @@ public class RequestMoneyController {
     @FXML
     void Request(ActionEvent event) {
         String name = Name.getText();//must modify to check for the whole name
-        long quantity = Long.parseLong(Amount.getText());
+        String quantity = Amount.getText();
         String concept = Message.getText();
-        if((Mongo.isUser(name)) && (quantity>0) && (!concept.isEmpty())) {
+        if((Mongo.isUser(name)) && (Integer.parseInt(quantity)>0) && (!concept.isEmpty())) {
             tempName = name;
             tempQuantity = quantity;
             tempConcept = concept;

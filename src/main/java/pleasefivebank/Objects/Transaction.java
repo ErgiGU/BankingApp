@@ -3,22 +3,28 @@ package pleasefivebank.Objects;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Transaction {
 
     private String date;
     private final String receiverName;
     private final String receiverIBAN;
-    private final long quantity;
+    private final String quantity;
     private final String concept;
     private String status;
 
-    public Transaction(String receiverName, String receiverIBAN, long quantity, String concept){//in TransactionsController we set the date and status
-        this.date = "";
+    public Transaction(String receiverName, String receiverIBAN, String quantity, String concept){//in TransactionsController we set the date and status
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
+        this.date = date;
         this.receiverName = receiverName;
         this.receiverIBAN = receiverIBAN;
         this.quantity = quantity;
         this.concept = concept;
-        this.status = "";
+        this.status = "send";
     }
 
     public String getDate() {
@@ -31,7 +37,7 @@ public class Transaction {
 
     public String getReceiverIBAN() { return receiverIBAN; }
 
-    public long getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 

@@ -12,6 +12,7 @@ import com.mongodb.client.model.InsertOneModel;
 import com.mongodb.client.model.Projections;
 import com.mongodb.client.model.UpdateOptions;
 import javafx.scene.control.Label;
+import org.bson.BsonType;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.json.JsonReader;
@@ -210,6 +211,8 @@ public final class Mongo {//marked as final because it is a utility class and it
         }
     }
 
+
+
     //andreea
     public static String formatTime() {//this methods registers the time an object Date is created
         Date time = new Date();
@@ -229,9 +232,11 @@ public final class Mongo {//marked as final because it is a utility class and it
 
     //Ergi
     public static void updateInformation(String dbLabel, String updatedVar, String personalID ) {
-        Mongo.coll.findOneAndUpdate(eq("personnummer", personalID),
+        coll.findOneAndUpdate(eq("personnummer", personalID),
                 new Document("$set", new Document(dbLabel, updatedVar)));
+
     }
+
 
 }
 

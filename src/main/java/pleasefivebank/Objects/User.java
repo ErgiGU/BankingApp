@@ -239,9 +239,9 @@ public class User {
         return username;
     }
 
-    public void addTransaction(String receiverName, String receiverIBAN, long amount, String message){
+    public void addTransaction(String receiverName, String receiverIBAN, String amount, String message){
         Transaction newTransaction = new Transaction(receiverName, receiverIBAN, amount, message);
-        this.activity.add(newTransaction);
+        this.pending.add(newTransaction);
     }
 
 }

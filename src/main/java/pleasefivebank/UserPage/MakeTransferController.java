@@ -21,7 +21,7 @@ import static pleasefivebank.Main.mainWindow;
 public class MakeTransferController {
     private static String tempReceiver;
     private static String tempReceiverIBAN;
-    private static long tempQuantity;
+    private static String tempQuantity;
     private static String tempConcept;
 
     @FXML
@@ -125,9 +125,9 @@ public class MakeTransferController {
     void SendMoney(ActionEvent event) {
         String receiver = Name.getText();
         String receiverIban = IBAN.getText();
-        long quantity = Long.parseLong(amount.getText());
+        String quantity = amount.getText();
         String concept = message.getText();
-        if((Mongo.isAccount(receiver, receiverIban)) && (quantity>0) && (!concept.isEmpty())){
+        if((Mongo.isAccount(receiver, receiverIban)) && (Integer.parseInt(quantity)>0) && (!concept.isEmpty())){
             tempReceiver = receiver;
             tempReceiverIBAN = receiverIban;
             tempQuantity = quantity;

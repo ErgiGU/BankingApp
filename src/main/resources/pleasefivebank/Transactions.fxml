@@ -13,6 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" stylesheets="@../CSS/hi.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pleasefivebank.UserPage.TransactionsController">
    <left>
       <AnchorPane prefHeight="614.0" prefWidth="128.0" style="-fx-background-color: #457B9D;" BorderPane.alignment="CENTER">
@@ -207,12 +208,36 @@
             </TextField>
             <TableView fx:id="tableView" layoutX="85.0" layoutY="250.0" prefHeight="316.0" prefWidth="730.0">
               <columns>
-                <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" />
-                <TableColumn fx:id="receiverColumn" prefWidth="77.0" text="Receiver" />
-                  <TableColumn fx:id="IBANColumn" prefWidth="195.0" text="Receiver IBAN" />
-                  <TableColumn fx:id="amountColumn" prefWidth="152.0" text="Amount" />
-                  <TableColumn fx:id="conceptColumn" prefWidth="135.0" text="Concept" />
-                  <TableColumn fx:id="statusColumn" prefWidth="95.0" text="Status" />
+                <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date" >
+                 <cellValueFactory>
+                    <PropertyValueFactory property="date"/>
+                 </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="receiverColumn" prefWidth="77.0" text="Receiver" >
+                   <cellValueFactory>
+                      <PropertyValueFactory property="receiver"/>
+                   </cellValueFactory>
+                </TableColumn>
+                 <TableColumn fx:id="IBANColumn" prefWidth="195.0" text="Receiver IBAN" >
+                    <cellValueFactory>
+                       <PropertyValueFactory property="receiverIBAN"/>
+                    </cellValueFactory>
+                 </TableColumn>
+                  <TableColumn fx:id="amountColumn" prefWidth="152.0" text="Amount" >
+                     <cellValueFactory>
+                        <PropertyValueFactory property="quantity"/>
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="conceptColumn" prefWidth="135.0" text="Concept" >
+                     <cellValueFactory>
+                        <PropertyValueFactory property="concept"/>
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="statusColumn" prefWidth="95.0" text="Status" >
+                     <cellValueFactory>
+                        <PropertyValueFactory property="status"/>
+                     </cellValueFactory>
+                  </TableColumn>
               </columns>
             </TableView>
          </children></AnchorPane>
