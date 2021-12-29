@@ -45,7 +45,8 @@ public final class Mongo {//marked as final because it is a utility class and it
 
     public static void mongo() throws Exception {
         Logger mongoLogger = Logger.getLogger( "org.mongodb.driver" );
-        mongoLogger.setLevel(Level.SEVERE);
+        mongoLogger.setLevel(Level.OFF);
+
 
         client = MongoClients.create
                 ("mongodb+srv://adminadmin:wewanta5@please5.wavpm.mongodb.net/please5?retryWrites=true&w=majority");

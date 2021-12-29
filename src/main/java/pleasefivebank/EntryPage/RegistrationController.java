@@ -13,6 +13,7 @@ import java.util.Random;
 public class RegistrationController{
 
     private final Registration registration = new Registration();
+    private String selection = "no university";
 
 
     @FXML
@@ -155,7 +156,7 @@ public class RegistrationController{
     //Ergi && Juan
     @FXML
     void Select(ActionEvent event) throws IOException {
-        String selection = UniversityOption.getSelectionModel().getSelectedItem();
+        selection = UniversityOption.getSelectionModel().getSelectedItem();
         Registration.tempUni = selection;
 
     }

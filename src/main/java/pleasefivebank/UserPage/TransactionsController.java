@@ -154,10 +154,8 @@ public class TransactionsController {
         user.addTransaction("elisa","SE123456789123423","123", "tunis");
         Transaction transaction = new Transaction("Juanus","SE123456789123423","234","carlotta");
         ObservableList<Transaction> transactions = FXCollections.observableArrayList(user.getReceived());
-        System.out.println(transactions);
         tableView.setItems(transactions);
         tableView.getItems().add(transaction);
-        System.out.println(tableView.getItems());
         tableView.refresh();
     }
 }
