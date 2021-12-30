@@ -4,15 +4,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.bson.types.ObjectId;
-import pleasefivebank.EntryPage.RegistrationController;
-import pleasefivebank.Menus.EntryPage;
-import pleasefivebank.Objects.Transaction;
-import pleasefivebank.Objects.User;
 import pleasefivebank.UserPage.*;
-
 import java.io.IOException;
-import java.util.Map;
 
 public class Main extends Application {
 

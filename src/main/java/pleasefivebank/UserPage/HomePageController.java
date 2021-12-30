@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import pleasefivebank.Main;
-import pleasefivebank.EntryPage.EntryPageController;
 import pleasefivebank.Objects.User;
 
 import java.io.IOException;

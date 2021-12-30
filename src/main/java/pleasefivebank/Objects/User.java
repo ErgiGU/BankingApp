@@ -2,15 +2,8 @@ package pleasefivebank.Objects;
 
 import org.bson.Document;
 import org.bson.types.ObjectId;
-import org.w3c.dom.events.DocumentEvent;
 import pleasefivebank.Mongo;
-
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Random;
-
-import static com.mongodb.client.model.Filters.eq;
 import static java.util.Arrays.asList;
 
 public class User {

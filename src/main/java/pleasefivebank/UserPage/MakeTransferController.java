@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import pleasefivebank.EntryPage.EntryPageController;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
 import pleasefivebank.Objects.Transaction;
@@ -140,7 +139,6 @@ public class MakeTransferController {
             purchase.setStatus("approved");
             Mongo.coll3.insertOne(purchase.save());
         }
-
     }
 
     //juan
