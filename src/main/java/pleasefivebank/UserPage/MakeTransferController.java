@@ -18,10 +18,10 @@ import static pleasefivebank.EntryPage.EntryPageController.user;
 import static pleasefivebank.Main.mainWindow;
 
 public class MakeTransferController {
-    private static String tempReceiver;
-    private static String tempReceiverIBAN;
-    private static String tempQuantity;
-    private static String tempConcept;
+    private String tempReceiver;
+    private String tempReceiverIBAN;
+    private String tempQuantity;
+    private String tempConcept;
 
     @FXML
     private TextField IBAN;

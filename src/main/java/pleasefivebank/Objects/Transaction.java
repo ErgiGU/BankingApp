@@ -6,8 +6,11 @@ import org.bson.types.ObjectId;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static pleasefivebank.EntryPage.EntryPageController.user;
+
 public class Transaction {
 
+    private String senderIBAN;
     private String date;
     private final String receiverName;
     private final String receiverIBAN;
@@ -25,6 +28,7 @@ public class Transaction {
         this.quantity = quantity;
         this.concept = concept;
         this.status = "send";
+        this.senderIBAN = user.getAccountIBAN();
     }
 
     public String getDate() {
