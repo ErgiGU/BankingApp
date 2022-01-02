@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import pleasefivebank.Main;
+import pleasefivebank.Mongo;
 import pleasefivebank.Objects.Transaction;
 import pleasefivebank.Objects.User;
 
@@ -129,6 +130,7 @@ public class TransactionsController {
         NameLabel.setText(name);
     }
 
+    //juan and carlotta
     public void setupTable(){
         dateColumn = new TableColumn<Transaction, String>();
         dateColumn.setText("Date");
@@ -148,14 +150,8 @@ public class TransactionsController {
         statusColumn = new TableColumn<Transaction, String>();
         statusColumn.setText("Status");
 
-        //tableView.getColumns().addAll(dateColumn,receiverColumn,IBANColumn,amountColumn,conceptColumn,statusColumn);
-        user.addTransaction("Lotti","SE123456789123423","123", "birthday");
-        user.addTransaction("juan","SE123456789123423","123", "holiday");
-        user.addTransaction("elisa","SE123456789123423","123", "tunis");
-        Transaction transaction = new Transaction("Juanus","SE123456789123423","234","carlotta");
-        ObservableList<Transaction> transactions = FXCollections.observableArrayList(user.getReceived());
+        ObservableList<Transaction> transactions = Mongo.getAllTransactions(user.getAccountIBAN());
         tableView.setItems(transactions);
-        tableView.getItems().add(transaction);
         tableView.refresh();
     }
 }

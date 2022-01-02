@@ -2,7 +2,10 @@ package pleasefivebank.Objects;
 
 import org.bson.Document;
 import org.bson.types.ObjectId;
+import pleasefivebank.Mongo;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -18,6 +21,8 @@ public class Transaction {
     private final String concept;
     private String status;
 
+
+    //Carlotta and Juan
     public Transaction(String receiverName, String receiverIBAN, String quantity, String concept){//in TransactionsController we set the date and status
         String pattern = "yyyy-MM-dd";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
@@ -29,6 +34,29 @@ public class Transaction {
         this.concept = concept;
         this.status = "send";
         this.senderIBAN = user.getAccountIBAN();
+        toDatabase();
+    }
+    //Carlotta and Juan
+    public Document toDocument(){
+        Document doc = new Document("_id", new ObjectId()).append("date",this.date).append("senderIBAN",senderIBAN)
+                .append("receiverIBAN",receiverIBAN).append("receiverName",receiverName).append("quantity",quantity)
+                .append("concept",concept).append("status",status);
+        return doc;
+    }
+    //Carlotta and Juan
+    public void toDatabase(){
+        Mongo.coll3.insertOne(toDocument());
+        toFile();
+    }
+    //Carlotta and Juan
+    public void toFile(){
+        try {
+            FileWriter writer = new FileWriter("Transactions.json", true);
+            writer.write(toDocument().toJson() + System.lineSeparator());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public String getDate() {
@@ -54,21 +82,4 @@ public class Transaction {
     public void setStatus(String status) { this.status = status; }
 
     public void setDate(String date) { this.date = date; }
-
-    //andreea
-    public Document save() {//method to save transaction in collection 4
-        Document transaction = new Document("_id", new ObjectId()).append("receiver", this.receiverName).
-        append("receiver iban", this.receiverIBAN).append("quantity", this.quantity).
-                append("date", this.date).append("concept", this.concept).append("status", this.status);
-        return transaction;
-    }
-
-    @Override
-    public String toString() {
-        return "Date: " + date + '\n' +
-                "Receiver: " + receiverName + " IBAN: " + receiverIBAN + '\n' +
-                "Quantity: " + quantity +
-                "Concept: " + concept +
-                "Status: " + status + '\n';
-    }
 }

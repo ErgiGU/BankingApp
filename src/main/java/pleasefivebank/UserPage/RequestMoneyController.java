@@ -62,7 +62,7 @@ public class RequestMoneyController {
             String date = Mongo.formatTime();// we register the time
             purchase.setDate(date);
             purchase.setStatus("pending");
-            Mongo.coll3.insertOne(purchase.save());//will modify to add it to collection 2 instead
+            //Mongo.coll3.insertOne(purchase.save());//will modify to add it to collection 2 instead
         }
     }
     //juan

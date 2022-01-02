@@ -16,6 +16,8 @@ module pleasefivebank.bank {
 
     requires passay;
     requires mail;
+    requires logback.classic;
+    requires slf4j.api;
 
     opens pleasefivebank to javafx.fxml;
     opens pleasefivebank.EntryPage to javafx.fxml;

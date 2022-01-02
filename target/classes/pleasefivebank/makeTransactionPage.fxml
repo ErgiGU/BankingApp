@@ -199,7 +199,7 @@
                   <Font name="Avenir Book" size="25.0" />
                </font>
             </Text>
-            <Button fx:id="SendMoney" layoutX="136.0" layoutY="503.0" mnemonicParsing="false" onAction="#SendMoney" prefHeight="38.0" prefWidth="251.0" style="-fx-background-color: #457B9D;" text="Send Money" textFill="WHITE">
+            <Button layoutX="136.0" layoutY="503.0" mnemonicParsing="false" onAction="#SendMoney" prefHeight="38.0" prefWidth="251.0" style="-fx-background-color: #457B9D;" text="Send Money" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>

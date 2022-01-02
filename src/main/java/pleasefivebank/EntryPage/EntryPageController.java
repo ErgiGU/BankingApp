@@ -1,5 +1,6 @@
 
 package pleasefivebank.EntryPage;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
@@ -7,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import org.bson.Document;
 import pleasefivebank.*;
 
 import javafx.event.ActionEvent;
@@ -15,19 +15,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
-import javafx.scene.control.Hyperlink;
-import pleasefivebank.Menus.UsefulFunctions;
 import pleasefivebank.Objects.User;
-import pleasefivebank.UserPage.HomePageController;
 import com.jfoenix.controls.events.JFXDialogEvent;
-//import com.jfoenix.converters.DialogTransitionConverter;
-import com.jfoenix.effects.JFXDepthManager;
-import com.jfoenix.transitions.CachedTransition;
+
 
 import java.io.IOException;
-import java.util.HashMap;
-
-import static com.mongodb.client.model.Filters.eq;
 
 public class EntryPageController{
 
@@ -65,9 +57,12 @@ public class EntryPageController{
                 login.setPassword(tempPassword);
                 i = 0;
                 try {
+                    Mongo.mongoTransactions();
                     main.showLoginPage(user.getFirstName() + " " + user.getLastName());
                 } catch (IOException ex) {
                     ex.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             } else if (!k) {
                 i++;
@@ -81,13 +76,13 @@ public class EntryPageController{
                     //freezes account and displays a popup
                     user1.freezeAccount();
                     confirmLabel.setText(null);
-                    UsefulFunctions.popup("Your account is frozen, please contact us.",borderpane,rootPane);
+                    //popup("Your account is frozen, please contact us.",borderpane,rootPane);
 
                 }else{
-                    UsefulFunctions.popup("Your account is frozen, please contact us.",borderpane,rootPane);
+                    //popup("Your account is frozen, please contact us.",borderpane,rootPane);
                 }
             }else if(user1.getFrozen().equals("false")){
-                UsefulFunctions.popup("Your account is frozen, please contact us.",borderpane,rootPane);
+                //popup("Your account is frozen, please contact us.",borderpane,rootPane);
             }
             }else {
             confirmLabel.setText("Invalid username");
@@ -163,6 +158,24 @@ public class EntryPageController{
             ex.printStackTrace();
         }
     }
+
+    /*public static void popup(String message, BorderPane pane, StackPane stackPane){
+        BoxBlur blur = new BoxBlur(3, 3, 3);
+        JFXDialogLayout layout = new JFXDialogLayout();
+        JFXButton button = new JFXButton("OK");
+        button.getStyleClass().add(".dialog-button");
+        JFXDialog dialog = new JFXDialog(stackPane, layout, JFXDialog.DialogTransition.TOP);
+        button.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent mousevent) -> {
+            dialog.close();
+        });
+        layout.setHeading(new Label("Your account is frozen, please contact us"));
+        layout.setActions(button);
+        dialog.show();
+        dialog.setOnDialogClosed((JFXDialogEvent event1) -> {
+            pane.setEffect(null);
+        });
+        pane.setEffect(blur);
+    }*/
 }
 
 

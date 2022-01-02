@@ -76,24 +76,7 @@ public class User {
         return doc;
     }
 
-    //andreea
-    public Document toAccounts(){//same method to add the account at registration and to update
-        //changes in the account or transactions, etc.
-        Document account = new Document("_id", doc.get("_id")).append("account IBAN", this.accountIBAN).
-                append("transactions", asList(new Document("activity", this.activity),
-                        new Document("pending", this.pending)));
-        return account;
-    }
-
-    /*//andreea
-    public Document toTransactions(){//this method to update the user activity
-        Document transaction = new Document("_id", new ObjectId()).append("sender", this.firstName+ " "
-                + " " + this.middleName + " " + this.lastName).append("receiver", this.account.).
-                append("quantity", "").append("date","").append("concept","");
-        return transaction;
-    }*/
-
-    //all of the following getters and setters were done by Juan
+    //All of the following getters and setters were done by Juan
 
     public String getFirstName() {
         return this.firstName;

@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import org.bson.Document;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
 import pleasefivebank.Objects.Transaction;
@@ -31,9 +32,6 @@ public class MakeTransferController {
 
     @FXML
     private Button NameLabel;
-
-    @FXML
-    private Button SendMoney;
 
     @FXML
     private TextField amount;
@@ -119,25 +117,40 @@ public class MakeTransferController {
 
     }
 
-    //juan
+    //juan and carlotta
     @FXML
-    void SendMoney(ActionEvent event) {
+    public void SendMoney(ActionEvent event) {
         String receiver = Name.getText();
         String receiverIban = IBAN.getText();
         String quantity = amount.getText();
         String concept = message.getText();
-        if((Mongo.isAccount(receiver, receiverIban)) && (Integer.parseInt(quantity)>0) && (!concept.isEmpty())){
+        if((Mongo.isValidIBAN(receiverIban)) && (Integer.parseInt(quantity)>0) && (!concept.isEmpty())){
             tempReceiver = receiver;
             tempReceiverIBAN = receiverIban;
             tempQuantity = quantity;
             tempConcept = concept;
-            Transaction purchase = new Transaction(tempReceiver, receiverIban, tempQuantity, tempConcept);
-            String date = Mongo.formatTime();// we register the time
-            purchase.setDate(date);
-            //validate balance
-            //update balance
-            purchase.setStatus("approved");
-            Mongo.coll3.insertOne(purchase.save());
+
+            float balance = Float.parseFloat(user.getBalance());
+            float intAmount = Float.parseFloat(tempQuantity);
+            if (balance >= intAmount){
+                Transaction purchase = new Transaction(tempReceiver, receiverIban, tempQuantity, tempConcept);
+                //purchase.toDatabase();
+                String newBalance = Float.toString(balance - intAmount);
+                user.setBalance(newBalance);
+                //update the current users balance in the db
+                Mongo.updateInformation("balance",newBalance,user.getPersonnummer());
+                //update the receivers balance in the database
+                Document doc = Mongo.getDocumentWithIBAN(receiverIban);
+                String receiverBalance = doc.get("balance").toString();
+                String personnummerReceiver = doc.get("personnummer").toString();
+                float newReceiverBalance = Float.parseFloat(receiverBalance)+intAmount;
+                receiverBalance = Float.toString(newReceiverBalance);
+                Mongo.updateInformation("balance",receiverBalance,personnummerReceiver);
+
+                Mongo.updateJson();
+
+            }
+
         }
     }
 
