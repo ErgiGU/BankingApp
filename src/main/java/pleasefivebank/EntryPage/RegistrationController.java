@@ -3,6 +3,7 @@ package pleasefivebank.EntryPage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
 import pleasefivebank.Objects.User;
@@ -160,6 +161,17 @@ public class RegistrationController{
         Registration.tempUni = selection;
 
     }
+
+    @FXML
+    private Tooltip passwordPrompt;
+
+    //Ergi
+    @FXML
+    void showTip(MouseEvent event) {
+        passwordPrompt.setText("Password must be at least 8 characters and contain at least " +
+                "one(uppercase,digit,special character)");
+    }
+
 
     //Ergi
     @FXML

@@ -231,7 +231,7 @@ public class Registration{
                 "^[A-Za-z][A-Za-z0-9_]{7,29}$","The username must be at least 8 characters");
         boolean passwordValidation = DataValidation.validateField(password, passLbl,
                 "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,30}$",
-                "Password must contain at least one(number,digit,uppercase,lowercase,special character)");
+                "Invalid password format");
         if(usernameValidation){
             boolean usernameExists = Mongo.existsInDatabase(username, "user name",usernLbl,"Username already exists");
             if(passwordValidation && !usernameExists) {
@@ -269,6 +269,7 @@ public class Registration{
     }
 
     //juan && Ergi
+    //This method displays the information that user had put
     public static void backToPage(String screen,int screenNumber) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(screen));
         Scene scene = new Scene(fxmlLoader.load());

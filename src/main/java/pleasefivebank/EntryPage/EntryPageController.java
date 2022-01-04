@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -20,6 +21,8 @@ import com.jfoenix.controls.events.JFXDialogEvent;
 
 
 import java.io.IOException;
+
+import static pleasefivebank.Menus.UsefulFunctions.popup;
 
 public class EntryPageController{
 
@@ -76,13 +79,13 @@ public class EntryPageController{
                     //freezes account and displays a popup
                     user1.freezeAccount();
                     confirmLabel.setText(null);
-                    //popup("Your account is frozen, please contact us.",borderpane,rootPane);
+                    popup("Your account is frozen, please contact us.",borderpane,rootPane);
 
                 }else{
-                    //popup("Your account is frozen, please contact us.",borderpane,rootPane);
+                    popup("Your account is frozen, please contact us.",borderpane,rootPane);
                 }
             }else if(user1.getFrozen().equals("false")){
-                //popup("Your account is frozen, please contact us.",borderpane,rootPane);
+                popup("Your account is frozen, please contact us.",borderpane,rootPane);
             }
             }else {
             confirmLabel.setText("Invalid username");
