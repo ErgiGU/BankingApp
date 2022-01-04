@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
 import pleasefivebank.Objects.Transaction;
@@ -36,7 +37,7 @@ public class TransactionsController {
     private TableColumn<?, ?> receiverColumn;
 
     @FXML
-    private TextField showBalance;
+    private Text showBalance;
 
     @FXML
     private TableColumn<?, ?> statusColumn;
@@ -163,6 +164,7 @@ public class TransactionsController {
         tableView.setItems(transactions);
         tableView.refresh();
         NameLabel.setText(user.getFirstName()+ " " + user.getLastName());
+        showBalance.setText("+" +user.getBalance()+ "SEK");
     }
 }
 
