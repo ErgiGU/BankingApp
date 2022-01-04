@@ -32,6 +32,17 @@ public class HomePageController { //need the attributes from EntryPage controlle
     private Text BalanceLabel;
     //juan
     @FXML
+    void ToNotifications(ActionEvent event) {
+        try {
+            Main.showNotificationsPage();
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
+    }
+    //juan
+    @FXML
     void ToCards(ActionEvent event) {
         try {
             Main.showCardsPage(user.getFirstName()+ " " + user.getLastName());
@@ -50,7 +61,7 @@ public class HomePageController { //need the attributes from EntryPage controlle
             ex.printStackTrace();
         }
     }
-    //juan
+    //juan and Carlotta
     @FXML
     void ToTransactions(ActionEvent event) {
         try {

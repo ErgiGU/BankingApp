@@ -95,9 +95,6 @@ public class TransactionsController {
         }
     }
 
-    @FXML
-    void showTransactions(ActionEvent event) {
-    }
     //Juan and Ergi
     @FXML
     void ToDetails(ActionEvent event) {
@@ -125,6 +122,17 @@ public class TransactionsController {
         catch (IOException ex) {
             ex.printStackTrace();
         }
+    }
+    //juan
+    @FXML
+    void ToNotifications(ActionEvent event) {
+        try {
+            Main.showNotificationsPage();
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+
     }
     public void setName(String name){
         NameLabel.setText(name);

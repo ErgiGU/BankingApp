@@ -56,21 +56,6 @@ public class RequestMoneyController {
             float intAmount = Float.parseFloat(quantity);
             if (balance >= intAmount){
                 Transaction purchase = new Transaction(receiver, receiverIban, quantity, concept, "requested");
-                //purchase.toDatabase();
-                String newBalance = Float.toString(balance - intAmount);
-                user.setBalance(newBalance);
-                //update the current users balance in the db
-                Mongo.updateInformation("balance",newBalance,user.getPersonnummer());
-                //update the receivers balance in the database
-                Document doc = Mongo.getDocumentWithIBAN(receiverIban);
-                String receiverBalance = doc.get("balance").toString();
-                String personnummerReceiver = doc.get("personnummer").toString();
-                float newReceiverBalance = Float.parseFloat(receiverBalance)+intAmount;
-                receiverBalance = Float.toString(newReceiverBalance);
-                Mongo.updateInformation("balance",receiverBalance,personnummerReceiver);
-
-                Mongo.updateJson();
-
             }
 
         }
@@ -123,21 +108,31 @@ public class RequestMoneyController {
         }
 
     }
-
+    //juan
     @FXML
     void ToNotifications(ActionEvent event) {
+        try {
+            Main.showNotificationsPage();
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
     }
     //juan
     @FXML
     void ToTransactions(ActionEvent event) {
         try {
-            Main.showTransactionsPage(user.getFirstName()+ " " + user.getLastName());
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Transactions.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            TransactionsController transactionsController = fxmlLoader.getController();
+            transactionsController.setupTable();
+            mainWindow.setScene(scene);
+            //Main.showTransactionsPage(user.getFirstName()+ " " + user.getLastName());
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
-
     }
     //juan
     public void setName(String name){

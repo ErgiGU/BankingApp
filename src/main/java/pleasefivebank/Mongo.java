@@ -307,7 +307,8 @@ public final class Mongo {//marked as final because it is a utility class and it
     }
     //juan and carlotta
     public static void updateTransactionStatus(String id){
-        coll3.findOneAndUpdate(eq("_id", new Document("$oid",id)),new Document("$set", new Document("status","sent")));
+        coll3.findOneAndUpdate(eq("_id", new Document("$oid",id)),
+                new Document("$set", new Document("status","sent")));
         updateTransactionsJson();
     }
     //juan and carlotta

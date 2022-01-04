@@ -99,9 +99,15 @@ public class MakeTransferController {
         }
 
     }
-
+    //juan
     @FXML
     void ToNotifications(ActionEvent event) {
+        try {
+            Main.showNotificationsPage();
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
 
     }
 
@@ -109,12 +115,16 @@ public class MakeTransferController {
     @FXML
     void ToTransactions(ActionEvent event) {
         try {
-            Main.showTransactionsPage(user.getFirstName()+ " " + user.getLastName());
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Transactions.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            TransactionsController transactionsController = fxmlLoader.getController();
+            transactionsController.setupTable();
+            mainWindow.setScene(scene);
+            //Main.showTransactionsPage(user.getFirstName()+ " " + user.getLastName());
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
-
     }
 
     //juan and carlotta

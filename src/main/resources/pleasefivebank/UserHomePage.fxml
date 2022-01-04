@@ -161,10 +161,17 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="641.0" layoutY="18.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: #2b5292;">
+            <Button layoutX="641.0" layoutY="18.0" mnemonicParsing="false" onAction="#ToNotifications" prefHeight="45.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: #2b5292;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="33.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../PNGs/bell-3063.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
             <Button fx:id="NameDisplay" layoutX="691.0" layoutY="17.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="222.0" style="-fx-background-color: #2b5292;" text="Name" textFill="WHITE">
                <font>
@@ -181,11 +188,6 @@
                   </ImageView>
                </graphic>
             </Button>
-            <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="657.0" layoutY="26.0" preserveRatio="true">
-               <image>
-                  <Image url="@../PNGs/bell-3063.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
    </top>
