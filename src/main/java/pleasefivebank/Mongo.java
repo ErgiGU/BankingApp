@@ -100,19 +100,13 @@ public final class Mongo {//marked as final because it is a utility class and it
     //juan and carlotta
     public static void mongoTransactions() throws Exception{
         coll3.drop();
-        int count = 0;
-        int batch = 100;
         List<InsertOneModel<Document>> transactionsDocs = new ArrayList<>();
             try (BufferedReader br = new BufferedReader(new FileReader("Transactions.json"))) {
                 String line2;
                 while ((line2 = br.readLine()) != null) {
                     transactionsDocs.add(new InsertOneModel<>(Document.parse(line2)));
-                    count++;
-                    //if (count == batch) {
-                        coll3.bulkWrite(transactionsDocs, new BulkWriteOptions().ordered(false));
-                        transactionsDocs.clear();
-                        count = 0;
-                    //}
+                    coll3.bulkWrite(transactionsDocs, new BulkWriteOptions().ordered(false));
+                    transactionsDocs.clear();
                 }
             }
     }
@@ -298,7 +292,7 @@ public final class Mongo {//marked as final because it is a utility class and it
             Document currentDoc = (Document) it.next();
             Transaction transaction = new Transaction(currentDoc.get("receiverName").toString(),
                     currentDoc.get("receiverIBAN").toString(),currentDoc.get("quantity").toString(),
-                    currentDoc.get("concept").toString());
+                    currentDoc.get("concept").toString(),currentDoc.get("status").toString(), "");
             if (transaction.getReceiverIBAN().equals(iban)) {
                 transaction.setStatus("received");
             }
@@ -311,16 +305,18 @@ public final class Mongo {//marked as final because it is a utility class and it
     public static ObservableList<Transaction> getAllPendingTransactions(String iban){
         ObservableList<Transaction> pendingTransactions = FXCollections.observableArrayList();
         FindIterable<Document> docs = coll3.find(eq("senderIBAN",iban));
+        System.out.println("1");
         Iterator it = docs.iterator();
         while (it.hasNext()) {
+            System.out.println("2");
             Document currentDoc = (Document) it.next();
             Transaction transaction = new Transaction(currentDoc.get("receiverName").toString(),
                     currentDoc.get("receiverIBAN").toString(),currentDoc.get("quantity").toString(),
-                    currentDoc.get("concept").toString());
+                    currentDoc.get("concept").toString(), currentDoc.get("status").toString(), "");
             if (transaction.getStatus().equals("requested")){
                 pendingTransactions.add(transaction);
+                System.out.println("3");
             }
-
         }
         return pendingTransactions;
     }

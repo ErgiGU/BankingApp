@@ -40,7 +40,7 @@ public class Transaction {
         toDatabase();
     }
     //Carlotta and juan
-    public Transaction(String receiverName, String receiverIBAN, String quantity, String concept){//in TransactionsController we set the date and status
+    public Transaction(String receiverName, String receiverIBAN, String quantity, String concept, String status, String empty){//in TransactionsController we set the date and status
         String pattern = "yyyy-MM-dd";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String date = simpleDateFormat.format(new Date());
@@ -49,7 +49,7 @@ public class Transaction {
         this.receiverIBAN = receiverIBAN;
         this.quantity = quantity;
         this.concept = concept;
-        this.status = "sent";
+        this.status = status;
         this.senderIBAN = user.getAccountIBAN();
     }
     //Carlotta and Juan
