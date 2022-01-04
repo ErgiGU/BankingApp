@@ -305,17 +305,14 @@ public final class Mongo {//marked as final because it is a utility class and it
     public static ObservableList<Transaction> getAllPendingTransactions(String iban){
         ObservableList<Transaction> pendingTransactions = FXCollections.observableArrayList();
         FindIterable<Document> docs = coll3.find(eq("senderIBAN",iban));
-        System.out.println("1");
         Iterator it = docs.iterator();
         while (it.hasNext()) {
-            System.out.println("2");
             Document currentDoc = (Document) it.next();
             Transaction transaction = new Transaction(currentDoc.get("receiverName").toString(),
                     currentDoc.get("receiverIBAN").toString(),currentDoc.get("quantity").toString(),
                     currentDoc.get("concept").toString(), currentDoc.get("status").toString(), "");
             if (transaction.getStatus().equals("requested")){
                 pendingTransactions.add(transaction);
-                System.out.println("3");
             }
         }
         return pendingTransactions;
