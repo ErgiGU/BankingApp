@@ -321,12 +321,14 @@ public final class Mongo {//marked as final because it is a utility class and it
     public static ObservableList<Loan> getAllLoans(String iban){
         ObservableList<Loan> allLoans = FXCollections.observableArrayList();
         FindIterable<Document> docs = coll3.find(eq("accountIBAN",iban));
+        System.out.println("1");
         Iterator it = docs.iterator();
         while (it.hasNext()) {
             Document currentDoc = (Document) it.next();
             Loan loan = new Loan(currentDoc.get("amountPerMonth").toString(),
                     currentDoc.get("accountIBAN").toString(),currentDoc.get("loanPeriod").toString(),
                     currentDoc.get("interestRate").toString(), "");
+            System.out.println(loan);
             allLoans.add(loan);
         }
         return allLoans;

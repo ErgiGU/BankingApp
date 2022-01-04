@@ -175,6 +175,11 @@ public class NotificationsController {
         loansTable.refresh();
     }
     public void setUpData(){
+        try {
+            Mongo.mongoLoans();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         setupRequestsTable();
         seTupLoansTable();
         NameLabel.setText(user.getFirstName()+ " " + user.getLastName());

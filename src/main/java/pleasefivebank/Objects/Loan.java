@@ -5,6 +5,8 @@ import pleasefivebank.Mongo;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Loan{
     private String status;
@@ -25,7 +27,6 @@ public class Loan{
     }
     //juan and carlotta
     public Loan(String amountPerMonth,String AccountIBAN,String LoanPeriod, String interestRate){
-        //we make a toDocument and toDatabase here
         this.status = "pending";
         this.amountPerMonth = amountPerMonth;
         this.accountIBAN = AccountIBAN;
@@ -36,7 +37,6 @@ public class Loan{
 
     //juan and carlotta
     public Loan(String amountPerMonth,String AccountIBAN,String LoanPeriod, String interestRate, String display){
-        //we make a toDocument and toDatabase here
         this.status = "pending";
         this.amountPerMonth = amountPerMonth;
         this.accountIBAN = AccountIBAN;
@@ -72,6 +72,50 @@ public class Loan{
     public void setQuantity(long quantity) {
         this.quantity = quantity;
     }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    public String getAmountPerMonth() {
+        return amountPerMonth;
+    }
+
+    public void setAmountPerMonth(String amountPerMonth) {
+        this.amountPerMonth = amountPerMonth;
+    }
+
+    public String getLoanPeriod() {
+        return loanPeriod;
+    }
+
+    public void setLoanPeriod(String loanPeriod) {
+        this.loanPeriod = loanPeriod;
+    }
+
+    public String getAccountIBAN() {
+        return accountIBAN;
+    }
+
+    public void setAccountIBAN(String accountIBAN) {
+        this.accountIBAN = accountIBAN;
+    }
+
+    public String getInterestRate() {
+        return interestRate;
+    }
+
+    public void setInterestRate(String amountPerMonth) {
+        this.interestRate = interestRate;
+    }
+
+
+
+
+
 
     //juan
     public void changeCheckBox(){

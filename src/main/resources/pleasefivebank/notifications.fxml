@@ -187,32 +187,32 @@
                 </Text>
                 <TableView fx:id="requestedTransactionsTable" layoutX="83.0" layoutY="368.0" prefHeight="226.0" prefWidth="730.0">
                     <columns>
-                        <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date">
+                        <TableColumn fx:id="dateColumn" prefWidth="96.0" text="Date">
                             <cellValueFactory>
                                 <PropertyValueFactory property="date" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="receiverColumn" prefWidth="77.0" text="Receiver">
+                        <TableColumn fx:id="receiverColumn" prefWidth="123.0" text="Receiver">
                             <cellValueFactory>
                                 <PropertyValueFactory property="receiver" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="IBANColumn" prefWidth="195.0" text="Receiver IBAN">
+                        <TableColumn fx:id="IBANColumn" prefWidth="201.0" text="Receiver IBAN">
                             <cellValueFactory>
                                 <PropertyValueFactory property="receiverIBAN" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="amountColumn" prefWidth="152.0" text="Amount">
+                        <TableColumn fx:id="amountColumn" prefWidth="85.0" text="Amount">
                             <cellValueFactory>
                                 <PropertyValueFactory property="quantity" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="conceptColumn" prefWidth="135.0" text="Concept">
+                        <TableColumn fx:id="conceptColumn" prefWidth="134.0" text="Concept">
                             <cellValueFactory>
                                 <PropertyValueFactory property="concept" />
                             </cellValueFactory>
                         </TableColumn>
-                        <TableColumn fx:id="statusColumn" prefWidth="95.0" text="Status">
+                        <TableColumn fx:id="statusColumn" prefWidth="90.0" text="Status">
                             <cellValueFactory>
                                 <PropertyValueFactory property="status" />
                             </cellValueFactory>
@@ -221,11 +221,21 @@
                 </TableView>
             <TableView fx:id="loansTable" layoutX="177.0" layoutY="184.0" prefHeight="120.0" prefWidth="496.0">
               <columns>
-                  <TableColumn fx:id="dateLoans" prefWidth="75.0" text="Date" />
-                <TableColumn fx:id="amountLoans" prefWidth="131.16647338867188" text="amount per month" />
-                <TableColumn fx:id="interestLoans" prefWidth="94.0" text="interest rate" />
-                  <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
-                  <TableColumn fx:id="statusLoans" prefWidth="194.5" text="status" />
+                <TableColumn fx:id="amountLoans" prefWidth="158.5" text="amount per month">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="amountPerMonth" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="interestLoans" prefWidth="175.0" text="interest rate">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="interestRate" />
+                    </cellValueFactory>
+                </TableColumn>
+                  <TableColumn fx:id="statusLoans" prefWidth="142.5" text="status">
+                      <cellValueFactory>
+                          <PropertyValueFactory property="status" />
+                      </cellValueFactory>
+                  </TableColumn>
               </columns>
             </TableView>
             <Text fill="#2b5292" layoutX="215.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="requested transactions" wrappingWidth="418.74346923828125">
