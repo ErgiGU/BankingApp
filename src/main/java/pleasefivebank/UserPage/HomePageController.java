@@ -7,15 +7,53 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import pleasefivebank.Main;
+import pleasefivebank.Mongo;
+import pleasefivebank.Objects.Transaction;
 import pleasefivebank.Objects.User;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static pleasefivebank.EntryPage.EntryPageController.user;
 import static pleasefivebank.Main.mainWindow;
 
 public class HomePageController { //need the attributes from EntryPage controller
 
+    @FXML
+    private Text Amount1;
+
+    @FXML
+    private Text Amount2;
+
+    @FXML
+    private Text Amount3;
+
+    @FXML
+    private Text Amount4;
+
+    @FXML
+    private Text Date1;
+
+    @FXML
+    private Text Date2;
+
+    @FXML
+    private Text Date3;
+
+    @FXML
+    private Text Date4;
+
+    @FXML
+    private Text Name1;
+
+    @FXML
+    private Text Name2;
+
+    @FXML
+    private Text Name3;
+
+    @FXML
+    private Text Name4;
 
     @FXML
     private Button NameDisplay;
@@ -125,6 +163,12 @@ public class HomePageController { //need the attributes from EntryPage controlle
         balance -= balance % 0.001;
         BalanceLabel.setText("+" + balance +" SEK");
         AccountNumberLabel.setText(user.getAccountNr());
+        ArrayList<Transaction> transactions = Mongo.getFourTransactions(user.getAccountIBAN());
+        if (transactions.size() == 4){
+            Transaction transaction1 = transactions.get(0);
+            Name1.setText(transaction1.getOtherPersonsName());
+        }
+
     }
 }
 

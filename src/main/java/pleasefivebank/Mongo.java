@@ -354,6 +354,21 @@ public final class Mongo {//marked as final because it is a utility class and it
         }
 
     }
+    public static ArrayList<Transaction> getFourTransactions(String IBAN){
+        ArrayList<Transaction> fourTransactions = new ArrayList<>();
+        FindIterable<Document> docs = coll3.find(eq("accountIBAN",IBAN));
+        Iterator it = docs.iterator();
+        while (it.hasNext() && fourTransactions.size() < 4) {
+            Document currentDoc = (Document) it.next();
+            Transaction transaction = new Transaction(currentDoc.get("receiverName").toString(),
+                    currentDoc.get("receiverIBAN").toString(),currentDoc.get("quantity").toString(),
+                    currentDoc.get("concept").toString(), currentDoc.get("status").toString(), "");
+            if (!transaction.getStatus().equals("requested")){
+                fourTransactions.add(transaction);
+            }
+        }
+        return fourTransactions;
+    }
 
 }
 

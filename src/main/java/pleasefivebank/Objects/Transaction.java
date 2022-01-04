@@ -75,6 +75,16 @@ public class Transaction {
         }
     }
 
+    public String getOtherPersonsName() {
+        String name;
+        if (senderIBAN.equals(user.getAccountIBAN())){
+            return receiverName;
+        }
+        else{
+            return Mongo.getDocumentWithIBAN(senderIBAN).get("user name").toString();
+        }
+    }
+
     public String getDate() {
         return date;
     }
