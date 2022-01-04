@@ -17,12 +17,12 @@ public class UsefulFunctions {
         BoxBlur blur = new BoxBlur(3, 3, 3);
         JFXDialogLayout layout = new JFXDialogLayout();
         JFXButton button = new JFXButton("OK");
-        button.getStyleClass().add(".dialog-button");
+        button.setStyle("-fx-background-color: #1275EA; -fx-text-fill: white; -fx-background-radius: 10;");
         JFXDialog dialog = new JFXDialog(stackPane, layout, JFXDialog.DialogTransition.TOP);
         button.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent mousevent) -> {
             dialog.close();
         });
-        layout.setHeading(new Label("Your account is frozen, please contact us"));
+        layout.setHeading(new Label(message));
         layout.setActions(button);
         dialog.show();
         dialog.setOnDialogClosed((JFXDialogEvent event1) -> {
