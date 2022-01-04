@@ -61,6 +61,7 @@ public final class Mongo {//marked as final because it is a utility class and it
 
         db = client.getDatabase("please5");
         coll = db.getCollection("Input_Data");
+        coll2 = db.getCollection("Loans");
         coll3 = db.getCollection("Transactions");//store transactions safely
 
         try {
@@ -96,7 +97,7 @@ public final class Mongo {//marked as final because it is a utility class and it
             System.out.println("There is another session open on another port or the server could be down");
         }
     }
-
+    //juan and carlotta
     public static void mongoTransactions() throws Exception{
         coll3.drop();
         int count = 0;
@@ -114,6 +115,19 @@ public final class Mongo {//marked as final because it is a utility class and it
                     //}
                 }
             }
+    }
+
+    public static void mongoLoans() throws Exception{
+        coll2.drop();
+        List<InsertOneModel<Document>> transactionsDocs = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("Loans.json"))) {
+            String line2;
+            while ((line2 = br.readLine()) != null) {
+                transactionsDocs.add(new InsertOneModel<>(Document.parse(line2)));
+                coll3.bulkWrite(transactionsDocs, new BulkWriteOptions().ordered(false));
+                transactionsDocs.clear();
+            }
+        }
     }
 
     //Ergi && Andreea
@@ -276,9 +290,8 @@ public final class Mongo {//marked as final because it is a utility class and it
     }
 
     //carlotta and juan
-    public static ObservableList<Transaction> getAllTransactions(String iban, String desiredList){
+    public static ObservableList<Transaction> getAllTransactions(String iban){
         ObservableList<Transaction> actualTransactions = FXCollections.observableArrayList();
-        ObservableList<Transaction> pendingTransactions = FXCollections.observableArrayList();
         FindIterable<Document> docs = coll3.find(or(eq("receiverIBAN",iban),eq("senderIBAN",iban)));
         Iterator it = docs.iterator();
         while (it.hasNext()) {
@@ -292,25 +305,40 @@ public final class Mongo {//marked as final because it is a utility class and it
             if (!transaction.getStatus().equals("requested")){
                 actualTransactions.add(transaction);
             }
-            else{
+        }
+        return actualTransactions;
+    }
+    public static ObservableList<Transaction> getAllPendingTransactions(String iban){
+        ObservableList<Transaction> pendingTransactions = FXCollections.observableArrayList();
+        FindIterable<Document> docs = coll3.find(eq("senderIBAN",iban));
+        Iterator it = docs.iterator();
+        while (it.hasNext()) {
+            Document currentDoc = (Document) it.next();
+            Transaction transaction = new Transaction(currentDoc.get("receiverName").toString(),
+                    currentDoc.get("receiverIBAN").toString(),currentDoc.get("quantity").toString(),
+                    currentDoc.get("concept").toString());
+            if (transaction.getStatus().equals("requested")){
                 pendingTransactions.add(transaction);
             }
 
         }
-        if (desiredList.equals("pending")){
-            return pendingTransactions;
-        }
-        else{
-            return actualTransactions;
-        }
-
-
+        return pendingTransactions;
     }
+
     public static ObservableList<Loan> getAllLoans(String iban){
-        ObservableList<Loan> loans = FXCollections.observableArrayList();
-        //FindIterable<Document> docs = coll3.find(or(eq("receiverIBAN",iban),eq("senderIBAN",iban)));
-        return loans;
+        ObservableList<Loan> allLoans = FXCollections.observableArrayList();
+        FindIterable<Document> docs = coll3.find(eq("accountIBAN",iban));
+        Iterator it = docs.iterator();
+        while (it.hasNext()) {
+            Document currentDoc = (Document) it.next();
+            Loan loan = new Loan(currentDoc.get("amountPerMonth").toString(),
+                    currentDoc.get("accountIBAN").toString(),currentDoc.get("loanPeriod").toString(),
+                    currentDoc.get("interestRate").toString(), "");
+            allLoans.add(loan);
+        }
+        return allLoans;
     }
+
     //juan and carlotta
     public static void updateTransactionStatus(String id){
         coll3.findOneAndUpdate(eq("_id", new Document("$oid",id)),

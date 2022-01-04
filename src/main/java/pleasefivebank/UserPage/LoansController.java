@@ -177,7 +177,7 @@ public class LoansController {
     void ToConfirmation(ActionEvent event) {
         if (errorHandling() && checkBoxBoo){
             try {
-                Loan loan = new Loan(amountPerMonth.getText(), user.getAccountIBAN(), EstPayBackTime.getText(),"requested", LoanPeriod.getText());
+                Loan loan = new Loan(amountPerMonth.getText(), user.getAccountIBAN(), EstPayBackTime.getText(), LoanPeriod.getText());
                 Main.showLoanConfirmation();
             } catch (IOException ex) {
                 ex.printStackTrace();

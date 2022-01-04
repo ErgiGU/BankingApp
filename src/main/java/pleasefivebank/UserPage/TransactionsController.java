@@ -158,8 +158,7 @@ public class TransactionsController {
         statusColumn.setText("Status");
 
         tableView.getItems().clear();
-        ObservableList<Transaction> transactions = Mongo.getAllTransactions(user.getAccountIBAN(),
-                "actualTransactions");
+        ObservableList<Transaction> transactions = Mongo.getAllTransactions(user.getAccountIBAN());
         tableView.getItems().clear();
         tableView.setItems(transactions);
         tableView.refresh();

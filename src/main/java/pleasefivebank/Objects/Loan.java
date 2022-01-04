@@ -1,24 +1,68 @@
 package pleasefivebank.Objects;
 
+import org.bson.Document;
+import pleasefivebank.Mongo;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Loan{
     private String status;
+    private String amountPerMonth;
+    private String loanPeriod;
+    private String accountIBAN;
+    private String interestRate;
+
+
     private long quantity;
-    private String dueDate;
     private boolean checkbox;
-    private int estPayBack;
-    private  int loanPeriod;
+
 
     public Loan(){
         this.status = "pending";
         this.quantity = 0;
-        this.dueDate = "";
         this.checkbox = false;
-        this.estPayBack = 0;
-        this.loanPeriod = 0;
     }
     //juan and carlotta
-    public Loan(String amountPerMonth,String AccountIBAN,String EstPayBackTime,String status, String LoanPeriod){
+    public Loan(String amountPerMonth,String AccountIBAN,String LoanPeriod, String interestRate){
         //we make a toDocument and toDatabase here
+        this.status = "pending";
+        this.amountPerMonth = amountPerMonth;
+        this.accountIBAN = AccountIBAN;
+        this.loanPeriod = LoanPeriod;
+        this.interestRate = interestRate;
+        toDatabase();
+    }
+
+    //juan and carlotta
+    public Loan(String amountPerMonth,String AccountIBAN,String LoanPeriod, String interestRate, String display){
+        //we make a toDocument and toDatabase here
+        this.status = "pending";
+        this.amountPerMonth = amountPerMonth;
+        this.accountIBAN = AccountIBAN;
+        this.loanPeriod = LoanPeriod;
+        this.interestRate = interestRate;
+    }
+
+    public Document toDocument() {
+        Document doc = new Document("amountPerMonth",this.amountPerMonth).append("accountIBAN",this.accountIBAN)
+                .append("loanPeriod",this.loanPeriod).append("status",this.status).append("interestRate",this.interestRate);
+        return doc;
+    }
+
+    public void toDatabase(){
+        Mongo.coll3.insertOne(toDocument());
+        toFile();
+    }
+
+    public void toFile(){
+        try {
+            FileWriter writer = new FileWriter("Loans.json", true);
+            writer.write(toDocument().toJson() + System.lineSeparator());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public long getQuantity() {

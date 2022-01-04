@@ -150,8 +150,7 @@ public class NotificationsController {
         statusColumn.setText("Status");
 
         requestedTransactionsTable.getItems().clear();
-        ObservableList<Transaction> transactions = Mongo.getAllTransactions(user.getAccountIBAN(),
-                "requested");
+        ObservableList<Transaction> transactions = Mongo.getAllPendingTransactions(user.getAccountIBAN());
         requestedTransactionsTable.getItems().clear();
         requestedTransactionsTable.setItems(transactions);
         requestedTransactionsTable.refresh();
