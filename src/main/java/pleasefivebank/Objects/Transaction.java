@@ -23,6 +23,23 @@ public class Transaction {
 
 
     //Carlotta and Juan
+    public Transaction(String receiverName, String receiverIBAN, String quantity, String concept, String status){//in TransactionsController we set the date and status
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
+        this.date = date;
+        this.receiverName = receiverName;
+        this.receiverIBAN = receiverIBAN;
+        this.quantity = quantity;
+        this.concept = concept;
+        this.status = status;
+        if (receiverIBAN.equals(user.getAccountIBAN())){
+            this.status = "requested";
+        }
+        this.senderIBAN = user.getAccountIBAN();
+        toDatabase();
+    }
+    //Carlotta and juan
     public Transaction(String receiverName, String receiverIBAN, String quantity, String concept){//in TransactionsController we set the date and status
         String pattern = "yyyy-MM-dd";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
@@ -32,9 +49,8 @@ public class Transaction {
         this.receiverIBAN = receiverIBAN;
         this.quantity = quantity;
         this.concept = concept;
-        this.status = "send";
+        this.status = "sent";
         this.senderIBAN = user.getAccountIBAN();
-        toDatabase();
     }
     //Carlotta and Juan
     public Document toDocument(){

@@ -133,7 +133,7 @@ public class MakeTransferController {
             float balance = Float.parseFloat(user.getBalance());
             float intAmount = Float.parseFloat(tempQuantity);
             if (balance >= intAmount){
-                Transaction purchase = new Transaction(tempReceiver, receiverIban, tempQuantity, tempConcept);
+                Transaction purchase = new Transaction(tempReceiver, receiverIban, tempQuantity, tempConcept, "sent");
                 //purchase.toDatabase();
                 String newBalance = Float.toString(balance - intAmount);
                 user.setBalance(newBalance);

@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import org.bson.Document;
 import pleasefivebank.EntryPage.EntryPageController;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
@@ -19,10 +20,6 @@ import static pleasefivebank.EntryPage.EntryPageController.user;
 import static pleasefivebank.Main.mainWindow;
 
 public class RequestMoneyController {
-
-    private static String tempName;
-    private static String tempQuantity;
-    private static String tempConcept;
 
     @FXML
     private TextField Amount;
@@ -48,21 +45,34 @@ public class RequestMoneyController {
             ex.printStackTrace();
         }
     }
-    //andreea
     @FXML
     void Request(ActionEvent event) {
-        String name = Name.getText();//must modify to check for the whole name
+        String receiver = Name.getText();
+        String receiverIban = IBAN.getText();
         String quantity = Amount.getText();
         String concept = Message.getText();
-        if((Mongo.isUser(name)) && (Integer.parseInt(quantity)>0) && (!concept.isEmpty())) {
-            tempName = name;
-            tempQuantity = quantity;
-            tempConcept = concept;
-            Transaction purchase = new Transaction(tempName, "", tempQuantity, tempConcept);
-            String date = Mongo.formatTime();// we register the time
-            purchase.setDate(date);
-            purchase.setStatus("pending");
-            //Mongo.coll3.insertOne(purchase.save());//will modify to add it to collection 2 instead
+        if((Mongo.isValidIBAN(receiverIban)) && (Integer.parseInt(quantity)>0) && (!concept.isEmpty())){
+            float balance = Float.parseFloat(user.getBalance());
+            float intAmount = Float.parseFloat(quantity);
+            if (balance >= intAmount){
+                Transaction purchase = new Transaction(receiver, receiverIban, quantity, concept, "requested");
+                //purchase.toDatabase();
+                String newBalance = Float.toString(balance - intAmount);
+                user.setBalance(newBalance);
+                //update the current users balance in the db
+                Mongo.updateInformation("balance",newBalance,user.getPersonnummer());
+                //update the receivers balance in the database
+                Document doc = Mongo.getDocumentWithIBAN(receiverIban);
+                String receiverBalance = doc.get("balance").toString();
+                String personnummerReceiver = doc.get("personnummer").toString();
+                float newReceiverBalance = Float.parseFloat(receiverBalance)+intAmount;
+                receiverBalance = Float.toString(newReceiverBalance);
+                Mongo.updateInformation("balance",receiverBalance,personnummerReceiver);
+
+                Mongo.updateJson();
+
+            }
+
         }
     }
     //juan

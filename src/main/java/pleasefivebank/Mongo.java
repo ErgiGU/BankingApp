@@ -269,40 +269,64 @@ public final class Mongo {//marked as final because it is a utility class and it
 
     }
 
-    public static User getUser(String dbLabel, String value){
-        //find the document wth the user information in the database
-        Document session = Mongo.coll.find(new Document(dbLabel, value)).first();
-        //create new user object with the information from database
-        User currentUser = new User(session.get("card number").toString(),session.get("expiration date").toString(),session.get("first name").toString(), session.get("middle name").toString(),
-                session.get("last name").toString(), session.get("address").toString(),
-                session.get("city").toString(), session.get("postal code").toString(),
-                session.get("birth date").toString(), session.get("phone number").toString(),
-                session.get("personnummer").toString(), session.get("email").toString(),
-                session.get("university").toString(), session.get("account number").toString(),
-                session.get("account IBAN").toString(),session.get("balance").toString(),session.get("frozen").toString()
-        );
-        return currentUser;
-    }
-
+    //juan and carlotta
     public static Document getDocumentWithIBAN(String iban){
         Document doc = coll.find(eq("account IBAN",iban)).first();
         return doc;
     }
 
-    //carlotta
-    public static ObservableList<Transaction> getAllTransactions(String iban){
-        ObservableList<Transaction> allTransactions = FXCollections.observableArrayList();
+    //carlotta and juan
+    public static ObservableList<Transaction> getAllTransactions(String iban, String desiredList){
+        ObservableList<Transaction> actualTransactions = FXCollections.observableArrayList();
+        ObservableList<Transaction> pendingTransactions = FXCollections.observableArrayList();
         FindIterable<Document> docs = coll3.find(or(eq("receiverIBAN",iban),eq("senderIBAN",iban)));
         Iterator it = docs.iterator();
         while (it.hasNext()) {
             Document currentDoc = (Document) it.next();
-            Transaction transaction = new Transaction(currentDoc.get("receiverName").toString(),currentDoc.get("receiverIBAN").toString(),currentDoc.get("quantity").toString(),currentDoc.get("concept").toString());
-            allTransactions.add(transaction);
+            Transaction transaction = new Transaction(currentDoc.get("receiverName").toString(),
+                    currentDoc.get("receiverIBAN").toString(),currentDoc.get("quantity").toString(),
+                    currentDoc.get("concept").toString());
+            if (transaction.getReceiverIBAN().equals(iban)) {
+                transaction.setStatus("recieved");
+            }
+            if (!transaction.getStatus().equals("requested")){
+                actualTransactions.add(transaction);
+            }
+            else{
+                pendingTransactions.add(transaction);
+            }
+
         }
-        return allTransactions;
+        if (desiredList.equals("pending")){
+            return pendingTransactions;
+        }
+        else{
+            return actualTransactions;
+        }
+
 
     }
+    //juan and carlotta
+    public static void updateTransactionStatus(String id){
+        coll3.findOneAndUpdate(eq("_id", new Document("$oid",id)),new Document("$set", new Document("status","sent")));
+        updateTransactionsJson();
+    }
+    //juan and carlotta
+    public static void updateTransactionsJson(){
+        try {
+            FileWriter writer1 = new FileWriter("Transactions.json", false);
+            FindIterable<Document> iterDoc = coll3.find();
+            Iterator it = iterDoc.iterator();
+            while (it.hasNext()) {
+                Document doc = (Document) it.next();
+                writer1.write(doc.toJson() +  System.lineSeparator());
+            }
+            writer1.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+    }
 
 }
 
