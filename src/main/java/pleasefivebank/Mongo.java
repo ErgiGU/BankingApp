@@ -60,9 +60,7 @@ public final class Mongo {//marked as final because it is a utility class and it
 
         db = client.getDatabase("please5");
         coll = db.getCollection("Input_Data");
-        coll2 = db.getCollection("Accounts");//access accounts faster
         coll3 = db.getCollection("Transactions");//store transactions safely
-        coll4 = db.getCollection("Reviews");//store and access reviews
 
         try {
 
@@ -99,6 +97,7 @@ public final class Mongo {//marked as final because it is a utility class and it
     }
 
     public static void mongoTransactions() throws Exception{
+        coll3.drop();
         int count = 0;
         int batch = 100;
         List<InsertOneModel<Document>> transactionsDocs = new ArrayList<>();
@@ -107,11 +106,11 @@ public final class Mongo {//marked as final because it is a utility class and it
                 while ((line2 = br.readLine()) != null) {
                     transactionsDocs.add(new InsertOneModel<>(Document.parse(line2)));
                     count++;
-                    if (count == batch) {
+                    //if (count == batch) {
                         coll3.bulkWrite(transactionsDocs, new BulkWriteOptions().ordered(false));
                         transactionsDocs.clear();
                         count = 0;
-                    }
+                    //}
                 }
             }
     }
@@ -287,7 +286,7 @@ public final class Mongo {//marked as final because it is a utility class and it
                     currentDoc.get("receiverIBAN").toString(),currentDoc.get("quantity").toString(),
                     currentDoc.get("concept").toString());
             if (transaction.getReceiverIBAN().equals(iban)) {
-                transaction.setStatus("recieved");
+                transaction.setStatus("received");
             }
             if (!transaction.getStatus().equals("requested")){
                 actualTransactions.add(transaction);
