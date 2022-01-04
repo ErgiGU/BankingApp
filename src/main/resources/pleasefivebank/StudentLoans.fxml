@@ -227,18 +227,13 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="22.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total cost" wrappingWidth="160.8033447265625">
+                  <Text layoutX="22.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total cost:" wrappingWidth="160.8033447265625">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
                   <BorderPane layoutY="321.0" prefHeight="10.0" prefWidth="394.0" style="-fx-background-color: #457B9D;" />
-                  <Text layoutX="21.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Cost:" wrappingWidth="136.80340576171875">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Text>
-                  <Button id="calculateButton" fx:id="calculateButton" layoutX="174.0" layoutY="421.0" mnemonicParsing="false" onAction="#calculate" prefHeight="53.0" prefWidth="160.0" style="-fx-background-color: #84bdf9;" text="Calculate">
+                  <Button id="calculateButton" fx:id="calculateButton" layoutX="119.0" layoutY="396.0" mnemonicParsing="false" onAction="#calculate" prefHeight="53.0" prefWidth="160.0" style="-fx-background-color: #84bdf9;" text="Calculate">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -249,11 +244,6 @@
                      </font>
                   </Label>
                   <Label fx:id="totalCost" layoutX="189.0" layoutY="261.0" prefHeight="34.0" prefWidth="184.0">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="totalAmount" layoutX="181.0" layoutY="358.0" prefHeight="34.0" prefWidth="184.0">
                      <font>
                         <Font size="20.0" />
                      </font>

@@ -95,7 +95,6 @@ public class LoansController {
         double rentOnly = interest.getRentOnly();
         totalCost.setText(String.valueOf(trunc(totalWRent)));
         rentTotal.setText(String.valueOf(trunc(rentOnly)));
-        totalAmount.setText(String.valueOf(trunc(totalWRent)));
     }
 
 
@@ -143,8 +142,14 @@ public class LoansController {
     @FXML
     void ToTransactions(ActionEvent event) {
         try {
-            Main.showPage("Transactions.fxml");
-        } catch (IOException ex) {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Transactions.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            TransactionsController transactionsController = fxmlLoader.getController();
+            transactionsController.setupTable();
+            mainWindow.setScene(scene);
+            //Main.showTransactionsPage(user.getFirstName()+ " " + user.getLastName());
+        }
+        catch (IOException ex) {
             ex.printStackTrace();
         }
     }
@@ -167,13 +172,13 @@ public class LoansController {
             ex.printStackTrace();
         }
     }
-
+    //juan and Linus
     @FXML
     void ToConfirmation(ActionEvent event) {
         if (errorHandling() && checkBoxBoo){
             try {
                 Loan loan = new Loan(amountPerMonth.getText(), user.getAccountIBAN(), EstPayBackTime.getText(),"requested", LoanPeriod.getText());
-                Main.showPage("LoanRequestSent.fxml");
+                Main.showLoanConfirmation();
             } catch (IOException ex) {
                 ex.printStackTrace();
             }

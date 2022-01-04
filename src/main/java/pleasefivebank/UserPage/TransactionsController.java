@@ -1,13 +1,11 @@
 package pleasefivebank.UserPage;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
 import pleasefivebank.Objects.Transaction;
@@ -164,6 +162,7 @@ public class TransactionsController {
         tableView.getItems().clear();
         tableView.setItems(transactions);
         tableView.refresh();
+        NameLabel.setText(user.getFirstName()+ " " + user.getLastName());
     }
 }
 

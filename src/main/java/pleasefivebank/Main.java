@@ -99,6 +99,14 @@ public class Main extends Application {
         notificationsController.setUpData();
         mainWindow.setScene(scene);
     }
+    //Juan
+    public static void showLoanConfirmation() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("loanRequestSent.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        LoanRequestedController loanRequestedController= fxmlLoader.getController();
+        loanRequestedController.setNameLabel();
+        mainWindow.setScene(scene);
+    }
 
 
 
