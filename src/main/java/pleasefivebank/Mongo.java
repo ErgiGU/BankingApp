@@ -356,7 +356,7 @@ public final class Mongo {//marked as final because it is a utility class and it
     }
     public static ArrayList<Transaction> getFourTransactions(String IBAN){
         ArrayList<Transaction> fourTransactions = new ArrayList<>();
-        FindIterable<Document> docs = coll3.find(eq("accountIBAN",IBAN));
+        FindIterable<Document> docs = coll3.find(or(eq("receiverIBAN",IBAN),eq("senderIBAN",IBAN)));
         Iterator it = docs.iterator();
         while (it.hasNext() && fourTransactions.size() < 4) {
             Document currentDoc = (Document) it.next();

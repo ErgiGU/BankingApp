@@ -206,7 +206,7 @@
                   <Font name="Avenir Next Bold" size="18.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="121.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carlotta Hillger" wrappingWidth="125.49224853515625">
+            <Text fx:id="Name1" fill="#2b5292" layoutX="109.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carlotta Hillger" wrappingWidth="244.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
@@ -224,22 +224,22 @@
             <Line endX="703.2929077148438" layoutX="140.0" layoutY="301.0" startX="-62.70709228515625" stroke="WHITE" />
             <Line endX="703.2929077148438" layoutX="141.0" layoutY="392.0" startX="-62.70709228515625" stroke="WHITE" />
             <Line endX="703.2929077148438" layoutX="138.0" layoutY="347.0" startX="-62.70709228515625" stroke="WHITE" />
-            <Text fill="#2b5292" layoutX="701.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ 50,00 SEK" textAlignment="RIGHT" wrappingWidth="98.49224853515625">
+            <Text fx:id="Amount1" fill="#2b5292" layoutX="701.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ 50,00 SEK" textAlignment="RIGHT" wrappingWidth="98.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="704.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 460,98 SEK" textAlignment="RIGHT" wrappingWidth="98.49224853515625">
+            <Text fx:id="Amount4" fill="#2b5292" layoutX="704.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 460,98 SEK" textAlignment="RIGHT" wrappingWidth="98.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="696.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ 200,00 SEK" textAlignment="RIGHT" wrappingWidth="106.49224853515625">
+            <Text fx:id="Amount3" fill="#2b5292" layoutX="696.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="+ 200,00 SEK" textAlignment="RIGHT" wrappingWidth="106.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="703.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 180,00 SEK" textAlignment="RIGHT" wrappingWidth="98.49224853515625">
+            <Text fx:id="Amount2" fill="#2b5292" layoutX="703.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="- 180,00 SEK" textAlignment="RIGHT" wrappingWidth="98.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
@@ -255,37 +255,37 @@
                   <Font name="Avenir Book" size="16.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="121.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Linus Carlberg" wrappingWidth="125.49224853515625">
+            <Text fx:id="Name3" fill="#2b5292" layoutX="109.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Linus Carlberg" wrappingWidth="245.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="121.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hemköp" wrappingWidth="125.49224853515625">
+            <Text fx:id="Name2" fill="#2b5292" layoutX="109.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hemköp" wrappingWidth="241.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="121.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Willy's" wrappingWidth="125.49224853515625">
+            <Text fx:id="Name4" fill="#2b5292" layoutX="109.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Willy's" wrappingWidth="248.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="371.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-12-07" wrappingWidth="125.49224853515625">
+            <Text fx:id="Date1" fill="#2b5292" layoutX="371.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-12-07" wrappingWidth="125.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="371.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-12-04" wrappingWidth="125.49224853515625">
+            <Text fx:id="Date4" fill="#2b5292" layoutX="371.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-12-04" wrappingWidth="125.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="371.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-12-04" wrappingWidth="125.49224853515625">
+            <Text fx:id="Date3" fill="#2b5292" layoutX="371.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-12-04" wrappingWidth="125.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="371.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-12-05" wrappingWidth="125.49224853515625">
+            <Text fx:id="Date2" fill="#2b5292" layoutX="371.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-12-05" wrappingWidth="125.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
@@ -319,7 +319,7 @@
                   <Font name="Avenir Book" size="16.0" />
                </font>
             </Text>
-            <Button layoutX="617.0" layoutY="554.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #457b9d#457b9d;" text="Learn more" textFill="#efefef">
+            <Button layoutX="617.0" layoutY="554.0" mnemonicParsing="false" onAction="#ToLoans" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #457b9d#457b9d;" text="Learn more" textFill="#efefef">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
