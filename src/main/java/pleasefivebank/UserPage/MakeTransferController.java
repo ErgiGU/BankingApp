@@ -169,7 +169,26 @@ public class MakeTransferController {
         NameLabel.setText(name);
     }
 
+    //elisa
+    @FXML
+    void ToTransactionsPage(ActionEvent event) {
+        try {
+            Main.showTransactionsPage(user.getFirstName()+ " " + user.getLastName());
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 
-
+    //elisa
+    @FXML
+    void ToContactPage(ActionEvent event) {
+        try {
+            Main.showPage("ContactPage.fxml");;
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
 
