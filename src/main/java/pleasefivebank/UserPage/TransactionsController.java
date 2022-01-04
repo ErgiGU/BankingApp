@@ -152,6 +152,7 @@ public class TransactionsController {
 
         ObservableList<Transaction> transactions = Mongo.getAllTransactions(user.getAccountIBAN(),
                 "actualTransactions");
+        tableView.getItems().clear();
         tableView.setItems(transactions);
         tableView.refresh();
     }

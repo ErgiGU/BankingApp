@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" stylesheets="@../CSS/hi.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pleasefivebank.UserPage.NotificationsController">
+    <left>
+        <AnchorPane prefHeight="614.0" prefWidth="128.0" style="-fx-background-color: #457B9D;" BorderPane.alignment="CENTER">
+            <children>
+                <Button layoutX="23.0" layoutY="110.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="86.0" style="-fx-background-radius: 25; -fx-border-image-width: 20; -fx-background-color: #457B9D;">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
+                            <image>
+                                <Image url="@../PNGs/transactions.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Text fill="WHITE" layoutX="26.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transactions">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Text>
+                <Button layoutX="24.0" layoutY="8.0" mnemonicParsing="false" onAction="#ToHome" prefHeight="73.0" prefWidth="84.0" style="-fx-background-radius: 25; -fx-border-image-width: 20; -fx-background-color: #457B9D;">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
+                            <image>
+                                <Image url="@../PNGs/home.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button layoutX="21.0" layoutY="212.0" mnemonicParsing="false" onAction="#ToCards" prefHeight="73.0" prefWidth="84.0" style="-fx-background-radius: 25; -fx-border-image-width: 20; -fx-background-color: #457B9D;">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
+                            <image>
+                                <Image url="@../PNGs/credit-card-2056.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Text fill="WHITE" layoutX="45.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cards">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Text>
+                <Text fill="WHITE" layoutX="46.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Text>
+                <Line endX="75.0" endY="-7.62939453125E-6" layoutX="53.0" layoutY="100.0" startX="-52.99998474121094" startY="-7.62939453125E-6" stroke="WHITE" />
+                <Line endX="75.0" layoutX="53.0" layoutY="202.0" startX="-52.99998474121094" startY="-7.62939453125E-6" stroke="WHITE" />
+                <Line endX="75.0" layoutX="53.0" layoutY="304.0" startX="-52.99998474121094" startY="-7.62939453125E-6" stroke="WHITE" />
+                <Button layoutX="21.0" layoutY="314.0" mnemonicParsing="false" onAction="#ToLoans" prefHeight="73.0" prefWidth="84.0" style="-fx-background-radius: 25; -fx-border-image-width: 20; -fx-background-color: #457B9D;">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
+                            <image>
+                                <Image url="@../PNGs/salaryicon.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Text fill="WHITE" layoutX="19.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student loans">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Text>
+                <Line endX="75.0" layoutX="54.0" layoutY="406.0" startX="-52.99998474121094" startY="-7.62939453125E-6" stroke="WHITE" />
+                <ImageView fitHeight="87.0" fitWidth="97.0" layoutX="28.0" layoutY="421.0" preserveRatio="true">
+                    <image>
+                        <Image url="@../PNGs/support-and-service-1678.png" />
+                    </image>
+                </ImageView>
+                <Text fill="WHITE" layoutX="24.0" layoutY="532.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Need help?">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Text>
+                <Text fill="WHITE" layoutX="25.0" layoutY="554.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact us" wrappingWidth="89.32926940917969">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Text>
+                <Text fill="WHITE" layoutX="14.0" layoutY="583.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone: 031-12 26 31" textAlignment="CENTER" wrappingWidth="89.32926940917969">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </Text>
+            </children>
+        </AnchorPane>
+    </left>
+    <top>
+        <AnchorPane prefHeight="78.0" prefWidth="1050.0" style="-fx-background-color: #2b5292;" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="60.0" fitWidth="102.0" layoutX="15.0" layoutY="10.0" preserveRatio="true">
+                    <image>
+                        <Image url="@../PNGs/P5B white small logo.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="49.0" fitWidth="48.0" layoutX="750.0" layoutY="19.0" preserveRatio="true">
+                    <image>
+                        <Image url="@../PNGs/user-3296.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="913.0" layoutY="20.0" mnemonicParsing="false" onAction="#Logout" prefHeight="0.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Button layoutX="679.0" layoutY="21.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: #2b5292;">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="657.0" layoutY="26.0" preserveRatio="true">
+                            <image>
+                                <Image url="@../PNGs/bell-3063.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Button fx:id="NameLabel" layoutX="799.0" layoutY="21.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="112.0" style="-fx-background-color: #2b5292;" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+            </children>
+        </AnchorPane>
+    </top>
+    <right>
+        <AnchorPane prefHeight="614.0" prefWidth="919.0" style="-fx-background-color: EFEFEF;" BorderPane.alignment="CENTER">
+            <children>
+                <Text fill="#2b5292" layoutX="14.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notifications">
+                    <font>
+                        <Font size="37.0" />
+                    </font>
+                </Text>
+                <TableView fx:id="tableView" layoutX="83.0" layoutY="368.0" prefHeight="226.0" prefWidth="730.0">
+                    <columns>
+                        <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Date">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="date" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="receiverColumn" prefWidth="77.0" text="Receiver">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="receiver" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="IBANColumn" prefWidth="195.0" text="Receiver IBAN">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="receiverIBAN" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="amountColumn" prefWidth="152.0" text="Amount">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="quantity" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="conceptColumn" prefWidth="135.0" text="Concept">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="concept" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="statusColumn" prefWidth="95.0" text="Status">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="status" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableView>
+            <TableView layoutX="177.0" layoutY="184.0" prefHeight="120.0" prefWidth="496.0">
+              <columns>
+                  <TableColumn prefWidth="75.0" text="Date" />
+                <TableColumn prefWidth="131.16647338867188" text="amount per month" />
+                <TableColumn prefWidth="94.0" text="interest rate" />
+                  <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
+                  <TableColumn prefWidth="194.5" text="Column X" />
+              </columns>
+            </TableView>
+            <Text fill="#2b5292" layoutX="215.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="requested transactions" wrappingWidth="418.74346923828125">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Text>
+            <Text fill="#2b5292" layoutX="327.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="loans">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Text>
+            </children></AnchorPane>
+    </right>
+</BorderPane>

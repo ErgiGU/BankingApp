@@ -91,6 +91,14 @@ public class Main extends Application {
         editDetailsController.setData(fullName);
         mainWindow.setScene(scene);
     }
+    //Juan
+    public static void showNotificationsPage() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("EditAccountDetails.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        NotificationsController notificationsController = fxmlLoader.getController();
+        notificationsController.setData();
+        mainWindow.setScene(scene);
+    }
 
 
 
