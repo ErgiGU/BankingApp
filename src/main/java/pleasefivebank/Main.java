@@ -96,7 +96,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("notifications.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         NotificationsController notificationsController = fxmlLoader.getController();
-        notificationsController.setupTable();
+        notificationsController.setUpData();
         mainWindow.setScene(scene);
     }
 

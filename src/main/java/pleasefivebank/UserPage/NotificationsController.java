@@ -10,6 +10,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
+import pleasefivebank.Objects.Loan;
 import pleasefivebank.Objects.Transaction;
 import pleasefivebank.Objects.User;
 
@@ -45,7 +46,7 @@ public class NotificationsController {
     private TableColumn<?, ?> interestLoans;
 
     @FXML
-    private TableView<?> loansTable;
+    private TableView<Loan> loansTable;
 
     @FXML
     private TableColumn<?, ?> receiverColumn;
@@ -129,7 +130,7 @@ public class NotificationsController {
             ex.printStackTrace();
         }
     }
-    public void setupTable(){
+    public void setupRequestsTable(){
         dateColumn = new TableColumn<Transaction, String>();
         dateColumn.setText("Date");
 
@@ -140,7 +141,7 @@ public class NotificationsController {
         IBANColumn.setText("Receiver IBAN");
 
         amountColumn = new TableColumn<Transaction, String>();
-        amountColumn.setText("quantity");
+        amountColumn.setText("Quantity");
 
         conceptColumn = new TableColumn<Transaction, String>();
         conceptColumn.setText("Concept");
@@ -154,6 +155,30 @@ public class NotificationsController {
         requestedTransactionsTable.getItems().clear();
         requestedTransactionsTable.setItems(transactions);
         requestedTransactionsTable.refresh();
+    }
+    public void seTupLoansTable(){
+        dateLoans = new TableColumn<Loan, String>();
+        dateLoans.setText("Date");
+
+        amountLoans = new TableColumn<Loan, String>();
+        amountLoans.setText("Loan Amount");
+
+        interestLoans = new TableColumn<Loan, String>();
+        interestLoans.setText("Loan Interest");
+
+        statusLoans = new TableColumn<Loan, String>();
+        statusLoans.setText("Loan Status");
+
+        loansTable.getItems().clear();
+        ObservableList<Loan> loans = Mongo.getAllLoans(user.getAccountIBAN());
+        loansTable.getItems().clear();
+        loansTable.setItems(loans);
+        loansTable.refresh();
+    }
+    public void setUpData(){
+        setupRequestsTable();
+        seTupLoansTable();
+        NameLabel.setText(user.getFirstName()+ " " + user.getLastName());
     }
 
 }

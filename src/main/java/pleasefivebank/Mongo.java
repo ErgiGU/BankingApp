@@ -19,6 +19,7 @@ import org.bson.BsonType;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.json.JsonReader;
+import pleasefivebank.Objects.Loan;
 import pleasefivebank.Objects.Transaction;
 import pleasefivebank.Objects.User;
 import ch.qos.logback.classic.Level;
@@ -304,6 +305,11 @@ public final class Mongo {//marked as final because it is a utility class and it
         }
 
 
+    }
+    public static ObservableList<Loan> getAllLoans(String iban){
+        ObservableList<Loan> loans = FXCollections.observableArrayList();
+        //FindIterable<Document> docs = coll3.find(or(eq("receiverIBAN",iban),eq("senderIBAN",iban)));
+        return loans;
     }
     //juan and carlotta
     public static void updateTransactionStatus(String id){

@@ -22,6 +22,6 @@ module pleasefivebank.bank {
     opens pleasefivebank to javafx.fxml;
     opens pleasefivebank.EntryPage to javafx.fxml;
     opens pleasefivebank.UserPage to javafx.fxml;
-    opens pleasefivebank.Objects to javafx.base;
     exports pleasefivebank;
+    opens pleasefivebank.Objects to javafx.base, javafx.fxml;
 }
