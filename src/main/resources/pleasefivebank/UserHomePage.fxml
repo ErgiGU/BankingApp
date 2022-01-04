@@ -206,7 +206,7 @@
                   <Font name="Avenir Next Bold" size="18.0" />
                </font>
             </Text>
-            <Text fx:id="Name1" fill="#2b5292" layoutX="121.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carlotta Hillger" wrappingWidth="125.49224853515625">
+            <Text fx:id="Name1" fill="#2b5292" layoutX="109.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Carlotta Hillger" wrappingWidth="244.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
@@ -255,17 +255,17 @@
                   <Font name="Avenir Book" size="16.0" />
                </font>
             </Text>
-            <Text fx:id="Name3" fill="#2b5292" layoutX="121.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Linus Carlberg" wrappingWidth="125.49224853515625">
+            <Text fx:id="Name3" fill="#2b5292" layoutX="109.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Linus Carlberg" wrappingWidth="245.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fx:id="Name2" fill="#2b5292" layoutX="121.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hemköp" wrappingWidth="125.49224853515625">
+            <Text fx:id="Name2" fill="#2b5292" layoutX="109.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hemköp" wrappingWidth="241.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fx:id="Name4" fill="#2b5292" layoutX="121.0" layoutY="421.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Willy's" wrappingWidth="125.49224853515625">
+            <Text fx:id="Name4" fill="#2b5292" layoutX="109.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Willy's" wrappingWidth="248.49224853515625">
                <font>
                   <Font name="Avenir Book" size="17.0" />
                </font>
@@ -339,7 +339,7 @@
                   <Image url="@../PNGs/nordicicon.png" />
                </image>
             </ImageView>
-            <Text fill="#457b9d" layoutX="134.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50% off youre first month at Nordic Wellness" textAlignment="CENTER" wrappingWidth="233.22792053222656">
+            <Text fill="#457b9d" layoutX="134.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50% off your first month at Nordic Wellness" textAlignment="CENTER" wrappingWidth="233.22792053222656">
                <font>
                   <Font name="Avenir Book" size="15.0" />
                </font>

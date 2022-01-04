@@ -164,10 +164,68 @@ public class HomePageController { //need the attributes from EntryPage controlle
         BalanceLabel.setText("+" + balance +" SEK");
         AccountNumberLabel.setText(user.getAccountNr());
         ArrayList<Transaction> transactions = Mongo.getFourTransactions(user.getAccountIBAN());
-        if (transactions.size() == 4){
-            Transaction transaction1 = transactions.get(0);
-            Name1.setText(transaction1.getOtherPersonsName());
+        if (transactions.size() >=1){
+            Transaction transaction = transactions.get(0);
+            Name1.setText(transaction.getOtherPersonsName());
+            Date1.setText(transaction.getDate());
+            if (transaction.getReceiverIBAN().equals(user.getAccountIBAN())){
+                Amount1.setText("+"+transaction.getQuantity()+" SEK");
+            }
+            else{
+                Amount1.setText("+"+transaction.getQuantity()+" SEK");
+            }
+        }else{
+            Name1.setText("No Transactions Made Yet");
+            Date1.setText("");
+            Amount1.setText("");
         }
+        if (transactions.size() >=2){
+            Transaction transaction = transactions.get(1);
+            Name2.setText(transaction.getOtherPersonsName());
+            Date2.setText(transaction.getDate());
+            if (transaction.getReceiverIBAN().equals(user.getAccountIBAN())){
+                Amount2.setText("+"+transaction.getQuantity()+" SEK");
+            }
+            else{
+                Amount2.setText("+"+transaction.getQuantity()+" SEK");
+            }
+        }else{
+            Name2.setText("");
+            Date2.setText("");
+            Amount2.setText("");
+        }
+        if (transactions.size() >=3){
+            Transaction transaction = transactions.get(2);
+            Name3.setText(transaction.getOtherPersonsName());
+            Date3.setText(transaction.getDate());
+            if (transaction.getReceiverIBAN().equals(user.getAccountIBAN())){
+                Amount3.setText("+"+transaction.getQuantity()+" SEK");
+            }
+            else{
+                Amount3.setText("+"+transaction.getQuantity()+" SEK");
+            }
+        }else{
+            Name3.setText("");
+            Date3.setText("");
+            Amount3.setText("");
+        }
+        if (transactions.size() == 4){
+            Transaction transaction = transactions.get(3);
+            Name4.setText(transaction.getOtherPersonsName());
+            Date4.setText(transaction.getDate());
+            if (transaction.getReceiverIBAN().equals(user.getAccountIBAN())){
+                Amount4.setText("+"+transaction.getQuantity()+" SEK");
+            }
+            else{
+                Amount4.setText("+"+transaction.getQuantity()+" SEK");
+            }
+        }else{
+            Name4.setText("");
+            Date4.setText("");
+            Amount4.setText("");
+        }
+
+
 
     }
 }
