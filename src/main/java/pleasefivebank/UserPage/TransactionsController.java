@@ -18,6 +18,10 @@ import static pleasefivebank.EntryPage.EntryPageController.user;
 import static pleasefivebank.Main.mainWindow;
 
 public class TransactionsController {
+
+    //this controller corresponds to the page where the user can view transactions
+    //there are methods to connect pages and to save and store the transaction requests
+
     @FXML
     private TableColumn<?, ?> IBANColumn;
 
@@ -138,6 +142,7 @@ public class TransactionsController {
     }
 
     //juan and carlotta
+    //method to set up the table
     public void setupTable(){
         dateColumn = new TableColumn<Transaction, String>();
         dateColumn.setText("Date");

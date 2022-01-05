@@ -13,6 +13,10 @@ import java.util.Random;
 
 public class RegistrationController{
 
+    //the whole 4 pages from the registration controller are administered here
+    //there are methods to go from page to page, to go back pages and to set up
+    //data
+
     private final Registration registration = new Registration();
     private String selection = "no university";
 

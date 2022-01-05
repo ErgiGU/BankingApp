@@ -23,6 +23,7 @@ public class Transaction {
 
 
     //Carlotta and Juan
+    //special constructor that saves the created transaction object to the database and JSON file
     public Transaction(String receiverName, String receiverIBAN, String quantity, String concept, String status){//in TransactionsController we set the date and status
         String pattern = "yyyy-MM-dd";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
@@ -40,6 +41,7 @@ public class Transaction {
         toDatabase();
     }
     //Carlotta and juan
+    //constructor with a different signature to make transaction objects without storing them in the database
     public Transaction(String receiverName, String receiverIBAN, String quantity, String concept, String status, String empty){//in TransactionsController we set the date and status
         String pattern = "yyyy-MM-dd";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
@@ -53,6 +55,7 @@ public class Transaction {
         this.senderIBAN = user.getAccountIBAN();
     }
     //Carlotta and Juan
+    //makes the document that we will store
     public Document toDocument(){
         Document doc = new Document("_id", new ObjectId()).append("date",this.date).append("senderIBAN",senderIBAN)
                 .append("receiverIBAN",receiverIBAN).append("receiverName",receiverName).append("quantity",quantity)
@@ -65,6 +68,7 @@ public class Transaction {
         toFile();
     }
     //Carlotta and Juan
+    //writes into a json file
     public void toFile(){
         try {
             FileWriter writer = new FileWriter("Transactions.json", true);
@@ -74,9 +78,8 @@ public class Transaction {
             e.printStackTrace();
         }
     }
-
+    //method to showcase someone's information in the userHomePage
     public String getOtherPersonsName() {
-        String name;
         if (senderIBAN.equals(user.getAccountIBAN())){
             return receiverName;
         }
@@ -89,18 +92,10 @@ public class Transaction {
         return date;
     }
 
-    public String getReceiver() {
-        return receiverName;
-    }
-
     public String getReceiverIBAN() { return receiverIBAN; }
 
     public String getQuantity() {
         return quantity;
-    }
-
-    public String getConcept() {
-        return concept;
     }
 
     public String getStatus() { return status; }

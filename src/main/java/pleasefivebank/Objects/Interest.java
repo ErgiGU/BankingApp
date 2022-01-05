@@ -1,5 +1,6 @@
 package pleasefivebank.Objects;
 //Linus
+//this object is made to showcase total cost and rent in the GUI for the loans page
 public class Interest  {
     private  double total;
     private double rentOnly;

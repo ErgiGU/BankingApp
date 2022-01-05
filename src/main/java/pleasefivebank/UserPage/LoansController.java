@@ -21,6 +21,10 @@ import static pleasefivebank.Utilities.Utilities.trunc;
 
 //Linus and Juan
 public class LoansController {
+    //this controller only includes a method to set up the user data
+    //and methods to go from page to page
+    //it also has a method to showcase the loans calculated information
+    //and some error handling to avoid blank fields
 
 
     private boolean checkBoxBoo;
@@ -164,14 +168,6 @@ public class LoansController {
         }
     }
 
-    @FXML
-    void ToLoans(ActionEvent event) {
-        try {
-            Main.showPage("StudentLoans.fxml");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
     //juan and Linus
     @FXML
     void ToConfirmation(ActionEvent event) {

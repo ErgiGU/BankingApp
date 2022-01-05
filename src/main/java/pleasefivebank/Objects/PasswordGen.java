@@ -7,6 +7,7 @@ import org.passay.PasswordGenerator;
 
 import static org.passay.CharacterCharacteristicsRule.ERROR_CODE;
 
+//this is a password generator for users who forget their password
 public class PasswordGen {
 
     public String GeneratePassword() {

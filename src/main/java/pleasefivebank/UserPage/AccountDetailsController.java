@@ -5,13 +5,15 @@ import javafx.fxml.FXML;
 import javafx.scene.text.Text;
 import pleasefivebank.Main;
 import pleasefivebank.Objects.User;
-import pleasefivebank.Main;
 
 import java.io.IOException;
 
 import static pleasefivebank.EntryPage.EntryPageController.user;
 
 public class AccountDetailsController {
+
+    //this controller only includes a method to set up the user data
+    //and methods to go from page to page
 
     @FXML
     private Text IBAN;
@@ -78,7 +80,6 @@ public class AccountDetailsController {
     }
     //Elisa, Juan and Ergi
     public void setInformation(User user){
-        //username.setText
         IBAN.setText(user.getAccountIBAN());
 
         accountFrozen.setText(user.getFrozen());

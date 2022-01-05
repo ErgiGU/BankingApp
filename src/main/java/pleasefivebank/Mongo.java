@@ -50,6 +50,8 @@ public final class Mongo {//marked as final because it is a utility class and it
     private Mongo(){//private constructor to prevent from instantiating
     }
 
+    //method to initialize mongo
+
     public static void mongo() throws Exception {
         LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
         ch.qos.logback.classic.Logger rootLogger = loggerContext.getLogger("org.mongodb.driver");
@@ -97,6 +99,8 @@ public final class Mongo {//marked as final because it is a utility class and it
             System.out.println("There is another session open on another port or the server could be down");
         }
     }
+
+    //methods to get transactions and loans
     //juan and carlotta
     public static void mongoTransactions() throws Exception{
         coll3.drop();
@@ -124,6 +128,8 @@ public final class Mongo {//marked as final because it is a utility class and it
         }
     }
 
+
+    //methods to look for things in the database
     //Ergi && Andreea
     public static boolean existsInDatabase(String itemToFind, String databaseVariable,
                                            Label inputLabel, String validationText) {
@@ -139,6 +145,7 @@ public final class Mongo {//marked as final because it is a utility class and it
         return exists;
     }
 
+    //the following methods are to check if users or information exists
     //andreea
     public static void updatePassword(String newPass, String username ) {//encrypted username and new pass
         coll.findOneAndUpdate(eq("user name", username),
@@ -206,35 +213,6 @@ public final class Mongo {//marked as final because it is a utility class and it
         return username;
     }
 
-    //andreea
-    public static void deleteUser(String username, String email){//we don't delete transactions
-        Object key = coll.find(eq("email", email)).first().get("_id");
-        coll.findOneAndDelete(eq("email", email));// delete user document
-        coll.findOneAndDelete(eq("user name", username));// delete
-        coll2.findOneAndDelete(eq("_id", key));//delete account
-    }
-
-    //andreea
-    public static void activity(Object key, int count){//prints the last count number of transactions
-        Bson projection = Projections.fields(Projections.include("sent",
-                        "quantity", "receiver", "concept"), Projections.excludeId());
-        //look for these fields´ names in the user document with the given id in the database
-        coll2.find(eq("_id", key)).projection(projection).sort(new Document
-                ("_id",-1)).limit(count).forEach((Consumer<? super Document>) doc ->
-                System.out.println(doc.toJson()));
-    }
-
-    //andreea
-    public static void deleteLast(){//if you added a document by mistake
-        Document doc = coll.find().sort(new Document("_id",-1)).limit(1).first();
-        coll.deleteOne(doc);//delete last user
-        doc = coll.find().sort(new Document("_id",-1)).limit(1).first();
-        coll.deleteOne(doc);//delete login credentials
-        doc = coll2.find().sort(new Document("_id",-1)).limit(1).first();
-        coll2.deleteOne(doc);//delete account
-        //doesn't delete it from the file, nothing will..
-    }
-
     //Lotti
     public static void updateJson(){
         try {
@@ -249,15 +227,6 @@ public final class Mongo {//marked as final because it is a utility class and it
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-
-
-    //andreea
-    public static String formatTime() {//this methods registers the time an object Date is created
-        Date time = new Date();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        return dateFormat.format(time);
     }
 
     public static boolean usernameExists(String username) {

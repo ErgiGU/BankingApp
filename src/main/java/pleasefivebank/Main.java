@@ -30,12 +30,16 @@ public class Main extends Application {
         launch(args);
     }
 
+
+    //static methods to show pages and set up data beforehand
+
+    //carlotta and Juan
     public static void showPage(String fxmlFile) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxmlFile));
         Scene scene = new Scene(fxmlLoader.load());
         mainWindow.setScene(scene);
     }
-    //lotti and juan
+    //Carlotta and juan
     public static void showLoginPage(String fullName) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("UserHomePage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -51,7 +55,7 @@ public class Main extends Application {
         cardsController.setName(fullName);
         mainWindow.setScene(scene);
     }
-    //Juan and Lotti
+    //Juan and Carlotta
     public static void showLoansPage(String fullName) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("StudentLoans.fxml"));
         Scene scene = new Scene(fxmlLoader.load());

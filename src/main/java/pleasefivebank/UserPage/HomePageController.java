@@ -17,7 +17,10 @@ import java.util.ArrayList;
 import static pleasefivebank.EntryPage.EntryPageController.user;
 import static pleasefivebank.Main.mainWindow;
 
-public class HomePageController { //need the attributes from EntryPage controller
+public class HomePageController {
+    //this controller only includes a method to set up the user data
+    //and methods to go from page to page
+
 
     @FXML
     private Text Amount1;
@@ -224,9 +227,6 @@ public class HomePageController { //need the attributes from EntryPage controlle
             Date4.setText("");
             Amount4.setText("");
         }
-
-
-
     }
 }
 

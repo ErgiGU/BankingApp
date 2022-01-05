@@ -21,6 +21,9 @@ import static pleasefivebank.Main.mainWindow;
 
 public class NotificationsController {
 
+    //This controller corresponds to the page where we showcase transaction requests received by the user and the
+    //status of loans
+
     @FXML
     private TableColumn<?, ?> IBANColumn;
 
@@ -130,6 +133,8 @@ public class NotificationsController {
             ex.printStackTrace();
         }
     }
+    //method to setup the table showcasing transaction requests
+    //juan and carlotta
     public void setupRequestsTable(){
         dateColumn = new TableColumn<Transaction, String>();
         dateColumn.setText("Date");
@@ -155,6 +160,8 @@ public class NotificationsController {
         requestedTransactionsTable.setItems(transactions);
         requestedTransactionsTable.refresh();
     }
+    //juan
+    //method to setup the table where the user can see the loan statuses
     public void seTupLoansTable(){
         dateLoans = new TableColumn<Loan, String>();
         dateLoans.setText("Date");
@@ -174,6 +181,7 @@ public class NotificationsController {
         loansTable.setItems(loans);
         loansTable.refresh();
     }
+    //this method sets up all of the data up before the user can see the page
     public void setUpData(){
         try {
             Mongo.mongoLoans();

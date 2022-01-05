@@ -14,6 +14,9 @@ import static pleasefivebank.EntryPage.EntryPageController.user;
 import static pleasefivebank.Main.mainWindow;
 
 public class LoanRequestedController {
+
+    //this controller only includes a method to set up the user data
+    //and methods to go from page to page
     @FXML
     private Button nameLabel;
     //juan

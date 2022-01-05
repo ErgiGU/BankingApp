@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import static java.util.Arrays.asList;
 
 public class User {
-    //variables storing basic user info + arraylist of his transactions + arraylist of his accounts
+    //variables storing basic user info
     private String firstName;
     private final String birthdate;
     private String phoneNumber;
@@ -21,7 +21,7 @@ public class User {
     private String university;
     private Document doc;
 
-
+    //account info for the user
     protected String cardNumber;
     protected String expirationDate;
     protected String balance;
@@ -29,9 +29,8 @@ public class User {
     protected String frozen;
     protected final String accountNr;
     protected final String accountIBAN;
-    protected ArrayList<Transaction> activity = new ArrayList<>();
-    protected ArrayList<Transaction> pending = new ArrayList<>();
 
+    //constructor that also makes the document of the user
     public User(String cardNumber,String expirationDate ,String name, String middleName, String lastName, String address, String city, String postalCode,
                 String birthDate, String phoneNumber, String personNummer, String email, String university, String accountNr, String accountIBAN, String balance, String frozen) {
         this.firstName = name;
@@ -58,8 +57,7 @@ public class User {
     }
 
     //andreea
-    public Document toDocument(){//same method to add the user at registration and to update
-        //changes in the account or transactions, etc.
+    public Document toDocument(){
         doc = new Document("_id", new ObjectId()).append("first name", this.firstName).
                 append("middle name", this.middleName).append("last name", this.lastName).
                 append("birth date", this.birthdate).append("personnummer", this.personnummer).
@@ -80,10 +78,6 @@ public class User {
 
     public String getFirstName() {
         return this.firstName;
-    }
-
-    public String getMiddleName() {
-        return this.middleName;
     }
 
     public String getLastName() {
@@ -110,10 +104,6 @@ public class User {
 
     public String getPostalCode(){return this.postalCode;}
 
-    public String getBirthdate() {
-        return this.birthdate;
-    }
-
     public String getUniversity() { return this.university; }
 
     public String getCardNumber(){return this.cardNumber;}
@@ -138,8 +128,6 @@ public class User {
         this.university = university;
     }
 
-    public void setTransactions(){}
-
     public String getBalance() {
         return balance;
     }
@@ -147,8 +135,6 @@ public class User {
     public String getFrozen() {return frozen;}
 
     public String getExpirationDate(){return this.expirationDate;}
-
-    /*public int getRewardPoints() { return rewardPoints; }*/
 
     public String getAccountNr() {
         return accountNr;
@@ -158,55 +144,14 @@ public class User {
         return accountIBAN;
     }
 
-    public ArrayList<Transaction> getSent() {
-        return activity;
-    }
-
-    public ArrayList<Transaction> getReceived() {
-        return pending;
-    }
-
-
     public void setBalance(String balance) {
         this.balance = balance;
-    }
-
-    public void setRewardPoints(int rewardPoints) {
-        this.rewardPoints = rewardPoints;
-    }
-
-    public void setSent(ArrayList<Transaction> sent) {
-        this.activity = activity;
-    }
-
-    public void setReceived(ArrayList<Transaction> received) {
-        this.pending = pending;
-    }
-
-    public void addPoint(int pointsToAdd) {
-        this.rewardPoints += pointsToAdd;
     }
 
     //Ergi
     public void freezeAccount() {
         this.frozen = "true";
         Mongo.updateInformation("frozen",frozen,personnummer);
-    }
-
-    public void unfreezeAccount() {
-        this.frozen = "false";
-    }
-
-    public void showCard() {
-        //get card info and show it
-    }
-    public String getAllTransactions(){
-        String toReturn = "";
-        for(int i=0; i<activity.size(); i++){
-            Transaction transaction = activity.get(i);
-            toReturn.concat(transaction.toString());
-        }
-        return toReturn;
     }
     //Juan and Ergi
     public String getUsername1(){

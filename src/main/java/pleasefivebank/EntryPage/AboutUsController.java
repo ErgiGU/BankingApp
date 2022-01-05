@@ -1,6 +1,5 @@
 package pleasefivebank.EntryPage;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import pleasefivebank.Main;
 
@@ -8,7 +7,11 @@ import java.io.IOException;
 
 public class AboutUsController {
 
-    //andreea
+    //this page only showcases predetermined information
+    //thus the only thing needed in this controller is a
+    //method to go back to the entry page
+
+    //juan
     @FXML
     void BackToEntryPage() {
         try {

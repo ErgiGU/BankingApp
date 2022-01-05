@@ -4,8 +4,8 @@ package pleasefivebank.EntryPage;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
+import com.jfoenix.controls.events.JFXDialogEvent;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -17,7 +17,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import pleasefivebank.Objects.User;
-import com.jfoenix.controls.events.JFXDialogEvent;
 
 
 import java.io.IOException;
@@ -34,6 +33,11 @@ public class EntryPageController{
     private StackPane rootPane;
 
     //Ergi && Andreea
+    //this method is made up of three parts
+    //the first one gathers user information
+    //the second one validates the data and
+    //and logs the user in if the data is valid
+    //the third part activates the labels if user input is wrong
     @FXML
     protected void PressedLoginButton(ActionEvent event) {
         String username = "";
@@ -162,7 +166,11 @@ public class EntryPageController{
         }
     }
 
-    /*public static void popup(String message, BorderPane pane, StackPane stackPane){
+    //Ergi
+    //this method allows for pop up screens when the user
+    //fails three times with the password by freezing the account
+
+    public static void popup(String message, BorderPane pane, StackPane stackPane){
         BoxBlur blur = new BoxBlur(3, 3, 3);
         JFXDialogLayout layout = new JFXDialogLayout();
         JFXButton button = new JFXButton("OK");
@@ -178,7 +186,7 @@ public class EntryPageController{
             pane.setEffect(null);
         });
         pane.setEffect(blur);
-    }*/
+    }
 }
 
 

@@ -29,6 +29,7 @@ public class ContactUsController {
     private Label messageLabel;
 
     //andreea
+    //this method is self-explanatory, it goes back to the entry page
     @FXML
     void BackToEntryPage() {
         try {
@@ -39,6 +40,8 @@ public class ContactUsController {
     }
 
     //andreea and ossian
+    //this method saves the review to the 4th collection of the database
+    //after that it sends an email to the user thanking them for the review
     @FXML
     void SendPressed(ActionEvent event){
         //get user input

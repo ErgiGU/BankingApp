@@ -18,6 +18,9 @@ import static com.mongodb.client.model.Filters.eq;
 import static pleasefivebank.EntryPage.EntryPageController.user;
 
 public class EditDetailsController {
+    //this controller only includes a method to set up the user data
+    //methods to go from page to page
+    //and a method to change and update the user information
 
     String university;
 

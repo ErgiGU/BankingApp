@@ -1,10 +1,12 @@
 package pleasefivebank.EntryPage;
 
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 
 public class DataValidation {
 
+    //this whole class consists of  regex methods made by Ergi
+    //they are used mainly in registration to prevent the users
+    //from introducing faulty information
 
     //Ergi
     public static boolean textFieldIsEmpty(String inputTextField, Label inputLabel, String validationText){

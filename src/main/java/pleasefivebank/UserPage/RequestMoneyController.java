@@ -7,8 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import org.bson.Document;
-import pleasefivebank.EntryPage.EntryPageController;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
 import pleasefivebank.Objects.Transaction;
@@ -20,6 +18,8 @@ import static pleasefivebank.EntryPage.EntryPageController.user;
 import static pleasefivebank.Main.mainWindow;
 
 public class RequestMoneyController {
+    //this controller corresponds to the page where the user can request money
+    //there are methods to connect pages and to save and store the transaction requests
 
     @FXML
     private TextField Amount;

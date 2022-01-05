@@ -23,6 +23,9 @@ public class MakeTransferController {
     private String tempReceiverIBAN;
     private String tempQuantity;
     private String tempConcept;
+    //this controller only includes a method to set up the user data,
+    //methods to go from page to page
+    //and logic to make loans in the sendMoney method in line 135
 
     @FXML
     private TextField IBAN;

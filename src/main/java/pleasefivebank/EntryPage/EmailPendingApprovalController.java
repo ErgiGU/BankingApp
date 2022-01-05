@@ -8,8 +8,11 @@ import java.io.IOException;
 
 public class EmailPendingApprovalController {
 
+    //this is the controller for the page that appears when you finish registering
+    //it is just a confirmation page that offers the option to go back to the login
+    //page once the registration process is complete
     @FXML
-    public void toEntryPage(ActionEvent event) {
+    public void ToEntryPage(ActionEvent event) {
         try {
             Main.showPage("Entry-Page.fxml");
         }

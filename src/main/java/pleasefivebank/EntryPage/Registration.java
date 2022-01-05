@@ -56,7 +56,8 @@ public class Registration{
         } else{ checkbox = true; }
     }
 
-
+    //method to insert the user into the database and the JSON
+    //it is called when someone finished to register
     //andreea
     public static void register(User user, String username, String password){
         //String birthdate = extractBirthdate(this.personalID);//set the birthdate
@@ -80,6 +81,7 @@ public class Registration{
         }
     }
 
+    //Extracts the birthdate from the personnnummer
     //andreea && ossian
     public static String extractBirthdate(String personnummer){
         String yearString  = personnummer.substring(0,2);
@@ -91,6 +93,7 @@ public class Registration{
         return year +"."+ month + "."+ day;
     }
 
+    //This method generates IBAN's for users
     //juan
     public static String generateIBAN(){
         Iban iban = new Iban.Builder()
@@ -101,6 +104,7 @@ public class Registration{
         return ibanString;
     }
 
+    //This method allows to write the new user into the JSON file
     //andreea
     public static void toFile(Document user, Document login, Object key) {
         try {
@@ -112,6 +116,8 @@ public class Registration{
             e.printStackTrace();
         }
     }
+
+    //this method generates card numbers for new users
     //Carlotta
     public String generateCardNr() {
         Random random = new Random();
@@ -131,7 +137,7 @@ public class Registration{
         return builder.toString();
     }
 
-
+    //this method calculates the expiration date for the card
     //carlotta
     public String calculateExpirationDate(){
         String expirationDate = "";
@@ -150,7 +156,8 @@ public class Registration{
         return expirationDate.substring(2);
     }
 
-    //Backend and logic for the Registration controller
+    //the following methods gather user information, validate it, check for duplicates in the database
+    //and if everything is correct they allow the user to go from page to page
 
     //Ergi
     public void Page1to2Logic(TextField f, TextField l, TextField m, TextField i, Label fn, Label ln, Label mn, Label id){
@@ -248,6 +255,9 @@ public class Registration{
             }
         }
     }
+    //this method calls the method to make the user
+    //it also finishes registering the user
+    //and after registration is done it shows the confirmation page
     //Ergi
     public void FinishRegisterLogic(){
         try {
@@ -262,14 +272,16 @@ public class Registration{
                     tempPhone,tempID,tempEmail,tempUni,accNr,iban,random,"false");
             Registration.register(user,tempUsername,tempPassword);
             Mongo.mongo();
-            Main.showPage("Entry-Page.fxml");
+            Main.showPage("RegisterConfirmation.fxml");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
     //juan && Ergi
-    //This method displays the information that user had put
+    //This method displays the information that user had put on previous pages to
+    //allow the user to go back to other pages and correct information
+
     public static void backToPage(String screen,int screenNumber) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(screen));
         Scene scene = new Scene(fxmlLoader.load());
@@ -279,7 +291,6 @@ public class Registration{
             case 2 -> registrationController.setData2();
             case 3 -> registrationController.setData3();
         }
-
         mainWindow.setScene(scene);
     }
 
