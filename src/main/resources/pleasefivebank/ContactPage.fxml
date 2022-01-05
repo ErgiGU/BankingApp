@@ -215,32 +215,32 @@
             </Text>
             <ImageView fitHeight="49.0" fitWidth="66.0" layoutX="504.0" layoutY="351.0" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Downloads/24-7-support-10895.png" />
+                  <Image url="@../PNGs/24-7-support-10895.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="92.0" fitWidth="102.0" layoutX="751.0" layoutY="479.0" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Downloads/chat-support-1707.png" />
+                  <Image url="@../PNGs/chat-support-1707.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="42.0" fitWidth="66.0" layoutX="675.0" layoutY="495.0" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Downloads/typing-animation-3x.gif" />
+                  <Image url="@../PNGs/typing-animation-3x.gif" />
                </image>
             </ImageView>
             <ImageView fitHeight="40.0" fitWidth="42.0" layoutX="649.0" layoutY="270.0" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Downloads/instagram-logo-8869.png" />
+                  <Image url="@../PNGs/instagram-logo-8869.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="591.0" layoutY="270.0" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Downloads/facebook-2870.png" />
+                  <Image url="@../PNGs/facebook-2870.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="707.0" layoutY="270.0" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../Downloads/whatsapp-logo-4450.png" />
+                  <Image url="@../PNGs/whatsapp-logo-4450.png" />
                </image>
             </ImageView>
             <Text fill="#457b9d" layoutX="558.0" layoutY="371.0" lineSpacing="2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If you want immediate support, chat to our chat bot regarding any doubts" wrappingWidth="290.21466064453125">
