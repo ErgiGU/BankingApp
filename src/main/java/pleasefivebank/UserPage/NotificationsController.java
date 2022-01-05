@@ -29,7 +29,7 @@ public class NotificationsController {
     private TableColumn<?, ?> IBANColumn;
 
     @FXML
-    private Button NameLabel;
+    private Button NameDisplay;
 
     @FXML
     private TableColumn<?, ?> amountColumn;
@@ -196,7 +196,7 @@ public class NotificationsController {
         }
         setupRequestsTable();
         seTupLoansTable();
-        NameLabel.setText(user.getFirstName()+ " " + user.getLastName());
+        NameDisplay.setText(user.getFirstName()+ " " + user.getLastName());
     }
 
 }
