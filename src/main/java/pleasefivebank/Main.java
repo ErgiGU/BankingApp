@@ -60,7 +60,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("StudentLoans.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         LoansController loansController = fxmlLoader.getController();
-        loansController.setName(fullName);
+        loansController.setName();
         mainWindow.setScene(scene);
     }
     //Juan

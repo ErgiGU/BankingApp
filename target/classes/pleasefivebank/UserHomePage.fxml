@@ -39,7 +39,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Text fill="WHITE" layoutX="44.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cards">
+            <Text fill="WHITE" layoutX="45.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cards">
                <font>
                   <Font name="Avenir Book" size="15.0" />
                </font>
@@ -72,7 +72,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
                <graphic>
-                  <ImageView fitHeight="43.0" fitWidth="42.0" preserveRatio="true">
+                  <ImageView fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
                      <image>
                         <Image url="@../PNGs/home.png" />
                      </image>
@@ -344,6 +344,11 @@
                   <Font name="Avenir Book" size="15.0" />
                </font>
             </Text>
+            <ImageView fitHeight="66.0" fitWidth="69.0" layoutX="-25.0" layoutY="18.0" preserveRatio="true">
+               <image>
+                  <Image url="@../PNGs/triangle.png" />
+               </image>
+            </ImageView>
          </children></AnchorPane>
    </right>
 </BorderPane>

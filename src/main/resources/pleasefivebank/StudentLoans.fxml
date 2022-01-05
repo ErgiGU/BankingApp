@@ -130,28 +130,18 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Text>
-            <ImageView fitHeight="61.0" fitWidth="32.0" layoutX="96.0" layoutY="320.0">
-               <image>
-                  <Image url="@../PNGs/triangle.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
    </left>
    <top>
-      <AnchorPane prefHeight="86.0" prefWidth="1050.0" style="-fx-background-color: #2b5292;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="78.0" prefWidth="1050.0" style="-fx-background-color: #2b5292;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="68.0" fitWidth="107.0" layoutX="10.0" layoutY="10.0" preserveRatio="true">
+            <ImageView fitHeight="60.0" fitWidth="102.0" layoutX="15.0" layoutY="10.0" preserveRatio="true">
                <image>
                   <Image url="@../PNGs/P5B white small logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="49.0" fitWidth="48.0" layoutX="750.0" layoutY="19.0" preserveRatio="true">
-               <image>
-                  <Image url="@../PNGs/user-3296.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="logout" layoutX="934.0" layoutY="22.0" mnemonicParsing="false" onAction="#Logout" prefHeight="38.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
+            <Button fx:id="logout" layoutX="913.0" layoutY="20.0" mnemonicParsing="false" onAction="#Logout" prefHeight="0.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -159,25 +149,32 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="679.0" layoutY="21.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: #2b5292;">
+            <Button fx:id="NameLabel" layoutX="691.0" layoutY="17.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="222.0" style="-fx-background-color: #2b5292;" textFill="WHITE">
+               <font>
+                  <Font name="Avenir Book" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <graphic>
-                  <ImageView fitHeight="38.0" fitWidth="42.0" preserveRatio="true">
+                  <ImageView fitHeight="39.0" fitWidth="222.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../PNGs/user-3296.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="641.0" layoutY="18.0" mnemonicParsing="false" onAction="#ToNotifications" prefHeight="45.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: #2b5292;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="33.0" preserveRatio="true">
                      <image>
                         <Image url="@../PNGs/bell-3063.png" />
                      </image>
                   </ImageView>
                </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button fx:id="NameLabel" layoutX="799.0" layoutY="21.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #2b5292;" text="Jose Meirda" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </Button>
          </children>
       </AnchorPane>
@@ -269,6 +266,13 @@
             <Label fx:id="notBlank1" layoutX="66.0" layoutY="219.0" prefHeight="17.0" prefWidth="326.0" textFill="#e60f0f" />
             <Label fx:id="notBlank2" layoutX="69.0" layoutY="295.0" prefHeight="17.0" prefWidth="326.0" textFill="#e60f0f" />
             <Label fx:id="notBlank3" layoutX="66.0" layoutY="379.0" prefHeight="17.0" prefWidth="326.0" textFill="#e60f0f" />
+            <ImageView fitHeight="66.0" fitWidth="69.0" layoutX="-25.0" layoutY="323.0" preserveRatio="true">
+               <image>
+                  <Image url="@../PNGs/triangle.png" />
+               </image>
+            </ImageView>
+            <Line endX="330.39990234375" endY="-49.4000244140625" layoutX="596.0" layoutY="578.0" startX="-68.0" startY="-49.0" stroke="#1275ea" strokeWidth="1.6" />
+            <Line endX="-68.00006103515625" endY="467.5999755859375" layoutX="596.0" layoutY="61.0" startX="-68.00006103515625" startY="-58.0" stroke="#1275ea" />
          </children></AnchorPane>
    </center>
 </BorderPane>
