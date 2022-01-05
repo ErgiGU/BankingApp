@@ -15,10 +15,8 @@
     opacity: 1;
 }
 
-#Reg1 {
 
-
-}
 .button:hover{
     -fx-opacity: 0.8;
 }
+

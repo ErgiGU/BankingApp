@@ -97,15 +97,14 @@ public class LoansController {
     }
 
     @FXML
-    public void calculate(ActionEvent event) {
+    public void calculate(ActionEvent event) throws Exception {
         errorHandling();
-
         Interest interest = loan.totalCosts(getAmountPerMonthPrompt(), getEstPayBackTimePrompt(), getLoanPeriodPrompt());
         double totalWRent = interest.getTotal();
         double rentOnly = interest.getRentOnly();
-        totalCost.setText(String.valueOf(totalWRent));
-        rentTotal.setText(String.valueOf(rentOnly));
-        totalAmount.setText(String.valueOf(totalWRent));
+        totalCost.setText(String.valueOf(trunc(totalWRent)));
+        rentTotal.setText(String.valueOf(trunc(rentOnly)));
+        totalAmount.setText(String.valueOf(trunc(totalWRent)));
     }
 
 
@@ -146,9 +145,14 @@ public class LoansController {
 
     @FXML
     void Accept(ActionEvent event) {
+
         loan.changeCheckBox();
-        checkBoxBoo = true;
+        if (checkBoxBoo == true){ checkBoxBoo = false;
+        }else {
+            checkBoxBoo = true;
+        }
     }
+
 
     @FXML
     void ToTransactions(ActionEvent event) {
@@ -179,9 +183,10 @@ public class LoansController {
     }
 
     @FXML
-    void ToConfirmation(ActionEvent event) {
+    void ToConfirmation(ActionEvent event) throws Exception {
       errorHandling();
-        if (checkBoxBoo == true) {
+
+        if (checkBoxBoo == true ) {
             try {
                 Main.showPage("LoanRequestSent.fxml");
             } catch (IOException ex) {
@@ -191,16 +196,39 @@ public class LoansController {
             pleaseAccept.setText("Please accept the terms and conditions");
         }
     }
-    private void errorHandling(){
+    private void errorHandling() throws  Exception{
+        boolean flag = false;
+        boolean flag2 = false;
+        boolean flag3 = false;
+        boolean flag4 = false;
         if (amountPerMonth.getText() == "") {
             notBlank1.setText("Cannot be blank");
-        }else{notBlank1.setText("");}
+        } else {
+            notBlank1.setText("");
+            flag = true;
+        }
         if (LoanPeriod.getText() == "") {
             notBlank2.setText("Cannot be blank");
-        }else{notBlank2.setText("");}
+        } else {
+            notBlank2.setText("");
+            flag2 = true;
+        }
         if (EstPayBackTime.getText() == "") {
             notBlank3.setText("Cannot be blank");
-        }else{notBlank3.setText("");}
+        } else {
+            notBlank3.setText("");
+            flag3 = true;
+        }
+        double quantity = Double.parseDouble(amountPerMonth.getText());
+        if (quantity > 13000 || quantity < 3000) {
+            notBlank1.setText("Amount must be between 3000 and 13000 SEK");
+        } else {
+            notBlank1.setText("");
+            flag4 = true;
+        }
+        if(flag == false || flag2 == false || flag3 == false || flag4 == false){
+            throw new Exception("All fields not entered");
+        }
     }
     //juan and lotti
     public void setName(String name){
