@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="587.0" prefWidth="764.0" style="-fx-background-color: EFEFEF;" BorderPane.alignment="CENTER">
+         <children>
+            <TextField layoutX="79.0" layoutY="246.0" prefHeight="34.0" prefWidth="239.0" promptText="IBAN" style="-fx-background-color: EFEFEFEFEFEF; -fx-border-color: #1275EA#1275EA;" />
+            <TextField layoutX="79.0" layoutY="303.0" prefHeight="34.0" prefWidth="239.0" promptText="Amount" style="-fx-background-color: EFEFEFEFEFEF; -fx-border-color: #1275EA#1275EA;" />
+            <Button layoutX="79.0" layoutY="438.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="239.0" style="-fx-background-color: #1275EA#1275EA;" text="Send Request" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Pane layoutX="399.0" prefHeight="588.0" prefWidth="381.0" style="-fx-background-color: #1275EA#1275EA;">
+
+            </Pane>
+            <Text fill="#1275ea" layoutX="57.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Make a Request" textAlignment="CENTER" wrappingWidth="234.18243408203125">
+               <font>
+                  <Font name="Arial" size="25.0" />
+               </font>
+            </Text>
+            <Button layoutY="3.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="45.0" style="-fx-background-color: EFEFEF;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="33.0" fitWidth="38.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../PNGs/arrow-237.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Text fill="#1275ea" layoutX="43.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Back to Entry Page">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Text>
+            <TextField layoutX="79.0" layoutY="189.0" prefHeight="34.0" prefWidth="239.0" promptText="Name" style="-fx-background-color: EFEFEFEFEFEF; -fx-border-color: #1275EA#1275EA;" />
+            <TextArea layoutX="79.0" layoutY="363.0" prefHeight="49.0" prefWidth="239.0" promptText="Message (30 character limit)" style="-fx-background-color: efefef; -fx-border-color: #1275EA;" wrapText="true" />
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>
