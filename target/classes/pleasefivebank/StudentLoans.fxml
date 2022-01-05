@@ -271,6 +271,8 @@
                   <Image url="@../PNGs/triangle.png" />
                </image>
             </ImageView>
+            <Line endX="330.39990234375" endY="-49.4000244140625" layoutX="596.0" layoutY="578.0" startX="-68.0" startY="-49.0" stroke="#1275ea" strokeWidth="1.6" />
+            <Line endX="-68.00006103515625" endY="467.5999755859375" layoutX="596.0" layoutY="61.0" startX="-68.00006103515625" startY="-58.0" stroke="#1275ea" />
          </children></AnchorPane>
    </center>
 </BorderPane>

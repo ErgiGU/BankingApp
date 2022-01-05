@@ -28,10 +28,10 @@ public class ForgotPassword{
         updatePassword(encrPass, email);
     }
 
-    //andreea
-    public void updatePassword(String newPass, String email) {
-        Mongo.coll.findOneAndUpdate(eq("email", email),
-                new Document("$set", new Document("password", newPass)));
+    //andreea && Ergi
+    public void updatePassword(String newPass, String givenUsername) {
+        Mongo.coll.findOneAndUpdate(eq("user name", givenUsername),
+                new Document("$set", new Document("password", Mongo.encrypt(newPass))));
         Mongo.updateJson();
     }
 }

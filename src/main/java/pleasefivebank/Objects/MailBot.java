@@ -7,44 +7,40 @@ import javax.mail.Transport;
 import javax.mail.internet.*;
 import java.io.IOException;
 import java.util.Properties;
+import java.io.IOException;
+import java.util.Properties;
 
-//ive yet to do enough research to give a satisfactory explanation of the functions. further description pending
-    public class MailBot {
-        Session newSession = null;
-        MimeMessage mimeMessage = null;
+public class MailBot {
 
-        public void sendEmail() throws MessagingException {
-            String fromUser = "please5bank@gmail.com";  //Enter sender email id (MUST BE GMAIL)
-            String fromUserPassword = "Password123#";  //Enter sender gmail password , this will be authenticated by gmail smtp server
-            // (if it doesn't work go to myaccount.google.com/security and enable third party access)
-            String emailHost = "smtp.gmail.com";
-            Transport transport = newSession.getTransport("smtp");
-            transport.connect(emailHost, fromUser, fromUserPassword);
-            transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
-            transport.close();
-        }
-
-        public MimeMessage draftEmail(String emailRecipient,String emailSubject ,String emailBody) throws AddressException, MessagingException, IOException {
-            mimeMessage = new MimeMessage(newSession);
-            mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(emailRecipient));
-            mimeMessage.setSubject(emailSubject);
-
-            MimeBodyPart bodyPart = new MimeBodyPart();
-            bodyPart.setContent(emailBody,"html/text");
-            MimeMultipart multiPart = new MimeMultipart();
-            multiPart.addBodyPart(bodyPart);
-            mimeMessage.setContent(multiPart);
-            return mimeMessage;
-        }
-
-        public void setupServerProperties() {
-            Properties properties = System.getProperties();
-            properties.put("mail.smtp.port", "2525");
-            properties.put("mail.smtp.auth", "true");
-            properties.put("mail.smtp.starttls.enable", "true");
-            properties.put("mail.smtp.ssl.trust=smtp.gmail.com","*");
-            newSession = Session.getDefaultInstance(properties,null);
-
-        }
+    Session newSession = null;
+    MimeMessage mimeMessage = null;
+    //Ossian
+    public void sendEmail() throws MessagingException {
+        String fromUser = "please5bank@gmail.com";  //Enter sender email id (MUST BE GMAIL)
+        String fromUserPassword = "Password123#";  //Enter sender gmail password , this will be authenticated by gmail smtp server
+        String emailHost = "smtp.gmail.com";
+        Transport transport = newSession.getTransport("smtp");
+        transport.connect(emailHost, fromUser, fromUserPassword);
+        transport.sendMessage(mimeMessage, mimeMessage.getAllRecipients());
+        transport.close();
     }
 
+    //Created by Ossian and blessed by Ergi
+    public MimeMessage draftEmail(String emailRecipient,String emailSubject ,String emailBody) throws MessagingException, IOException {
+        mimeMessage = new MimeMessage(newSession);
+        mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(emailRecipient));
+        mimeMessage.setSubject(emailSubject);
+        mimeMessage.setText(emailBody);
+        return mimeMessage;
+    }
+
+    //Ossian
+    public void setupServerProperties() {
+        Properties properties = System.getProperties();
+        properties.setProperty("mail.smtp.port", "587");
+        properties.setProperty("mail.smtp.auth", "true");
+        properties.setProperty("mail.smtp.starttls.enable", "true");
+        properties.setProperty("mail.smtp.ssl.protocols", "TLSv1.3");
+        newSession = Session.getDefaultInstance(properties,null);
+    }
+}

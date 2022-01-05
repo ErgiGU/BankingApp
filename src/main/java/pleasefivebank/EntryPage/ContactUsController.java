@@ -10,6 +10,7 @@ import org.bson.Document;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
 import pleasefivebank.Objects.MailBot;
+import pleasefivebank.Objects.PasswordGen;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
@@ -39,37 +40,25 @@ public class ContactUsController {
         }
     }
 
-    //andreea and ossian
+    //andreea,ossian and Ergi
     //this method saves the review to the 4th collection of the database
     //after that it sends an email to the user thanking them for the review
     @FXML
-    void SendPressed(ActionEvent event){
-        //get user input
-        String email = EmailTextField.getText();
-        String username = NameTextField.getText();
-        String message = MessageField.getText();
-        //validate data
-        if((!Mongo.isUser(username)) || (!Mongo.isAssociatedEmail(email))
-                || (email.isEmpty()) || (username.isEmpty()) || (message.isEmpty())){
-            messageLabel.setText("please try again...");
-        }
-        Document review = new Document("email", email).append("user name", username).
-                append("text", message);
-        Mongo.coll4.insertOne(review);
-        //preparing to send email
-        MailBot mail = new MailBot();
-        mail.setupServerProperties();
+    void SendPressed(ActionEvent event) {
         try {
-            mail.draftEmail(email,"New Password","Hi "+username+" thank you for your feedback." );
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            Main.showPage("EmailSent.fxml");
-        } catch (IOException ex) {
+            String email = EmailTextField.getText();
+            String name = NameTextField.getText();
+            MailBot mail = new MailBot();
+            mail.setupServerProperties();
+            String reply = "Automated reply";
+            String body = "Hello " + name +"\n\nThank you so much for reaching out to us! We have received your email and" +
+                    " we will get back to you in 1-3 business days.\n\n\nThis is an automated reply, do not respond.";
+            mail.draftEmail(email,reply,body);
+            mail.sendEmail();
+            Main.showPage("Entry-Page.fxml");
+        } catch (IOException | MessagingException ex) {
             ex.printStackTrace();
         }
     }
-}
+    }
+

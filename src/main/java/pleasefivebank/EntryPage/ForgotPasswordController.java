@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import pleasefivebank.Main;
+import pleasefivebank.Mongo;
 import pleasefivebank.Objects.MailBot;
 import pleasefivebank.Objects.PasswordGen;
 
@@ -32,10 +33,10 @@ public class ForgotPasswordController {
         //get user input
         String email = Email.getText();
         String userName = Username.getText();
-        //if(!Mongo.isAssociatedEmail(email) || !Mongo.isUser(userName) ||
-        //(email.isEmpty()) || (userName.isEmpty())){
-          //  confirmationLabel.setText("this account doesn't exist in our database");
-        //} else {
+        if (!Mongo.isAssociatedEmail(email) || !Mongo.isUser(userName) ||
+                (email.isEmpty()) || (userName.isEmpty())) {
+            confirmationLabel.setText("The account doesn't exist");
+        } else {
             tempEmail = email;
             tempUsername = userName;
             ForgotPassword forgotPassword = new ForgotPassword();//might need to be moved to the first line
@@ -45,11 +46,11 @@ public class ForgotPasswordController {
             //resetting password
             PasswordGen generator = new PasswordGen();
             String newpass = generator.GeneratePassword();
-            forgotPassword.updatePassword(newpass,email);
+            forgotPassword.updatePassword(newpass, userName);
             //preparing to send email
             MailBot mail = new MailBot();
             mail.setupServerProperties();
-            mail.draftEmail(email,"New Password","Hi "+userName+" here is your new password: "+newpass );
+            mail.draftEmail(email, "New Password", "Hi " + userName + " here is your new password: " + newpass);
             mail.sendEmail();
             try {
                 Main.showPage("Entry-Page.fxml");
@@ -57,6 +58,7 @@ public class ForgotPasswordController {
                 ex.printStackTrace();
             }
         }
+    }
 
 
     @FXML
@@ -68,5 +70,6 @@ public class ForgotPasswordController {
             ex.printStackTrace();
         }
     }
+
 }
 
