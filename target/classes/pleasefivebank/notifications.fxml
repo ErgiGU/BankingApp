@@ -141,11 +141,6 @@
                         <Image url="@../PNGs/P5B white small logo.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="49.0" fitWidth="48.0" layoutX="750.0" layoutY="19.0" preserveRatio="true">
-                    <image>
-                        <Image url="@../PNGs/user-3296.png" />
-                    </image>
-                </ImageView>
                 <Button layoutX="913.0" layoutY="20.0" mnemonicParsing="false" onAction="#Logout" prefHeight="0.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
                     <font>
                         <Font name="System Bold" size="18.0" />
@@ -154,7 +149,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Button layoutX="679.0" layoutY="21.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: #2b5292;">
+                <Button layoutX="641.0" layoutY="18.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: #2b5292;">
                     <graphic>
                         <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="657.0" layoutY="26.0" preserveRatio="true">
                             <image>
@@ -166,14 +161,21 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Button fx:id="NameLabel" layoutX="799.0" layoutY="21.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="112.0" style="-fx-background-color: #2b5292;" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="18.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Button>
+            <Button fx:id="NameDisplay" layoutX="691.0" layoutY="17.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="222.0" style="-fx-background-color: #2b5292;" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="39.0" fitWidth="42.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../PNGs/user-3296.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
             </children>
         </AnchorPane>
     </top>
@@ -243,7 +245,7 @@
                   <Font size="37.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="327.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="loans">
+            <Text fill="#2b5292" layoutX="327.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loans">
                <font>
                   <Font size="37.0" />
                </font>

@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import pleasefivebank.Main;
 import pleasefivebank.Objects.User;
 
@@ -34,18 +35,23 @@ public class LoanRequestedController {
             ex.printStackTrace();
         }
     }
+
+    //Elisa
+    @FXML
+    void ContactUsButton(MouseEvent event) {
+        try {
+            Main.showContactUs(user);
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     //juan
     @FXML
     void ToDetails(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AccountDetails.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            AccountDetailsController accountDetailsController = fxmlLoader.getController();
-            User currentUser = user;
-            if(!currentUser.equals(null)) {
-                accountDetailsController.setInformation(user);
-                mainWindow.setScene(scene);
-            }
+            Main.showDetails(user);
         }
         catch (IOException ex) {
             ex.printStackTrace();

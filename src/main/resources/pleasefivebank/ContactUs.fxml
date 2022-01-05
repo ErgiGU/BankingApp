@@ -68,6 +68,6 @@
          </font>
       </Text>
       <TextField fx:id="NameTextField" layoutX="277.0" layoutY="291.0" prefHeight="35.0" prefWidth="213.0" promptText="Full name" style="-fx-background-color: EFEFEF; -fx-border-color: #1275EA; -fx-border-width: 0px 0px 2px 0px;" />
-      <Label fx:id="nameLabel" layoutX="277.0" layoutY="326.0" prefHeight="25.0" prefWidth="146.0" />
+      <Label fx:id="nameLabel" layoutX="277.0" layoutY="326.0" prefHeight="25.0" prefWidth="159.0" />
    </children>
 </Pane>

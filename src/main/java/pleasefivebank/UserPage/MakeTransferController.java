@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import org.bson.Document;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
@@ -67,19 +68,24 @@ public class MakeTransferController {
     @FXML
     void ToDetails(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AccountDetails.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            AccountDetailsController accountDetailsController = fxmlLoader.getController();
-            User currentUser = user;
-            if(!currentUser.equals(null)) {
-                accountDetailsController.setInformation(user);
-                mainWindow.setScene(scene);
-            }
+            Main.showDetails(user);
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
     }
+
+    //elisa
+    @FXML
+    void ContactUsButton(MouseEvent event) {
+        try {
+            Main.showContactUs(user);
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     //juan
     @FXML
     void ToHome(ActionEvent event) {

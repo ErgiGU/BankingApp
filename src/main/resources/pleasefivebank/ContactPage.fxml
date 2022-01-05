@@ -15,30 +15,6 @@
    <left>
       <AnchorPane prefHeight="614.0" prefWidth="128.0" style="-fx-background-color: #457B9D;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="12.0" layoutY="414.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="84.0" style="-fx-background-radius: 25; -fx-border-image-width: 20; -fx-background-color: #457B9D;">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <graphic>
-                  <ImageView fitHeight="87.0" fitWidth="97.0" layoutX="12.0" preserveRatio="true">
-                     <image>
-                        <Image url="@../PNGs/support-and-service-1678.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button layoutX="8.0" layoutY="531.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="84.0" style="-fx-background-color: #457B9D #457B9D;" text="Button" textFill="#457b9d">
-               <graphic>
-                  <Text fill="WHITE" layoutX="8.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact us" textAlignment="CENTER" wrappingWidth="89.32926940917969">
-                     <font>
-                        <Font name="Avenir Next Bold" size="15.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </Text>
-               </graphic>
-            </Button>
             <Button layoutX="21.0" layoutY="212.0" mnemonicParsing="false" onAction="#ToCards" prefHeight="73.0" prefWidth="84.0" style="-fx-background-radius: 25; -fx-border-image-width: 20; -fx-background-color: #457B9D;">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -51,7 +27,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Text fill="WHITE" layoutX="44.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cards">
+            <Text fill="WHITE" layoutX="45.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cards">
                <font>
                   <Font name="Avenir Book" size="15.0" />
                </font>
@@ -79,12 +55,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Text>
-            <Button layoutX="24.0" layoutY="8.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="84.0" style="-fx-background-radius: 25; -fx-border-image-width: 20; -fx-background-color: #457B9D;">
+            <Button layoutX="24.0" layoutY="8.0" mnemonicParsing="false" onAction="#ToHome" prefHeight="73.0" prefWidth="84.0" style="-fx-background-radius: 25; -fx-border-image-width: 20; -fx-background-color: #457B9D;">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <graphic>
-                  <ImageView fitHeight="43.0" fitWidth="42.0" preserveRatio="true">
+                  <ImageView fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
                      <image>
                         <Image url="@../PNGs/home.png" />
                      </image>
@@ -123,7 +99,7 @@
                </cursor>
             </Text>
             <Line endX="75.0" layoutX="54.0" layoutY="406.0" startX="-52.99998474121094" startY="-7.62939453125E-6" stroke="WHITE" />
-            <Text fill="WHITE" layoutX="24.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Need help?" textAlignment="CENTER">
+            <Text fill="WHITE" layoutX="24.0" layoutY="532.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Need help?" textAlignment="CENTER">
                <font>
                   <Font name="Avenir Book" size="15.0" />
                </font>
@@ -131,9 +107,22 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Text>
-            <Text fill="WHITE" layoutX="17.0" layoutY="573.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone: 031-12 26 31" textAlignment="CENTER" wrappingWidth="89.32926940917969">
+            <Text fill="WHITE" layoutX="14.0" layoutY="583.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone: 031-12 26 31" textAlignment="CENTER" wrappingWidth="89.32926940917969">
                <font>
                   <Font name="Avenir Book" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Text>
+            <ImageView fitHeight="87.0" fitWidth="97.0" layoutX="28.0" layoutY="425.0" preserveRatio="true">
+               <image>
+                  <Image url="@../PNGs/support-and-service-1678.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="25.0" layoutY="554.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact us" wrappingWidth="89.32926940917969">
+               <font>
+                  <Font size="15.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
@@ -150,7 +139,7 @@
                   <Image url="@../PNGs/P5B white small logo.png" />
                </image>
             </ImageView>
-            <Button fx:id="logout" layoutX="913.0" layoutY="20.0" mnemonicParsing="false" onAction="#Logout" prefHeight="0.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
+            <Button layoutX="913.0" layoutY="20.0" mnemonicParsing="false" onAction="#Logout" prefHeight="0.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
                <font>
                   <Font name="Avenir Book" size="18.0" />
                </font>
@@ -162,10 +151,17 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="33.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../PNGs/bell-3063.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button fx:id="NameDisplay" layoutX="691.0" layoutY="17.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="222.0" style="-fx-background-color: #2b5292;" text="Name" textFill="WHITE">
+            <Button fx:id="NameDisplay" layoutX="691.0" layoutY="17.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="222.0" style="-fx-background-color: #2b5292;" textFill="WHITE">
                <font>
-                  <Font name="Avenir Book" size="17.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -178,11 +174,6 @@
                   </ImageView>
                </graphic>
             </Button>
-            <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="657.0" layoutY="26.0" preserveRatio="true">
-               <image>
-                  <Image url="@../PNGs/bell-3063.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
    </top>
@@ -258,7 +249,7 @@
                   <Font name="Avenir Book" size="17.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="83.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Call 08-735 86 40" textAlignment="CENTER" wrappingWidth="336.8214111328125">
+            <Text fill="#2b5292" layoutX="83.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Call 031-12 26 31" textAlignment="CENTER" wrappingWidth="336.8214111328125">
                <font>
                   <Font name="Avenir Next Bold" size="17.0" />
                </font>

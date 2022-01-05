@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
@@ -102,44 +103,32 @@ public class HomePageController {
             ex.printStackTrace();
         }
     }
-    //juan and Carlotta
+    //Ergi
     @FXML
     void ToTransactions(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Transactions.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            TransactionsController transactionsController = fxmlLoader.getController();
-            transactionsController.setupTable();
-            mainWindow.setScene(scene);
-            //Main.showTransactionsPage(user.getFirstName()+ " " + user.getLastName());
+            Main.showTransactionsPage(user.getFirstName()+ " " + user.getLastName());
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
-
     }
     //Juan and Ergi
     @FXML
     void ToDetails(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AccountDetails.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            AccountDetailsController accountDetailsController = fxmlLoader.getController();
-            User currentUser = user;
-            if(!currentUser.equals(null)) {
-                accountDetailsController.setInformation(user);
-                mainWindow.setScene(scene);
-            }
+            Main.showDetails(user);
         }
         catch (IOException ex) {
             ex.printStackTrace();
         }
     }
+
     //elisa
     @FXML
-    void ToContactUs(ActionEvent event) {
+    void ContactUsButton(MouseEvent event) {
         try {
-            Main.showPage("ContactPage.fxml");;
+            Main.showContactUs(user);
         }
         catch (IOException ex) {
             ex.printStackTrace();
@@ -150,7 +139,6 @@ public class HomePageController {
     //juan
     @FXML
     public void Logout(ActionEvent event) {
-        //save the activity
         try {
             Main.showPage("Entry-Page.fxml");
         }
@@ -158,6 +146,7 @@ public class HomePageController {
             ex.printStackTrace();
         }
     }
+
     //juan
     public void setName(String name){
         NameDisplay.setText(name);

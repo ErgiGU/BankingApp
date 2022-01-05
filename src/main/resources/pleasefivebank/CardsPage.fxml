@@ -15,18 +15,6 @@
    <left>
       <AnchorPane prefHeight="614.0" prefWidth="128.0" style="-fx-background-color: #457B9D;" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="12.0" layoutY="415.0" mnemonicParsing="false" onAction="#ToContactUs" prefHeight="98.0" prefWidth="89.0" style="-fx-background-radius: 25; -fx-border-image-width: 20; -fx-background-color: #457B9D;">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <graphic>
-                  <ImageView fitHeight="87.0" fitWidth="97.0" layoutX="12.0" preserveRatio="true">
-                     <image>
-                        <Image url="@../PNGs/support-and-service-1678.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
             <Button layoutX="23.0" layoutY="110.0" mnemonicParsing="false" onAction="#ToTransactions" prefHeight="72.0" prefWidth="86.0" style="-fx-background-radius: 25; -fx-border-image-width: 20; -fx-background-color: #457B9D;">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -111,7 +99,7 @@
                </cursor>
             </Text>
             <Line endX="75.0" layoutX="54.0" layoutY="406.0" startX="-52.99998474121094" startY="-7.62939453125E-6" stroke="WHITE" />
-            <Text fill="WHITE" layoutX="24.0" layoutY="525.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Need help?" textAlignment="CENTER">
+            <Text fill="WHITE" layoutX="24.0" layoutY="532.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Need help?" textAlignment="CENTER">
                <font>
                   <Font name="Avenir Book" size="15.0" />
                </font>
@@ -119,7 +107,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Text>
-            <Text fill="WHITE" layoutX="18.0" layoutY="549.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact us" textAlignment="CENTER" wrappingWidth="89.32926940917969">
+            <Text fill="WHITE" layoutX="14.0" layoutY="583.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone: 031-12 26 31" textAlignment="CENTER" wrappingWidth="89.32926940917969">
                <font>
                   <Font name="Avenir Book" size="15.0" />
                </font>
@@ -127,9 +115,17 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Text>
-            <Text fill="WHITE" layoutX="17.0" layoutY="573.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone: 031-12 26 31" textAlignment="CENTER" wrappingWidth="89.32926940917969">
+            <ImageView fitHeight="87.0" fitWidth="97.0" layoutX="28.0" layoutY="425.0" onMouseClicked="#ContactUsButton" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../PNGs/support-and-service-1678.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Text fill="WHITE" layoutX="25.0" layoutY="554.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact us" wrappingWidth="89.32926940917969">
                <font>
-                  <Font name="Avenir Book" size="15.0" />
+                  <Font size="15.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
@@ -168,7 +164,7 @@
             </Button>
             <Button fx:id="NameLabel" layoutX="691.0" layoutY="17.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="222.0" style="-fx-background-color: #2b5292;" textFill="WHITE">
                <font>
-                  <Font name="Avenir Book" size="17.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />

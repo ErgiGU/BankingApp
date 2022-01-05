@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import pleasefivebank.Main;
 import pleasefivebank.Objects.User;
@@ -110,9 +111,9 @@ public class CardsController {
 
     //elisa
     @FXML
-    void ToContactUs(ActionEvent event) {
+    void ContactUsButton(MouseEvent event) {
         try {
-            Main.showPage("ContactPage.fxml");;
+            Main.showContactUs(user);
         }
         catch (IOException ex) {
             ex.printStackTrace();

@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import pleasefivebank.Main;
 import pleasefivebank.Objects.Interest;
 import pleasefivebank.Objects.Loan;
@@ -47,7 +48,6 @@ public class LoansController {
 
     @FXML
     private Label totalAmount;
-
 
     @FXML
     private TextField EstPayBackTime;
@@ -101,6 +101,17 @@ public class LoansController {
         rentTotal.setText(String.valueOf(trunc(rentOnly)));
     }
 
+    //elisa
+    @FXML
+    void ContactUsButton(MouseEvent event) {
+        try {
+            Main.showContactUs(user);
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
 
     @FXML
     void ToCards(ActionEvent event) {
@@ -115,14 +126,7 @@ public class LoansController {
     @FXML
     void ToDetails(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AccountDetails.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            AccountDetailsController accountDetailsController = fxmlLoader.getController();
-            User currentUser = user;
-            if(!currentUser.equals(null)) {
-                accountDetailsController.setInformation(user);
-                mainWindow.setScene(scene);
-            }
+            Main.showDetails(user);
         }
         catch (IOException ex) {
             ex.printStackTrace();
@@ -178,7 +182,7 @@ public class LoansController {
     void ToConfirmation(ActionEvent event) throws Exception {
         errorHandling();
 
-        if (checkBoxBoo ) {
+        if (checkBoxBoo) {
             try {
                 Main.showPage("LoanRequestSent.fxml");
             } catch (IOException ex) {

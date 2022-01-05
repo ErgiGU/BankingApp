@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import pleasefivebank.Objects.User;
 import pleasefivebank.UserPage.*;
 import java.io.IOException;
 
@@ -68,6 +69,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Transactions.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         TransactionsController transactionsController = fxmlLoader.getController();
+        transactionsController.setupTable();
         transactionsController.setName(fullName);
         mainWindow.setScene(scene);
     }
@@ -112,6 +114,23 @@ public class Main extends Application {
         mainWindow.setScene(scene);
     }
 
+    //Ergi
+    public static void showContactUs(User user) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ContactPage.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        ContactController controller= fxmlLoader.getController();
+        controller.setName();
+        mainWindow.setScene(scene);
+    }
+
+    //Ergi
+    public static void showDetails(User user) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AccountDetails.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        AccountDetailsController controller= fxmlLoader.getController();
+        controller.setInformation(user);
+        mainWindow.setScene(scene);
+    }
 
 
 }
