@@ -87,6 +87,7 @@ public class LoansController {
         return loanPeriodPrompt;
     }
 
+    //Linus
     @FXML
     public void calculate(ActionEvent event) {
         errorHandling();
@@ -101,8 +102,9 @@ public class LoansController {
     @FXML
     void ToCards(ActionEvent event) {
         try {
-            Main.showPage("CardsPage.fxml");
-        } catch (IOException ex) {
+            Main.showCardsPage(user.getFirstName()+ " " + user.getLastName());
+        }
+        catch (IOException ex) {
             ex.printStackTrace();
         }
     }
@@ -127,7 +129,7 @@ public class LoansController {
     @FXML
     void ToHome(ActionEvent event) {
         try {
-            Main.showPage("UserHomePage.fxml");
+            Main.showLoginPage(user.getFirstName()+ " " + user.getLastName());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -203,8 +205,19 @@ public class LoansController {
         return true;
     }
     //juan and lotti
-    public void setName(String name){
+    public void setName(){
         NameLabel.setText(user.getFirstName()+ " " + user.getLastName());
+    }
+
+
+    @FXML
+    void ToNotifications(ActionEvent event) {
+        try {
+            Main.showNotificationsPage();
+        }
+        catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 }
 
