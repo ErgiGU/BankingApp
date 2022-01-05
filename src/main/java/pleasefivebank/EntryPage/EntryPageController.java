@@ -21,7 +21,6 @@ import pleasefivebank.Objects.User;
 
 import java.io.IOException;
 
-import static pleasefivebank.Menus.UsefulFunctions.popup;
 
 public class EntryPageController{
 
