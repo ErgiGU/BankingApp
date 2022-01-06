@@ -80,15 +80,9 @@ public class LoanRequestedController {
     @FXML
     void ToTransactions(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Transactions.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            TransactionsController transactionsController = fxmlLoader.getController();
-            transactionsController.setupTable();
-            mainWindow.setScene(scene);
-            //Main.showTransactionsPage(user.getFirstName()+ " " + user.getLastName());
-        }
-        catch (IOException ex) {
-            ex.printStackTrace();
+            Main.showTransactionsPage(user.getFirstName() + " " +user.getLastName());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     //juan

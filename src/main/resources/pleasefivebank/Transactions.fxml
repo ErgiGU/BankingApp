@@ -195,7 +195,7 @@
                   <Font size="37.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="84.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:">
+            <Text fill="#2b5292" layoutX="120.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:">
                <font>
                   <Font size="32.0" />
                </font>
@@ -205,7 +205,7 @@
                   <Font size="21.0" />
                </font>
             </Button>
-            <TableView fx:id="tableView" layoutX="27.0" layoutY="250.0" prefHeight="316.0" prefWidth="788.0">
+            <TableView fx:id="tableView" layoutX="67.0" layoutY="246.0" prefHeight="316.0" prefWidth="788.0">
               <columns>
                 <TableColumn fx:id="dateColumn" prefWidth="99.0" text="Date">
                  <cellValueFactory>
@@ -214,7 +214,7 @@
                 </TableColumn>
                 <TableColumn fx:id="receiverColumn" prefWidth="122.0" text="Receiver">
                    <cellValueFactory>
-                      <PropertyValueFactory property="receiver" />
+                      <PropertyValueFactory property="receiverName" />
                    </cellValueFactory>
                 </TableColumn>
                  <TableColumn fx:id="IBANColumn" prefWidth="179.0" text="Receiver IBAN">
@@ -239,7 +239,7 @@
                   </TableColumn>
               </columns>
             </TableView>
-            <Text fx:id="showBalance" fill="#2b5292" layoutX="280.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="balance placeholder">
+            <Text fx:id="showBalance" fill="#2b5292" layoutX="291.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="balance placeholder">
                <font>
                   <Font size="32.0" />
                </font>

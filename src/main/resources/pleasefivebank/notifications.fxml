@@ -221,31 +221,41 @@
                         </TableColumn>
                     </columns>
                 </TableView>
-            <TableView fx:id="loansTable" layoutX="177.0" layoutY="184.0" prefHeight="120.0" prefWidth="496.0">
+            <TableView fx:id="loansTable" layoutX="173.0" layoutY="183.0" prefHeight="120.0" prefWidth="550.0">
               <columns>
-                <TableColumn fx:id="amountLoans" prefWidth="158.5" text="amount per month">
+                <TableColumn fx:id="amountLoans" prefWidth="121.60003662109375" text="Amount per month">
                     <cellValueFactory>
                         <PropertyValueFactory property="amountPerMonth" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn fx:id="interestLoans" prefWidth="175.0" text="interest rate">
+                <TableColumn fx:id="totalAmount" prefWidth="157.5999755859375" text="Total amount">
                     <cellValueFactory>
-                        <PropertyValueFactory property="interestRate" />
+                        <PropertyValueFactory property="totalAmount" />
                     </cellValueFactory>
                 </TableColumn>
-                  <TableColumn fx:id="statusLoans" prefWidth="142.5" text="status">
+                  <TableColumn fx:id="amountLeft" prefWidth="99.20004272460938" text="Amount left">
+                    <cellValueFactory>
+                      <PropertyValueFactory property="amountLeft" />
+                    </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="loanPeriod" prefWidth="89.59991455078125" text="Loan Period" >
                       <cellValueFactory>
-                          <PropertyValueFactory property="status" />
+                          <PropertyValueFactory property="loanPeriod" />
                       </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="statusLoans11" prefWidth="76.0001220703125" text="Status">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="status" />
+                     </cellValueFactory>
                   </TableColumn>
               </columns>
             </TableView>
-            <Text fill="#2b5292" layoutX="215.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="requested transactions" wrappingWidth="418.74346923828125">
+            <Text fill="#2b5292" layoutX="243.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Requested transactions" wrappingWidth="418.74346923828125">
                <font>
                   <Font size="37.0" />
                </font>
             </Text>
-            <Text fill="#2b5292" layoutX="327.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loans">
+            <Text fill="#2b5292" layoutX="401.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loans">
                <font>
                   <Font size="37.0" />
                </font>

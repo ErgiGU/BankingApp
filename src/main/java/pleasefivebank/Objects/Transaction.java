@@ -17,39 +17,39 @@ public class Transaction {
     private String date;
     private final String receiverName;
     private final String receiverIBAN;
-    private final String quantity;
+    private final String amount;
     private final String concept;
     private String status;
 
 
     //Carlotta and Juan
     //special constructor that saves the created transaction object to the database and JSON file
-    public Transaction(String receiverName, String receiverIBAN, String quantity, String concept, String status){//in TransactionsController we set the date and status
+    public Transaction(String receiverName, String receiverIBAN, String amount, String concept, String status){//in TransactionsController we set the date and status
         String pattern = "yyyy-MM-dd";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String date = simpleDateFormat.format(new Date());
         this.date = date;
         this.receiverName = receiverName;
         this.receiverIBAN = receiverIBAN;
-        this.quantity = quantity;
+        this.amount = amount;
         this.concept = concept;
         this.status = status;
         if (receiverIBAN.equals(user.getAccountIBAN())){
-            this.status = "requested";
+            this.status = "Requested";
         }
         this.senderIBAN = user.getAccountIBAN();
         toDatabase();
     }
     //Carlotta and juan
     //constructor with a different signature to make transaction objects without storing them in the database
-    public Transaction(String receiverName, String receiverIBAN, String quantity, String concept, String status, String empty){//in TransactionsController we set the date and status
+    public Transaction(String receiverName, String receiverIBAN, String amount, String concept, String status, String empty){//in TransactionsController we set the date and status
         String pattern = "yyyy-MM-dd";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         String date = simpleDateFormat.format(new Date());
         this.date = date;
         this.receiverName = receiverName;
         this.receiverIBAN = receiverIBAN;
-        this.quantity = quantity;
+        this.amount = amount;
         this.concept = concept;
         this.status = status;
         this.senderIBAN = user.getAccountIBAN();
@@ -58,8 +58,8 @@ public class Transaction {
     //makes the document that we will store
     public Document toDocument(){
         Document doc = new Document("_id", new ObjectId()).append("date",this.date).append("senderIBAN",senderIBAN)
-                .append("receiverIBAN",receiverIBAN).append("receiverName",receiverName).append("quantity",quantity)
-                .append("concept",concept).append("status",status);
+                .append("receiverIBAN",receiverIBAN).append("receiverName",receiverName).append("amount",amount)
+                .append("message",concept).append("status",status);
         return doc;
     }
     //Carlotta and Juan
@@ -88,6 +88,10 @@ public class Transaction {
         }
     }
 
+    public String getConcept() {return concept;}
+
+    public String getReceiverName() {return receiverName;}
+
     public String getDate() {
         return date;
     }
@@ -95,7 +99,7 @@ public class Transaction {
     public String getReceiverIBAN() { return receiverIBAN; }
 
     public String getQuantity() {
-        return quantity;
+        return amount;
     }
 
     public String getStatus() { return status; }

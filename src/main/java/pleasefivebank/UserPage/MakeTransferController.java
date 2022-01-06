@@ -22,8 +22,8 @@ import static pleasefivebank.Main.mainWindow;
 public class MakeTransferController {
     private String tempReceiver;
     private String tempReceiverIBAN;
-    private String tempQuantity;
-    private String tempConcept;
+    private String tempAmount;
+    private String tempMessage;
     //this controller only includes a method to set up the user data,
     //methods to go from page to page
     //and logic to make loans in the sendMoney method in line 135
@@ -124,15 +124,9 @@ public class MakeTransferController {
     @FXML
     void ToTransactions(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Transactions.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            TransactionsController transactionsController = fxmlLoader.getController();
-            transactionsController.setupTable();
-            mainWindow.setScene(scene);
-            //Main.showTransactionsPage(user.getFirstName()+ " " + user.getLastName());
-        }
-        catch (IOException ex) {
-            ex.printStackTrace();
+            Main.showTransactionsPage(user.getFirstName() + " " +user.getLastName());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -146,13 +140,13 @@ public class MakeTransferController {
         if((Mongo.isValidIBAN(receiverIban)) && (Integer.parseInt(quantity)>0) && (!concept.isEmpty())){
             tempReceiver = receiver;
             tempReceiverIBAN = receiverIban;
-            tempQuantity = quantity;
-            tempConcept = concept;
+            tempAmount = quantity;
+            tempMessage = concept;
 
             float balance = Float.parseFloat(user.getBalance());
-            float intAmount = Float.parseFloat(tempQuantity);
+            float intAmount = Float.parseFloat(tempAmount);
             if (balance >= intAmount){
-                Transaction purchase = new Transaction(tempReceiver, receiverIban, tempQuantity, tempConcept, "sent");
+                Transaction purchase = new Transaction(tempReceiver, receiverIban, tempAmount, tempMessage, "Sent");
                 //purchase.toDatabase();
                 String newBalance = Float.toString(balance - intAmount);
                 user.setBalance(newBalance);

@@ -164,7 +164,7 @@ public class HomePageController {
                 Amount1.setText("+"+transaction.getQuantity()+" SEK");
             }
             else{
-                Amount1.setText("+"+transaction.getQuantity()+" SEK");
+                Amount1.setText("-"+transaction.getQuantity()+" SEK");
             }
         }else{
             Name1.setText("No Transactions Made Yet");
@@ -179,7 +179,7 @@ public class HomePageController {
                 Amount2.setText("+"+transaction.getQuantity()+" SEK");
             }
             else{
-                Amount2.setText("+"+transaction.getQuantity()+" SEK");
+                Amount2.setText("-"+transaction.getQuantity()+" SEK");
             }
         }else{
             Name2.setText("");
@@ -194,7 +194,7 @@ public class HomePageController {
                 Amount3.setText("+"+transaction.getQuantity()+" SEK");
             }
             else{
-                Amount3.setText("+"+transaction.getQuantity()+" SEK");
+                Amount3.setText("-"+transaction.getQuantity()+" SEK");
             }
         }else{
             Name3.setText("");
@@ -209,7 +209,7 @@ public class HomePageController {
                 Amount4.setText("+"+transaction.getQuantity()+" SEK");
             }
             else{
-                Amount4.setText("+"+transaction.getQuantity()+" SEK");
+                Amount4.setText("-"+transaction.getQuantity()+" SEK");
             }
         }else{
             Name4.setText("");

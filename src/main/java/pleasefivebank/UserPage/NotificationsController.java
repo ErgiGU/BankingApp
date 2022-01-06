@@ -3,8 +3,6 @@ package pleasefivebank.UserPage;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -13,12 +11,10 @@ import pleasefivebank.Main;
 import pleasefivebank.Mongo;
 import pleasefivebank.Objects.Loan;
 import pleasefivebank.Objects.Transaction;
-import pleasefivebank.Objects.User;
 
 import java.io.IOException;
 
 import static pleasefivebank.EntryPage.EntryPageController.user;
-import static pleasefivebank.Main.mainWindow;
 
 public class NotificationsController {
 
@@ -35,6 +31,9 @@ public class NotificationsController {
     private TableColumn<?, ?> amountColumn;
 
     @FXML
+    private TableColumn<?, ?> amountLeft;
+
+    @FXML
     private TableColumn<?, ?> amountLoans;
 
     @FXML
@@ -44,10 +43,10 @@ public class NotificationsController {
     private TableColumn<?, ?> dateColumn;
 
     @FXML
-    private TableColumn<?, ?> dateLoans;
+    private TableColumn<?, ?> totalAmount;
 
     @FXML
-    private TableColumn<?, ?> interestLoans;
+    private TableColumn<?, ?> loanPeriod;
 
     @FXML
     private TableView<Loan> loansTable;
@@ -56,12 +55,13 @@ public class NotificationsController {
     private TableColumn<?, ?> receiverColumn;
 
     @FXML
+    private TableView<Transaction> requestedTransactionsTable;
+
+    @FXML
     private TableColumn<?, ?> statusColumn;
 
     @FXML
-    private TableColumn<?, ?> statusLoans;
-    @FXML
-    private TableView<Transaction> requestedTransactionsTable;
+    private TableColumn<?, ?> statusLoans11;
 
     //juan
     @FXML
@@ -128,15 +128,9 @@ public class NotificationsController {
     @FXML
     void ToTransactions(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Transactions.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            TransactionsController transactionsController = fxmlLoader.getController();
-            transactionsController.setupTable();
-            mainWindow.setScene(scene);
-            //Main.showTransactionsPage(user.getFirstName()+ " " + user.getLastName());
-        }
-        catch (IOException ex) {
-            ex.printStackTrace();
+            Main.showTransactionsPage(user.getFirstName() + " ");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     //method to setup the table showcasing transaction requests
@@ -152,10 +146,10 @@ public class NotificationsController {
         IBANColumn.setText("Receiver IBAN");
 
         amountColumn = new TableColumn<Transaction, String>();
-        amountColumn.setText("Quantity");
+        amountColumn.setText("Amount");
 
         conceptColumn = new TableColumn<Transaction, String>();
-        conceptColumn.setText("Concept");
+        conceptColumn.setText("Message");
 
         statusColumn = new TableColumn<Transaction, String>();
         statusColumn.setText("Status");
@@ -169,17 +163,21 @@ public class NotificationsController {
     //juan
     //method to setup the table where the user can see the loan statuses
     public void seTupLoansTable(){
-        dateLoans = new TableColumn<Loan, String>();
-        dateLoans.setText("Date");
 
         amountLoans = new TableColumn<Loan, String>();
-        amountLoans.setText("Loan Amount");
+        amountLoans.setText("Amount per month");
 
-        interestLoans = new TableColumn<Loan, String>();
-        interestLoans.setText("Loan Interest");
+        totalAmount = new TableColumn<Loan, String>();
+        totalAmount.setText("Total Amount");
 
-        statusLoans = new TableColumn<Loan, String>();
-        statusLoans.setText("Loan Status");
+        amountLeft = new TableColumn<Loan, String>();
+        amountLeft.setText("Amount Left");
+
+        loanPeriod = new TableColumn<Loan, String>();
+        loanPeriod.setText("Loan period(years)");
+
+        statusLoans11 = new TableColumn<Loan, String>();
+        statusLoans11.setText("Status");
 
         loansTable.getItems().clear();
         ObservableList<Loan> loans = Mongo.getAllLoans(user.getAccountIBAN());

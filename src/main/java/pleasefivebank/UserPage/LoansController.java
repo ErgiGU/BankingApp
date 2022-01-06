@@ -18,6 +18,7 @@ import java.io.IOException;
 
 import static pleasefivebank.EntryPage.EntryPageController.user;
 import static pleasefivebank.Main.mainWindow;
+import static pleasefivebank.Main.showTransactionsPage;
 import static pleasefivebank.Utilities.Utilities.trunc;
 
 //Linus and Juan
@@ -28,7 +29,6 @@ public class LoansController {
     //and some error handling to avoid blank fields
 
     private boolean checkBoxBoo;
-    Loan loan = new Loan();
 
     @FXML
     private Button NameLabel;
@@ -71,6 +71,7 @@ public class LoansController {
     double amountPerMonthPrompt = 0;
     int estPayBackTimePrompt = 0;
     int loanPeriodPrompt = 0;
+    Interest interest;
 
     @FXML
     public double getAmountPerMonthPrompt() {
@@ -93,8 +94,8 @@ public class LoansController {
     //Linus
     @FXML
     public void calculate(ActionEvent event) throws Exception {
-        errorHandling();
-        Interest interest = loan.totalCosts(getAmountPerMonthPrompt(), getEstPayBackTimePrompt(), getLoanPeriodPrompt());
+        //errorHandling();
+        interest = Loan.totalCosts(getAmountPerMonthPrompt(), getEstPayBackTimePrompt(), getLoanPeriodPrompt());
         double totalWRent = interest.getTotal();
         double rentOnly = interest.getRentOnly();
         totalCost.setText(String.valueOf(trunc(totalWRent)));
@@ -142,28 +143,13 @@ public class LoansController {
         }
     }
 
-    //Linus
-    @FXML
-    void Accept(ActionEvent event) {
-        loan.changeCheckBox();
-        if (checkBoxBoo){ checkBoxBoo = false;
-        }else {
-            checkBoxBoo = true;
-        }
-    }
 
     @FXML
     void ToTransactions(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Transactions.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            TransactionsController transactionsController = fxmlLoader.getController();
-            transactionsController.setupTable();
-            mainWindow.setScene(scene);
-            //Main.showTransactionsPage(user.getFirstName()+ " " + user.getLastName());
-        }
-        catch (IOException ex) {
-            ex.printStackTrace();
+            showTransactionsPage(user.getFirstName() + " "+ user.getLastName());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -177,13 +163,21 @@ public class LoansController {
         }
     }
 
-    //juan and Linus
+    //juan and Linus(slight modifications by Ergi)
     @FXML
     void ToConfirmation(ActionEvent event) throws Exception {
-        errorHandling();
+        //errorHandling();
 
-        if (checkBoxBoo) {
+        if (checkBox.isSelected()) {
             try {
+                errorHandling();
+                double amountMonth = Double.parseDouble(amountPerMonth.getText());
+                int payback = Integer.parseInt(EstPayBackTime.getText());
+                int loanPeriod = Integer.parseInt(LoanPeriod.getText());
+                double finalAmount = trunc(Loan.totalCosts(amountMonth,payback,loanPeriod).getTotal());
+                //finalAmount is here 2 times because the amount left(when the constructor is created) is the same as the totalAmount
+                Loan loanToSave = new Loan(amountMonth, user.getAccountIBAN(),loanPeriod,finalAmount,finalAmount,"Pending" );
+                loanToSave.toDatabase();
                 Main.showPage("LoanRequestSent.fxml");
             } catch (IOException ex) {
                 ex.printStackTrace();
@@ -222,7 +216,7 @@ public class LoansController {
             notBlank1.setText("");
             flag4 = true;
         }
-        if(!flag || !flag2 || !flag3 || !flag4){
+        if(!flag && !flag2 && !flag3 && !flag4){
             throw new Exception("All fields not entered");
         }
     }

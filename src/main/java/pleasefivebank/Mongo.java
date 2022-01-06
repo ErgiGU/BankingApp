@@ -122,7 +122,7 @@ public final class Mongo {//marked as final because it is a utility class and it
             String line2;
             while ((line2 = br.readLine()) != null) {
                 transactionsDocs.add(new InsertOneModel<>(Document.parse(line2)));
-                coll3.bulkWrite(transactionsDocs, new BulkWriteOptions().ordered(false));
+                coll2.bulkWrite(transactionsDocs, new BulkWriteOptions().ordered(false));
                 transactionsDocs.clear();
             }
         }
@@ -260,17 +260,19 @@ public final class Mongo {//marked as final because it is a utility class and it
         while (it.hasNext()) {
             Document currentDoc = (Document) it.next();
             Transaction transaction = new Transaction(currentDoc.get("receiverName").toString(),
-                    currentDoc.get("receiverIBAN").toString(),currentDoc.get("quantity").toString(),
-                    currentDoc.get("concept").toString(),currentDoc.get("status").toString(), "");
+                    currentDoc.get("receiverIBAN").toString(),currentDoc.get("amount").toString(),
+                    currentDoc.get("message").toString(),currentDoc.get("status").toString(), "");
             if (transaction.getReceiverIBAN().equals(iban)) {
-                transaction.setStatus("received");
+                transaction.setStatus("Received");
             }
-            if (!transaction.getStatus().equals("requested")){
+            if (!transaction.getStatus().equals("Requested")){
                 actualTransactions.add(transaction);
             }
         }
         return actualTransactions;
     }
+
+    //Carlotta && Juan
     public static ObservableList<Transaction> getAllPendingTransactions(String iban){
         ObservableList<Transaction> pendingTransactions = FXCollections.observableArrayList();
         FindIterable<Document> docs = coll3.find(eq("senderIBAN",iban));
@@ -278,8 +280,8 @@ public final class Mongo {//marked as final because it is a utility class and it
         while (it.hasNext()) {
             Document currentDoc = (Document) it.next();
             Transaction transaction = new Transaction(currentDoc.get("receiverName").toString(),
-                    currentDoc.get("receiverIBAN").toString(),currentDoc.get("quantity").toString(),
-                    currentDoc.get("concept").toString(), currentDoc.get("status").toString(), "");
+                    currentDoc.get("receiverIBAN").toString(),currentDoc.get("amount").toString(),
+                    currentDoc.get("message").toString(), currentDoc.get("status").toString(), "");
             if (transaction.getStatus().equals("requested")){
                 pendingTransactions.add(transaction);
             }
@@ -287,17 +289,21 @@ public final class Mongo {//marked as final because it is a utility class and it
         return pendingTransactions;
     }
 
-    public static ObservableList<Loan> getAllLoans(String iban){
+    //Carlotta
+   public static ObservableList<Loan> getAllLoans(String iban){
         ObservableList<Loan> allLoans = FXCollections.observableArrayList();
-        FindIterable<Document> docs = coll3.find(eq("accountIBAN",iban));
-        System.out.println("1");
+        FindIterable<Document> docs = coll2.find(eq("accountIBAN",iban));
         Iterator it = docs.iterator();
         while (it.hasNext()) {
             Document currentDoc = (Document) it.next();
-            Loan loan = new Loan(currentDoc.get("amountPerMonth").toString(),
-                    currentDoc.get("accountIBAN").toString(),currentDoc.get("loanPeriod").toString(),
-                    currentDoc.get("interestRate").toString(), "");
-            System.out.println(loan);
+            double amountPerMonth = Double.parseDouble(currentDoc.get("amountPerMonth").toString());
+            double totalAmount =Double.parseDouble(currentDoc.get("totalAmount").toString());
+            double amountLeft =Double.parseDouble(currentDoc.get("amountLeft").toString());
+            int loanPeriod = Integer.parseInt(currentDoc.get("loanPeriod").toString());
+
+
+            Loan loan = new Loan(amountPerMonth,currentDoc.get("accountIBAN").toString(),loanPeriod,totalAmount,amountLeft,
+                    currentDoc.get("status").toString());
             allLoans.add(loan);
         }
         return allLoans;
@@ -332,8 +338,8 @@ public final class Mongo {//marked as final because it is a utility class and it
         while (it.hasNext() && fourTransactions.size() < 4) {
             Document currentDoc = (Document) it.next();
             Transaction transaction = new Transaction(currentDoc.get("receiverName").toString(),
-                    currentDoc.get("receiverIBAN").toString(),currentDoc.get("quantity").toString(),
-                    currentDoc.get("concept").toString(), currentDoc.get("status").toString(), "");
+                    currentDoc.get("receiverIBAN").toString(),currentDoc.get("amount").toString(),
+                    currentDoc.get("message").toString(), currentDoc.get("status").toString(), "");
             if (!transaction.getStatus().equals("requested")){
                 fourTransactions.add(transaction);
             }
