@@ -35,7 +35,7 @@ public class MakeTransferController {
     private TextField Name;
 
     @FXML
-    private Button NameLabel;
+    private Button NameDisplay;
 
     @FXML
     private TextField amount;
@@ -167,9 +167,9 @@ public class MakeTransferController {
         }
     }
 
-    //juan
+    //Juan
     public void setName(String name){
-        NameLabel.setText(name);
+        NameDisplay.setText(name);
     }
 
     //elisa

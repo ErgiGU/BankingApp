@@ -227,7 +227,7 @@
                         <PropertyValueFactory property="quantity" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn fx:id="conceptColumn" prefWidth="135.0" text="Concept">
+                  <TableColumn fx:id="conceptColumn" prefWidth="135.0" text="Message">
                      <cellValueFactory>
                         <PropertyValueFactory property="concept" />
                      </cellValueFactory>

@@ -72,18 +72,18 @@ public class Loan{
 
     //Linus
     //this makes an interest object to showcase information in the loans GUI page
-    public static Interest totalCosts(double quantity, int estPayBack, int loanPeriod){
+    public static Interest totalCosts(double amount, int estPayBack, int loanPeriod){
         //the quantity the user specifies are monthly payments
-        quantity = quantity*loanPeriod*12;
-        double monthlyPayBack = quantity/estPayBack/12;
+        amount = amount*(loanPeriod*12);
+        double monthlyPayBack = amount/estPayBack/12;
         double total = 0;
         double interestOnly =0;
-        double originalQuantity = quantity;
+        double originalQuantity = amount;
 
         for(int i = estPayBack*12; i>0; i--) {
 
-            double interest = quantity * (0.0214/12); //Our interest rate
-            quantity = quantity - monthlyPayBack;
+            double interest = amount * (0.0214/12); //Our interest rate
+            amount = amount - monthlyPayBack;
             double paybackWRent = monthlyPayBack + interest;
             total = total + paybackWRent;
             interestOnly = total - originalQuantity;

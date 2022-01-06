@@ -96,10 +96,10 @@ public class LoansController {
     public void calculate(ActionEvent event) throws Exception {
         //errorHandling();
         interest = Loan.totalCosts(getAmountPerMonthPrompt(), getEstPayBackTimePrompt(), getLoanPeriodPrompt());
-        double totalWRent = interest.getTotal();
-        double rentOnly = interest.getRentOnly();
-        totalCost.setText(String.valueOf(trunc(totalWRent)));
-        rentTotal.setText(String.valueOf(trunc(rentOnly)));
+        double totalRent = interest.getTotal();
+        double interestOnly = interest.getRentOnly();
+        totalCost.setText(String.valueOf(trunc(totalRent)));
+        rentTotal.setText(String.valueOf(trunc(interestOnly)));
     }
 
     //elisa

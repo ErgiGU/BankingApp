@@ -160,10 +160,10 @@ public class TransactionsController {
         IBANColumn.setText("Receiver IBAN");
 
         amountColumn = new TableColumn<Transaction, String>();
-        amountColumn.setText("quantity");
+        amountColumn.setText("Amount");
 
         conceptColumn = new TableColumn<Transaction, String>();
-        conceptColumn.setText("Concept");
+        conceptColumn.setText("Message");
 
         statusColumn = new TableColumn<Transaction, String>();
         statusColumn.setText("Status");
@@ -174,7 +174,7 @@ public class TransactionsController {
         tableView.setItems(transactions);
         tableView.refresh();
         NameLabel.setText(user.getFirstName()+ " " + user.getLastName());
-        showBalance.setText("+" +user.getBalance()+ "SEK");
+        showBalance.setText("+" +user.getBalance()+ " SEK");
     }
 }
 
