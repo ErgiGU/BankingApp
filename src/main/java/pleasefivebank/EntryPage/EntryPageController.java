@@ -17,6 +17,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import pleasefivebank.Objects.User;
+import pleasefivebank.Utilities.Utilities;
 
 
 import java.io.IOException;
@@ -82,13 +83,13 @@ public class EntryPageController{
                     //freezes account and displays a popup
                     user1.freezeAccount();
                     confirmLabel.setText(null);
-                    popup("Your account is frozen, please contact us.",borderpane,rootPane);
+                    Utilities.popup("Your account is frozen, please contact us.",borderpane,rootPane);
 
                 }else{
-                    popup("Your account is frozen, please contact us.",borderpane,rootPane);
+                    Utilities.popup("Your account is frozen, please contact us.",borderpane,rootPane);
                 }
             }else if(user1.getFrozen().equals("false")){
-                popup("Your account is frozen, please contact us.",borderpane,rootPane);
+                Utilities.popup("Your account is frozen, please contact us.",borderpane,rootPane);
             }
             }else {
             confirmLabel.setText("Invalid username");
@@ -165,27 +166,8 @@ public class EntryPageController{
         }
     }
 
-    //Ergi
-    //this method allows for pop up screens when the user
-    //fails three times with the password by freezing the account
 
-    public static void popup(String message, BorderPane pane, StackPane stackPane){
-        BoxBlur blur = new BoxBlur(3, 3, 3);
-        JFXDialogLayout layout = new JFXDialogLayout();
-        JFXButton button = new JFXButton("OK");
-        button.getStyleClass().add(".dialog-button");
-        JFXDialog dialog = new JFXDialog(stackPane, layout, JFXDialog.DialogTransition.TOP);
-        button.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent mousevent) -> {
-            dialog.close();
-        });
-        layout.setHeading(new Label("Your account is frozen, please contact us"));
-        layout.setActions(button);
-        dialog.show();
-        dialog.setOnDialogClosed((JFXDialogEvent event1) -> {
-            pane.setEffect(null);
-        });
-        pane.setEffect(blur);
-    }
+
 }
 
 

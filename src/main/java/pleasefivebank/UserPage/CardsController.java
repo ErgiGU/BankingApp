@@ -6,14 +6,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import pleasefivebank.Main;
 import pleasefivebank.Objects.User;
+import pleasefivebank.Utilities.Utilities;
 
 import java.io.IOException;
 
 import static pleasefivebank.EntryPage.EntryPageController.user;
 import static pleasefivebank.Main.mainWindow;
+import static pleasefivebank.Main.showTransactionsPage;
 
 public class CardsController {
     //this controller only includes a method to set up the user data
@@ -96,17 +100,21 @@ public class CardsController {
     @FXML
     void ToTransactions(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Transactions.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            TransactionsController transactionsController = fxmlLoader.getController();
-            transactionsController.setupTable();
-            mainWindow.setScene(scene);
-            //Main.showTransactionsPage(user.getFirstName()+ " " + user.getLastName());
+            showTransactionsPage(user.getFirstName() + " " + user.getLastName());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        catch (IOException ex) {
-            ex.printStackTrace();
-        }
+    }
 
+    @FXML
+    private BorderPane borderpane;
+
+    @FXML
+    private StackPane rootPane;
+
+    @FXML
+    void FreezeCard(ActionEvent event) {
+        Utilities.popup("Your card is now frozen",borderpane,rootPane);
     }
 
     //elisa
