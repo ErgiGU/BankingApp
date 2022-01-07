@@ -68,7 +68,7 @@ public class User {
                 append("account IBAN", this.accountIBAN).append("balance", this.balance).
                 append("frozen", this.frozen).append("reward points", this.rewardPoints).
                 append("card number", this.cardNumber).append("expiration date", this.expirationDate).
-                append("transactions", asList(new Document("sent", ""/*this.account.sent*/), new Document("received", ""/*this.account.received*/))).
+                append("transactions", asList(new Document("sent", ""), new Document("received", ""))).
                 append("loans", asList(new Document("status", ""), new Document("quantity", 0),
                                         new Document("due date", "")));
         return doc;

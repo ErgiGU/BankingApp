@@ -108,7 +108,7 @@ public class Registration{
     //andreea
     public static void toFile(Document user, Document login, Object key) {
         try {
-            FileWriter writer = new FileWriter("UserDB2.json", true);
+            FileWriter writer = new FileWriter("Backup.json", true);
             writer.write(login.append("_id", key).toJson() + System.lineSeparator());
             writer.write(user.toJson() + System.lineSeparator());
             writer.close();

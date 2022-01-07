@@ -34,11 +34,7 @@ public class EntryPage {
                 session.get("birth date").toString(), session.get("phone number").toString(),
                 session.get("personnummer").toString(), session.get("email").toString(),
                 session.get("university").toString(), session.get("account number").toString(),
-                session.get("account IBAN").toString(), session.get("balance").toString(), session.get("frozen").toString()
-        );
-
-        session.get("account");
-        //login.setAccount(); must construct the account object with the info from database
+                session.get("account IBAN").toString(), session.get("balance").toString(), session.get("frozen").toString());
     }
 
     public void setUsername(String username) {

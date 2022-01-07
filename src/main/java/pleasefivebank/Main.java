@@ -20,11 +20,11 @@ public class Main extends Application {
         stage.show();
     }
 
-
     public static void main(String[] args) {
 
         try {
             Mongo.mongo();//Mongo is a utility class and cannot be instantiated
+            //Mongo.importData(); // this only needs to be run if the input data has changed
         } catch (Exception e) {
             e.printStackTrace();
         }

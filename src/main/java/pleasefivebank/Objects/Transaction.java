@@ -13,8 +13,8 @@ import static pleasefivebank.EntryPage.EntryPageController.user;
 
 public class Transaction {
 
-    private String senderIBAN;
-    private String date;
+    private final String senderIBAN;
+    private final String date;
     private final String receiverName;
     private final String receiverIBAN;
     private final String amount;
@@ -105,6 +105,4 @@ public class Transaction {
     public String getStatus() { return status; }
 
     public void setStatus(String status) { this.status = status; }
-
-    public void setDate(String date) { this.date = date; }
 }
