@@ -282,7 +282,7 @@ public final class Mongo {//marked as final because it is a utility class and it
             Transaction transaction = new Transaction(currentDoc.get("receiverName").toString(),
                     currentDoc.get("receiverIBAN").toString(),currentDoc.get("amount").toString(),
                     currentDoc.get("message").toString(), currentDoc.get("status").toString(), "");
-            if (transaction.getStatus().equals("requested")){
+            if (transaction.getStatus().equals("Requested")){
                 pendingTransactions.add(transaction);
             }
         }

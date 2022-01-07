@@ -45,7 +45,7 @@ public class CardsController {
     private Text IBAN;
 
     @FXML
-    private Button NameLabel;
+    private Button NameDisplay;
 
     //Juan and Ergi
     @FXML
@@ -112,6 +112,7 @@ public class CardsController {
     @FXML
     private StackPane rootPane;
 
+    //Ergi
     @FXML
     void FreezeCard(ActionEvent event) {
         Utilities.popup("Your card is now frozen",borderpane,rootPane);
@@ -140,8 +141,8 @@ public class CardsController {
         }
     }
     //juan
-    public void setName(String name){
-        NameLabel.setText(user.getFirstName()+ " " + user.getLastName());
+    public void setName(){
+        NameDisplay.setText(user.getFirstName()+ " " + user.getLastName());
         CardName.setText(user.getFirstName()+ " " + user.getLastName());
         CardNumber.setText(user.getCardNumber());
         ExpirationDate.setText(user.getExpirationDate());

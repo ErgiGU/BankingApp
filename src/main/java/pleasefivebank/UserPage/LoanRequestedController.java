@@ -18,8 +18,10 @@ public class LoanRequestedController {
 
     //this controller only includes a method to set up the user data
     //and methods to go from page to page
+
     @FXML
-    private Button nameLabel;
+    private Button NameDisplay;
+
     //juan
     @FXML
     void Logout(ActionEvent event) {
@@ -29,7 +31,7 @@ public class LoanRequestedController {
     @FXML
     void ToCards(ActionEvent event) {
         try {
-            Main.showCardsPage(user.getFirstName()+ " " + user.getLastName());
+            Main.showCardsPage();
         }
         catch (IOException ex) {
             ex.printStackTrace();
@@ -97,7 +99,7 @@ public class LoanRequestedController {
     }
     //juan
     public void setNameLabel(){
-        nameLabel.setText(user.getFirstName()+ " " + user.getLastName());
+        NameDisplay.setText(user.getFirstName()+ " " + user.getLastName());
     }
 
 }

@@ -88,8 +88,6 @@ public class Transaction {
         }
     }
 
-    public String getConcept() {return concept;}
-
     public String getReceiverName() {return receiverName;}
 
     public String getDate() {
@@ -105,6 +103,8 @@ public class Transaction {
     public String getStatus() { return status; }
 
     public void setStatus(String status) { this.status = status; }
+
+    public String getConcept() {return concept;}
 
     public void setDate(String date) { this.date = date; }
 }

@@ -60,7 +60,7 @@ public class MakeTransferController {
     @FXML
     void ToCards(ActionEvent event) {
         try {
-            Main.showCardsPage(user.getFirstName()+ " " + user.getLastName());
+            Main.showCardsPage();
         }
         catch (IOException ex) {
             ex.printStackTrace();

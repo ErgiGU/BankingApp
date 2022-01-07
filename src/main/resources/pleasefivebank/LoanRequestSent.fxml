@@ -122,7 +122,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </Text>
-            <ImageView fitHeight="87.0" fitWidth="97.0" layoutX="29.0" layoutY="413.0" onMouseClicked="#ContactUsButton" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="87.0" fitWidth="97.0" layoutX="28.0" layoutY="425.0" onMouseClicked="#ContactUsButton" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../PNGs/support-and-service-1678.png" />
                </image>
@@ -134,45 +134,47 @@
       </AnchorPane>
    </left>
    <top>
-      <AnchorPane prefHeight="86.0" prefWidth="1050.0" style="-fx-background-color: #2b5292;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="78.0" prefWidth="1050.0" style="-fx-background-color: #2b5292;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="68.0" fitWidth="107.0" layoutX="10.0" layoutY="10.0" preserveRatio="true">
+            <ImageView fitHeight="60.0" fitWidth="102.0" layoutX="15.0" layoutY="10.0" preserveRatio="true">
                <image>
                   <Image url="@../PNGs/P5B white small logo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="49.0" fitWidth="48.0" layoutX="750.0" layoutY="19.0" preserveRatio="true">
-               <image>
-                  <Image url="@../PNGs/user-3296.png" />
-               </image>
-            </ImageView>
-            <Button layoutX="934.0" layoutY="22.0" mnemonicParsing="false" onAction="#Logout" prefHeight="38.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
+            <Button layoutX="913.0" layoutY="20.0" mnemonicParsing="false" onAction="#Logout" prefHeight="38.0" prefWidth="97.0" style="-fx-background-color: #457B9D #457B9D;" text="Log out" textFill="#f5f5f5">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font size="18.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="679.0" layoutY="21.0" mnemonicParsing="false" onAction="#ToNotifications" prefHeight="45.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: #2b5292;">
+            <Button layoutX="641.0" layoutY="18.0" mnemonicParsing="false" onAction="#ToNotifications" prefHeight="45.0" prefWidth="50.0" style="-fx-background-radius: 30; -fx-background-color: #2b5292;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                <graphic>
-                  <ImageView fitHeight="38.0" fitWidth="42.0" preserveRatio="true">
+                  <ImageView fitHeight="30.0" fitWidth="33.0" preserveRatio="true">
                      <image>
                         <Image url="@../PNGs/bell-3063.png" />
                      </image>
                   </ImageView>
                </graphic>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </Button>
-            <Button fx:id="nameLabel" layoutX="799.0" layoutY="21.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #2b5292;" textFill="WHITE">
+            <Button fx:id="NameDisplay" layoutX="691.0" layoutY="17.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="222.0" style="-fx-background-color: #2b5292;" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="39.0" fitWidth="42.0" preserveRatio="true">
+                     <image>
+                        <Image url="@../PNGs/user-3296.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
       </AnchorPane>

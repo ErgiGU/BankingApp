@@ -165,7 +165,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="NameLabel" layoutX="691.0" layoutY="17.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="222.0" style="-fx-background-color: #2b5292;" textFill="WHITE">
+                  <Button fx:id="NameDisplay" layoutX="691.0" layoutY="17.0" mnemonicParsing="false" onAction="#ToDetails" prefHeight="42.0" prefWidth="222.0" style="-fx-background-color: #2b5292;" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>

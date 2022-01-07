@@ -118,7 +118,7 @@ public class LoansController {
     @FXML
     void ToCards(ActionEvent event) {
         try {
-            Main.showCardsPage(user.getFirstName()+ " " + user.getLastName());
+            Main.showCardsPage();
         }
         catch (IOException ex) {
             ex.printStackTrace();
@@ -167,8 +167,7 @@ public class LoansController {
     //juan and Linus(slight modifications by Ergi)
     @FXML
     void ToConfirmation(ActionEvent event) throws Exception {
-        //errorHandling();
-
+        errorHandling();
         if (checkBox.isSelected()) {
             try {
                 errorHandling();
@@ -179,7 +178,7 @@ public class LoansController {
                 //finalAmount is here 2 times because the amount left(when the constructor is created) is the same as the totalAmount
                 Loan loanToSave = new Loan(amountMonth, user.getAccountIBAN(),loanPeriod,finalAmount,finalAmount,"Pending" );
                 loanToSave.toDatabase();
-                Main.showPage("LoanRequestSent.fxml");
+                Main.showLoanConfirmation();
             } catch (IOException ex) {
                 ex.printStackTrace();
             }

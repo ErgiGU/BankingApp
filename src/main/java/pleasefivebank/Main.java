@@ -49,11 +49,11 @@ public class Main extends Application {
         mainWindow.setScene(scene);
     }
     //Juan
-    public static void showCardsPage(String fullName) throws IOException {
+    public static void showCardsPage() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("CardsPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         CardsController cardsController = fxmlLoader.getController();
-        cardsController.setName(fullName);
+        cardsController.setName();
         mainWindow.setScene(scene);
     }
     //Juan and Carlotta

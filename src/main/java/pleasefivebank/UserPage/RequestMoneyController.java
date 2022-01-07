@@ -8,15 +8,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
 import pleasefivebank.Objects.Transaction;
 import pleasefivebank.Objects.User;
+import pleasefivebank.Utilities.Utilities;
 
 import java.io.IOException;
 
 import static pleasefivebank.EntryPage.EntryPageController.user;
 import static pleasefivebank.Main.mainWindow;
+import static pleasefivebank.Main.showTransactionsPage;
 
 public class RequestMoneyController {
     //this controller corresponds to the page where the user can request money
@@ -36,6 +40,12 @@ public class RequestMoneyController {
 
     @FXML
     private Button NameLabel;
+
+    @FXML
+    private BorderPane borderPane;
+
+    @FXML
+    private StackPane rootPane;
 
     @FXML
     void LogOut(ActionEvent event) {
@@ -59,13 +69,15 @@ public class RequestMoneyController {
                 Transaction purchase = new Transaction(receiver, receiverIban, quantity, concept, "requested");
             }
 
+        }else{
+            Utilities.popup("The transaction request was unsuccessful, please enter the correct user information and try again.",borderPane,rootPane);
         }
     }
     //juan
     @FXML
     void ToCards(ActionEvent event) {
         try {
-            Main.showCardsPage(user.getFirstName()+ " " + user.getLastName());
+            Main.showCardsPage();
         }
         catch (IOException ex) {
             ex.printStackTrace();
@@ -127,15 +139,9 @@ public class RequestMoneyController {
     @FXML
     void ToTransactions(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Transactions.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            TransactionsController transactionsController = fxmlLoader.getController();
-            transactionsController.setupTable();
-            mainWindow.setScene(scene);
-            //Main.showTransactionsPage(user.getFirstName()+ " " + user.getLastName());
-        }
-        catch (IOException ex) {
-            ex.printStackTrace();
+            showTransactionsPage(user.getFirstName() + " " + user.getLastName());
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     //juan
