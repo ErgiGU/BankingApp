@@ -8,11 +8,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import org.bson.Document;
 import pleasefivebank.Main;
 import pleasefivebank.Mongo;
 import pleasefivebank.Objects.Transaction;
 import pleasefivebank.Objects.User;
+import pleasefivebank.Utilities.Utilities;
 
 import java.io.IOException;
 
@@ -130,6 +133,12 @@ public class MakeTransferController {
         }
     }
 
+    @FXML
+    private BorderPane borderPane;
+
+    @FXML
+    private StackPane rootPane;
+
     //juan and carlotta
     @FXML
     public void SendMoney(ActionEvent event) {
@@ -137,6 +146,7 @@ public class MakeTransferController {
         String receiverIban = IBAN.getText();
         String quantity = amount.getText();
         String concept = message.getText();
+
         if((Mongo.isValidIBAN(receiverIban)) && (Integer.parseInt(quantity)>0) && (!concept.isEmpty())){
             tempReceiver = receiver;
             tempReceiverIBAN = receiverIban;
@@ -164,6 +174,8 @@ public class MakeTransferController {
 
             }
 
+        }else{
+            Utilities.popup("The transaction was unsuccessful, please enter the correct user information and try again.",borderPane,rootPane);
         }
     }
 

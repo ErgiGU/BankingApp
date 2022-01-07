@@ -33,7 +33,6 @@ public class Utilities {
         BoxBlur blur = new BoxBlur(3, 3, 3);
         JFXDialogLayout layout = new JFXDialogLayout();
         JFXButton button = new JFXButton("OK");
-        button.getStyleClass().add(".dialog-button");
         JFXDialog dialog = new JFXDialog(stackPane, layout, JFXDialog.DialogTransition.TOP);
         button.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent mousevent) -> {
             dialog.close();

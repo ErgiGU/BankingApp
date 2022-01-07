@@ -247,23 +247,7 @@
                         <Font name="Avenir Book" size="24.0" />
                      </font>
                   </Text>
-                  <Button layoutX="543.0" layoutY="474.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="197.0" style="-fx-background-color: #457B9D #457B9D;" text="Order new card" textFill="#f5f5f5">
-                     <font>
-                        <Font name="Avenir Book" size="16.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button layoutX="193.0" layoutY="303.0" mnemonicParsing="false" onAction="#FreezeCard" prefHeight="0.0" prefWidth="151.0" style="-fx-background-color: #457B9D #457B9D;" text="Freeze card" textFill="#f5f5f5">
-                     <font>
-                        <Font name="Avenir Book" size="16.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button layoutX="543.0" layoutY="428.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="197.0" style="-fx-background-color: #457B9D #457B9D;" text="Freeze account" textFill="#f5f5f5">
+                  <Button layoutX="508.0" layoutY="385.0" mnemonicParsing="false" onAction="#FreezeCard" prefHeight="0.0" prefWidth="151.0" style="-fx-background-color: #457B9D #457B9D;" text="Freeze card" textFill="#f5f5f5">
                      <font>
                         <Font name="Avenir Book" size="16.0" />
                      </font>
