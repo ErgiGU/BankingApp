@@ -1,0 +1,275 @@
+Index: src/main/java/pleasefivebank/UserPage/LoansController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package pleasefivebank.UserPage;\r\n\r\nimport javafx.event.ActionEvent;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Scene;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.CheckBox;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.control.TextField;\r\nimport javafx.scene.input.MouseEvent;\r\nimport pleasefivebank.Main;\r\nimport pleasefivebank.Objects.Interest;\r\nimport pleasefivebank.Objects.Loan;\r\nimport pleasefivebank.Objects.User;\r\n\r\nimport java.io.IOException;\r\n\r\nimport static pleasefivebank.EntryPage.EntryPageController.user;\r\nimport static pleasefivebank.Main.mainWindow;\r\nimport static pleasefivebank.Main.showTransactionsPage;\r\nimport static pleasefivebank.Utilities.Utilities.trunc;\r\n\r\n//Linus and Juan\r\npublic class LoansController {\r\n    //this controller only includes a method to set up the user data\r\n    //and methods to go from page to page\r\n    //it also has a method to showcase the loans calculated information\r\n    //and some error handling to avoid blank fields\r\n\r\n    private boolean checkBoxBoo;\r\n\r\n    @FXML\r\n    private Button NameLabel;\r\n\r\n    @FXML\r\n    public Label rentTotal;\r\n\r\n    @FXML\r\n    public Label totalCost;\r\n\r\n    @FXML\r\n    public TextField amountPerMonth;\r\n\r\n\r\n    @FXML\r\n    private TextField LoanPeriod;\r\n\r\n    @FXML\r\n    private Label totalAmount;\r\n\r\n    @FXML\r\n    private TextField EstPayBackTime;\r\n\r\n    @FXML\r\n    private CheckBox checkBox;\r\n\r\n    @FXML\r\n    private Label pleaseAccept;\r\n\r\n    @FXML\r\n    private Label notBlank1;\r\n\r\n    @FXML\r\n    private Label notBlank2;\r\n\r\n    @FXML\r\n    private Label notBlank3;\r\n\r\n\r\n    double amountPerMonthPrompt = 0;\r\n    int estPayBackTimePrompt = 0;\r\n    int loanPeriodPrompt = 0;\r\n    Interest interest;\r\n\r\n    @FXML\r\n    public double getAmountPerMonthPrompt() {\r\n        amountPerMonthPrompt = Double.parseDouble(amountPerMonth.getText());\r\n        return amountPerMonthPrompt;\r\n    }\r\n\r\n    @FXML\r\n    public int getEstPayBackTimePrompt() {\r\n        estPayBackTimePrompt = Integer.parseInt(EstPayBackTime.getText());\r\n        return estPayBackTimePrompt;\r\n    }\r\n\r\n    @FXML\r\n    public int getLoanPeriodPrompt() {\r\n        loanPeriodPrompt = Integer.parseInt(LoanPeriod.getText());\r\n        return loanPeriodPrompt;\r\n    }\r\n\r\n    //Linus\r\n    @FXML\r\n    public void calculate(ActionEvent event) throws Exception {\r\n        //errorHandling();\r\n        interest = Loan.totalCosts(getAmountPerMonthPrompt(), getEstPayBackTimePrompt(), getLoanPeriodPrompt());\r\n        double totalRent = interest.getTotal();\r\n        double interestOnly = interest.getRentOnly();\r\n        totalCost.setText(String.valueOf(trunc(totalRent)));\r\n        rentTotal.setText(String.valueOf(trunc(interestOnly)));\r\n    }\r\n\r\n    //elisa\r\n    @FXML\r\n    void ContactUsButton(MouseEvent event) {\r\n        try {\r\n            Main.showContactUs(user);\r\n        }\r\n        catch (IOException ex) {\r\n            ex.printStackTrace();\r\n        }\r\n    }\r\n\r\n\r\n    @FXML\r\n    void ToCards(ActionEvent event) {\r\n        try {\r\n            Main.showCardsPage(user.getFirstName()+ \" \" + user.getLastName());\r\n        }\r\n        catch (IOException ex) {\r\n            ex.printStackTrace();\r\n        }\r\n    }\r\n    //Juan and Ergi\r\n    @FXML\r\n    void ToDetails(ActionEvent event) {\r\n        try {\r\n            Main.showDetails(user);\r\n        }\r\n        catch (IOException ex) {\r\n            ex.printStackTrace();\r\n        }\r\n    }\r\n\r\n    @FXML\r\n    void ToHome(ActionEvent event) {\r\n        try {\r\n            Main.showLoginPage(user.getFirstName()+ \" \" + user.getLastName());\r\n        } catch (IOException ex) {\r\n            ex.printStackTrace();\r\n        }\r\n    }\r\n\r\n\r\n    @FXML\r\n    void ToTransactions(ActionEvent event) {\r\n        try {\r\n            showTransactionsPage(user.getFirstName() + \" \"+ user.getLastName());\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    @FXML\r\n    public void Logout(ActionEvent event) {\r\n        //save the activity\r\n        try {\r\n            Main.showPage(\"Entry-Page.fxml\");\r\n        } catch (IOException ex) {\r\n            ex.printStackTrace();\r\n        }\r\n    }\r\n\r\n    //juan and Linus(slight modifications by Ergi)\r\n    @FXML\r\n    void ToConfirmation(ActionEvent event) throws Exception {\r\n        //errorHandling();\r\n\r\n        if (checkBox.isSelected()) {\r\n            try {\r\n                errorHandling();\r\n                double amountMonth = Double.parseDouble(amountPerMonth.getText());\r\n                int payback = Integer.parseInt(EstPayBackTime.getText());\r\n                int loanPeriod = Integer.parseInt(LoanPeriod.getText());\r\n                double finalAmount = trunc(Loan.totalCosts(amountMonth,payback,loanPeriod).getTotal());\r\n                //finalAmount is here 2 times because the amount left(when the constructor is created) is the same as the totalAmount\r\n                Loan loanToSave = new Loan(amountMonth, user.getAccountIBAN(),loanPeriod,finalAmount,finalAmount,\"Pending\" );\r\n                loanToSave.toDatabase();\r\n                Main.showPage(\"LoanRequestSent.fxml\");\r\n            } catch (IOException ex) {\r\n                ex.printStackTrace();\r\n            }\r\n        } else {\r\n            pleaseAccept.setText(\"Please accept the terms and conditions\");\r\n        }\r\n    }\r\n    private void errorHandling() throws  Exception{\r\n        boolean flag = false;\r\n        boolean flag2 = false;\r\n        boolean flag3 = false;\r\n        boolean flag4 = false;\r\n        if (amountPerMonth.getText().isBlank()) {\r\n            notBlank1.setText(\"Cannot be blank\");\r\n        } else {\r\n            notBlank1.setText(\"\");\r\n            flag = true;\r\n        }\r\n        if (LoanPeriod.getText().isBlank()) {\r\n            notBlank2.setText(\"Cannot be blank\");\r\n        } else {\r\n            notBlank2.setText(\"\");\r\n            flag2 = true;\r\n        }\r\n        if (EstPayBackTime.getText().isBlank()) {\r\n            notBlank3.setText(\"Cannot be blank\");\r\n        } else {\r\n            notBlank3.setText(\"\");\r\n            flag3 = true;\r\n        }\r\n        double quantity = Double.parseDouble(amountPerMonth.getText());\r\n        if (quantity > 13000 || quantity < 3000) {\r\n            notBlank1.setText(\"Amount must be between 3000 and 13000 SEK\");\r\n        } else {\r\n            notBlank1.setText(\"\");\r\n            flag4 = true;\r\n        }\r\n        if(!flag && !flag2 && !flag3 && !flag4){\r\n            throw new Exception(\"All fields not entered\");\r\n        }\r\n    }\r\n    //juan and lotti\r\n    public void setName(){\r\n        NameLabel.setText(user.getFirstName()+ \" \" + user.getLastName());\r\n    }\r\n\r\n\r\n    @FXML\r\n    void ToNotifications(ActionEvent event) {\r\n        try {\r\n            Main.showNotificationsPage();\r\n        }\r\n        catch (IOException ex) {\r\n            ex.printStackTrace();\r\n        }\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/pleasefivebank/UserPage/LoansController.java b/src/main/java/pleasefivebank/UserPage/LoansController.java
+--- a/src/main/java/pleasefivebank/UserPage/LoansController.java	
++++ b/src/main/java/pleasefivebank/UserPage/LoansController.java	
+@@ -71,9 +71,7 @@
+     double amountPerMonthPrompt = 0;
+     int estPayBackTimePrompt = 0;
+     int loanPeriodPrompt = 0;
+-    Interest interest;
+ 
+-    @FXML
+     public double getAmountPerMonthPrompt() {
+         amountPerMonthPrompt = Double.parseDouble(amountPerMonth.getText());
+         return amountPerMonthPrompt;
+@@ -94,11 +92,12 @@
+     //Linus
+     @FXML
+     public void calculate(ActionEvent event) throws Exception {
+-        //errorHandling();
+-        interest = Loan.totalCosts(getAmountPerMonthPrompt(), getEstPayBackTimePrompt(), getLoanPeriodPrompt());
+-        double totalRent = interest.getTotal();
++        errorHandling();
++        Interest interest = new Interest(0, 0);
++       // interest = Loan.totalCosts(getAmountPerMonthPrompt(), getEstPayBackTimePrompt(), getLoanPeriodPrompt());
++        double totalAmountWithInterest = interest.getTotal();
+         double interestOnly = interest.getRentOnly();
+-        totalCost.setText(String.valueOf(trunc(totalRent)));
++        totalCost.setText(String.valueOf(trunc(totalAmountWithInterest)));
+         rentTotal.setText(String.valueOf(trunc(interestOnly)));
+     }
+ 
+Index: src/main/java/pleasefivebank/Utillities/Utillities.java
+===================================================================
+diff --git a/src/main/java/pleasefivebank/Utillities/Utillities.java b/src/main/java/pleasefivebank/Utillities/Utillities.java
+deleted file mode 100644
+--- a/src/main/java/pleasefivebank/Utillities/Utillities.java	
++++ /dev/null	
+@@ -1,13 +0,0 @@
+-package pleasefivebank.Utillities;
+-
+-
+-import java.text.DecimalFormat;
+-
+-public class Utillities {
+-    private static DecimalFormat decimalFormat = new DecimalFormat("0.00");
+-
+-    public static String trunc(double number) {
+-        return decimalFormat.format(number);
+-    }
+-
+-}
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CompilerConfiguration\">\r\n    <annotationProcessing>\r\n      <profile name=\"Maven default annotation processors profile\" enabled=\"true\">\r\n        <sourceOutputDir name=\"target/generated-sources/annotations\" />\r\n        <sourceTestOutputDir name=\"target/generated-test-sources/test-annotations\" />\r\n        <outputRelativeToContentRoot value=\"true\" />\r\n        <module name=\"BANK\" />\r\n        <module name=\"dit094-group-4\" />\r\n        <module name=\"dit094-group\" />\r\n      </profile>\r\n    </annotationProcessing>\r\n  </component>\r\n  <component name=\"JavacSettings\">\r\n    <option name=\"ADDITIONAL_OPTIONS_OVERRIDE\">\r\n      <module name=\"BANK\" options=\"\" />\r\n      <module name=\"dit094-group-4\" options=\"\" />\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+--- a/.idea/compiler.xml	
++++ b/.idea/compiler.xml	
+@@ -11,6 +11,9 @@
+         <module name="dit094-group" />
+       </profile>
+     </annotationProcessing>
++    <bytecodeTargetLevel>
++      <module name="BANK" target="17" />
++    </bytecodeTargetLevel>
+   </component>
+   <component name="JavacSettings">
+     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+Index: .idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml b/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml	
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: ch.qos.logback:logback-classic:1.2.3">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/dataSources.local.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"dataSourceStorageLocal\" created-in=\"IU-212.5284.40\">\r\n    <data-source name=\"please5@please5.wavpm.mongodb.net\" uuid=\"08e55fd5-e49b-4729-b800-953b9528eca5\">\r\n      <database-info product=\"Mongo DB\" version=\"4.4.10\" jdbc-version=\"4.2\" driver-name=\"MongoDB JDBC Driver\" driver-version=\"1.12\" dbms=\"MONGO\" exact-version=\"4.4.10\" exact-driver-version=\"1.12\" />\r\n      <case-sensitivity plain-identifiers=\"mixed\" quoted-identifiers=\"mixed\" />\r\n      <secret-storage>master_key</secret-storage>\r\n      <auth-provider>no-auth</auth-provider>\r\n      <user-name>adminadmin</user-name>\r\n      <schema-mapping>\r\n        <introspection-scope>\r\n          <node kind=\"schema\" qname=\"@\" />\r\n        </introspection-scope>\r\n      </schema-mapping>\r\n    </data-source>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.local.xml b/.idea/dataSources.local.xml
+--- a/.idea/dataSources.local.xml	
++++ b/.idea/dataSources.local.xml	
+@@ -1,17 +1,9 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="dataSourceStorageLocal" created-in="IU-212.5284.40">
+-    <data-source name="please5@please5.wavpm.mongodb.net" uuid="08e55fd5-e49b-4729-b800-953b9528eca5">
+-      <database-info product="Mongo DB" version="4.4.10" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.12" dbms="MONGO" exact-version="4.4.10" exact-driver-version="1.12" />
+-      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+-      <secret-storage>master_key</secret-storage>
+-      <auth-provider>no-auth</auth-provider>
+-      <user-name>adminadmin</user-name>
+-      <schema-mapping>
+-        <introspection-scope>
+-          <node kind="schema" qname="@" />
+-        </introspection-scope>
+-      </schema-mapping>
++  <component name="dataSourceStorageLocal" created-in="IU-213.5744.223">
++    <data-source name="MongoDB - @localhost" uuid="8f63b597-0db7-48cb-873e-75cfd780f188">
++      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MONGO" exact-version="0" />
++      <schema-mapping />
+     </data-source>
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/libraries/Maven__log4j_log4j_1_2_12.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__log4j_log4j_1_2_12.xml b/.idea/libraries/Maven__log4j_log4j_1_2_12.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/libraries/Maven__log4j_log4j_1_2_12.xml	
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: log4j:log4j:1.2.12">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.12/log4j-1.2.12.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.12/log4j-1.2.12-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.12/log4j-1.2.12-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_libj_mail_0_4_3.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_libj_mail_0_4_3.xml b/.idea/libraries/Maven__org_libj_mail_0_4_3.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/libraries/Maven__org_libj_mail_0_4_3.xml	
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: org.libj:mail:0.4.3">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/libj/mail/0.4.3/mail-0.4.3.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/org/libj/mail/0.4.3/mail-0.4.3-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/libj/mail/0.4.3/mail-0.4.3-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml b/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml	
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: ch.qos.logback:logback-core:1.2.3">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__javax_activation_activation_1_1.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__javax_activation_activation_1_1.xml b/.idea/libraries/Maven__javax_activation_activation_1_1_1.xml
+rename from .idea/libraries/Maven__javax_activation_activation_1_1.xml
+rename to .idea/libraries/Maven__javax_activation_activation_1_1_1.xml
+--- a/.idea/libraries/Maven__javax_activation_activation_1_1.xml	
++++ b/.idea/libraries/Maven__javax_activation_activation_1_1_1.xml	
+@@ -1,13 +1,13 @@
+ <component name="libraryTable">
+-  <library name="Maven: javax.activation:activation:1.1">
++  <library name="Maven: javax.activation:activation:1.1.1">
+     <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/activation/1.1/activation-1.1.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/activation/1.1.1/activation-1.1.1.jar!/" />
+     </CLASSES>
+     <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/activation/1.1/activation-1.1-javadoc.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/activation/1.1.1/activation-1.1.1-javadoc.jar!/" />
+     </JAVADOC>
+     <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/activation/1.1/activation-1.1-sources.jar!/" />
++      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/activation/1.1.1/activation-1.1.1-sources.jar!/" />
+     </SOURCES>
+   </library>
+ </component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml
+===================================================================
+diff --git a/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml b/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml	
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: org.slf4j:slf4j-api:1.7.25">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: BANK.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule=\"true\" type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\" LANGUAGE_LEVEL=\"JDK_17\">\r\n    <output url=\"file://$MODULE_DIR$/target/classes\" />\r\n    <output-test url=\"file://$MODULE_DIR$/target/test-classes\" />\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/main/java\" isTestSource=\"false\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/main/resources\" type=\"java-resource\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/target\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n    <orderEntry type=\"library\" name=\"Maven: de.jensd:fontawesomefx:8.9\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-controls:17-ea+11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-controls:win:17-ea+11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-graphics:17-ea+11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-graphics:win:17-ea+11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-base:17-ea+11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-base:win:17-ea+11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-fxml:17-ea+11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-fxml:win:17-ea+11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-web:17-ea+11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-web:win:17-ea+11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-media:17-ea+11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.openjfx:javafx-media:win:17-ea+11\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.controlsfx:controlsfx:11.1.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.dlsc.formsfx:formsfx-core:11.3.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: net.synedra:validatorfx:0.1.13\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.kordamp.ikonli:ikonli-javafx:12.2.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.kordamp.ikonli:ikonli-core:12.2.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: eu.hansolo:tilesfx:11.48\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.junit.jupiter:junit-jupiter-api:5.7.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.apiguardian:apiguardian-api:1.1.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.opentest4j:opentest4j:1.2.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.junit.platform:junit-platform-commons:1.7.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.junit.jupiter:junit-jupiter-engine:5.7.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.junit.platform:junit-platform-engine:1.7.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.mongodb:mongo-java-driver:3.12.10\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.8kdata.mongowp.bson:bson-core:0.50.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.google.guava:guava:19.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.logging.log4j:log4j-api:2.5\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.google.code.gson:gson:2.8.9\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.mongodb:bson:3.4.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.iban4j:iban4j:3.2.3-RELEASE\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.rationalityfrontline.workaround:jfoenix:17.0.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: javax.mail:mail:1.4.7\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: javax.activation:activation:1.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.passay:passay:1.6.1\" level=\"project\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/BANK.iml b/BANK.iml
+--- a/BANK.iml	
++++ b/BANK.iml	
+@@ -23,8 +23,13 @@
+     <orderEntry type="library" name="Maven: org.openjfx:javafx-web:win:17-ea+11" level="project" />
+     <orderEntry type="library" name="Maven: org.openjfx:javafx-media:17-ea+11" level="project" />
+     <orderEntry type="library" name="Maven: org.openjfx:javafx-media:win:17-ea+11" level="project" />
++    <orderEntry type="library" name="Maven: org.libj:mail:0.4.3" level="project" />
++    <orderEntry type="library" name="Maven: javax.activation:activation:1.1.1" level="project" />
+     <orderEntry type="library" name="Maven: org.controlsfx:controlsfx:11.1.0" level="project" />
+     <orderEntry type="library" name="Maven: com.dlsc.formsfx:formsfx-core:11.3.2" level="project" />
++    <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.2.3" level="project" />
++    <orderEntry type="library" name="Maven: ch.qos.logback:logback-core:1.2.3" level="project" />
++    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
+     <orderEntry type="library" name="Maven: net.synedra:validatorfx:0.1.13" level="project" />
+     <orderEntry type="library" name="Maven: org.kordamp.ikonli:ikonli-javafx:12.2.0" level="project" />
+     <orderEntry type="library" name="Maven: org.kordamp.ikonli:ikonli-core:12.2.0" level="project" />
+@@ -45,7 +50,7 @@
+     <orderEntry type="library" name="Maven: org.iban4j:iban4j:3.2.3-RELEASE" level="project" />
+     <orderEntry type="library" name="Maven: org.rationalityfrontline.workaround:jfoenix:17.0.1" level="project" />
+     <orderEntry type="library" name="Maven: javax.mail:mail:1.4.7" level="project" />
+-    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
+     <orderEntry type="library" name="Maven: org.passay:passay:1.6.1" level="project" />
++    <orderEntry type="library" name="Maven: log4j:log4j:1.2.12" level="project" />
+   </component>
+ </module>
+\ No newline at end of file

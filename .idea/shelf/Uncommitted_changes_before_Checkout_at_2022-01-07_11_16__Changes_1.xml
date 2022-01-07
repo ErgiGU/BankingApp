@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_2022-01-07_11_16_[Changes]1" date="1641550598829" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-01-07_11_16_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 2022-01-07 11:16 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/pleasefivebank/Utilities/Utilities.class" />
+    <option name="AFTER_PATH" value="target/classes/pleasefivebank/Utilities/Utilities.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-01-07_11_16_[Changes]1/Utilities.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/pleasefivebank/UserPage/LoansController.class" />
+    <option name="AFTER_PATH" value="target/classes/pleasefivebank/UserPage/LoansController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-01-07_11_16_[Changes]1/LoansController.class" />
+  </binary>
+</changelist>

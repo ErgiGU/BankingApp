@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3ef12a1b-9c15-4c59-97dc-696a72175722" name="Changes" comment="LoansNoProblems" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="linus" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="22Y6l3BToQ2Q2O3XbjOpcBuahxU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mongo" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/pleasefivebank/StudentLoans.fxml" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Linus\IdeaProjects\dit094-group-4\src\main\resources\pleasefivebank" />
+      <recent name="C:\Users\Linus\IdeaProjects\dit094-group-4\src\main\java\pleasefivebank\UserPage" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="pleasefivebank.Main" />
+      <module name="BANK" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pleasefivebank.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3ef12a1b-9c15-4c59-97dc-696a72175722" name="Changes" comment="" />
+      <created>1640002325407</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1640002325407</updated>
+      <workItem from="1640002330100" duration="10206000" />
+      <workItem from="1640078943047" duration="2809000" />
+      <workItem from="1640171509683" duration="16213000" />
+      <workItem from="1640255864851" duration="308000" />
+      <workItem from="1640295213383" duration="1346000" />
+      <workItem from="1640604193621" duration="11367000" />
+      <workItem from="1640697127900" duration="4763000" />
+      <workItem from="1641298571122" duration="7007000" />
+      <workItem from="1641383479450" duration="3290000" />
+      <workItem from="1641460333001" duration="602000" />
+      <workItem from="1641548104953" duration="8789000" />
+    </task>
+    <task id="LOCAL-00001" summary="hi">
+      <created>1640005487708</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1640005487708</updated>
+    </task>
+    <task id="LOCAL-00002" summary="hi">
+      <created>1640173418430</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1640173418430</updated>
+    </task>
+    <task id="LOCAL-00003" summary="hi">
+      <created>1640173491181</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1640173491181</updated>
+    </task>
+    <task id="LOCAL-00004" summary="EPIC-LOAN-CALC">
+      <created>1640191334795</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1640191334795</updated>
+    </task>
+    <task id="LOCAL-00005" summary="EPIC-LOAN-CALC2">
+      <created>1640191713788</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1640191713788</updated>
+    </task>
+    <task id="LOCAL-00006" summary="EPIC-LOAN-CALC2">
+      <created>1640191734001</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1640191734001</updated>
+    </task>
+    <task id="LOCAL-00007" summary="EPIC-LOAN-CALC3">
+      <created>1640193741657</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1640193741657</updated>
+    </task>
+    <task id="LOCAL-00008" summary="LoanErrorHandling">
+      <created>1640617724997</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1640617724997</updated>
+    </task>
+    <task id="LOCAL-00009" summary="LoanErrorHandling">
+      <created>1640617846596</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1640617846596</updated>
+    </task>
+    <task id="LOCAL-00010" summary="LoanErrorHandling2">
+      <created>1640618844507</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1640618844507</updated>
+    </task>
+    <task id="LOCAL-00011" summary="LoanErrorHandlingMerged">
+      <created>1640618991327</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1640618991327</updated>
+    </task>
+    <task id="LOCAL-00012" summary="LoanErrorHandlingMerged">
+      <created>1640621446600</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1640621446600</updated>
+    </task>
+    <task id="LOCAL-00013" summary="LoanErrorHandlingMerged">
+      <created>1640698265899</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1640698265899</updated>
+    </task>
+    <task id="LOCAL-00014" summary="LoanErrorHandlingMerged">
+      <created>1640698282902</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1640698282902</updated>
+    </task>
+    <task id="LOCAL-00015" summary="BETTERERROR">
+      <created>1641386430948</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1641386430948</updated>
+    </task>
+    <task id="LOCAL-00016" summary="LoansNoProblems">
+      <created>1641554043944</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1641554043944</updated>
+    </task>
+    <task id="LOCAL-00017" summary="LoansNoProblems">
+      <created>1641568164435</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1641568164435</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="hi" />
+    <MESSAGE value="EPIC-LOAN-CALC" />
+    <MESSAGE value="EPIC-LOAN-CALC2" />
+    <MESSAGE value="EPIC-LOAN-CALC3" />
+    <MESSAGE value="LoanErrorHandling" />
+    <MESSAGE value="LoanErrorHandling2" />
+    <MESSAGE value="LoanErrorHandlingMerged" />
+    <MESSAGE value="BETTERERROR" />
+    <MESSAGE value="LoansNoProblems" />
+    <option name="LAST_COMMIT_MESSAGE" value="LoansNoProblems" />
+  </component>
+</project>
