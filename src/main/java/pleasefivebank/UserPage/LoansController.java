@@ -30,6 +30,7 @@ public class LoansController {
 
     private boolean checkBoxBoo;
 
+
     @FXML
     private Button NameLabel;
 
@@ -94,7 +95,7 @@ public class LoansController {
     //Linus
     @FXML
     public void calculate(ActionEvent event) throws Exception {
-        //errorHandling();
+        errorHandling();
         interest = Loan.totalCosts(getAmountPerMonthPrompt(), getEstPayBackTimePrompt(), getLoanPeriodPrompt());
         double totalRent = interest.getTotal();
         double interestOnly = interest.getRentOnly();

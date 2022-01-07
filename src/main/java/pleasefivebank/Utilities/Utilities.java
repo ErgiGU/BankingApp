@@ -17,10 +17,13 @@ import java.text.DecimalFormat;
 //linus
 //method to truncate numbers for the loans page
 public class Utilities {
-    private static DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
-    public static double trunc(double number) {
-        return Double.parseDouble(decimalFormat.format(number));
+
+    public static double trunc(double value){
+        value = value * 100.0;
+        int temp = (int) value;
+        return temp / 100.0;
+
     }
 
     //Ergi
