@@ -71,9 +71,11 @@ public class Loan{
 
 
     //Linus
-    //this makes an interest object to showcase information in the loans GUI page
+    //this makes an interest object to showcase information in the loans GUI page. The object returns the exclusive
+    //interest cost, but also the total estimated cost of the loan.
     public static Interest totalCosts(double amount, int estPayBack, int loanPeriod){
-        //the quantity the user specifies are monthly payments
+        //the quantity the user specifies are monthly payments so it has to turned into a total amount in order to make
+        //calculations
         amount = amount*(loanPeriod*12);
         double monthlyPayBack = amount/estPayBack/12;
         double total = 0;
@@ -84,8 +86,8 @@ public class Loan{
 
             double interest = amount * (0.0214/12); //Our interest rate
             amount = amount - monthlyPayBack;
-            double paybackWRent = monthlyPayBack + interest;
-            total = total + paybackWRent;
+            double payBackWithInterest = monthlyPayBack + interest;
+            total = total + payBackWithInterest;
             interestOnly = total - originalQuantity;
         }
         return new Interest(total, interestOnly);
