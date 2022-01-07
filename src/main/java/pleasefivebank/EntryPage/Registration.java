@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
+import java.util.Timer;
 
 import static pleasefivebank.Main.mainWindow;
 
@@ -293,5 +294,6 @@ public class Registration{
         }
         mainWindow.setScene(scene);
     }
+
 
 }

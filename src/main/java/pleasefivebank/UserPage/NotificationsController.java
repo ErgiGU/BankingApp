@@ -128,7 +128,7 @@ public class NotificationsController {
     @FXML
     void ToTransactions(ActionEvent event) {
         try {
-            Main.showTransactionsPage(user.getFirstName() + " ");
+            Main.showTransactionsPage(user.getFirstName() + " " +user.getLastName());
         } catch (IOException e) {
             e.printStackTrace();
         }

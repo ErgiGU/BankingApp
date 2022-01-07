@@ -1,57 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" stylesheets="@../CSS/hi.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pleasefivebank.EntryPage.EmailPendingApprovalController">
-   <top>
-      <AnchorPane prefHeight="78.0" prefWidth="1050.0" style="-fx-background-color: #2b5292;" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="60.0" fitWidth="102.0" layoutX="15.0" layoutY="10.0" preserveRatio="true">
-               <image>
-                  <Image url="@../PNGs/P5B white small logo.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-   </top>
-   <center>
-      <AnchorPane prefHeight="614.0" prefWidth="919.0" style="-fx-background-color: EFEFEF;" BorderPane.alignment="CENTER">
-         <children>
-            <Text fill="#2b5292" layoutX="328.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thanks for registering!">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Text>
-            <ImageView fitHeight="60.0" fitWidth="59.0" layoutX="420.0" layoutY="148.0" preserveRatio="true">
-               <image>
-                  <Image url="@../PNGs/facebook.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="65.0" fitWidth="59.0" layoutX="483.0" layoutY="148.0" preserveRatio="true">
-               <image>
-                  <Image url="@../PNGs/pngwing.com.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="69.0" fitWidth="59.0" layoutX="351.0" layoutY="148.0" preserveRatio="true">
-               <image>
-                  <Image url="@../PNGs/twitter.png" />
-               </image>
-            </ImageView>
-            <Button layoutX="27.0" layoutY="492.0" mnemonicParsing="false" onAction="#ToEntryPage">
-               <graphic>
-                  <ImageView onMousePressed="#ToEntryPage">
-                     <image>
-                        <Image url="@../PNGs/arrow-237.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-         </children></AnchorPane>
-   </center>
-</BorderPane>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="765.0" style="-fx-background-color: #1275EA;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pleasefivebank.EntryPage.SuccessfulRegistrationController">
+   <children>
+      <ImageView fitHeight="297.0" fitWidth="297.0" layoutX="234.0" layoutY="14.0" preserveRatio="true">
+         <image>
+            <Image url="@../PNGs/Please 5 Bank-logos_white.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="234.0" layoutY="311.0" prefHeight="43.0" prefWidth="309.0" text="Your registration was successful!&#10;&#10;&#10;" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="51.0" fitWidth="67.0" layoutX="699.0" layoutY="526.0" onMouseClicked="#ToEntryPage" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@../PNGs/arrow-237-white.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="588.0" layoutY="542.0" text="Back to Entry Page" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
