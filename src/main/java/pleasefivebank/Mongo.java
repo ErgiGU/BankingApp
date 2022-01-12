@@ -154,16 +154,24 @@ public final class Mongo {//marked as final because it is a utility class and it
 
     //andreea
     public static boolean isAssociatedEmail(String email) {
+        boolean exists = false;
         Document filter = new Document("email", email);
         Document doc = coll.find(filter).first();
-        return doc != null;
+        if (doc != null){
+            exists = true;
+        }
+        return exists;
     }
 
     //andreea
     public static boolean isUser(String username) {
+        boolean exists = false;
         Document filter = new Document("user name", username);
         Document doc = coll.find(filter).first();
-        return doc != null;
+        if (doc != null){
+            exists = true;
+        }
+        return exists;
     }
 
     //andreea
